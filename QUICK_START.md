@@ -13,7 +13,7 @@
 
 ### 1. Start the Application
 ```bash
-cd /mnt/d/productavailability
+cd /opt/app
 docker-compose -f docker-compose-port5000-secure.yml up -d
 ```
 
@@ -25,15 +25,15 @@ Open browser: **http://localhost:5000/**
 
 ### 4. Login
 - Username: `admin`
-- Password: `[REDACTED]`
+- Password: `DummyPass123!`
 
 ### 5. Try the AI Chat
 Go to: **http://localhost:5000/atp/chat/**
 
 Test queries:
-- "What's the stock of product 46888?"
+- "What's the stock of product 10001?"
 - "What's the UPC?" (tests context memory)
-- "Do the same with 46961" (tests action repeat)
+- "Do the same with 10002" (tests action repeat)
 
 ---
 
@@ -138,8 +138,8 @@ docker-compose -f docker-compose-port5000-secure.yml exec web python manage.py c
 1. Edit `atp/Modelfile` or `atp/generate_training_data.py`
 2. Rebuild model:
    ```bash
-   cd /mnt/d/productavailability/atp
-   /mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
+   cd /opt/app/atp
+   /mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
    ```
 3. Restart app:
    ```bash
@@ -179,16 +179,16 @@ docker-compose -f docker-compose-port5000-secure.yml exec web python manage.py c
 
 ### Application
 - **Username**: admin
-- **Password**: [REDACTED]
+- **Password**: DummyPass123!
 
 ### Database
-- **Root Password**: [REDACTED]
+- **Root Password**: DummyPass123!
 - **Django User**: djangoadmin
-- **Django Password**: [REDACTED]
+- **Django Password**: DummyPass123!
 
 ### SAP (Example - Update in settings)
-- **User**: [REDACTED]
-- **Password**: [REDACTED]
+- **User**: DummyPass123!
+- **Password**: DummyPass123!
 
 ---
 

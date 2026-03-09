@@ -29,36 +29,36 @@ class IntentClassifier:
     # Intent examples for better classification
     INTENT_EXAMPLES = {
         'stock_query': [
-            "What's the stock of product 46888?",
+            "What's the stock of product 10001?",
             "Check availability for SKU 123456",
             "How many units of 11111 do we have?",
             "Show inventory levels for product 999",
             "Do we have stock for 12345?"
         ],
         'delivery_query': [
-            "When is the next delivery for 46888?",
+            "When is the next delivery for 10001?",
             "What's the ETA for product 123?",
             "Show delivery schedule",
             "What's coming in next week?",
             "Check in-transit quantity"
         ],
         'product_info': [
-            "What's the brand of product 46888?",
+            "What's the brand of product 10001?",
             "Where is product 123 manufactured?",
             "What's the case pack for SKU 789?",
             "Get UPC code for product 456",
             "Show product specifications",
-            "What's the price of 46888?",
+            "What's the price of 10001?",
             "How much does product FP906 cost?",
             "Show me the description of 12345",
-            "What category is product 46961 in?",
+            "What category is product 10002 in?",
             "Display image for SKU 789"
         ],
         'plant_selection': [
             "Use Durand plant",
-            "Switch to plant 9995",
+            "Switch to plant 1000",
             "Check Millville location",
-            "Change to Cardinal site",
+            "Change to Brand_D site",
             "Select plant 9994"
         ],
         'export_request': [
@@ -174,7 +174,7 @@ class IntentClassifier:
         if delivery_score > 0:
             intent_scores['delivery_query'] = delivery_score / len(delivery_keywords)
 
-        # Product info patterns (including Plytix data: price, description, image, category, etc.)
+        # Product info patterns (including DataFeed data: price, description, image, category, etc.)
         info_keywords = ['brand', 'origin', 'weight', 'upc', 'ean', 'barcode', 'specs', 'case pack', 'manufactured',
                          'price', 'cost', 'description', 'details', 'info', 'information', 'category', 'material',
                          'dimensions', 'collection', 'image', 'photo', 'picture']
@@ -189,7 +189,7 @@ class IntentClassifier:
             intent_scores['export_request'] = export_score / len(export_keywords)
 
         # Plant selection patterns
-        plant_keywords = ['plant', 'location', 'site', 'warehouse', 'durand', 'millville', 'cardinal', '9995', '9994', '9993']
+        plant_keywords = ['plant', 'location', 'site', 'warehouse', 'durand', 'millville', 'cardinal', '1000', '9994', '9993']
         plant_score = sum(1 for kw in plant_keywords if kw in message_lower)
         if plant_score > 0:
             intent_scores['plant_selection'] = plant_score / len(plant_keywords)

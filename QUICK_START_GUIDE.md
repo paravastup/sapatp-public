@@ -59,7 +59,7 @@
 ## Project Structure at a Glance
 
 ```
-/mnt/d/productavailability/
+/opt/app/
 ├── atp/                          # Django project
 │   ├── stockcheck/               # Product search app (MAIN)
 │   │   ├── models.py            # Database models
@@ -128,7 +128,7 @@ User (Django built-in)
   └── AuditEntry (1:M) - tracks login/logout
 
 Plant
-  ├── code (e.g., "9995")
+  ├── code (e.g., "1000")
   ├── description (e.g., "Durand Glass")
   └── users (M:M)
 
@@ -149,7 +149,7 @@ Profile
   ├── company
   ├── role
   ├── website
-  └── business (AINA or Cardinal)
+  └── business (AINA or Brand_D)
 ```
 
 ---
@@ -171,11 +171,11 @@ Profile
 **File:** `atp/atp/settings.ini`
 ```ini
 [connection]
-ashost=[REDACTED]      # SAP host
+ashost=DummyPass123!      # SAP host
 sysnr=02               # System number
 client=900             # Client/tenant
-user=[REDACTED]            # RFC user
-passwd=[REDACTED]     # Password
+user=DummyPass123!            # RFC user
+passwd=DummyPass123!     # Password
 lang=EN                # Language
 ```
 
@@ -185,9 +185,9 @@ All SAP interactions logged to `/var/log/gunicorn/sap_interactions.log`
 
 Example log entries:
 ```
-SAP Call - Z_GET_MATERIAL_DETAILS - Input: plant=9995, product=123456, mode=M
+SAP Call - Z_GET_MATERIAL_DETAILS - Input: plant=1000, product=123456, mode=M
 SAP Response - Z_GET_MATERIAL_DETAILS - Success - Product: 123456
-Search initiated - User: john.doe, Plant: 9995, Type: Arc
+Search initiated - User: john.doe, Plant: 1000, Type: Arc
 ```
 
 ---
@@ -235,7 +235,7 @@ GET  /atp/help/docs/<id>/ → View doc
 
 **Start Application:**
 ```bash
-cd /mnt/d/productavailability
+cd /opt/app
 docker-compose up -d
 ```
 
@@ -261,7 +261,7 @@ docker-compose logs -f nginx    # Nginx logs
 ```
 Database: atp
 User: djangoadmin
-Password: [REDACTED]
+Password: DummyPass123!
 Host: db (Docker) or localhost (direct)
 Port: 3306
 ```
@@ -371,7 +371,7 @@ docker-compose logs -f web
 
 ### Access Database
 ```bash
-docker-compose exec db mysql -u djangoadmin -p[REDACTED] atp
+docker-compose exec db mysql -u djangoadmin -pDummyPass123! atp
 ```
 
 ---
@@ -454,7 +454,7 @@ docker-compose exec db mysql -u djangoadmin -p[REDACTED] atp
 ## Typical Use Case Scenario
 
 1. **Sales Manager** logs in to ATP application
-2. **Selects Plant**: "Arc Cardinal (9995)"
+2. **Selects Plant**: "ACME Corp (1000)"
 3. **Selects Search Type**: "Arc SKU"
 4. **Enters Products**: "001234, 001235, 001236"
 5. **Clicks Search**
@@ -533,7 +533,7 @@ docker-compose exec db mysql -u djangoadmin -p[REDACTED] atp
 
 ## Support Contacts
 
-**Application Admin:** [REDACTED] (configured email)
+**Application Admin:** DummyPass123! (configured email)
 **SAP Connection:** Check settings.ini for SAP system details
 **Database:** MySQL 5.7, user: djangoadmin
 
@@ -542,7 +542,7 @@ docker-compose exec db mysql -u djangoadmin -p[REDACTED] atp
 ## Document Information
 
 **Created:** 2025-10-31
-**Application Location:** /mnt/d/productavailability/
+**Application Location:** /opt/app/
 **Project Type:** Django Web Application
 **Deployment:** Docker + Docker Compose
 **Production Ready:** Yes (with security hardening needed)

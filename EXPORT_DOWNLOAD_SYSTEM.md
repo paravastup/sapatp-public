@@ -303,7 +303,7 @@ Deleted:
 **Add to crontab:**
 ```bash
 # Run daily at 2 AM
-0 2 * * * cd /mnt/d/productavailability && docker exec atp_web python manage.py cleanup_exports >> /var/log/cleanup_exports.log 2>&1
+0 2 * * * cd /opt/app && docker exec atp_web python manage.py cleanup_exports >> /var/log/cleanup_exports.log 2>&1
 ```
 
 **Or use Docker exec:**
@@ -313,7 +313,7 @@ docker exec atp_web python manage.py cleanup_exports
 
 ---
 
-## CSS Styling (ARC Cardinal Theme)
+## CSS Styling (ARC Brand_D Theme)
 
 ### Colors Used
 - **Navy Purple:** `#231F74` (primary brand color)
@@ -321,7 +321,7 @@ docker exec atp_web python manage.py cleanup_exports
 - **White:** `#FFFFFF` (background)
 - **Border:** `#e0e0e0` (subtle lines)
 
-### Key Styles (`arc-cardinal-theme.css:800-911`)
+### Key Styles (`acme-corp-theme.css:800-911`)
 - `.notification-panel` - Dropdown container
 - `.notification-header` - Gradient header with yellow border
 - `.notification-item` - Individual notification cards
@@ -429,7 +429,7 @@ docker exec atp_web python manage.py migrate
   - Bootstrap Icons - line 10
   - JavaScript - line 378
 
-- ✅ `chatbot/static/chatbot/css/arc-cardinal-theme.css` - Added notification styles (lines 800-911)
+- ✅ `chatbot/static/chatbot/css/acme-corp-theme.css` - Added notification styles (lines 800-911)
 - ✅ `settings.py` - Added MEDIA_ROOT/URL (lines 152-154)
 - ✅ `docker-compose-port5000-secure.yml` - Added media_volume
 
@@ -544,7 +544,7 @@ docker exec atp_web python manage.py cleanup_exports --dry-run
 ✅ **Secure download infrastructure** with permission checks
 ✅ **Full audit trail** for compliance
 ✅ **Automatic cleanup** to manage disk space
-✅ **Beautiful UI** matching ARC Cardinal brand
+✅ **Beautiful UI** matching ARC Brand_D brand
 ✅ **Production-ready** and deployed
 
 **Status:** Ready for user testing! 🚀

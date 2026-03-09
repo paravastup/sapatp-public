@@ -26,7 +26,7 @@ def test_model():
     """Test the model with various queries"""
 
     # Load the fully trained model
-    model_path = Path('/mnt/d/productavailability/gpt2-extraction-FINAL-FULL')
+    model_path = Path('/opt/app/gpt2-extraction-FINAL-FULL')
     if not model_path.exists():
         print(f"❌ Model not found at {model_path}")
         return
@@ -46,13 +46,13 @@ def test_model():
     # Test cases - same as what caused hallucination before
     test_cases = [
         {
-            "name": "Product 46961 with UPC",
-            "prompt": "User: Context: Product 46961 has UPC 10026102469610. Question: What's the UPC?\nAssistant:",
-            "expected": "10026102469610"
+            "name": "Product 10002 with UPC",
+            "prompt": "User: Context: Product 10002 has UPC 10026102100020. Question: What's the UPC?\nAssistant:",
+            "expected": "10026102100020"
         },
         {
-            "name": "Product 46888 without UPC",
-            "prompt": "User: Context: Product 46888, brand PYREX. Question: What's the UPC?\nAssistant:",
+            "name": "Product 10001 without UPC",
+            "prompt": "User: Context: Product 10001, brand BRAND_B. Question: What's the UPC?\nAssistant:",
             "expected": "null or not found"
         },
         {
@@ -62,8 +62,8 @@ def test_model():
         },
         {
             "name": "Multiple fields",
-            "prompt": "User: Context: Product 46961, UPC 10026102469610, brand PYREX, quantity 150. Question: Extract UPC and quantity\nAssistant:",
-            "expected": "UPC: 10026102469610, quantity: 150"
+            "prompt": "User: Context: Product 10002, UPC 10026102100020, brand BRAND_B, quantity 150. Question: Extract UPC and quantity\nAssistant:",
+            "expected": "UPC: 10026102100020, quantity: 150"
         },
         {
             "name": "EAN terminology",
@@ -82,7 +82,7 @@ def test_model():
         },
         {
             "name": "Original problematic case",
-            "prompt": "User: Context: Product information from SAP. Product 46888. Question: What is the UPC?\nAssistant:",
+            "prompt": "User: Context: Product information from SAP. Product 10001. Question: What is the UPC?\nAssistant:",
             "expected": "null (should NOT hallucinate 10026, 79461, etc.)"
         }
     ]
@@ -195,7 +195,7 @@ def test_with_real_data():
     print("="*60)
 
     # Load model
-    model_path = Path('/mnt/d/productavailability/gpt2-extraction-FINAL-FULL')
+    model_path = Path('/opt/app/gpt2-extraction-FINAL-FULL')
     model = GPT2LMHeadModel.from_pretrained(model_path)
     tokenizer = GPT2Tokenizer.from_pretrained(model_path)
     tokenizer.pad_token = tokenizer.eos_token
@@ -204,10 +204,10 @@ def test_with_real_data():
 
     # Real SAP-like queries
     real_queries = [
-        "User: I need the UPC for product 46961\nAssistant:",
+        "User: I need the UPC for product 10002\nAssistant:",
         "User: What's the barcode for item G3960?\nAssistant:",
-        "User: Can you tell me the EAN code for product 46888?\nAssistant:",
-        "User: Extract UPC from: Product 46961, UPC: 10026102469610, Price: $24.99\nAssistant:"
+        "User: Can you tell me the EAN code for product 10001?\nAssistant:",
+        "User: Extract UPC from: Product 10002, UPC: 10026102100020, Price: $24.99\nAssistant:"
     ]
 
     print("\nTesting real-world queries:")

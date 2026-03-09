@@ -18,21 +18,21 @@ ATP is a Django-based web application that provides real-time product availabili
 
 ### Start the Application
 ```bash
-cd /mnt/d/productavailability
+cd /opt/app
 docker-compose -f docker-compose-port5000-secure.yml up -d
 ```
 
 ### Access the App
 - **Home**: http://localhost:5000/
 - **AI Chat**: http://localhost:5000/atp/chat/
-- **Login**: admin / [REDACTED]
+- **Login**: admin / DummyPass123!
 
 ### Test the AI Chatbot
 Try these queries:
 ```
-1. "What's the stock of product 46888?"
+1. "What's the stock of product 10001?"
 2. "What's the UPC?" (tests context memory)
-3. "Do the same with 46961" (tests action repeat)
+3. "Do the same with 10002" (tests action repeat)
 ```
 
 ---
@@ -120,7 +120,7 @@ SAP System (RFC/BAPI)
 ## 📁 Directory Structure
 
 ```
-productavailability/
+sapatp/
 ├── atp/                           # Django project
 │   ├── atp/                       # Project settings
 │   │   ├── settings_secure.py     # Secure production settings ⚠️
@@ -174,7 +174,7 @@ productavailability/
 
 1. **Clone or navigate to the repository**:
    ```bash
-   cd /mnt/d/productavailability
+   cd /opt/app
    ```
 
 2. **Ensure Ollama is running** (on Windows):
@@ -187,12 +187,12 @@ productavailability/
 3. **Build the custom AI model** (if not already done):
    ```bash
    # Windows (where Ollama is installed)
-   cd D:\productavailability\atp
+   cd D:\opt\app\atp
    ollama create atp-chatbot -f Modelfile
 
    # Or from WSL
-   cd /mnt/d/productavailability/atp
-   /mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
+   cd /opt/app/atp
+   /mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
    ```
 
 4. **Start the containers**:
@@ -204,7 +204,7 @@ productavailability/
 
 6. **Access the application**:
    - Home: http://localhost:5000/
-   - Login: admin / [REDACTED] ⚠️ CHANGE THIS!
+   - Login: admin / DummyPass123! ⚠️ CHANGE THIS!
 
 ### Subsequent Starts
 
@@ -246,8 +246,8 @@ Default settings (in `docker-compose-port5000-secure.yml`):
 environment:
   - MYSQL_DATABASE=atp
   - MYSQL_USER=djangoadmin
-  - MYSQL_PASSWORD=[REDACTED]  # ⚠️ CHANGE IN PRODUCTION!
-  - MYSQL_ROOT_PASSWORD=[REDACTED]  # ⚠️ CHANGE IN PRODUCTION!
+  - MYSQL_PASSWORD=DummyPass123!  # ⚠️ CHANGE IN PRODUCTION!
+  - MYSQL_ROOT_PASSWORD=DummyPass123!  # ⚠️ CHANGE IN PRODUCTION!
 ```
 
 ### Ollama Configuration
@@ -255,7 +255,7 @@ environment:
 Configured in `docker-compose-port5000-secure.yml`:
 ```yaml
 environment:
-  - OLLAMA_BASE_URL=http://172.22.80.1:11434  # Windows host WSL bridge IP
+  - OLLAMA_BASE_URL=http://192.168.1.101:11434  # Windows host WSL bridge IP
   - OLLAMA_MODEL=atp-chatbot  # Custom trained model
   - OLLAMA_TIMEOUT=90  # Seconds
 ```
@@ -280,8 +280,8 @@ environment:
 - Other intents: 70 examples
 
 ### 100% ATP-Specific Training
-✅ Real product numbers (46888, 46961)
-✅ Real plant codes (9995)
+✅ Real product numbers (10001, 10002)
+✅ Real plant codes (1000)
 ✅ Real SAP fields (EAN11, ZBRDES, HERKL, BRGEW, UMREZ, BISMT)
 ✅ Real business logic patterns
 ❌ Zero random or generic prompts
@@ -296,12 +296,12 @@ See [TRAINING_DATA_VERIFICATION.md](TRAINING_DATA_VERIFICATION.md) for proof.
 
 **Application Login**:
 - Username: `admin`
-- Password: `[REDACTED]` ← **CHANGE IMMEDIATELY!**
+- Password: `DummyPass123!` ← **CHANGE IMMEDIATELY!**
 
 **Database**:
-- Root Password: `[REDACTED]` ← **CHANGE IMMEDIATELY!**
+- Root Password: `DummyPass123!` ← **CHANGE IMMEDIATELY!**
 - Django User: `djangoadmin`
-- Django Password: `[REDACTED]` ← **CHANGE IMMEDIATELY!**
+- Django Password: `DummyPass123!` ← **CHANGE IMMEDIATELY!**
 
 ### How to Change Passwords
 
@@ -373,7 +373,7 @@ ollama list  # Should show: atp-chatbot
 echo "Test query" | ollama run atp-chatbot
 
 # 3. Check connectivity from Docker
-docker-compose -f docker-compose-port5000-secure.yml exec web curl http://172.22.80.1:11434/api/tags
+docker-compose -f docker-compose-port5000-secure.yml exec web curl http://192.168.1.101:11434/api/tags
 
 # 4. Check web logs
 docker-compose -f docker-compose-port5000-secure.yml logs web | grep Ollama
@@ -427,7 +427,7 @@ See **[DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md)** for detailed troubleshooting.
 docker-compose -f docker-compose-port5000-secure.yml exec db mysqldump -uroot -p atp > backup_$(date +%Y%m%d).sql
 
 # Automated daily backup (cron example)
-0 2 * * * cd /mnt/d/productavailability && docker-compose -f docker-compose-port5000-secure.yml exec -T db mysqldump -uroot -p[REDACTED] atp > /backups/atp_$(date +\%Y\%m\%d).sql
+0 2 * * * cd /opt/app && docker-compose -f docker-compose-port5000-secure.yml exec -T db mysqldump -uroot -pDummyPass123! atp > /backups/atp_$(date +\%Y\%m\%d).sql
 ```
 
 ### Database Restore
@@ -457,8 +457,8 @@ docker-compose -f docker-compose-port5000-secure.yml exec db mysqldump -uroot -p
 ### Rebuild AI Model
 ```bash
 # After editing Modelfile or training data
-cd /mnt/d/productavailability/atp
-/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
+cd /opt/app/atp
+/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
 
 # Restart application
 docker-compose -f docker-compose-port5000-secure.yml restart web
@@ -553,7 +553,7 @@ docker-compose -f docker-compose-port5000-secure.yml exec web python manage.py c
 ### Test AI Chatbot
 ```bash
 # Simple test
-cd /mnt/d/productavailability/atp
+cd /opt/app/atp
 python test_chatbot_simple.py
 
 # Integration test
@@ -564,12 +564,12 @@ docker-compose -f docker-compose-port5000-secure.yml exec web python manage.py t
 ```
 
 ### Manual Test Queries
-1. Basic: "What's the stock of product 46888?"
-2. Context: "What's the UPC?" (should remember 46888)
-3. Multi: "Check stock for 46888, 46961"
-4. Field: "Show brand for 46888"
-5. Repeat: "Do the same with 46961"
-6. Delivery: "When is 46888 arriving?"
+1. Basic: "What's the stock of product 10001?"
+2. Context: "What's the UPC?" (should remember 10001)
+3. Multi: "Check stock for 10001, 10002"
+4. Field: "Show brand for 10001"
+5. Repeat: "Do the same with 10002"
+6. Delivery: "When is 10001 arriving?"
 
 ---
 

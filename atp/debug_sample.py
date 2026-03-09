@@ -7,7 +7,7 @@ django.setup()
 from products.services import ProductService
 
 # Get product enrichment (what chatbot should be using)
-product = ProductService.get_product_enrichment('46961')
+product = ProductService.get_product_enrichment('10002')
 
 print("Product data from get_product_enrichment:")
 print(f"  family: {product.get('family')}")

@@ -17,7 +17,7 @@ class ChatSession(models.Model):
     is_active = models.BooleanField(default=True)
 
     # Store conversation context as JSON
-    # Example: {'selected_plant': '9995', 'last_query_type': 'stock_check', 'cached_results': [...]}
+    # Example: {'selected_plant': '1000', 'last_query_type': 'stock_check', 'cached_results': [...]}
     context = models.TextField(default='{}')
 
     def get_context(self):

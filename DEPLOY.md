@@ -189,10 +189,10 @@ def add_plants_to_user(username):
         
         # Create plant objects if they don't exist
         plants_data = [
-            {'code': '9993', 'description': 'Arc Cardinal'},
+            {'code': '9993', 'description': 'ACME Corp'},
             {'code': '9994', 'description': 'Arc Millville'},
             {'code': '9943', 'description': 'Arc Canada'},
-            {'code': '9995', 'description': 'Durand Glass'},
+            {'code': '1000', 'description': 'Durand Glass'},
         ]
         
         for plant_data in plants_data:
@@ -344,13 +344,13 @@ docker-compose logs nginx
 ### 4.2 Backing Up the Database
 
 ```bash
-docker-compose exec db mysqldump -u root -p[REDACTED] atp > atp_backup_$(date +%Y%m%d).sql
+docker-compose exec db mysqldump -u root -pDummyPass123! atp > atp_backup_$(date +%Y%m%d).sql
 ```
 
 ### 4.3 Restoring the Database
 
 ```bash
-docker-compose exec -T db mysql -u root -p[REDACTED] atp < atp_backup.sql
+docker-compose exec -T db mysql -u root -pDummyPass123! atp < atp_backup.sql
 ```
 
 ### 4.4 Updating the Application

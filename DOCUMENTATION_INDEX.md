@@ -303,7 +303,7 @@ All documentation was generated through comprehensive codebase analysis includin
 - Performance considerations
 
 **Generation Date:** October 31, 2025
-**Codebase Location:** /mnt/d/productavailability/
+**Codebase Location:** /opt/app/
 **Analysis Depth:** Very Thorough
 **Documentation Completeness:** 100%
 

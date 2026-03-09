@@ -7,7 +7,7 @@ CODEBASE_OVERVIEW.md ..................... Comprehensive technical documentation
 QUICK_START_GUIDE.md ..................... Quick reference guide for developers/admins
 FILE_LOCATIONS.txt ....................... This file
 
-## Project Root (/mnt/d/productavailability/)
+## Project Root (/opt/app/)
 =====================================
 README.md ............................... Original project README
 DEPLOY.md ............................... Deployment guide (11+ sections)
@@ -209,43 +209,43 @@ TESTING:
 =====================================
 
 MAIN BUSINESS LOGIC:
-- /mnt/d/productavailability/atp/stockcheck/views.py (450 lines)
+- /opt/app/atp/stockcheck/views.py (450 lines)
 
 DATABASE MODELS:
-- /mnt/d/productavailability/atp/stockcheck/models.py
+- /opt/app/atp/stockcheck/models.py
 
 SAP INTEGRATION:
 - Lines 70-123 in views.py (stock_info, product_details, product_info functions)
-- /mnt/d/productavailability/atp/atp/settings.ini (config)
-- /mnt/d/productavailability/test_sap_connection.py (testing)
+- /opt/app/atp/atp/settings.ini (config)
+- /opt/app/test_sap_connection.py (testing)
 
 FORMS & INPUT:
-- /mnt/d/productavailability/atp/stockcheck/forms.py
+- /opt/app/atp/stockcheck/forms.py
 
 URL ROUTING:
-- /mnt/d/productavailability/atp/atp/urls.py
+- /opt/app/atp/atp/urls.py
 
 TEMPLATES:
-- Search: /mnt/d/productavailability/atp/templates/stockcheck/search.html
-- Results: /mnt/d/productavailability/atp/templates/stockcheck/details.html
-- Login: /mnt/d/productavailability/atp/templates/registration/login.html
+- Search: /opt/app/atp/templates/stockcheck/search.html
+- Results: /opt/app/atp/templates/stockcheck/details.html
+- Login: /opt/app/atp/templates/registration/login.html
 
 CONFIGURATION:
-- Django: /mnt/d/productavailability/atp/atp/settings.py
-- SAP: /mnt/d/productavailability/atp/atp/settings.ini
+- Django: /opt/app/atp/atp/settings.py
+- SAP: /opt/app/atp/atp/settings.ini
 - Email: settings.py (EMAIL_* variables)
 - Logging: settings.py (LOGGING configuration)
 
 DEPLOYMENT:
-- Docker: /mnt/d/productavailability/Dockerfile
-- Services: /mnt/d/productavailability/docker-compose.yml
-- Web Server: /mnt/d/productavailability/nginx.conf
+- Docker: /opt/app/Dockerfile
+- Services: /opt/app/docker-compose.yml
+- Web Server: /opt/app/nginx.conf
 
 ADMIN CUSTOMIZATION:
-- /mnt/d/productavailability/atp/stockcheck/admin.py
+- /opt/app/atp/stockcheck/admin.py
 
 MIDDLEWARE:
-- /mnt/d/productavailability/atp/middleware/audit_middleware.py
+- /opt/app/atp/middleware/audit_middleware.py
 
 ## File Statistics
 =====================================

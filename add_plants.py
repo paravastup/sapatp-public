@@ -23,10 +23,10 @@ def add_plants_to_user(username):
         
         # Create plant objects if they don't exist
         plants_data = [
-            {'code': '9993', 'description': 'Arc Cardinal'},
+            {'code': '9993', 'description': 'ACME Corp'},
             {'code': '9994', 'description': 'Arc Millville'},
             {'code': '9943', 'description': 'Arc Canada'},
-            {'code': '9995', 'description': 'Durand Glass'},
+            {'code': '1000', 'description': 'Durand Glass'},
         ]
         
         for plant_data in plants_data:

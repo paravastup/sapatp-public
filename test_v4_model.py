@@ -12,11 +12,11 @@ def test_model():
     test_cases = [
         {
             "name": "Product with UPC",
-            "query": "Context: Product 46961 has UPC 10026102469610. Question: What's the UPC?"
+            "query": "Context: Product 10002 has UPC 10026102100020. Question: What's the UPC?"
         },
         {
             "name": "Product without UPC",
-            "query": "Context: Product 46888, brand PYREX. Question: What's the UPC?"
+            "query": "Context: Product 10001, brand BRAND_B. Question: What's the UPC?"
         },
         {
             "name": "EAN terminology",
@@ -24,7 +24,7 @@ def test_model():
         },
         {
             "name": "Original problematic case",
-            "query": "Context: Product information from SAP. Product 46888. Question: What is the UPC?"
+            "query": "Context: Product information from SAP. Product 10001. Question: What is the UPC?"
         }
     ]
 
@@ -40,7 +40,7 @@ def test_model():
         full_prompt = f"User: {test['query']}\nAssistant:"
 
         cmd = [
-            '/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe',
+            '/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe',
             'run',
             'atp-extraction-v4',
             full_prompt

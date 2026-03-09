@@ -88,9 +88,9 @@ def train_model():
     # Load dataset
     import platform
     if platform.system() == 'Windows':
-        train_data = Path('D:/productavailability/training_data/extraction_training_15k.jsonl')
+        train_data = Path('D:/opt/app/training_data/extraction_training_15k.jsonl')
     else:
-        train_data = Path('/mnt/d/productavailability/training_data/extraction_training_15k.jsonl')
+        train_data = Path('/opt/app/training_data/extraction_training_15k.jsonl')
     if not train_data.exists():
         print(f"❌ Training data not found: {train_data}")
         return
@@ -159,8 +159,8 @@ def test_model(model):
     print("=" * 60)
 
     test_cases = [
-        "Context: Product 46961 has UPC 10026102469610. Question: What's the UPC?",
-        "Context: Product 46888, brand PYREX. Question: What's the UPC?"
+        "Context: Product 10002 has UPC 10026102100020. Question: What's the UPC?",
+        "Context: Product 10001, brand BRAND_B. Question: What's the UPC?"
     ]
 
     model.eval()
@@ -206,9 +206,9 @@ def use_pretrained():
         # Use Windows path when on Windows, Linux path when on Linux
         import platform
         if platform.system() == 'Windows':
-            train_file = Path('D:/productavailability/training_data/extraction_training_15k.jsonl')
+            train_file = Path('D:/opt/app/training_data/extraction_training_15k.jsonl')
         else:
-            train_file = Path('/mnt/d/productavailability/training_data/extraction_training_15k.jsonl')
+            train_file = Path('/opt/app/training_data/extraction_training_15k.jsonl')
 
         with open(train_file, 'r', encoding='utf-8') as f:
             for i, line in enumerate(f):

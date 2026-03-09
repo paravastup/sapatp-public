@@ -14,35 +14,35 @@ def test_extraction(model_name: str = "atp-extraction"):
     test_cases = [
         {
             'name': 'Simple UPC extraction',
-            'context': 'Product 46961 has UPC 10026102469610, brand LUMINARC, stock 1500 pieces',
+            'context': 'Product 10002 has UPC 10026102100020, brand BRAND_A, stock 1500 pieces',
             'query': "What's the UPC?",
             'expected_field': 'upc',
-            'expected_value': '10026102469610'
+            'expected_value': '10026102100020'
         },
         {
             'name': 'Missing field should return null',
-            'context': 'Product 46888 has brand PYREX, stock 2000 pieces',
+            'context': 'Product 10001 has brand BRAND_B, stock 2000 pieces',
             'query': "What's the UPC?",
             'expected_field': 'upc',
             'expected_value': None
         },
         {
             'name': 'Multiple products - specific extraction',
-            'context': 'Product 46961 UPC: 10026102469610. Product 46888 UPC: 10026102468880',
-            'query': "What's the UPC for 46888?",
+            'context': 'Product 10002 UPC: 10026102100020. Product 10001 UPC: 10026102100010',
+            'query': "What's the UPC for 10001?",
             'expected_field': 'upc',
-            'expected_value': '10026102468880'
+            'expected_value': '10026102100010'
         },
         {
             'name': 'Brand extraction',
-            'context': 'Product G3960 has brand DUROBOR, UPC 10883314193807, stock 500',
+            'context': 'Product G3960 has brand BRAND_C, UPC 10883314193807, stock 500',
             'query': "What brand is it?",
             'expected_field': 'brand',
-            'expected_value': 'DUROBOR'
+            'expected_value': 'BRAND_C'
         },
         {
             'name': 'Stock quantity extraction',
-            'context': 'Product 00213 has stock 1234 pieces, brand LUMINARC',
+            'context': 'Product 00213 has stock 1234 pieces, brand BRAND_A',
             'query': "How many in stock?",
             'expected_field': 'stock',
             'expected_value': '1234'
@@ -76,7 +76,7 @@ Response:"""
 
         try:
             # Test with Ollama (Windows path)
-            ollama_path = "/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe"
+            ollama_path = "/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe"
             cmd = [ollama_path, 'run', model_name, prompt]
 
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)

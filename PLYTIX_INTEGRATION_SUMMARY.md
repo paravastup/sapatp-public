@@ -1,7 +1,7 @@
-# Plytix Product Catalog Integration - Complete
+# DataFeed Product Catalog Integration - Complete
 
 ## Overview
-Comprehensive integration of Plytix PIM (Product Information Management) system with the ATP chatbot, enabling enriched product queries, bulk brand/category searches, and master product data management.
+Comprehensive integration of DataFeed PIM (Product Information Management) system with the ATP chatbot, enabling enriched product queries, bulk brand/category searches, and master product data management.
 
 ## ✅ Completed Features (Phases 1-6)
 
@@ -32,10 +32,10 @@ product_import_logs (import history)
 ```
 
 ### Phase 2: XML Import Pipeline ✅
-**Location**: `atp/products/management/commands/import_plytix_feed.py`
+**Location**: `atp/products/management/commands/import_datafeed_feed.py`
 
 **Features**:
-- Parse Plytix XML feed (87,053 lines, 1,978 products)
+- Parse DataFeed XML feed (87,053 lines, 1,978 products)
 - Data validation and type conversion
 - Bulk create/update with transaction safety
 - Progress tracking and error handling
@@ -44,27 +44,27 @@ product_import_logs (import history)
 
 **Performance**:
 ```bash
-python manage.py import_plytix_feed /path/to/feed.xml
+python manage.py import_datafeed_feed /path/to/feed.xml
 # Result: 1,972 products in 1.1 seconds (1,800 products/second)
 ```
 
 **Usage**:
 ```bash
 # From file
-docker exec atp_web python manage.py import_plytix_feed /app/feed.xml
+docker exec atp_web python manage.py import_datafeed_feed /app/feed.xml
 
 # From URL
-docker exec atp_web python manage.py import_plytix_feed --url https://pim.plytix.com/...
+docker exec atp_web python manage.py import_datafeed_feed --url https://pim.datafeed.com/...
 
 # Dry run
-docker exec atp_web python manage.py import_plytix_feed /app/feed.xml --dry-run
+docker exec atp_web python manage.py import_datafeed_feed /app/feed.xml --dry-run
 ```
 
 ### Phase 3: Scheduled Feed Updates ✅
 **Location**: `atp/products/tasks.py`
 
 **Celery Tasks**:
-- `import_plytix_feed_task`: Daily automated feed import
+- `import_datafeed_feed_task`: Daily automated feed import
 - `invalidate_product_caches`: Clear caches after import
 - `update_brand_counts`: Recalculate brand statistics
 - `update_category_counts`: Recalculate category statistics
@@ -73,8 +73,8 @@ docker exec atp_web python manage.py import_plytix_feed /app/feed.xml --dry-run
 ```python
 # settings.py
 CELERY_BEAT_SCHEDULE = {
-    'import-plytix-daily': {
-        'task': 'products.import_plytix_feed',
+    'import-datafeed-daily': {
+        'task': 'products.import_datafeed_feed',
         'schedule': crontab(hour=2, minute=0),  # 2 AM daily
     },
 }
@@ -115,7 +115,7 @@ skus:bulk:{filters}
 **Location**: `atp/chatbot/services/entity_extractor.py`
 
 **New Capabilities**:
-- Load brands, categories, materials from Plytix on startup
+- Load brands, categories, materials from DataFeed on startup
 - Detect brand names in user queries (14 brands)
 - Detect category names (5 categories: Dinnerware, Glassware, etc.)
 - Detect material names (20+ materials: Vitrified Ceramic, Soda Lime Glass, etc.)
@@ -124,10 +124,10 @@ skus:bulk:{filters}
 **New Entity Fields**:
 ```python
 {
-    'plytix_brand': 'Chef & Sommelier',      # Matched brand
-    'plytix_category': 'Glassware',          # Matched category
-    'plytix_material': 'Soda Lime Glass',    # Matched material
-    'plytix_collection': 'Papillon Green',   # Matched collection
+    'datafeed_brand': 'Chef & Sommelier',      # Matched brand
+    'datafeed_category': 'Glassware',          # Matched category
+    'datafeed_material': 'Soda Lime Glass',    # Matched material
+    'datafeed_collection': 'Papillon Green',   # Matched collection
     'is_bulk_query': True                     # Bulk query flag
 }
 ```
@@ -144,7 +144,7 @@ skus:bulk:{filters}
 **Location**: `atp/chatbot/services/response_generator.py`
 
 **Features**:
-- Automatic enrichment of SAP results with Plytix data
+- Automatic enrichment of SAP results with DataFeed data
 - Product images injected into chatbot responses
 - Detailed descriptions and specifications
 - Pricing information (list and web price)
@@ -172,7 +172,7 @@ skus:bulk:{filters}
 
 ### Data Flow
 ```
-Plytix PIM (Master Data)
+DataFeed PIM (Master Data)
     ↓ XML Feed (daily)
 Django Import Command
     ↓
@@ -192,7 +192,7 @@ SAP System (real-time inventory)
 ```
 
 ### Master Data Strategy
-- **Plytix** = Master for: Product details, images, descriptions, pricing, specs, relationships
+- **DataFeed** = Master for: Product details, images, descriptions, pricing, specs, relationships
 - **SAP** = Master for: Real-time stock levels, delivery dates, in-transit quantities
 - **Chatbot** = Combines both sources for comprehensive responses
 
@@ -203,7 +203,7 @@ SAP System (real-time inventory)
 User: "What's the stock of FP906?"
 Chatbot:
 - Shows SAP stock level
-- Displays product image from Plytix
+- Displays product image from DataFeed
 - Shows brand (Dudson), collection (Papillon Green)
 - Displays pricing: $90.00 list, $54.00 web
 - Shows case pack: 6 units
@@ -224,7 +224,7 @@ Chatbot:
 User: "Get all Glassware items"
 Chatbot:
 - Detects category: "Glassware"
-- Fetches all Glassware SKUs from Plytix
+- Fetches all Glassware SKUs from DataFeed
 - Queries SAP for current stock
 - Returns comprehensive list with images
 ```
@@ -242,7 +242,7 @@ Chatbot:
 ```
 User: "What's the stock of Q5761#1?"
 Chatbot:
-- Maps legacy SKU to current SKU via Plytix
+- Maps legacy SKU to current SKU via DataFeed
 - Queries SAP with correct SKU
 - Returns result with both old and new SKU
 ```
@@ -263,11 +263,11 @@ atp/products/
 │   └── 0001_initial.py         # Database schema
 └── management/
     └── commands/
-        └── import_plytix_feed.py  # XML import command
+        └── import_datafeed_feed.py  # XML import command
 
 atp/chatbot/services/
-├── entity_extractor.py          # Enhanced with Plytix detection
-└── response_generator.py        # Enhanced with Plytix enrichment
+├── entity_extractor.py          # Enhanced with DataFeed detection
+└── response_generator.py        # Enhanced with DataFeed enrichment
 ```
 
 ## 🔧 Configuration
@@ -277,11 +277,11 @@ atp/chatbot/services/
 # atp/atp/settings.py
 INSTALLED_APPS = [
     # ...
-    'products',  # Plytix product master data
+    'products',  # DataFeed product master data
 ]
 
-# Plytix Feed URL
-PLYTIX_FEED_URL = 'https://pim.plytix.com/channels/6638c4dd23dda406832ca8e9/feed'
+# DataFeed Feed URL
+DATAFEED_FEED_URL = 'https://pim.datafeed.com/channels/6638c4dd23dda406832ca8e9/feed'
 ```
 
 ### Database Indexes
@@ -348,25 +348,25 @@ celery -A atp beat --loglevel=info
 
 **Import runs automatically at 2 AM daily, or trigger manually**:
 ```bash
-docker exec atp_web python manage.py import_plytix_feed \
-    --url https://pim.plytix.com/channels/6638c4dd23dda406832ca8e9/feed
+docker exec atp_web python manage.py import_datafeed_feed \
+    --url https://pim.datafeed.com/channels/6638c4dd23dda406832ca8e9/feed
 ```
 
 ## 🎨 Chatbot Brands Available
 
-From Plytix catalog (14 brands):
+From DataFeed catalog (14 brands):
 1. **Chef & Sommelier** - Fine glassware
 2. **Dudson** - Premium ceramics
 3. **Arcoroc** - Glassware solutions
-4. **Luminarc** - Consumer glassware
-5. **Cardinal** - Foodservice glassware
-6. **Libbey** - Classic glassware
+4. **Brand_A** - Consumer glassware
+5. **Brand_D** - Foodservice glassware
+6. **Brand_E** - Classic glassware
 7. **Arc** - Professional glassware
-8. **Bormioli Rocco** - Italian glass
+8. **Brand_G Rocco** - Italian glass
 9. **Pasabahce** - Turkish glassware
 10. **Crisa** - Mexican glassware
 11. **Syracuse China** - Fine china
-12. **Oneida** - Flatware & tabletop
+12. **Brand_I** - Flatware & tabletop
 13. **RAK Porcelain** - UAE ceramics
 14. **Steelite** - Performance tableware
 
@@ -410,11 +410,11 @@ Create API endpoints for:
 - **Models**: See `atp/products/models.py` docstrings
 - **Services**: See `atp/products/services.py` docstrings
 - **Tasks**: See `atp/products/tasks.py` docstrings
-- **Import Command**: `python manage.py import_plytix_feed --help`
+- **Import Command**: `python manage.py import_datafeed_feed --help`
 
 ## 🎓 Key Learnings
 
-1. **Master Data Strategy**: Using Plytix as the master for product details and SAP for real-time inventory creates a powerful hybrid system
+1. **Master Data Strategy**: Using DataFeed as the master for product details and SAP for real-time inventory creates a powerful hybrid system
 2. **Caching is Critical**: 95%+ cache hit rate for product queries dramatically improves chatbot response times
 3. **Bulk Queries**: Brand/category-based bulk queries enable powerful "show me all X" queries
 4. **Entity Detection**: Loading catalog entities on startup enables accurate brand/category detection without LLM overhead
@@ -433,7 +433,7 @@ Create API endpoints for:
 
 ## 🎉 Status: PRODUCTION READY
 
-The Plytix integration is complete and functional. The system can:
+The DataFeed integration is complete and functional. The system can:
 - Import product feeds automatically
 - Detect brands, categories, and materials in user queries
 - Enrich SAP responses with product images and details

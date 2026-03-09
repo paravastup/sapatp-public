@@ -17,13 +17,13 @@ def test_model():
     test_cases = [
         {
             "name": "✅ Should extract real UPC",
-            "prompt": "Context: Product 46961 has UPC 10026102469610. Question: What's the UPC?",
-            "expected": "10026102469610",
+            "prompt": "Context: Product 10002 has UPC 10026102100020. Question: What's the UPC?",
+            "expected": "10026102100020",
             "should_have": True
         },
         {
             "name": "✅ Should return null (no UPC)",
-            "prompt": "Context: Product 46888, brand PYREX. Question: What's the UPC?",
+            "prompt": "Context: Product 10001, brand BRAND_B. Question: What's the UPC?",
             "expected": None,
             "should_have": False
         },
@@ -53,14 +53,14 @@ def test_model():
         },
         {
             "name": "✅ Original problem case",
-            "prompt": "Context: Product information from SAP. Product 46888. Question: What is the UPC?",
+            "prompt": "Context: Product information from SAP. Product 10001. Question: What is the UPC?",
             "expected": None,
             "should_have": False
         },
         {
-            "name": "✅ Real UPC for 46888",
-            "prompt": "Context: Product 46961 UPC: 10026102469610. Product 46888 UPC: 10026102468880. Question: What's the UPC for 46888?",
-            "expected": "10026102468880",
+            "name": "✅ Real UPC for 10001",
+            "prompt": "Context: Product 10002 UPC: 10026102100020. Product 10001 UPC: 10026102100010. Question: What's the UPC for 10001?",
+            "expected": "10026102100010",
             "should_have": True
         }
     ]
@@ -73,7 +73,7 @@ def test_model():
 
         # Test with DeepSeek
         cmd = [
-            '/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe',
+            '/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe',
             'run',
             'deepseek-extraction',
             test['prompt']
@@ -165,7 +165,7 @@ def compare_models():
     print("⚖️ Model Comparison")
     print("="*60)
 
-    test_query = "Context: Product 46888. Question: What's the UPC?"
+    test_query = "Context: Product 10001. Question: What's the UPC?"
 
     models = [
         ('gemma3:4b', 'Gemma 3 4B'),
@@ -177,7 +177,7 @@ def compare_models():
         print(f"\n🔍 Testing {model_name}:")
 
         cmd = [
-            '/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe',
+            '/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe',
             'run',
             model_id,
             test_query
@@ -189,7 +189,7 @@ def compare_models():
             print(f"   Response: {response}")
 
             # Check for hallucination
-            if any(fake in response for fake in ['10026', '79461', '8894', '468880']):
+            if any(fake in response for fake in ['10026', '79461', '8894', '100010']):
                 print("   ⚠️ HALLUCINATION DETECTED!")
             elif 'null' in response.lower():
                 print("   ✅ Correctly returned null")
@@ -212,7 +212,7 @@ if __name__ == "__main__":
         print("\n🎯 RECOMMENDATION: Use DeepSeek-R1:8b!")
         print("Update your app to use 'deepseek-extraction' model")
         print("\nTo switch:")
-        print("1. Edit: /mnt/d/productavailability/atp/chatbot/services/ollama_client_enhanced.py")
+        print("1. Edit: /opt/app/atp/chatbot/services/ollama_client_enhanced.py")
         print("2. Change: self.extraction_model = 'atp-extraction-v4'")
         print("3. To: self.extraction_model = 'deepseek-extraction'")
     else:

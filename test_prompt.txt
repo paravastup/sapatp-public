@@ -6,12 +6,12 @@ Question: I need the upc
 Response: {"upc": "2699688678591"}
 
 Example 2:
-Context: Product 46961, delivery quantity: 2739, vendor SKU: V-33627, plant: 9993, country of origin: CHINA...
+Context: Product 10002, delivery quantity: 2739, vendor SKU: V-33627, plant: 9993, country of origin: CHINA...
 Question: Get who supplies info
 Response: {"vendor": null}
 
 Example 3:
-Context: Product 46888 has purchase order PO-2025-405, UPC: 3429270008762, delivery quantity: 2366, case pack...
+Context: Product 10001 has purchase order PO-2025-405, UPC: 3429270008762, delivery quantity: 2366, case pack...
 Question: Tell me the purchase order
 Response: {"purchase_order": "PO-2025-405"}
 
@@ -26,6 +26,6 @@ Question: Also need delivery date
 Response: {"delivery_date": "2025-11-07"}
 
 Now extract from this:
-Context: Product 46961 has UPC 10026102469610, brand LUMINARC
+Context: Product 10002 has UPC 10026102100020, brand BRAND_A
 Question: What's the UPC?
 Response:

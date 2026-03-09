@@ -162,7 +162,7 @@ Available space: 81,000+ tokens for conversation history
 // Gemma 3 4B reliably outputs this structure
 {
   "intent": "stock_query",
-  "product_numbers": ["46888"],
+  "product_numbers": ["10001"],
   "confidence": 0.95
 }
 ```
@@ -174,12 +174,12 @@ Available space: 81,000+ tokens for conversation history
 
 **ATP Example**:
 ```
-User: "What's the stock of 46888?"
+User: "What's the stock of 10001?"
 Bot: [Shows stock: 1500 units]
-User: "What about 46961?"
-Bot: [Understands to show stock for 46961]
+User: "What about 10002?"
+Bot: [Understands to show stock for 10002]
 User: "Show me the UPC for the first one"
-Bot: [Remembers "first one" = 46888, shows UPC]
+Bot: [Remembers "first one" = 10001, shows UPC]
 ```
 
 ---
@@ -283,9 +283,9 @@ The ATP chatbot has **narrow, domain-specific tasks**:
 intents = [
     'greeting',           # "Hello", "Hi"
     'help',              # "What can you do?"
-    'stock_query',       # "What's the stock of 46888?"
-    'delivery_query',    # "When is 46888 arriving?"
-    'product_info',      # "Show me the UPC for 46888"
+    'stock_query',       # "What's the stock of 10001?"
+    'delivery_query',    # "When is 10001 arriving?"
+    'product_info',      # "Show me the UPC for 10001"
     'plant_selection',   # "Switch to plant 1000"
     'export_request',    # "Download Excel"
     'farewell',          # "Thanks", "Goodbye"
@@ -305,8 +305,8 @@ intents = [
 **What ATP needs to extract**:
 ```python
 entities = {
-    'product_numbers': ['46888', '46961', ...],  # Regex: \d{4,6}
-    'plant_codes': ['9995', '1000', ...],        # Regex: \d{4}
+    'product_numbers': ['10001', '10002', ...],  # Regex: \d{4,6}
+    'plant_codes': ['1000', '1000', ...],        # Regex: \d{4}
     'fields': ['upc', 'brand', 'origin', ...],   # Predefined list
     'context_indicators': ['it', 'that', ...],   # Pronoun resolution
     'action_repeat': ['same', 'again', ...]      # Phrase detection
@@ -333,25 +333,25 @@ If 270M (0.27B) can do entity extraction well, 4B is **15x more powerful** than 
 **What ATP needs**:
 ```python
 context = {
-    'last_products': ['46888', '46961', ...],  # Last 10 mentioned
+    'last_products': ['10001', '10002', ...],  # Last 10 mentioned
     'last_intent': 'product_info',             # Previous action
     'last_field': 'upc',                       # Previous field requested
-    'current_plant': '9995'                    # Active plant
+    'current_plant': '1000'                    # Active plant
 }
 ```
 
 **Example conversation**:
 ```
-User: "What's the stock of 46888?"
-Bot: "Product 46888 has 1500 units at Plant 9995"
-      [Context: last_products = ['46888'], last_intent = 'stock_query']
+User: "What's the stock of 10001?"
+Bot: "Product 10001 has 1500 units at Plant 1000"
+      [Context: last_products = ['10001'], last_intent = 'stock_query']
 
 User: "What's the UPC?"
-Bot: "Product 46888 UPC: 012345678901"
-      [Used context: product = '46888' from last_products]
+Bot: "Product 10001 UPC: 012345678901"
+      [Used context: product = '10001' from last_products]
 
-User: "Do the same with 46961"
-Bot: "Product 46961 UPC: 098765432109"
+User: "Do the same with 10002"
+Bot: "Product 10002 UPC: 098765432109"
       [Detected action_repeat + inherited last_intent & last_field]
 ```
 
@@ -390,7 +390,7 @@ Bot: "Product 46961 UPC: 098765432109"
 
 #### Test Case 1: Simple Stock Query
 ```
-User: "What's the stock of product 46888?"
+User: "What's the stock of product 10001?"
 ```
 
 | Metric | Gemma 3 12B | Gemma 3 4B | Improvement |
@@ -403,23 +403,23 @@ User: "What's the stock of product 46888?"
 
 #### Test Case 2: Context Follow-Up
 ```
-User: "What's the stock of 46888?"
+User: "What's the stock of 10001?"
 Bot: [Shows stock]
 User: "What's the UPC?"
 ```
 
 | Metric | Gemma 3 12B | Gemma 3 4B | Improvement |
 |--------|-------------|------------|-------------|
-| Context Recall | ✅ Remembered 46888 | ✅ Remembered 46888 | Same |
+| Context Recall | ✅ Remembered 10001 | ✅ Remembered 10001 | Same |
 | Intent Switch | ✅ stock → product_info | ✅ stock → product_info | Same |
 | Response Time | 62s | 11s | **82% faster** |
 | Accuracy | ✅ Correct | ✅ Correct | Same |
 
 #### Test Case 3: Action Repeat Pattern
 ```
-User: "What's the UPC of 46961?"
+User: "What's the UPC of 10002?"
 Bot: [Shows UPC]
-User: "Do the same with 46888"
+User: "Do the same with 10001"
 ```
 
 | Metric | Gemma 3 12B | Gemma 3 4B | Improvement |
@@ -484,14 +484,14 @@ SYSTEM """You are an expert SAP product availability assistant.
 
 EXAMPLES:
 
-User: What's the stock of product 46888?
-AI: {"intent": "stock_query", "product_numbers": ["46888"], "confidence": 0.95}
+User: What's the stock of product 10001?
+AI: {"intent": "stock_query", "product_numbers": ["10001"], "confidence": 0.95}
 
 User: What's the UPC?
 AI: {"intent": "product_info", "product_numbers": ["<from context>"], "fields": ["upc"], "confidence": 0.90}
 
-User: Do the same with 46961
-AI: {"intent": "<inherit>", "product_numbers": ["46961"], "action_repeat": true, "confidence": 0.95}
+User: Do the same with 10002
+AI: {"intent": "<inherit>", "product_numbers": ["10002"], "action_repeat": true, "confidence": 0.95}
 
 ... [615 more examples] ...
 """
@@ -640,7 +640,7 @@ Query: "Find all products with stock below 100, then check which ones
 
 **Example**:
 ```
-Query: "What's the history of the company that makes product 46888?"
+Query: "What's the history of the company that makes product 10001?"
 ```
 **Result**: 4B would struggle (doesn't have company history in training data).
 
@@ -654,7 +654,7 @@ Query: "What's the history of the company that makes product 46888?"
 
 **Example**:
 ```
-Query: "Write a marketing email for product 46888"
+Query: "Write a marketing email for product 10001"
 ```
 **Result**: 4B would produce basic, formulaic text (12B would be better).
 

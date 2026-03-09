@@ -31,7 +31,7 @@ class QueryExecutor:
         Execute search using existing SAP integration
 
         Args:
-            plant_code: Plant code (e.g., '9995')
+            plant_code: Plant code (e.g., '1000')
             product_numbers: List of product numbers
             mode: 'M' for Arc SKU, 'O' for Vendor SKU
 
@@ -119,61 +119,61 @@ class QueryExecutor:
     def _process_sap_data(self, data: Dict) -> Dict:
         """
         Process and format SAP data
-        Enriches with Plytix product information (descriptions, pricing, etc.)
+        Enriches with DataFeed product information (descriptions, pricing, etc.)
 
         Args:
             data: Raw SAP data
 
         Returns:
-            Processed data dictionary enriched with Plytix data
+            Processed data dictionary enriched with DataFeed data
         """
         try:
-            # ENRICH WITH PLYTIX DESCRIPTION
-            # Replace SAP's MAKTX with accurate Plytix label if available
+            # ENRICH WITH DATAFEED DESCRIPTION
+            # Replace SAP's MAKTX with accurate DataFeed label if available
             if 'MATNR' in data:
                 product_sku = data['MATNR']
                 try:
                     from products.models import Product
-                    plytix_product = Product.objects.filter(sku=product_sku).first()
+                    datafeed_product = Product.objects.filter(sku=product_sku).first()
 
-                    if plytix_product:
-                        # Override SAP description with Plytix label (accurate description)
-                        data['MAKTX'] = plytix_product.label
+                    if datafeed_product:
+                        # Override SAP description with DataFeed label (accurate description)
+                        data['MAKTX'] = datafeed_product.label
 
-                        # Add flat Plytix fields for backward compatibility
-                        data['PLYTIX_BRAND'] = plytix_product.catalog_brand
-                        data['PLYTIX_CATEGORY'] = plytix_product.catalog_category
-                        data['PLYTIX_LIST_PRICE'] = float(plytix_product.list_price) if plytix_product.list_price else None
-                        data['PLYTIX_WEB_PRICE'] = float(plytix_product.web_price) if plytix_product.web_price else None
-                        data['PLYTIX_MATERIAL'] = plytix_product.material
-                        data['PLYTIX_COLLECTION'] = plytix_product.catalog_collection
+                        # Add flat DataFeed fields for backward compatibility
+                        data['DATAFEED_BRAND'] = datafeed_product.catalog_brand
+                        data['DATAFEED_CATEGORY'] = datafeed_product.catalog_category
+                        data['DATAFEED_LIST_PRICE'] = float(datafeed_product.list_price) if datafeed_product.list_price else None
+                        data['DATAFEED_WEB_PRICE'] = float(datafeed_product.web_price) if datafeed_product.web_price else None
+                        data['DATAFEED_MATERIAL'] = datafeed_product.material
+                        data['DATAFEED_COLLECTION'] = datafeed_product.catalog_collection
 
-                        # Create nested plytix structure for response generator
-                        data['plytix'] = {
-                            'name': plytix_product.label,
-                            'description': plytix_product.label,  # Use label as description
-                            'brand': plytix_product.catalog_brand,
-                            'category': plytix_product.catalog_category,
-                            'collection': plytix_product.catalog_collection,
-                            'family': plytix_product.family,  # For URL building
-                            'catalog_category': plytix_product.catalog_category,  # For URL building
-                            'website_subcategories': plytix_product.website_subcategories,  # For URL building
-                            'label': plytix_product.label,  # For URL building
+                        # Create nested datafeed structure for response generator
+                        data['datafeed'] = {
+                            'name': datafeed_product.label,
+                            'description': datafeed_product.label,  # Use label as description
+                            'brand': datafeed_product.catalog_brand,
+                            'category': datafeed_product.catalog_category,
+                            'collection': datafeed_product.catalog_collection,
+                            'family': datafeed_product.family,  # For URL building
+                            'catalog_category': datafeed_product.catalog_category,  # For URL building
+                            'website_subcategories': datafeed_product.website_subcategories,  # For URL building
+                            'label': datafeed_product.label,  # For URL building
                             'price': {
-                                'list': float(plytix_product.list_price) if plytix_product.list_price else 0,
-                                'web': float(plytix_product.web_price) if plytix_product.web_price else 0
+                                'list': float(datafeed_product.list_price) if datafeed_product.list_price else 0,
+                                'web': float(datafeed_product.web_price) if datafeed_product.web_price else 0
                             },
                             'specs': {
-                                'material': plytix_product.material
+                                'material': datafeed_product.material
                             }
                         }
 
-                        logger.debug(f"Enriched {product_sku} with Plytix data: {plytix_product.label}")
+                        logger.debug(f"Enriched {product_sku} with DataFeed data: {datafeed_product.label}")
                     else:
-                        logger.debug(f"No Plytix data found for {product_sku}, using SAP description")
+                        logger.debug(f"No DataFeed data found for {product_sku}, using SAP description")
                 except Exception as e:
-                    logger.error(f"Error enriching product {product_sku} with Plytix data: {e}")
-                    # Fall back to SAP description if Plytix lookup fails
+                    logger.error(f"Error enriching product {product_sku} with DataFeed data: {e}")
+                    # Fall back to SAP description if DataFeed lookup fails
 
             # Convert ACTUAL to float
             if 'ACTUAL' in data:

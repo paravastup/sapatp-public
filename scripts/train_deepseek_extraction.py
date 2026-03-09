@@ -21,7 +21,7 @@ def load_training_data():
     training_examples = []
 
     # Load main extraction training (15,995 examples)
-    extraction_file = Path('/mnt/d/productavailability/training_data/extraction_training_15k.jsonl')
+    extraction_file = Path('/opt/app/training_data/extraction_training_15k.jsonl')
     if extraction_file.exists():
         with open(extraction_file, 'r') as f:
             for line in f:
@@ -30,7 +30,7 @@ def load_training_data():
         print(f"✅ Loaded {len(training_examples)} extraction examples")
 
     # Load terminology training (4,000 examples)
-    terminology_file = Path('/mnt/d/productavailability/training_data/terminology_training_4k.jsonl')
+    terminology_file = Path('/opt/app/training_data/terminology_training_4k.jsonl')
     if terminology_file.exists():
         count_before = len(training_examples)
         with open(terminology_file, 'r') as f:
@@ -58,7 +58,7 @@ SYSTEM You are a precise data extraction assistant specialized in SAP product da
 CRITICAL RULES:
 1. Extract ONLY values that appear EXACTLY in the context
 2. UPC/EAN/barcodes are ALWAYS 8-14 digit numbers
-3. Product numbers (like "46888", "G3960") are NOT UPCs
+3. Product numbers (like "10001", "G3960") are NOT UPCs
 4. When asked for UPC/EAN/barcode but only a product number exists, return {"upc": null}
 5. NEVER generate or guess values
 6. Return valid JSON only
@@ -89,10 +89,10 @@ Field mappings:
 
     # Critical examples to prevent hallucination
     critical_examples = [
-        ("Context: Product 46961 has UPC 10026102469610. Question: What's the UPC?",
-         '{"upc": "10026102469610"}'),
+        ("Context: Product 10002 has UPC 10026102100020. Question: What's the UPC?",
+         '{"upc": "10026102100020"}'),
 
-        ("Context: Product 46888, brand PYREX. Question: What's the UPC?",
+        ("Context: Product 10001, brand BRAND_B. Question: What's the UPC?",
          '{"upc": null}'),
 
         ("Context: Product G3960 is available. Question: What's the EAN code?",
@@ -107,10 +107,10 @@ Field mappings:
         ("Context: Product ABC123 is in stock. Question: What's the UPC?",
          '{"upc": null}'),
 
-        ("Context: The product code is 46888. Question: What's the UPC?",
+        ("Context: The product code is 10001. Question: What's the UPC?",
          '{"upc": null}'),
 
-        ("Context: Product 46961, delivery quantity 150. Question: Extract UPC",
+        ("Context: Product 10002, delivery quantity 150. Question: Extract UPC",
          '{"upc": null}')
     ]
 
@@ -119,7 +119,7 @@ Field mappings:
         modelfile_content += f"MESSAGE assistant\n{assistant_msg}\n\nMESSAGE user\n"
 
     # Save Modelfile
-    modelfile_path = Path('/mnt/d/productavailability/Modelfile.deepseek-extraction')
+    modelfile_path = Path('/opt/app/Modelfile.deepseek-extraction')
     with open(modelfile_path, 'w') as f:
         f.write(modelfile_content)
 
@@ -133,7 +133,7 @@ def create_model(modelfile_path):
     print("\n🔨 Creating DeepSeek extraction model...")
 
     cmd = [
-        '/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe',
+        '/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe',
         'create',
         'deepseek-extraction',
         '-f',
@@ -161,13 +161,13 @@ def test_model():
     test_cases = [
         {
             "name": "Product with UPC",
-            "prompt": "Context: Product 46961 has UPC 10026102469610. Question: What's the UPC?",
-            "expected": "10026102469610",
+            "prompt": "Context: Product 10002 has UPC 10026102100020. Question: What's the UPC?",
+            "expected": "10026102100020",
             "should_have_value": True
         },
         {
             "name": "Product without UPC",
-            "prompt": "Context: Product 46888, brand PYREX. Question: What's the UPC?",
+            "prompt": "Context: Product 10001, brand BRAND_B. Question: What's the UPC?",
             "expected": None,
             "should_have_value": False
         },
@@ -185,8 +185,8 @@ def test_model():
         },
         {
             "name": "Multiple fields",
-            "prompt": "Context: Product 46961, UPC 10026102469610, quantity 150. Question: Extract UPC",
-            "expected": "10026102469610",
+            "prompt": "Context: Product 10002, UPC 10026102100020, quantity 150. Question: Extract UPC",
+            "expected": "10026102100020",
             "should_have_value": True
         },
         {
@@ -203,7 +203,7 @@ def test_model():
         },
         {
             "name": "Original problematic case",
-            "prompt": "Context: Product information from SAP. Product 46888. Question: What is the UPC?",
+            "prompt": "Context: Product information from SAP. Product 10001. Question: What is the UPC?",
             "expected": None,
             "should_have_value": False
         }
@@ -218,7 +218,7 @@ def test_model():
 
         # Call DeepSeek model
         cmd = [
-            '/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe',
+            '/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe',
             'run',
             'deepseek-extraction',
             test['prompt']

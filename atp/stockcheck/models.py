@@ -45,7 +45,7 @@ class Plant(models.Model):
     users = models.ManyToManyField(User,related_name='plant')
     code = models.CharField(
         max_length=15,
-        help_text="Plant Code, for example: 9995"
+        help_text="Plant Code, for example: 1000"
         )
     description = models.CharField(
         max_length = 30,

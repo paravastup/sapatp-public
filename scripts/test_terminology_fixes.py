@@ -15,10 +15,10 @@ def test_terminology_fixes(model_name: str = "atp-extraction-v3"):
     test_cases = [
         {
             'name': 'Test 24: product code → UPC (not product number)',
-            'context': 'UPC: 4154191637947 for product 46961, weight: 18.85, brand: LUMINARC',
+            'context': 'UPC: 4154191637947 for product 10002, weight: 18.85, brand: BRAND_A',
             'query': "What's the product code?",
             'expected': {"upc": "4154191637947"},
-            'v2_wrong': {"product_code": "46961"}
+            'v2_wrong': {"product_code": "10002"}
         },
         {
             'name': 'Test 28: EAN → UPC when context has UPC',
@@ -50,7 +50,7 @@ def test_terminology_fixes(model_name: str = "atp-extraction-v3"):
         },
         {
             'name': 'Test 55: EAN (uppercase)',
-            'context': 'Product 46961: UPC is 9402949150131, case pack size: 48, country of origin: USA, vendor: VENDOR043',
+            'context': 'Product 10002: UPC is 9402949150131, case pack size: 48, country of origin: USA, vendor: VENDOR043',
             'query': "What's the EAN?",
             'expected': {"upc": "9402949150131"},
             'v2_wrong': {"ean": None}
@@ -71,7 +71,7 @@ def test_terminology_fixes(model_name: str = "atp-extraction-v3"):
         },
         {
             'name': 'Test 91: product code with context',
-            'context': 'Product 40055 - UPC: 9123426666324, country of origin: ITALY, delivery quantity: 1940, plant: 9995',
+            'context': 'Product 40055 - UPC: 9123426666324, country of origin: ITALY, delivery quantity: 1940, plant: 1000',
             'query': "What's the product code?",
             'expected': {"upc": "9123426666324"},
             'v2_wrong': {"product_code": "40055"}
@@ -85,14 +85,14 @@ def test_terminology_fixes(model_name: str = "atp-extraction-v3"):
         },
         {
             'name': 'Test 95: EAN (uppercase) request',
-            'context': 'Product 46888 has UPC 6007986284147, product number: 46888, brand: LUMINARC, vendor SKU: V-39116',
+            'context': 'Product 10001 has UPC 6007986284147, product number: 10001, brand: BRAND_A, vendor SKU: V-39116',
             'query': "Get the EAN",
             'expected': {"upc": "6007986284147"},
             'v2_wrong': {"ean": None}
         },
         {
             'name': 'Test 100: EAN with capitalization',
-            'context': 'Product 46888 - UPC: 8143823842369, vendor: VENDOR003, weight: 18.48',
+            'context': 'Product 10001 - UPC: 8143823842369, vendor: VENDOR003, weight: 18.48',
             'query': "Could you find the EAN?",
             'expected': {"upc": "8143823842369"},
             'v2_wrong': {"EAN": None}
@@ -131,7 +131,7 @@ Response:"""
 
         try:
             # Test with Ollama
-            ollama_path = "/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe"
+            ollama_path = "/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe"
             cmd = [ollama_path, 'run', model_name, prompt]
 
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)

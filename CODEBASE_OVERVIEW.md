@@ -17,7 +17,7 @@ The ATP (Available-to-Promise) application is a Django-based web application tha
 ## 1. PROJECT STRUCTURE & FILE ORGANIZATION
 
 ```
-/mnt/d/productavailability/
+/opt/app/
 ├── README.md                          # Project documentation
 ├── DEPLOY.md                          # Deployment guide
 ├── Dockerfile                         # Container image definition
@@ -148,16 +148,16 @@ Doc                  # Documentation articles (title, text, author, dates)
 
 ### 2.2 Settings Configuration
 
-**File:** `/mnt/d/productavailability/atp/atp/settings.py`
+**File:** `/opt/app/atp/atp/settings.py`
 
 **Key Settings:**
 ```python
-BASE_DIR = /mnt/d/productavailability/atp
-TEMPLATE_DIR = /mnt/d/productavailability/atp/templates
-SECRET_KEY = '[REDACTED]'
+BASE_DIR = /opt/app/atp
+TEMPLATE_DIR = /opt/app/atp/templates
+SECRET_KEY = 'DummyPass123!'
 DEBUG = True
-ALLOWED_HOSTS = ['[REDACTED]', '[REDACTED]', '[REDACTED]',
-                 '[REDACTED]', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['DummyPass123!', 'DummyPass123!', 'DummyPass123!',
+                 'DummyPass123!', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -178,7 +178,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'atp',
         'USER': 'djangoadmin',
-        'PASSWORD': '[REDACTED]',
+        'PASSWORD': 'DummyPass123!',
         'HOST': 'db',
         'PORT': '3306'
     }
@@ -190,29 +190,29 @@ TIME_ZONE = 'EST'
 # Email Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = '[REDACTED]'
+EMAIL_HOST_USER = 'DummyPass123!'
 EMAIL_PORT = 587
-DEFAULT_FROM_EMAIL = '[REDACTED]'
+DEFAULT_FROM_EMAIL = 'DummyPass123!'
 
 # Logging
 LOG_DIR = '/var/log/gunicorn'
 # Logs to sap_interactions.log
 ```
 
-**SAP Connection Config File:** `/mnt/d/productavailability/atp/atp/settings.ini`
+**SAP Connection Config File:** `/opt/app/atp/atp/settings.ini`
 ```ini
 [connection]
-ashost=[REDACTED]
+ashost=DummyPass123!
 sysnr=02
 client=900
-user=[REDACTED]
-passwd=[REDACTED]
+user=DummyPass123!
+passwd=DummyPass123!
 lang=EN
 ```
 
 ### 2.3 URL Routing
 
-**Main URL Config:** `/mnt/d/productavailability/atp/atp/urls.py`
+**Main URL Config:** `/opt/app/atp/atp/urls.py`
 
 ```python
 # Authentication paths
@@ -261,7 +261,7 @@ The application uses **pyrfc** library (version 1.9.93) to communicate with SAP 
 
 2. **Z_GET_MATERIAL_DETAILS** - Get detailed product information
    - Inputs:
-     - IV_WERKS: Plant code (e.g., "9995")
+     - IV_WERKS: Plant code (e.g., "1000")
      - IV_MATNR: Material/Product number
      - IV_MODE: Mode ("M" for Arc SKU, "O" for Vendor SKU)
    - Output: ES_OUTPUT (product details object)
@@ -283,7 +283,7 @@ The application uses **pyrfc** library (version 1.9.93) to communicate with SAP 
 
 ### 3.2 Key SAP Functions in Code
 
-**File:** `/mnt/d/productavailability/atp/stockcheck/views.py`
+**File:** `/opt/app/atp/stockcheck/views.py`
 
 ```python
 # Function: product_details(reftype, value)
@@ -315,7 +315,7 @@ Configuration read from:
 
 ### 3.4 SAP Test Script
 
-**File:** `/mnt/d/productavailability/test_sap_connection.py`
+**File:** `/opt/app/test_sap_connection.py`
 
 Tests SAP connectivity by:
 1. Reading connection parameters from settings.ini or env vars
@@ -368,7 +368,7 @@ Tests SAP connectivity by:
 
 ```python
 class Plant(models.Model):
-    code = CharField(max_length=15)              # e.g., "9995"
+    code = CharField(max_length=15)              # e.g., "1000"
     description = CharField(max_length=30)      # e.g., "Durand Glass"
     users = ManyToManyField(User)                # Plant-to-User relationship
 
@@ -385,7 +385,7 @@ class Profile(models.Model):  # Extended User profile
     company = CharField(max_length=30, blank=True)
     role = CharField(max_length=30, blank=True)
     website = URLField(max_length=50, blank=True)
-    business = CharField(max_length=10, blank=True)  # AINA or Cardinal
+    business = CharField(max_length=10, blank=True)  # AINA or Brand_D
 
 class SearchHistory(models.Model):
     username = ForeignKey(User)
@@ -509,8 +509,8 @@ class SignUpForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     BUSINESS_CHOICES = (
         (' ', 'Select the business entity...'),
-        ('AINA', 'Arc International North America'),
-        ('Cardinal', 'Cardinal International')
+        ('AINA', 'ACME International North America'),
+        ('Brand_D', 'Brand_D International')
     )
     
     company = CharField(max_length=30, required=True)
@@ -579,7 +579,7 @@ class ProfileForm(forms.ModelForm):
 - Uses EmailMultiAlternatives
 - Subject includes username and timestamp
 - Attachment: XLS file with email-safe MIME type
-- From: [REDACTED]
+- From: DummyPass123!
 
 ### 7.3 signup() - User Registration
 
@@ -595,7 +595,7 @@ class ProfileForm(forms.ModelForm):
 
 **Admin Notification Email:**
 - Lists: Username, Company, Business Entity
-- Sent to: [REDACTED]
+- Sent to: DummyPass123!
 - Admin must manually activate user
 
 ### 7.4 Documentation Views (docs app)
@@ -614,7 +614,7 @@ class ProfileForm(forms.ModelForm):
 
 **Key Parameters:**
 ```python
-BASE_DIR = /mnt/d/productavailability/atp
+BASE_DIR = /opt/app/atp
 TEMPLATE_DIR = BASE_DIR/templates
 STATIC_URL = /static/
 STATIC_ROOT = BASE_DIR/static
@@ -646,8 +646,8 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    '[REDACTED]',
-    '[REDACTED]/atp/login/'
+    'DummyPass123!',
+    'DummyPass123!/atp/login/'
 ]
 
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
@@ -670,7 +670,7 @@ SAP Call - Z_PATTERN_PRODUCTS - Input: reftype=P, value=pattern001
 SAP Response - Z_PATTERN_PRODUCTS - Success - Products count: 42
 SAP Response Details: {...}
 SAP Call Failed - Z_GET_MATERIAL_DETAILS - Error: Connection timeout
-Search initiated - User: john.doe, Plant: 9995, Type: Arc
+Search initiated - User: john.doe, Plant: 1000, Type: Arc
 Processing 5 chunks of reference numbers
 Successfully retrieved data for 15 products
 Search history saved for user: john.doe
@@ -681,12 +681,12 @@ Search history saved for user: john.doe
 ```python
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = '[REDACTED]'
-EMAIL_HOST_PASSWORD = '[REDACTED]'  # App password for Gmail
+EMAIL_HOST_USER = 'DummyPass123!'
+EMAIL_HOST_PASSWORD = 'DummyPass123!'  # App password for Gmail
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-DEFAULT_FROM_EMAIL = '[REDACTED]'
-SERVER_EMAIL = '[REDACTED]'
+DEFAULT_FROM_EMAIL = 'DummyPass123!'
+SERVER_EMAIL = 'DummyPass123!'
 ```
 
 **Used For:**
@@ -701,7 +701,7 @@ SERVER_EMAIL = '[REDACTED]'
 
 ### 9.1 Dockerfile
 
-**Location:** `/mnt/d/productavailability/Dockerfile`
+**Location:** `/opt/app/Dockerfile`
 
 **Base Image:** ubuntu:18.04
 
@@ -743,7 +743,7 @@ CMD bash -c "
 
 ### 9.2 Docker Compose Configuration
 
-**Location:** `/mnt/d/productavailability/docker-compose.yml`
+**Location:** `/opt/app/docker-compose.yml`
 
 **Services:**
 
@@ -764,7 +764,7 @@ web:
     - DATABASE_HOST=db
     - DATABASE_NAME=atp
     - DATABASE_USER=djangoadmin
-    - DATABASE_PASSWORD=[REDACTED]
+    - DATABASE_PASSWORD=DummyPass123!
     - SAP_HOST=your-sap-host
     - SAP_SYSNR=00
     - SAP_CLIENT=100
@@ -784,8 +784,8 @@ db:
   environment:
     - MYSQL_DATABASE=atp
     - MYSQL_USER=djangoadmin
-    - MYSQL_PASSWORD=[REDACTED]
-    - MYSQL_ROOT_PASSWORD=[REDACTED]
+    - MYSQL_PASSWORD=DummyPass123!
+    - MYSQL_ROOT_PASSWORD=DummyPass123!
   ports:
     - "3306:3306"
   restart: unless-stopped
@@ -812,7 +812,7 @@ nginx:
 
 ### 9.3 Nginx Configuration
 
-**Location:** `/mnt/d/productavailability/nginx.conf`
+**Location:** `/opt/app/nginx.conf`
 
 ```nginx
 server {
@@ -842,7 +842,7 @@ server {
 
 ### 10.1 Test SAP Connection Script
 
-**File:** `/mnt/d/productavailability/test_sap_connection.py`
+**File:** `/opt/app/test_sap_connection.py`
 
 **Functions:**
 - `get_connection_params()`: Read from settings.ini or env vars
@@ -875,7 +875,7 @@ server {
 
 ### 11.1 Audit Middleware
 
-**File:** `/mnt/d/productavailability/atp/middleware/audit_middleware.py`
+**File:** `/opt/app/atp/middleware/audit_middleware.py`
 
 ```python
 class AuditMiddleware:
@@ -1026,7 +1026,7 @@ base.html (minimal structure, block content)
    - `settings.py`: SECRET_KEY visible
    - `settings.ini`: SAP credentials in plain text
    - `settings.py`: Database password hardcoded
-   - Email password: [REDACTED] in settings
+   - Email password: DummyPass123! in settings
 
 2. **DEBUG = True** - Exposes sensitive information in error pages
 
@@ -1056,7 +1056,7 @@ base.html (minimal structure, block content)
 
 **Configuration:**
 ```python
-CSRF_TRUSTED_ORIGINS = ['[REDACTED]', '[REDACTED]/atp/login/']
+CSRF_TRUSTED_ORIGINS = ['DummyPass123!', 'DummyPass123!/atp/login/']
 MIDDLEWARE includes CsrfViewMiddleware
 ```
 
@@ -1093,7 +1093,7 @@ MIDDLEWARE includes CsrfViewMiddleware
 
 ## 15. DEPENDENCIES & REQUIREMENTS
 
-**File:** `/mnt/d/productavailability/requirements.txt`
+**File:** `/opt/app/requirements.txt`
 
 ```
 certifi==2018.11.29
@@ -1147,7 +1147,7 @@ xlwt==1.3.0              # Legacy XLS generation
 - **Type:** MySQL 5.7
 - **Name:** atp
 - **User:** djangoadmin
-- **Password:** [REDACTED]
+- **Password:** DummyPass123!
 - **Persistence:** Docker volume db_data
 
 ---
@@ -1314,18 +1314,18 @@ User can login
 
 | File | Purpose |
 |------|---------|
-| `/mnt/d/productavailability/atp/atp/settings.py` | Main Django settings |
-| `/mnt/d/productavailability/atp/atp/urls.py` | Main URL routing |
-| `/mnt/d/productavailability/atp/atp/settings.ini` | SAP connection config |
-| `/mnt/d/productavailability/atp/stockcheck/models.py` | Database models |
-| `/mnt/d/productavailability/atp/stockcheck/views.py` | Business logic (450 lines) |
-| `/mnt/d/productavailability/atp/stockcheck/forms.py` | Form definitions |
-| `/mnt/d/productavailability/atp/stockcheck/admin.py` | Admin customization |
-| `/mnt/d/productavailability/atp/templates/stockcheck/` | HTML templates |
-| `/mnt/d/productavailability/Dockerfile` | Container definition |
-| `/mnt/d/productavailability/docker-compose.yml` | Service orchestration |
-| `/mnt/d/productavailability/nginx.conf` | Reverse proxy config |
-| `/mnt/d/productavailability/test_sap_connection.py` | SAP test script |
+| `/opt/app/atp/atp/settings.py` | Main Django settings |
+| `/opt/app/atp/atp/urls.py` | Main URL routing |
+| `/opt/app/atp/atp/settings.ini` | SAP connection config |
+| `/opt/app/atp/stockcheck/models.py` | Database models |
+| `/opt/app/atp/stockcheck/views.py` | Business logic (450 lines) |
+| `/opt/app/atp/stockcheck/forms.py` | Form definitions |
+| `/opt/app/atp/stockcheck/admin.py` | Admin customization |
+| `/opt/app/atp/templates/stockcheck/` | HTML templates |
+| `/opt/app/Dockerfile` | Container definition |
+| `/opt/app/docker-compose.yml` | Service orchestration |
+| `/opt/app/nginx.conf` | Reverse proxy config |
+| `/opt/app/test_sap_connection.py` | SAP test script |
 
 ### Key Commands
 
@@ -1362,10 +1362,10 @@ docker-compose exec web python manage.py <command>
 
 | Service | Username | Password | Note |
 |---------|----------|----------|------|
-| MySQL | djangoadmin | [REDACTED] | Container env var |
-| MySQL Root | root | [REDACTED] | Container env var |
-| Email | [REDACTED] | [REDACTED] | Gmail app password |
-| SAP | [REDACTED] | [REDACTED] | From settings.ini |
+| MySQL | djangoadmin | DummyPass123! | Container env var |
+| MySQL Root | root | DummyPass123! | Container env var |
+| Email | DummyPass123! | DummyPass123! | Gmail app password |
+| SAP | DummyPass123! | DummyPass123! | From settings.ini |
 | Django Admin | (create with createsuperuser) | | |
 
 ---

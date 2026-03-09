@@ -432,8 +432,8 @@ def product_detail(request, product_id):
     product = Product.objects.get(id=product_id)
     return render(request, 'product.html', {'product': product})
 
-# URL: /atp/product/46888/
-# → calls product_detail(request, product_id=46888)
+# URL: /atp/product/10001/
+# → calls product_detail(request, product_id=10001)
 ```
 
 ### 4. templates/ - HTML Files
@@ -575,7 +575,7 @@ class ProductSearchForm(forms.Form):
 
     plant_code = forms.ChoiceField(
         choices=[
-            ('9995', 'Plant 9995 - Main Warehouse'),
+            ('1000', 'Plant 1000 - Main Warehouse'),
             ('1000', 'Plant 1000 - Distribution Center'),
         ],
         required=False,
@@ -648,7 +648,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.getenv('DATABASE_NAME', 'atp'),
         'USER': os.getenv('DATABASE_USER', 'djangoadmin'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD', '[REDACTED]'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD', 'DummyPass123!'),
         'HOST': os.getenv('DATABASE_HOST', 'db'),
         'PORT': os.getenv('DATABASE_PORT', '3306'),
         'OPTIONS': {
@@ -668,7 +668,7 @@ SAP_CONFIG = {
 
 # Ollama AI Configuration (custom setting)
 OLLAMA_CONFIG = {
-    'base_url': os.getenv('OLLAMA_BASE_URL', 'http://172.22.80.1:11434'),
+    'base_url': os.getenv('OLLAMA_BASE_URL', 'http://192.168.1.101:11434'),
     'model': os.getenv('OLLAMA_MODEL', 'atp-chatbot'),
     'timeout': int(os.getenv('OLLAMA_TIMEOUT', '90')),
 }
@@ -930,7 +930,7 @@ priority = models.IntegerField(null=True)  # Allow NULL
 
 ### Detailed Flow for ATP Search
 
-**User Action**: Submit search form for product 46888
+**User Action**: Submit search form for product 10001
 
 ```python
 # 1. Request arrives at nginx
@@ -957,8 +957,8 @@ def search_view(request):
         return render(request, 'search.html', {'form': form})
 
     # b. Get data
-    product_number = form.cleaned_data['product_numbers'][0]  # 46888
-    plant_code = form.cleaned_data['plant_code']  # 9995
+    product_number = form.cleaned_data['product_numbers'][0]  # 10001
+    plant_code = form.cleaned_data['plant_code']  # 1000
 
     # c. Query SAP
     from .sap_utils import query_sap
@@ -986,7 +986,7 @@ def search_view(request):
 
 # 6. Template rendering
 # Django loads: templates/stockcheck/results.html
-# Replaces {{ product_number }} with "46888"
+# Replaces {{ product_number }} with "10001"
 # Loops through {% for product in results %}
 
 # 7. Response middleware
@@ -1010,7 +1010,7 @@ The ATP chatbot uses **Ollama** (local AI server) with a custom-trained **Gemma 
 ### Architecture
 
 ```
-User Message: "What's the stock of product 46888?"
+User Message: "What's the stock of product 10001?"
     ↓
 Django View (chatbot/views.py)
     ↓
@@ -1018,7 +1018,7 @@ Intent Classifier (chatbot/services/intent_classifier.py)
     ↓
 Ollama API Call → atp-chatbot model
     ↓
-Response: {"intent": "stock_query", "product_numbers": ["46888"], "confidence": 0.92}
+Response: {"intent": "stock_query", "product_numbers": ["10001"], "confidence": 0.92}
     ↓
 Entity Extractor (chatbot/services/entity_extractor.py)
     ↓
@@ -1035,7 +1035,7 @@ Response Generator (chatbot/services/response_generator.py)
     ↓
 Format natural language response
     ↓
-Return to user: "📦 Stock Information: Product 46888 has 1,250 units at Plant 9995"
+Return to user: "📦 Stock Information: Product 10001 has 1,250 units at Plant 1000"
 ```
 
 ### How the AI Works
@@ -1050,7 +1050,7 @@ def classify_intent(user_message, conversation_history=[]):
     Determine what the user wants to do
 
     Args:
-        user_message: "What's the stock of 46888?"
+        user_message: "What's the stock of 10001?"
         conversation_history: Previous messages
 
     Returns:
@@ -1081,10 +1081,10 @@ Return format: {{"intent": "<intent>", "confidence": <0.0-1.0>}}"""
 
 **Supported Intents**:
 - `greeting` - "Hello", "Hi"
-- `stock_query` - "Check stock for 46888"
-- `delivery_query` - "When is 46888 arriving?"
-- `product_info` - "What's the UPC of 46888?"
-- `plant_selection` - "Switch to plant 9995"
+- `stock_query` - "Check stock for 10001"
+- `delivery_query` - "When is 10001 arriving?"
+- `product_info` - "What's the UPC of 10001?"
+- `plant_selection` - "Switch to plant 1000"
 - `export_request` - "Export to Excel"
 - `farewell` - "Goodbye"
 - `unknown` - Unrelated queries
@@ -1099,13 +1099,13 @@ def extract_entities(user_message, intent, conversation_context={}):
     Extract structured data from user message
 
     Args:
-        user_message: "Check stock for products 46888 and 46961"
+        user_message: "Check stock for products 10001 and 10002"
         intent: "stock_query"
         conversation_context: {"products": ["12345"], ...}
 
     Returns:
         {
-            "product_numbers": ["46888", "46961"],
+            "product_numbers": ["10001", "10002"],
             "plant_code": None,
             "field_requested": None,
             "from_context": False
@@ -1143,23 +1143,23 @@ Return format: {{
 
 **Example Extractions**:
 ```
-Input: "What's the stock of product 46888?"
+Input: "What's the stock of product 10001?"
 Output: {
-    "product_numbers": ["46888"],
+    "product_numbers": ["10001"],
     "plant_code": null,
     "field_requested": null
 }
 
-Input: "What's the UPC?" (after asking about 46888)
+Input: "What's the UPC?" (after asking about 10001)
 Output: {
-    "product_numbers": ["46888"],
+    "product_numbers": ["10001"],
     "field_requested": "upc",
     "from_context": true
 }
 
-Input: "Do the same with 46961"
+Input: "Do the same with 10002"
 Output: {
-    "product_numbers": ["46961"],
+    "product_numbers": ["10002"],
     "field_requested": "upc",  # From last action
     "action_repeat": true
 }
@@ -1264,8 +1264,8 @@ class ConversationManager:
 **Context Example**:
 ```json
 {
-  "products": ["46888", "46961", "12345"],
-  "current_plant": "9995",
+  "products": ["10001", "10002", "12345"],
+  "current_plant": "1000",
   "last_intent": "product_info",
   "last_field_requested": "upc",
   "last_action_time": "2025-11-01T18:30:00Z"
@@ -1298,8 +1298,8 @@ class ConversationManager:
 class TrainingDataGenerator:
     def __init__(self):
         # Your actual data from the app
-        self.products = ['46888', '46961', '12345', ...]
-        self.plants = ['9995', '1000', '2000', ...]
+        self.products = ['10001', '10002', '12345', ...]
+        self.plants = ['1000', '1000', '2000', ...]
         self.fields = ['upc', 'brand', 'origin', 'weight', ...]
 
     def generate_stock_examples(self, count=125):
@@ -1363,39 +1363,39 @@ SYSTEM """You are an expert SAP product availability assistant for ATP system.
 ## Training Examples for Intent Classification:
 
 ### STOCK_QUERY (confidence: 0.92)
-User: What's the stock of product 46888?
+User: What's the stock of product 10001?
 Intent: stock_query
-Entities: {"product_numbers": ["46888"]}
+Entities: {"product_numbers": ["10001"]}
 
 User: Check stock for 12345, 67890
 Intent: stock_query
 Entities: {"product_numbers": ["12345", "67890"]}
 
-User: How many units of 46888 do we have?
+User: How many units of 10001 do we have?
 Intent: stock_query
-Entities: {"product_numbers": ["46888"]}
+Entities: {"product_numbers": ["10001"]}
 
 ... [615 more examples] ...
 
 ### FOLLOW-UP QUESTIONS (confidence: 0.88)
-Context: User previously asked about product 46888
+Context: User previously asked about product 10001
 
 User: What's the UPC?
 Intent: product_info
-Entities: {"product_numbers": ["46888"], "field_requested": "upc", "from_context": true}
+Entities: {"product_numbers": ["10001"], "field_requested": "upc", "from_context": true}
 
 User: What's its delivery date?
 Intent: delivery_query
-Entities: {"product_numbers": ["46888"], "from_context": true}
+Entities: {"product_numbers": ["10001"], "from_context": true}
 
 ... [50 examples] ...
 
 ### ACTION REPEAT PATTERNS (confidence: 0.95)
-Context: User asked "What's the UPC of 46961?"
+Context: User asked "What's the UPC of 10002?"
 
-User: Do the same with 46888
+User: Do the same with 10001
 Intent: product_info
-Entities: {"product_numbers": ["46888"], "field_requested": "upc", "action_repeat": true}
+Entities: {"product_numbers": ["10001"], "field_requested": "upc", "action_repeat": true}
 
 User: Also check 12345
 Intent: product_info
@@ -1407,13 +1407,13 @@ Entities: {"product_numbers": ["12345"], "field_requested": "upc", "action_repea
 ALWAYS respond with valid JSON in this exact format:
 {
   "intent": "stock_query",
-  "product_numbers": ["46888"],
+  "product_numbers": ["10001"],
   "confidence": 0.92
 }
 
 ## Critical Rules:
 1. Product numbers are 4-6 digit numbers
-2. Plant codes are 4 digit codes (9995, 1000, etc.)
+2. Plant codes are 4 digit codes (1000, 1000, etc.)
 3. If user asks follow-up without product number, set "from_context": true
 4. If user says "do the same", "also check", set "action_repeat": true
 5. Detect field requests: UPC, brand, origin, weight, case pack, vendor SKU
@@ -1434,7 +1434,7 @@ Now classify new user queries following these exact patterns.
 
 ```bash
 # Build custom model from Modelfile
-cd /mnt/d/productavailability/atp
+cd /opt/app/atp
 ollama create atp-chatbot -f Modelfile
 
 # Result: atp-chatbot model (~3 GB)
@@ -1676,7 +1676,7 @@ is_valid = check_password("password123", hashed)  # True/False
 **❌ DON'T** hardcode credentials:
 ```python
 # settings.py
-DATABASE_PASSWORD = "[REDACTED]"  # ❌ BAD!
+DATABASE_PASSWORD = "DummyPass123!"  # ❌ BAD!
 SAP_PASSWORD = "secret123"          # ❌ BAD!
 ```
 
@@ -1780,10 +1780,10 @@ def generate_custom_examples(self):
 
     # New pattern: Price queries
     examples.append({
-        "input": "What's the price of product 46888?",
+        "input": "What's the price of product 10001?",
         "output": {
             "intent": "price_query",
-            "product_numbers": ["46888"],
+            "product_numbers": ["10001"],
             "confidence": 0.92
         }
     })
@@ -1809,7 +1809,7 @@ for msg in failed_queries:
 #### 2. Generate Updated Dataset
 
 ```bash
-cd /mnt/d/productavailability/atp
+cd /opt/app/atp
 python generate_training_data.py
 
 # Output: atp_training_dataset.json (now with new examples)
@@ -1823,9 +1823,9 @@ SYSTEM """
 ... existing examples ...
 
 ### NEW PATTERN: PRICE QUERIES
-User: What's the price of product 46888?
+User: What's the price of product 10001?
 Intent: price_query
-Entities: {"product_numbers": ["46888"]}
+Entities: {"product_numbers": ["10001"]}
 
 User: Show me pricing for 12345
 Intent: price_query
@@ -1837,12 +1837,12 @@ Entities: {"product_numbers": ["12345"]}
 
 ```bash
 # Windows (where Ollama is installed)
-cd D:\productavailability\atp
+cd D:\opt\app\atp
 ollama create atp-chatbot -f Modelfile
 
 # Or from WSL
-cd /mnt/d/productavailability/atp
-/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
+cd /opt/app/atp
+/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
 
 # This overwrites the existing model
 ```
@@ -1851,10 +1851,10 @@ cd /mnt/d/productavailability/atp
 
 ```bash
 # Quick test
-echo "What's the price of 46888?" | ollama run atp-chatbot
+echo "What's the price of 10001?" | ollama run atp-chatbot
 
 # Should return:
-# {"intent": "price_query", "product_numbers": ["46888"], "confidence": 0.92}
+# {"intent": "price_query", "product_numbers": ["10001"], "confidence": 0.92}
 ```
 
 #### 6. Deploy

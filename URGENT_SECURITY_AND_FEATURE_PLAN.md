@@ -31,19 +31,19 @@ python -c "from django.core.management.utils import get_random_secret_key; print
 
 #### 3. Hide SAP Credentials (15 minutes)
 Your SAP credentials are visible in plain text:
-- Host: [REDACTED]
-- User: [REDACTED]
-- Password: [REDACTED]
+- Host: DummyPass123!
+- User: DummyPass123!
+- Password: DummyPass123!
 
 Create `.env` file:
 ```bash
 # .env file (DO NOT commit to git!)
-SAP_HOST=[REDACTED]
+SAP_HOST=DummyPass123!
 SAP_SYSNR=02
 SAP_CLIENT=900
-SAP_USER=[REDACTED]
-SAP_PASSWORD=[REDACTED]
-DATABASE_PASSWORD=[REDACTED]
+SAP_USER=DummyPass123!
+SAP_PASSWORD=DummyPass123!
+DATABASE_PASSWORD=DummyPass123!
 ```
 
 Update `settings.py` to use environment variables instead of settings.ini.
@@ -54,7 +54,7 @@ Update `settings.py` to use environment variables instead of settings.ini.
 
 #### 1. Add ALLOWED_HOSTS restriction
 ```python
-ALLOWED_HOSTS = ['[REDACTED]']  # Only your domain
+ALLOWED_HOSTS = ['DummyPass123!']  # Only your domain
 ```
 
 #### 2. Enable Security Headers
@@ -67,8 +67,8 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 ```
 
 #### 3. Change ALL passwords
-- Database password (currently: [REDACTED])
-- SAP password (currently: [REDACTED])
+- Database password (currently: DummyPass123!)
+- SAP password (currently: DummyPass123!)
 - Django admin passwords
 - Email passwords
 

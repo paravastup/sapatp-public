@@ -274,7 +274,7 @@ class ProductService:
             'brand': product.catalog_brand,
             'category': product.catalog_category,
             'collection': product.catalog_collection,
-            'description': product.label,  # Use label (accurate description from Plytix XML)
+            'description': product.label,  # Use label (accurate description from DataFeed XML)
             'family': product.family,  # For URL building
             'catalog_category': product.catalog_category,  # For URL building
             'website_subcategories': product.website_subcategories,  # For URL building
@@ -354,7 +354,7 @@ class ProductService:
     def build_product_url(family: str = None, category: str = None,
                          subcategories: str = None, label: str = None) -> str:
         """
-        Build Arc Cardinal product URL from Plytix data fields
+        Build ACME Corp product URL from DataFeed data fields
 
         Args:
             family: Product family (e.g., 'Tableware')

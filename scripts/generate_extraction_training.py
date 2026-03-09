@@ -54,7 +54,7 @@ class ExtractionTrainingGenerator:
                     "Tell me the {field}"
                 ],
                 'sample_values': [
-                    '10026102469610', '10026102468880', '10883314193807',
+                    '10026102100020', '10026102100010', '10883314193807',
                     '10026102002138', '98765432109876', '12345678901234',
                     '11111111111111', '99999999999999', '10101010101010'
                 ]
@@ -82,9 +82,9 @@ class ExtractionTrainingGenerator:
                     "Please provide the {field}"
                 ],
                 'sample_values': [
-                    'LUMINARC', 'PYREX', 'ACME CORP', 'DUROBOR',
-                    'CARDINAL', 'ARC INTERNATIONAL', 'CORNING',
-                    'LIBBEY', 'ANCHOR HOCKING', 'BORMIOLI'
+                    'BRAND_A', 'BRAND_B', 'ACME CORP', 'BRAND_C',
+                    'BRAND_D', 'ARC INTERNATIONAL', 'BRAND_H',
+                    'BRAND_E', 'BRAND_F', 'BRAND_G'
                 ]
             },
             'stock': {
@@ -286,7 +286,7 @@ class ExtractionTrainingGenerator:
                     "Find the {field}"
                 ],
                 'sample_values': [
-                    '46961', '46888', 'G3960', '00213', '12345',
+                    '10002', '10001', 'G3960', '00213', '12345',
                     '99999', 'A1234', 'B5678', 'C9012', 'TEST1'
                 ]
             },
@@ -392,8 +392,8 @@ class ExtractionTrainingGenerator:
                     "Where is it?"
                 ],
                 'sample_values': [
-                    '9995', '9994', '9993', '9943', 'DURAND', 'MILLVILLE',
-                    'CARDINAL', 'ARC CANADA', 'PLANT-A', 'WAREHOUSE-1'
+                    '1000', '9994', '9993', '9943', 'DURAND', 'MILLVILLE',
+                    'BRAND_D', 'ARC CANADA', 'PLANT-A', 'WAREHOUSE-1'
                 ]
             }
         }
@@ -408,7 +408,7 @@ class ExtractionTrainingGenerator:
         # Create 100 sample products with realistic data
         for i in range(100):
             product = {
-                'MATNR': random.choice(['46961', '46888', 'G3960', '00213', f'{40000 + i}', f'A{1000 + i}']),
+                'MATNR': random.choice(['10002', '10001', 'G3960', '00213', f'{40000 + i}', f'A{1000 + i}']),
                 'EAN11': f"{random.randint(1000000000000, 9999999999999)}",
                 'MAKTX': random.choice([
                     'GLASS TUMBLER 12OZ CLEAR', 'COFFEE MUG SET 4PC',
@@ -417,7 +417,7 @@ class ExtractionTrainingGenerator:
                     'BAKING DISH 2QT GLASS', 'STORAGE CONTAINER 1L',
                     f'PRODUCT ITEM {i}'
                 ]),
-                'ZBRDES': random.choice(['LUMINARC', 'PYREX', 'DUROBOR', 'CARDINAL', 'LIBBEY', 'ANCHOR']),
+                'ZBRDES': random.choice(['BRAND_A', 'BRAND_B', 'BRAND_C', 'BRAND_D', 'BRAND_E', 'ANCHOR']),
                 'HERKL': random.choice(['USA', 'CHINA', 'FRANCE', 'GERMANY', 'MEXICO', 'ITALY']),
                 'BRGEW': f"{random.uniform(0.1, 25.0):.2f}",
                 'MEINS': random.choice(['EA', 'PC', 'CS', 'DZ']),
@@ -428,7 +428,7 @@ class ExtractionTrainingGenerator:
                 'MNG01': str(random.randint(100, 5000)),
                 'LIFNR': f"VENDOR{random.randint(1, 50):03d}",
                 'EBELN': f"PO-2025-{random.randint(1, 999):03d}",
-                'WERKS': random.choice(['9995', '9994', '9993', '9943'])
+                'WERKS': random.choice(['1000', '9994', '9993', '9943'])
             }
             products.append(product)
 
@@ -1326,12 +1326,12 @@ def main():
     training_examples = generator.generate_all_examples()
 
     # Save training set
-    training_file = '/mnt/d/productavailability/training_data/extraction_training_15k.jsonl'
+    training_file = '/opt/app/training_data/extraction_training_15k.jsonl'
     generator.save_to_file(training_examples, training_file)
 
     # Generate validation set
     validation_examples = generator.generate_validation_set(1000)
-    validation_file = '/mnt/d/productavailability/training_data/extraction_validation_1k.jsonl'
+    validation_file = '/opt/app/training_data/extraction_validation_1k.jsonl'
     generator.save_to_file(validation_examples, validation_file)
 
     print("\n" + "=" * 80)

@@ -61,11 +61,11 @@ The template structure had jQuery loading at the **bottom** of the page (for per
 Loading jQuery in the head means it loads before page content, which can slightly delay initial render. However, this is necessary to prevent script errors. The impact is minimal (~50ms) since jQuery is cached after first load.
 
 ## Files Modified
-1. `/mnt/d/productavailability/atp/templates/stockcheck/base.html`
+1. `/opt/app/atp/templates/stockcheck/base.html`
    - Added jQuery to head (line 20)
    - Removed duplicate jQuery from bottom (line 29)
 
-2. `/mnt/d/productavailability/atp/templates/stockcheck/search.html`
+2. `/opt/app/atp/templates/stockcheck/search.html`
    - Moved script to js block
    - Removed unnecessary wrapper function
 

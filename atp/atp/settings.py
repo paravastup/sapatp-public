@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_jwt',
     'chatbot',  # AI-powered conversational search
-    'products',  # Plytix product master data
+    'products',  # DataFeed product master data
 ]
 
 MIDDLEWARE = [

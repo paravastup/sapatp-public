@@ -43,7 +43,7 @@ def prepare_training_data():
     all_examples = []
 
     # Load the main training data
-    main_training = Path('/mnt/d/productavailability/training_data/extraction_training_15k.jsonl')
+    main_training = Path('/opt/app/training_data/extraction_training_15k.jsonl')
     if main_training.exists():
         with open(main_training, 'r') as f:
             for line in f:
@@ -52,7 +52,7 @@ def prepare_training_data():
         print(f"Loaded {len(all_examples)} examples from main training")
 
     # Add terminology training
-    terminology_training = Path('/mnt/d/productavailability/training_data/terminology_training_4k.jsonl')
+    terminology_training = Path('/opt/app/training_data/terminology_training_4k.jsonl')
     if terminology_training.exists():
         with open(terminology_training, 'r') as f:
             for line in f:
@@ -206,7 +206,7 @@ CRITICAL RULES:
 3. If a value is not present, return null
 4. Never generate or guess values
 5. All barcode terms (EAN, product code, scanning code) map to 'upc' field
-6. Product numbers (46888, G3960) are NOT UPCs"
+6. Product numbers (10001, G3960) are NOT UPCs"
 
 PARAMETER temperature 0.01
 PARAMETER top_p 0.1

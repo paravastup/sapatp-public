@@ -12,6 +12,6 @@ entities = extractor.extract("show me all flatware products", "product_info")
 
 print(f"Query: 'show me all flatware products'")
 print(f"is_bulk_query: {entities.get('is_bulk_query')}")
-print(f"plytix_category: {entities.get('plytix_category')}")
-print(f"plytix_brand: {entities.get('plytix_brand')}")
+print(f"datafeed_category: {entities.get('datafeed_category')}")
+print(f"datafeed_brand: {entities.get('datafeed_brand')}")
 print(f"product_numbers: {entities.get('product_numbers')}")

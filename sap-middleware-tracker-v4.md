@@ -119,7 +119,7 @@ Commit: 1dc2466
 ### Access Points
 - Application: http://localhost:5000/
 - Admin Panel: http://localhost:5000/atp/admin/
-- Credentials: admin/[REDACTED]
+- Credentials: admin/DummyPass123!
 
 ### Critical Commands
 ```bash
@@ -136,8 +136,8 @@ docker-compose -f docker-compose-port5000-fixed.yml up -d
 ## ⚠️ Outstanding Items
 
 ### Critical (Do Immediately)
-1. [ ] Change DATABASE_PASSWORD from [REDACTED]
-2. [ ] Change SAP_PASSWORD from [REDACTED]
+1. [ ] Change DATABASE_PASSWORD from DummyPass123!
+2. [ ] Change SAP_PASSWORD from DummyPass123!
 3. [ ] Generate new DJANGO_SECRET_KEY
 
 ### Important (This Week)

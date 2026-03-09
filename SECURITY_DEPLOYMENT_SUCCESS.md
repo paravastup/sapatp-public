@@ -61,16 +61,16 @@ Referrer-Policy: strict-origin-when-cross-origin
 
 ## Admin Credentials (Unchanged)
 - **Username:** admin
-- **Password:** [REDACTED]
+- **Password:** DummyPass123!
 
 ## What You Should Do Next
 
 ### 1. Change Default Passwords (IMPORTANT!)
 Edit `.env` file and change:
 ```bash
-DATABASE_PASSWORD=[REDACTED]  # Change this
-SAP_PASSWORD=[REDACTED]        # Change this
-MYSQL_ROOT_PASSWORD=[REDACTED] # Change this
+DATABASE_PASSWORD=DummyPass123!  # Change this
+SAP_PASSWORD=DummyPass123!        # Change this
+MYSQL_ROOT_PASSWORD=DummyPass123! # Change this
 ```
 
 ### 2. Generate New SECRET_KEY
@@ -81,7 +81,7 @@ python3 -c "from django.core.management.utils import get_random_secret_key; prin
 
 ### 3. Update SAP Credentials
 Contact your SAP administrator to:
-- Change password for user `[REDACTED]`
+- Change password for user `DummyPass123!`
 - Update SAP_PASSWORD in `.env`
 
 ### 4. Configure SSL/HTTPS (Later)

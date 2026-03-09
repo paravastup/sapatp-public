@@ -31,7 +31,7 @@ Your application is now ready to run with comprehensive security patches that **
 
 ### Option 1: Automated Deployment (Recommended)
 ```bash
-cd /mnt/d/productavailability
+cd /opt/app
 ./deploy_secure.sh
 ```
 
@@ -104,9 +104,9 @@ Referrer-Policy: strict-origin-when-cross-origin
 ### 1. Change These Passwords NOW
 ```bash
 # In .env file:
-DATABASE_PASSWORD=[REDACTED]  # CHANGE THIS!
-SAP_PASSWORD=[REDACTED]        # CHANGE THIS!
-MYSQL_ROOT_PASSWORD=[REDACTED] # CHANGE THIS!
+DATABASE_PASSWORD=DummyPass123!  # CHANGE THIS!
+SAP_PASSWORD=DummyPass123!        # CHANGE THIS!
+MYSQL_ROOT_PASSWORD=DummyPass123! # CHANGE THIS!
 ```
 
 ### 2. Generate New SECRET_KEY

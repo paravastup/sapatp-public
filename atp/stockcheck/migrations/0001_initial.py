@@ -47,7 +47,7 @@ class Migration(migrations.Migration):
             name='Plant',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('code', models.CharField(help_text='Plant Code, for example: 9995', max_length=15)),
+                ('code', models.CharField(help_text='Plant Code, for example: 1000', max_length=15)),
                 ('description', models.CharField(help_text='Plant Code description, for example: Durand Glass', max_length=30)),
             ],
         ),

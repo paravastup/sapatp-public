@@ -158,7 +158,7 @@ Docker Container:
 
 ### ATP Dockerfile Explained
 
-**File**: `/mnt/d/productavailability/Dockerfile`
+**File**: `/opt/app/Dockerfile`
 
 ```dockerfile
 # 1. BASE IMAGE - Starting point
@@ -283,7 +283,7 @@ docker build --build-arg PYTHON_VERSION=3.6 -t atp-web .
 
 ### ATP docker-compose.yml Explained
 
-**File**: `/mnt/d/productavailability/docker-compose-port5000-secure.yml`
+**File**: `/opt/app/docker-compose-port5000-secure.yml`
 
 ```yaml
 # VERSION (optional)
@@ -302,7 +302,7 @@ services:
 
     # Container name
     container_name: atp_web
-    # Without this, name would be auto-generated like "productavailability_web_1"
+    # Without this, name would be auto-generated like "sapatp_web_1"
 
     # Ports to expose (but not publish to host)
     expose:
@@ -336,7 +336,7 @@ services:
       - RUNNING_IN_DOCKER=1
         # Tell Django it's running in Docker
 
-      - OLLAMA_BASE_URL=http://172.22.80.1:11434
+      - OLLAMA_BASE_URL=http://192.168.1.101:11434
         # AI model server URL (Windows host)
 
       - OLLAMA_MODEL=atp-chatbot
@@ -361,7 +361,7 @@ services:
 
     # Extra hosts (add to /etc/hosts in container)
     extra_hosts:
-      - "host.wsl.internal:172.22.80.1"
+      - "host.wsl.internal:192.168.1.101"
     # Maps hostname to IP for WSL2 Windows host access
 
   # ============================================
@@ -389,10 +389,10 @@ services:
       - MYSQL_USER=${DATABASE_USER:-djangoadmin}
         # Create user 'djangoadmin'
 
-      - MYSQL_PASSWORD=${DATABASE_PASSWORD:-[REDACTED]}
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD:-DummyPass123!}
         # Set user password
 
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-[REDACTED]}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-DummyPass123!}
         # Set root password
 
     # Publish ports to host
@@ -848,11 +848,11 @@ docker-compose events
 
 ```bash
 # Method 1: Simple (uses docker-compose.yml)
-cd /mnt/d/productavailability
+cd /opt/app
 docker-compose up -d
 
 # Method 2: Specific file (PRODUCTION)
-cd /mnt/d/productavailability
+cd /opt/app
 docker-compose -f docker-compose-port5000-secure.yml up -d
 
 # What happens:
@@ -1102,7 +1102,7 @@ docker exec atp_web python manage.py check
 docker exec atp_web python -c "from stockcheck.sap_utils import get_sap_connection; print(get_sap_connection().ping())"
 
 # Test Ollama connection
-docker exec atp_web curl http://172.22.80.1:11434/api/tags
+docker exec atp_web curl http://192.168.1.101:11434/api/tags
 ```
 
 ### Common Debug Scenarios
@@ -1229,7 +1229,7 @@ docker exec atp_web pip install new-package
 
 ### Using .env File
 
-**File**: `/mnt/d/productavailability/.env`
+**File**: `/opt/app/.env`
 
 ```bash
 # Database

@@ -6,11 +6,11 @@
 ATP (Available to Promise) is a Django-based web middleware application that integrates with SAP systems to provide real-time product availability checking across multiple manufacturing plants.
 
 ### Current Status
-- **Location**: `/mnt/d/productavailability/`
+- **Location**: `/opt/app/`
 - **Port**: 5000 (changed from 80)
 - **Stack**: Python 3.6, Django 2.1.5, MySQL 5.7, Docker
 - **Critical Dependency**: pyrfc-1.9.93-cp36-cp36m-linux_x86_64.whl (Python 3.6 specific)
-- **Admin Access**: admin/[REDACTED]
+- **Admin Access**: admin/DummyPass123!
 - **Security Level**: 7/10 (was 2/10)
 - **Git Branch**: security-improvements-oct31
 
@@ -42,7 +42,7 @@ ATP (Available to Promise) is a Django-based web middleware application that int
 1. **Database Issue**: Fixed missing stockcheck_searchhistory table
 2. **CSP Issue**: Disabled Content Security Policy that was blocking CDN resources
 3. **jQuery Issue**: Fixed loading order to prevent "$ is not defined" errors
-4. **Admin Access**: Created superuser account (admin/[REDACTED])
+4. **Admin Access**: Created superuser account (admin/DummyPass123!)
 
 #### Phase 5: Version Control ✅
 - Initialized git repository
@@ -81,9 +81,9 @@ Config: docker-compose-port5000-secure.yml
 
 ### Remaining Tasks
 1. **Critical**: Change default passwords in .env
-   - DATABASE_PASSWORD (currently: [REDACTED])
-   - SAP_PASSWORD (currently: [REDACTED])
-   - MYSQL_ROOT_PASSWORD (currently: [REDACTED])
+   - DATABASE_PASSWORD (currently: DummyPass123!)
+   - SAP_PASSWORD (currently: DummyPass123!)
+   - MYSQL_ROOT_PASSWORD (currently: DummyPass123!)
 
 2. **Important**: Generate new Django SECRET_KEY
 

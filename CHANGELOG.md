@@ -10,9 +10,9 @@ All notable changes to this project will be documented in this file.
 
 #### AI-Powered Conversational Chatbot
 - **Natural Language Interface**: Users can now ask questions in plain English
-  - "What's the stock of product 46888?"
+  - "What's the stock of product 10001?"
   - "What's the UPC?" (remembers context)
-  - "Do the same with 46961" (understands action patterns)
+  - "Do the same with 10002" (understands action patterns)
 
 - **Custom Trained AI Model**: Built `atp-chatbot` model
   - Base: gemma3:4b (4 billion parameters)
@@ -40,8 +40,8 @@ Supports 9 intent types:
 
 #### Entity Extraction
 Automatically extracts:
-- Product numbers (e.g., 46888, 46961)
-- Plant codes (e.g., 9995)
+- Product numbers (e.g., 10001, 10002)
+- Plant codes (e.g., 1000)
 - Vendor SKUs
 - Specific fields requested (UPC, brand, origin, weight, case pack)
 - Context indicators (from previous conversation)
@@ -102,7 +102,7 @@ Automatically extracts:
   - Added `OLLAMA_BASE_URL` environment variable
   - Added `OLLAMA_MODEL=atp-chatbot` configuration
   - Added `OLLAMA_TIMEOUT=90` seconds
-  - Configured Ollama host IP: 172.22.80.1
+  - Configured Ollama host IP: 192.168.1.101
 
 - `atp/atp/settings_secure.py`
   - Added chatbot app to `INSTALLED_APPS`
@@ -123,7 +123,7 @@ Automatically extracts:
 
 #### Context Loss Issues (Resolved)
 **Problem**: Bot forgot previous products in follow-up questions
-- User: "What's the stock of 46888?"
+- User: "What's the stock of 10001?"
 - Bot: [Shows stock]
 - User: "What's the UPC?"
 - Bot: "I need product number(s)" ❌
@@ -136,9 +136,9 @@ Automatically extracts:
 
 #### Action Repeat Intelligence (Resolved)
 **Problem**: Bot didn't understand "do the same" patterns
-- User: "What's the UPC of 46961?"
+- User: "What's the UPC of 10002?"
 - Bot: [Shows UPC]
-- User: "Do the same with 46888"
+- User: "Do the same with 10001"
 - Bot: "I'm not quite sure..." ❌
 
 **Solution**: Action tracking system
@@ -224,8 +224,8 @@ chatbot_message (
 
 #### Data Sources
 All training data is 100% ATP-specific:
-- ✅ Real product numbers: 46888, 46961
-- ✅ Real plant codes: 9995 (default)
+- ✅ Real product numbers: 10001, 10002
+- ✅ Real plant codes: 1000 (default)
 - ✅ Real SAP fields: EAN11, ZBRDES, HERKL, BRGEW, UMREZ, BISMT
 - ✅ Real business logic: Stock, delivery, product info queries
 - ✅ Real bug patterns: Context loss, action repeats
@@ -301,7 +301,7 @@ All training data is 100% ATP-specific:
 4. **Admin Access**: Created superuser account
 
 ### 📊 Database
-- Created admin user (admin/[REDACTED])
+- Created admin user (admin/DummyPass123!)
 - Fixed table migrations
 - Added search history tracking
 

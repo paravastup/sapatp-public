@@ -44,7 +44,7 @@ def train_full():
     texts = []
 
     # Main training data (15,995 examples)
-    train_file = Path('/mnt/d/productavailability/training_data/extraction_training_15k.jsonl')
+    train_file = Path('/opt/app/training_data/extraction_training_15k.jsonl')
     with open(train_file, 'r', encoding='utf-8') as f:
         for line in f:
             ex = json.loads(line)
@@ -57,7 +57,7 @@ def train_full():
             texts.append(text.strip())
 
     # Add terminology training (4,000 examples)
-    term_file = Path('/mnt/d/productavailability/training_data/terminology_training_4k.jsonl')
+    term_file = Path('/opt/app/training_data/terminology_training_4k.jsonl')
     if term_file.exists():
         with open(term_file, 'r', encoding='utf-8') as f:
             for line in f:

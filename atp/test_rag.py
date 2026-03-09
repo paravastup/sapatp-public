@@ -32,7 +32,7 @@ if retriever.is_ready():
         response = rag_gen.generate_with_rag(
             user_query="Show me Arcoroc wine glasses",
             intent='product_info',
-            entities={'plytix_brand': 'Arcoroc'},
+            entities={'datafeed_brand': 'Arcoroc'},
             context={}
         )
         print(f"\nRAG Response:\n{response}")

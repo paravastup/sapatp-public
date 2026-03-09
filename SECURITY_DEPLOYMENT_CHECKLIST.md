@@ -10,9 +10,9 @@
   python3 -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
   ```
 - [ ] **Update .env file with new SECRET_KEY**
-- [ ] **Change DATABASE_PASSWORD** from default `[REDACTED]`
-- [ ] **Change SAP_PASSWORD** from default `[REDACTED]`
-- [ ] **Change MYSQL_ROOT_PASSWORD** from default `[REDACTED]`
+- [ ] **Change DATABASE_PASSWORD** from default `DummyPass123!`
+- [ ] **Change SAP_PASSWORD** from default `DummyPass123!`
+- [ ] **Change MYSQL_ROOT_PASSWORD** from default `DummyPass123!`
 - [ ] **Set DJANGO_DEBUG=False**
 - [ ] **Verify .env is in .gitignore**
 
@@ -54,7 +54,7 @@
 
 ```bash
 # 1. Navigate to project directory
-cd /mnt/d/productavailability
+cd /opt/app
 
 # 2. Create .env from example (if not exists)
 cp .env.example .env
@@ -89,7 +89,7 @@ FLUSH PRIVILEGES;
 
 ### Step 3: Update SAP Password (5 minutes)
 
-1. Contact SAP administrator to change password for user `[REDACTED]`
+1. Contact SAP administrator to change password for user `DummyPass123!`
 2. Update SAP_PASSWORD in .env file
 3. Test connection with test_sap_connection.py
 

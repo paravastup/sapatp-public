@@ -94,7 +94,7 @@ Allows users to quickly check product stock, delivery dates, and product informa
 - **External**: Port 5000 → Nginx → Gunicorn (port 8000)
 - **Internal Docker Network**: `atp_network` (bridge mode)
 - **SAP Connection**: pyrfc library over RFC protocol
-- **AI Model**: HTTP API to Ollama on Windows host (172.22.80.1:11434)
+- **AI Model**: HTTP API to Ollama on Windows host (192.168.1.101:11434)
 
 ---
 
@@ -148,7 +148,7 @@ XlsxWriter==1.1.2
 
 #### 1. Clone the Repository
 ```bash
-cd /mnt/d/productavailability
+cd /opt/app
 git pull origin security-improvements-oct31
 ```
 
@@ -158,14 +158,14 @@ git pull origin security-improvements-oct31
 Create environment variables (already configured in docker-compose.yml):
 - `DATABASE_NAME`: atp
 - `DATABASE_USER`: djangoadmin
-- `DATABASE_PASSWORD`: [REDACTED] (CHANGE IN PRODUCTION!)
-- `OLLAMA_BASE_URL`: http://172.22.80.1:11434
+- `DATABASE_PASSWORD`: DummyPass123! (CHANGE IN PRODUCTION!)
+- `OLLAMA_BASE_URL`: http://192.168.1.101:11434
 - `OLLAMA_MODEL`: atp-chatbot
 - `OLLAMA_TIMEOUT`: 90
 
 #### 3. Start the Application
 ```bash
-cd /mnt/d/productavailability
+cd /opt/app
 docker-compose -f docker-compose-port5000-secure.yml up -d
 ```
 
@@ -177,13 +177,13 @@ docker-compose -f docker-compose-port5000-secure.yml logs -f
 #### 4. Access the Application
 - **Main Page**: http://localhost:5000/
 - **Login Page**: http://localhost:5000/atp/login/
-- **Admin Panel**: http://localhost:5000/atp/admin/ (admin/[REDACTED])
+- **Admin Panel**: http://localhost:5000/atp/admin/ (admin/DummyPass123!)
 - **AI Chat**: http://localhost:5000/atp/chat/
 
 #### 5. First Login
 Default superuser:
 - Username: `admin`
-- Password: `[REDACTED]`
+- Password: `DummyPass123!`
 
 **CHANGE THIS PASSWORD IMMEDIATELY IN PRODUCTION!**
 
@@ -248,10 +248,10 @@ User Message → Django View → Intent Classification (Ollama)
 **Supported Intents**:
 - `greeting`: "Hello", "Hi", "Good morning"
 - `help`: "What can you do?", "Help me"
-- `stock_query`: "Check stock for 46888", "How many units?"
-- `delivery_query`: "When is 46888 arriving?", "ETA?"
+- `stock_query`: "Check stock for 10001", "How many units?"
+- `delivery_query`: "When is 10001 arriving?", "ETA?"
 - `product_info`: "What's the UPC?", "Show brand", "Origin?"
-- `plant_selection`: "Switch to plant 9995", "Change plant"
+- `plant_selection`: "Switch to plant 1000", "Change plant"
 - `export_request`: "Export to Excel", "Download as PDF"
 - `farewell`: "Goodbye", "Thanks", "Bye"
 - `unknown`: Unrelated queries
@@ -265,8 +265,8 @@ User Message → Django View → Intent Classification (Ollama)
 **Purpose**: Extract structured data from user message
 
 **Extracts**:
-- `product_numbers`: ["46888", "46961"]
-- `plant_code`: "9995"
+- `product_numbers`: ["10001", "10002"]
+- `plant_code`: "1000"
 - `vendor_skus`: ["ABC123"]
 - `field_requested`: "upc", "brand", "origin"
 - `from_context`: true (inferred from conversation)
@@ -275,7 +275,7 @@ User Message → Django View → Intent Classification (Ollama)
 **Context-Aware Features**:
 - Remembers previously mentioned products
 - Detects follow-up questions ("What's the UPC?" → uses last product)
-- Recognizes action repeat phrases ("do the same with 46888")
+- Recognizes action repeat phrases ("do the same with 10001")
 
 #### c. Conversation Manager (`services/conversation_manager.py`)
 **Purpose**: Maintain conversation state across messages
@@ -294,13 +294,13 @@ class Conversation(models.Model):
 - **Product Context**: Remembers last 10 products queried
 - **Intent Context**: Tracks last action (for "do the same")
 - **Field Context**: Remembers last field requested (UPC, brand, etc.)
-- **Plant Context**: Current plant selection (default: 9995)
+- **Plant Context**: Current plant selection (default: 1000)
 
 **Example Context**:
 ```json
 {
-  "products": ["46888", "46961"],
-  "current_plant": "9995",
+  "products": ["10001", "10002"],
+  "current_plant": "1000",
   "last_intent": "product_info",
   "last_field_requested": "upc",
   "last_action_time": "2025-11-01T18:30:00Z"
@@ -311,7 +311,7 @@ class Conversation(models.Model):
 **Purpose**: Interface with Ollama AI server
 
 **Configuration**:
-- **URL**: http://172.22.80.1:11434 (Windows host WSL bridge IP)
+- **URL**: http://192.168.1.101:11434 (Windows host WSL bridge IP)
 - **Model**: atp-chatbot (custom trained gemma3:4b)
 - **Timeout**: 90 seconds
 - **Retry Logic**: 3 attempts with exponential backoff
@@ -322,7 +322,7 @@ class Conversation(models.Model):
    POST /api/generate
    {
      "model": "atp-chatbot",
-     "prompt": "Classify: What's the stock of 46888?",
+     "prompt": "Classify: What's the stock of 10001?",
      "format": "json"
    }
    ```
@@ -332,7 +332,7 @@ class Conversation(models.Model):
    POST /api/generate
    {
      "model": "atp-chatbot",
-     "prompt": "Extract entities: Check delivery for products 46888 and 46961",
+     "prompt": "Extract entities: Check delivery for products 10001 and 10002",
      "format": "json"
    }
    ```
@@ -351,12 +351,12 @@ class Conversation(models.Model):
 ```
 📦 Stock Information:
 
-**Product 46888** - Premium Coffee Beans
-• Plant 9995: 1,250 units
+**Product 10001** - Premium Coffee Beans
+• Plant 1000: 1,250 units
 • Status: In Stock ✅
 
-**Product 46961** - Organic Tea Leaves
-• Plant 9995: 0 units
+**Product 10002** - Organic Tea Leaves
+• Plant 1000: 0 units
 • Status: Out of Stock ❌
 ```
 
@@ -364,10 +364,10 @@ class Conversation(models.Model):
 ```
 📋 UPC Information:
 
-**46888** - Premium Coffee Beans
+**10001** - Premium Coffee Beans
 • UPC/EAN: 012345678901
 
-**46961** - Organic Tea Leaves
+**10002** - Organic Tea Leaves
 • UPC/EAN: 987654321098
 ```
 
@@ -375,7 +375,7 @@ class Conversation(models.Model):
 ```
 🚚 Delivery Schedule:
 
-**Product 46888** - Premium Coffee Beans
+**Product 10001** - Premium Coffee Beans
 • Next Delivery: 2025-11-15
 • Quantity: 500 units
 ```
@@ -419,39 +419,39 @@ field_map = {
 
 **Training Data Sources**:
 1. **Your SAP Field Mappings**: All examples use actual field names (EAN11, ZBRDES, HERKL, etc.)
-2. **Your Product Numbers**: Training uses 46888, 46961 (real products)
-3. **Your Plant Codes**: Default plant 9995 in examples
+2. **Your Product Numbers**: Training uses 10001, 10002 (real products)
+3. **Your Plant Codes**: Default plant 1000 in examples
 4. **Your Business Logic**: Stock queries, delivery queries, product info patterns
 5. **Your Bug Reports**: Context loss and action repeat patterns
 
 **Example Training Data**:
 ```
-User: What's the stock of product 46888?
-Expected: {"intent": "stock_query", "product_numbers": ["46888"], "confidence": 0.92}
+User: What's the stock of product 10001?
+Expected: {"intent": "stock_query", "product_numbers": ["10001"], "confidence": 0.92}
 
 User: What's the UPC?
-Context: Previously asked about 46888
-Expected: {"intent": "product_info", "product_numbers": ["46888"], "field_requested": "upc", "from_context": true}
+Context: Previously asked about 10001
+Expected: {"intent": "product_info", "product_numbers": ["10001"], "field_requested": "upc", "from_context": true}
 
-User: Do the same with 46961
-Context: Last action was "get UPC for 46888"
-Expected: {"intent": "product_info", "product_numbers": ["46961"], "field_requested": "upc", "action_repeat": true}
+User: Do the same with 10002
+Context: Last action was "get UPC for 10001"
+Expected: {"intent": "product_info", "product_numbers": ["10002"], "field_requested": "upc", "action_repeat": true}
 ```
 
 **Rebuilding the Model**:
 ```bash
 # Windows (where Ollama is installed)
-cd D:\productavailability\atp
+cd D:\opt\app\atp
 ollama create atp-chatbot -f Modelfile
 
 # Or from WSL
-cd /mnt/d/productavailability/atp
-/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
+cd /opt/app/atp
+/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
 ```
 
 **Testing the Model**:
 ```bash
-echo "What's the stock of product 46888?" | ollama run atp-chatbot
+echo "What's the stock of product 10001?" | ollama run atp-chatbot
 # Should return JSON with intent, entities, confidence
 ```
 
@@ -480,7 +480,7 @@ CREATE TABLE stockcheck_user (
 ```sql
 CREATE TABLE stockcheck_plant (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    code VARCHAR(4) NOT NULL,  -- e.g., "9995"
+    code VARCHAR(4) NOT NULL,  -- e.g., "1000"
     name VARCHAR(100),          -- e.g., "Main Distribution Center"
     is_active BOOLEAN DEFAULT TRUE
 );
@@ -515,8 +515,8 @@ CREATE TABLE chatbot_conversation (
 **Context JSON Structure**:
 ```json
 {
-  "products": ["46888", "46961"],
-  "current_plant": "9995",
+  "products": ["10001", "10002"],
+  "current_plant": "1000",
   "last_intent": "product_info",
   "last_field_requested": "upc",
   "last_action_description": "get UPC for product",
@@ -559,7 +559,7 @@ CREATE TABLE chatbot_message (
 ### Chatbot Endpoints (AJAX/JSON)
 - `GET /atp/chat/` - Chat interface page
 - `POST /atp/chat/send/` - Send message to chatbot
-  - **Request**: `{"message": "What's the stock of 46888?"}`
+  - **Request**: `{"message": "What's the stock of 10001?"}`
   - **Response**: `{"response": "📦 Stock Info...", "intent": "stock_query"}`
 
 ### Admin Endpoints (Superuser Only)
@@ -722,7 +722,7 @@ DATABASES = {
 2. **Model Performance Review**:
    ```bash
    # Test model accuracy
-   cd /mnt/d/productavailability/atp
+   cd /opt/app/atp
    python test_chatbot_simple.py
    ```
 
@@ -735,11 +735,11 @@ DATABASES = {
 1. **Retrain AI Model** (if needed):
    ```bash
    # Update generate_training_data.py with new patterns
-   cd /mnt/d/productavailability/atp
+   cd /opt/app/atp
    python generate_training_data.py
 
    # Rebuild model
-   /mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
+   /mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
 
    # Restart application
    docker-compose -f docker-compose-port5000-secure.yml restart web
@@ -775,14 +775,14 @@ ollama list  # Should show atp-chatbot
 echo "Test query" | ollama run atp-chatbot
 
 # Check network from container
-docker-compose -f docker-compose-port5000-secure.yml exec web curl http://172.22.80.1:11434/api/tags
+docker-compose -f docker-compose-port5000-secure.yml exec web curl http://192.168.1.101:11434/api/tags
 
 # Increase timeout if needed (docker-compose.yml)
 OLLAMA_TIMEOUT=120
 
 # Verify correct model is loaded
 docker-compose -f docker-compose-port5000-secure.yml logs web | grep "Ollama configured"
-# Should show: Ollama configured: http://172.22.80.1:11434 using model atp-chatbot
+# Should show: Ollama configured: http://192.168.1.101:11434 using model atp-chatbot
 ```
 
 #### 2. SAP Connection Failures
@@ -918,7 +918,7 @@ docker-compose -f docker-compose-port5000-secure.yml exec web python manage.py s
 # Example: Test chatbot services
 >>> from chatbot.services.ollama_client import OllamaClient
 >>> client = OllamaClient()
->>> result = client.classify_intent("What's the stock of 46888?", [])
+>>> result = client.classify_intent("What's the stock of 10001?", [])
 >>> print(result)
 ```
 
@@ -1101,7 +1101,7 @@ user = User.objects.get(username='admin')
 # Create
 history = SearchHistory.objects.create(
     user=user,
-    product_number='46888',
+    product_number='10001',
     result_count=5
 )
 ```
@@ -1144,8 +1144,8 @@ docker-compose -f docker-compose-port5000-secure.yml exec db mysql -uroot -p atp
 
 ### Rebuild AI Model
 ```bash
-cd /mnt/d/productavailability/atp
-/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
+cd /opt/app/atp
+/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
 ```
 
 ### Run Tests
@@ -1168,7 +1168,7 @@ docker-compose -f docker-compose-port5000-secure.yml up -d
 ## Support Contacts
 
 **Repository**: https://github.com/yourcompany/atp-application
-**Documentation**: `/mnt/d/productavailability/docs/`
+**Documentation**: `/opt/app/docs/`
 **Backup Location**: `/backups/atp/`
 
 ---

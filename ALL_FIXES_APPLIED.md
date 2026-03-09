@@ -21,7 +21,7 @@
 - Application accessible on port 5000
 - All pages load with proper styling
 - Login/logout functionality
-- Admin panel access (admin/[REDACTED])
+- Admin panel access (admin/DummyPass123!)
 - Search functionality
 - Database operations
 - Security headers (except CSP)
@@ -87,9 +87,9 @@ docker-compose -f docker-compose-port5000-fixed.yml up -d
 
 ### High Priority:
 1. ⚠️ Change default passwords in `.env`
-   - DATABASE_PASSWORD (currently: [REDACTED])
-   - SAP_PASSWORD (currently: [REDACTED])
-   - MYSQL_ROOT_PASSWORD (currently: [REDACTED])
+   - DATABASE_PASSWORD (currently: DummyPass123!)
+   - SAP_PASSWORD (currently: DummyPass123!)
+   - MYSQL_ROOT_PASSWORD (currently: DummyPass123!)
 
 2. ⚠️ Generate new SECRET_KEY
    ```bash

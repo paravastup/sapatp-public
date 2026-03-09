@@ -5,7 +5,7 @@
 ### Superuser Account Created ✅
 
 **Username:** `admin`
-**Password:** `[REDACTED]`
+**Password:** `DummyPass123!`
 **Email:** admin@example.com
 
 ### Access URLs
@@ -95,7 +95,7 @@ If you cannot login:
    docker exec atp_web python -c "
    from django.contrib.auth.models import User
    u = User.objects.get(username='admin')
-   u.set_password('[REDACTED]')
+   u.set_password('DummyPass123!')
    u.save()
    print('Password reset')
    "
@@ -110,4 +110,4 @@ If you cannot login:
 
 **Login Now:** http://localhost:5000/atp/admin/
 **Username:** admin
-**Password:** [REDACTED]
+**Password:** DummyPass123!

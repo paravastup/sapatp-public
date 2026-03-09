@@ -6,13 +6,13 @@
 
 #### 1.1 Create `.env` file in project root
 ```bash
-# /mnt/d/productavailability/.env
+# /opt/app/.env
 # DO NOT commit this to git!
 
 # Django Settings
 DJANGO_SECRET_KEY=PUT_NEW_GENERATED_KEY_HERE
 DJANGO_DEBUG=False
-DJANGO_ALLOWED_HOSTS=[REDACTED],[REDACTED]
+DJANGO_ALLOWED_HOSTS=DummyPass123!,DummyPass123!
 
 # Database Configuration
 DATABASE_ENGINE=django.db.backends.mysql
@@ -23,10 +23,10 @@ DATABASE_HOST=localhost
 DATABASE_PORT=3306
 
 # SAP Connection (Change these passwords!)
-SAP_HOST=[REDACTED]
+SAP_HOST=DummyPass123!
 SAP_SYSNR=02
 SAP_CLIENT=900
-SAP_USER=[REDACTED]
+SAP_USER=DummyPass123!
 SAP_PASSWORD=CHANGE_THIS_PASSWORD_NOW
 SAP_LANG=EN
 
@@ -393,7 +393,7 @@ import os
 import sys
 
 # Add the project to path
-sys.path.insert(0, '/mnt/d/productavailability/atp')
+sys.path.insert(0, '/opt/app/atp')
 
 # Test loading secure settings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'atp.settings_secure')

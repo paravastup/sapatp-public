@@ -102,9 +102,9 @@ User: Stock status of 40004
 Intent: stock_query
 Entities: {"product_numbers": ["40004"]}
 
-User: Show stock for 46888
+User: Show stock for 10001
 Intent: stock_query
-Entities: {"product_numbers": ["46888"]}
+Entities: {"product_numbers": ["10001"]}
 
 User: Check inventory 90009 at plant 4000
 Intent: stock_query
@@ -133,17 +133,17 @@ User: When will 77777 be delivered?
 Intent: delivery_query
 Entities: {"product_numbers": ["77777"]}
 
-User: When is 46961 arriving?
+User: When is 10002 arriving?
 Intent: delivery_query
-Entities: {"product_numbers": ["46961"]}
+Entities: {"product_numbers": ["10002"]}
 
 User: Next arrival of 67890
 Intent: delivery_query
 Entities: {"product_numbers": ["67890"]}
 
-User: When does 90009 come in? for plant 9995
+User: When does 90009 come in? for plant 1000
 Intent: delivery_query
-Entities: {"product_numbers": ["90009"], "plant_code": "9995"}
+Entities: {"product_numbers": ["90009"], "plant_code": "1000"}
 
 User: Shipment ETA for 90009
 Intent: delivery_query
@@ -203,9 +203,9 @@ Entities: {"product_numbers": ["99999"], "field_requested": "upc"}
 
 ## PLANT_SELECTION Examples:
 
-User: Select plant 9995
+User: Select plant 1000
 Intent: plant_selection
-Entities: {"plant_code": "9995"}
+Entities: {"plant_code": "1000"}
 
 User: Change my plant to 4000
 Intent: plant_selection
@@ -219,9 +219,9 @@ User: Select plant 3000
 Intent: plant_selection
 Entities: {"plant_code": "3000"}
 
-User: Use plant 9995
+User: Use plant 1000
 Intent: plant_selection
-Entities: {"plant_code": "9995"}
+Entities: {"plant_code": "1000"}
 
 User: Switch to plant 3000
 Intent: plant_selection

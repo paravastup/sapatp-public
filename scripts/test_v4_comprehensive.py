@@ -14,19 +14,19 @@ def test_v4_model():
     hallucination_tests = [
         {
             'name': 'No UPC - should not return product number',
-            'context': 'Product 46888, weight: 19.98, country of origin: USA',
+            'context': 'Product 10001, weight: 19.98, country of origin: USA',
             'query': "What's the upc?",
             'expected': {"upc": None}
         },
         {
             'name': 'Product number is not UPC',
-            'context': 'Product 46961, stock: 6217, description: SOUP BOWL CERAMIC',
+            'context': 'Product 10002, stock: 6217, description: SOUP BOWL CERAMIC',
             'query': "I'm looking for the upc",
             'expected': {"upc": None}
         },
         {
             'name': 'No barcode means null',
-            'context': 'Product 46888, delivery quantity: 4330, product number: 46888',
+            'context': 'Product 10001, delivery quantity: 4330, product number: 10001',
             'query': "Can you tell me the UPC code?",
             'expected': {"upc": None}
         }
@@ -36,13 +36,13 @@ def test_v4_model():
     terminology_tests = [
         {
             'name': 'Product code → UPC when UPC exists',
-            'context': 'Product 46961 has UPC 10026102469610, brand: LUMINARC',
+            'context': 'Product 10002 has UPC 10026102100020, brand: BRAND_A',
             'query': "What's the product code?",
-            'expected': {"upc": "10026102469610"}
+            'expected': {"upc": "10026102100020"}
         },
         {
             'name': 'EAN → UPC',
-            'context': 'Product 46888 has UPC 3429270008762',
+            'context': 'Product 10001 has UPC 3429270008762',
             'query': "What's the EAN?",
             'expected': {"upc": "3429270008762"}
         },
@@ -79,7 +79,7 @@ Question: {test['query']}
 Response:"""
 
             try:
-                ollama_path = "/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe"
+                ollama_path = "/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe"
                 cmd = [ollama_path, 'run', 'atp-extraction-v4', prompt]
 
                 result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)

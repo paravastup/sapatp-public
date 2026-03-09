@@ -4,7 +4,7 @@
 
 ✅ All containers running: `docker-compose -f docker-compose-port5000-secure.yml ps`
 ✅ Application accessible: http://localhost:5000
-✅ User logged in: admin/[REDACTED]
+✅ User logged in: admin/DummyPass123!
 ✅ Browser console open (F12) - watch for errors
 
 ---
@@ -19,7 +19,7 @@
 - ✅ Bell icon (🔔) visible between "AI Search" and folder icon
 - ✅ Folder icon visible before "Help"
 - ✅ No badge visible initially (no unread notifications)
-- ✅ Icons styled with ARC Cardinal colors
+- ✅ Icons styled with ARC Brand_D colors
 
 ### How to Verify:
 - Check browser console: Should see `[Notifications] Initializing...`
@@ -126,7 +126,7 @@
 
 ### Steps:
 1. Create 3 exports quickly:
-   - "Show stock for product 46888"
+   - "Show stock for product 10001"
    - "Show stock for product 12345"
    - "Show stock for product 99999"
 2. Email each result
@@ -166,7 +166,7 @@
 ## Test 8: Admin Access
 
 ### Steps:
-1. Log in as admin (admin/[REDACTED])
+1. Log in as admin (admin/DummyPass123!)
 2. Navigate to Export History
 3. Should see ALL exports from ALL users
 

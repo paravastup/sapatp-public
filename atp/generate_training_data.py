@@ -19,7 +19,7 @@ class TrainingDataGenerator:
 
         # Sample product numbers for realistic examples
         self.products = [
-            '46888', '46961', '12345', '67890', '11111', '22222', '33333',
+            '10001', '10002', '12345', '67890', '11111', '22222', '33333',
             '44444', '55555', '77777', '88888', '99999', '10001', '20002',
             '30003', '40004', '50005', '60006', '70007', '80008', '90009'
         ]
@@ -31,7 +31,7 @@ class TrainingDataGenerator:
         ]
 
         # Plant codes
-        self.plants = ['9995', '1000', '2000', '3000', '4000']
+        self.plants = ['1000', '1000', '2000', '3000', '4000']
 
         # Field types for product_info intent
         self.fields = [
@@ -455,7 +455,7 @@ class TrainingDataGenerator:
         """Generate follow-up question examples (context-dependent)"""
         followup_templates = [
             # Pronoun-based follow-ups
-            ("What's the stock of 46888?", "What's its UPC?", 'product_info', {'product_numbers': ['46888'], 'field_requested': 'upc', 'from_context': True}),
+            ("What's the stock of 10001?", "What's its UPC?", 'product_info', {'product_numbers': ['10001'], 'field_requested': 'upc', 'from_context': True}),
             ("Check stock for 12345", "What's the delivery date?", 'delivery_query', {'product_numbers': ['12345'], 'from_context': True}),
             ("Show me product 67890", "What's the brand?", 'product_info', {'product_numbers': ['67890'], 'field_requested': 'brand', 'from_context': True}),
             ("Check 11111", "What about the origin?", 'product_info', {'product_numbers': ['11111'], 'field_requested': 'origin', 'from_context': True}),
@@ -527,7 +527,7 @@ class TrainingDataGenerator:
         ]
 
         action_contexts = [
-            ("What's the UPC of 46888?", 'product_info', 'upc'),
+            ("What's the UPC of 10001?", 'product_info', 'upc'),
             ("Show me the brand for 12345", 'product_info', 'brand'),
             ("What's the stock of 67890?", 'stock_query', None),
             ("When is 11111 arriving?", 'delivery_query', None),

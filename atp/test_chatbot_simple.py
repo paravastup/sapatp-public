@@ -35,7 +35,7 @@ print("\n[TEST 2] Intent Classification...")
 classifier = IntentClassifier(ollama)
 
 test_queries = [
-    ("What's the stock of product 46888?", "stock_query"),
+    ("What's the stock of product 10001?", "stock_query"),
     ("When is the next delivery?", "delivery_query"),
     ("Email me the results", "export_request"),
     ("Hello", "greeting"),
@@ -58,7 +58,7 @@ extractor = EntityExtractor(ollama)
 
 test_cases = [
     ("Check stock for products 12345, 67890", ["12345", "67890"]),
-    ("Use plant 9995", "9995"),
+    ("Use plant 1000", "1000"),
 ]
 
 for query, expected in test_cases:

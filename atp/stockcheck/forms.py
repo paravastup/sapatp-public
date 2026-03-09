@@ -19,7 +19,7 @@ class ProductForm(forms.Form):
     )
     #plant_choices = (
     #('Plant', 'Choose a plant..'),
-    #('9993', 'Arc Cardinal'),
+    #('9993', 'ACME Corp'),
     #('9994', 'Arc Millville'),
     #('9943', 'Arc Canada'),
     #)
@@ -55,8 +55,8 @@ class SignUpForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     BUSINESS_CHOICES = (
     (' ','Select the business entity that you work with'),
-    ('AINA', 'Arc International North America'),
-    ('Cardinal', 'Cardinal International')
+    ('AINA', 'ACME International North America'),
+    ('Brand_D', 'Brand_D International')
     )
     company = forms.CharField(max_length=30, required=True, help_text='Required',widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Company name'}))
     role = forms.CharField(max_length=75, required=True, help_text='Required',widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Role / Title'}))

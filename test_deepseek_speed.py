@@ -12,7 +12,7 @@ def test_model_speed(model_name, test_prompt):
     """Test a single model and return response time"""
 
     cmd = [
-        '/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe',
+        '/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe',
         'run',
         model_name,
         test_prompt
@@ -53,12 +53,12 @@ def main():
     test_cases = [
         {
             "name": "Simple extraction",
-            "prompt": "Context: Product 46961 has UPC 10026102469610. Question: What's the UPC?",
-            "expected": "10026102469610"
+            "prompt": "Context: Product 10002 has UPC 10026102100020. Question: What's the UPC?",
+            "expected": "10026102100020"
         },
         {
             "name": "Null case",
-            "prompt": "Context: Product 46888, brand PYREX. Question: What's the UPC?",
+            "prompt": "Context: Product 10001, brand BRAND_B. Question: What's the UPC?",
             "expected": None
         },
         {
@@ -175,7 +175,7 @@ def main():
             print("   Recommended when accuracy is more important than speed")
 
         print("\n📝 To switch models, update:")
-        print("   File: /mnt/d/productavailability/atp/chatbot/services/ollama_client_enhanced.py")
+        print("   File: /opt/app/atp/chatbot/services/ollama_client_enhanced.py")
         print(f"   Change: self.extraction_model = '{model_id}'")
 
     # Speed-specific analysis
