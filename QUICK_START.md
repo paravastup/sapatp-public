@@ -13,7 +13,7 @@
 
 ### 1. Start the Application
 ```bash
-cd /mnt/d/productavailability
+cd /mnt/d/demoproject
 docker-compose -f docker-compose-port5000-secure.yml up -d
 ```
 
@@ -31,9 +31,9 @@ Open browser: **http://localhost:5000/**
 Go to: **http://localhost:5000/atp/chat/**
 
 Test queries:
-- "What's the stock of product 46888?"
+- "What's the stock of product 10001?"
 - "What's the UPC?" (tests context memory)
-- "Do the same with 46961" (tests action repeat)
+- "Do the same with 10002" (tests action repeat)
 
 ---
 
@@ -138,8 +138,8 @@ docker-compose -f docker-compose-port5000-secure.yml exec web python manage.py c
 1. Edit `atp/Modelfile` or `atp/generate_training_data.py`
 2. Rebuild model:
    ```bash
-   cd /mnt/d/productavailability/atp
-   /mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
+   cd /mnt/d/demoproject/atp
+   /mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe create atp-chatbot -f Modelfile
    ```
 3. Restart app:
    ```bash
@@ -183,7 +183,7 @@ docker-compose -f docker-compose-port5000-secure.yml exec web python manage.py c
 
 ### Database
 - **Root Password**: [REDACTED]
-- **Django User**: djangoadmin
+- **Django User**: dbuser
 - **Django Password**: [REDACTED]
 
 ### SAP (Example - Update in settings)

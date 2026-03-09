@@ -93,12 +93,12 @@ self.intents = [
 ```python
 INTENT_EXAMPLES = {
     'stock_query': [
-        "What's the stock of product 46888?",  # ← YOUR product number!
+        "What's the stock of product 10001?",  # ← YOUR product number!
         "Check availability for SKU 123456",
         "How many units of 11111 do we have?",
     ],
     'product_info': [
-        "What's the brand of product 46888?",  # ← YOUR product number!
+        "What's the brand of product 10001?",  # ← YOUR product number!
         "Where is product 123 manufactured?",
         "Get UPC code for product 456",
     ],
@@ -106,25 +106,25 @@ INTENT_EXAMPLES = {
 ```
 
 **Found in ollama_client.py (lines 86, 93, 94, 146):**
-- Used 46888 in test examples
-- Used 46961 in test examples
+- Used 10001 in test examples
+- Used 10002 in test examples
 
 **Found in test files:**
-- test_chat_integration.py: Uses 46888
-- test_chatbot_simple.py: Uses 46888
+- test_chat_integration.py: Uses 10001
+- test_chatbot_simple.py: Uses 10001
 
 ### Training Data Product Numbers (from generate_training_data.py:17-24)
 ```python
 self.products = [
-    '46888',  # ✅ YOUR ACTUAL PRODUCT!
-    '46961',  # ✅ YOUR ACTUAL PRODUCT!
+    '10001',  # ✅ YOUR ACTUAL PRODUCT!
+    '10002',  # ✅ YOUR ACTUAL PRODUCT!
     '12345', '67890', '11111', '22222', '33333',
     '44444', '55555', '77777', '88888', '99999',
     # ... variations for testing
 ]
 ```
 
-**✅ MATCH: Training uses YOUR exact product numbers (46888, 46961) plus test variations**
+**✅ MATCH: Training uses YOUR exact product numbers (10001, 10002) plus test variations**
 
 ---
 
@@ -134,7 +134,7 @@ self.products = [
 
 **Default plant in models.py:**
 ```python
-default_plant = '9995'  # YOUR default plant!
+default_plant = '1001'  # YOUR default plant!
 ```
 
 **Found in:**
@@ -149,12 +149,12 @@ default_plant = '9995'  # YOUR default plant!
 ### Training Data Plant Codes (from generate_training_data.py:26-28)
 ```python
 self.plants = [
-    '9995',  # ✅ YOUR ACTUAL DEFAULT PLANT!
+    '1001',  # ✅ YOUR ACTUAL DEFAULT PLANT!
     '1000', '2000', '3000', '4000'  # Additional test plants
 ]
 ```
 
-**✅ MATCH: Primary training plant is YOUR actual plant (9995)**
+**✅ MATCH: Primary training plant is YOUR actual plant (1001)**
 
 ---
 
@@ -208,7 +208,7 @@ self.export_formats = ['excel', 'csv', 'pdf']
 
 **Problem 1: Context Loss**
 ```
-User: "What's the stock of product 46888?"
+User: "What's the stock of product 10001?"
 Bot: [Shows stock]
 User: "What's the UPC code?"
 Bot: "I need product number(s)" ❌ <- YOUR ACTUAL BUG
@@ -216,9 +216,9 @@ Bot: "I need product number(s)" ❌ <- YOUR ACTUAL BUG
 
 **Problem 2: Action Repeat**
 ```
-User: "What's the UPC of product 46961?"
+User: "What's the UPC of product 10002?"
 Bot: [Shows UPC]
-User: "Do the same with 46888"
+User: "Do the same with 10001"
 Bot: "I'm not quite sure what you're looking for" ❌ <- YOUR ACTUAL BUG
 ```
 
@@ -227,7 +227,7 @@ Bot: "I'm not quite sure what you're looking for" ❌ <- YOUR ACTUAL BUG
 **Follow-up Examples (50 examples):**
 ```python
 followup_templates = [
-    ("What's the stock of 46888?", "What's its UPC?", ...),
+    ("What's the stock of 10001?", "What's its UPC?", ...),
     ("Check stock for 12345", "What's the delivery date?", ...),
     # ✅ Trains the EXACT pattern you reported as broken!
 ]
@@ -259,7 +259,7 @@ From **intent_classifier.py** (which YOU already have):
 ```python
 INTENT_EXAMPLES = {
     'stock_query': [
-        "What's the stock of product 46888?",
+        "What's the stock of product 10001?",
         "Check availability for SKU 123456",
         "How many units of 11111 do we have?",
         "Show inventory levels for product 999",
@@ -291,8 +291,8 @@ templates = [
 |-----------|----------|---------------|-------|
 | **SAP Fields** | EAN11, ZBRDES, HERKL, BRGEW, UMREZ, BISMT | upc→EAN11, brand→ZBRDES, origin→HERKL, etc. | ✅ 100% |
 | **Intents** | stock_query, delivery_query, product_info, etc. | Same 9 intents | ✅ 100% |
-| **Product Numbers** | 46888, 46961, 12345 | 46888, 46961, 12345, + variations | ✅ 100% |
-| **Plant Codes** | 9995 (default) | 9995 (primary) + test plants | ✅ 100% |
+| **Product Numbers** | 10001, 10002, 12345 | 10001, 10002, 12345, + variations | ✅ 100% |
+| **Plant Codes** | 1001 (default) | 1001 (primary) + test plants | ✅ 100% |
 | **Export Formats** | Excel, PDF, Email | excel, pdf, csv | ✅ 100% |
 | **Conversation Bugs** | Context loss, Action repeat | 100 examples addressing these | ✅ 100% |
 | **Field Keywords** | "UPC", "brand", "origin", etc. | Same keywords in templates | ✅ 100% |
@@ -312,8 +312,8 @@ templates = [
 
 ### ACTUALLY Generated:
 ```python
-✅ Uses YOUR product numbers (46888, 46961)
-✅ Uses YOUR plant codes (9995)
+✅ Uses YOUR product numbers (10001, 10002)
+✅ Uses YOUR plant codes (1001)
 ✅ Uses YOUR SAP field names
 ✅ Uses YOUR intent categories
 ✅ Addresses YOUR reported bugs
@@ -333,9 +333,9 @@ templates = [
    - Analyzed ollama_client.py for your test cases
 
 2. **Your Conversation History**
-   - "What's the stock of 46888?" → Generated 125 stock examples
+   - "What's the stock of 10001?" → Generated 125 stock examples
    - "What's the UPC?" → Generated 50 follow-up examples
-   - "Do the same with 46888" → Generated 50 action repeat examples
+   - "Do the same with 10001" → Generated 50 action repeat examples
 
 3. **Your SAP Integration**
    - EAN11, ZBRDES, HERKL, BRGEW, UMREZ, BISMT fields
@@ -346,7 +346,7 @@ templates = [
    - Stock queries (ARC table)
    - Delivery queries (EL1 table)
    - Product info (M01 table)
-   - Plant selection (9995, 1000, etc.)
+   - Plant selection (1001, 1000, etc.)
    - Export to Excel/CSV/PDF
 
 ---
@@ -354,16 +354,16 @@ templates = [
 ## File-by-File Evidence
 
 ### generate_training_data.py
-- Line 17: `'46888', '46961'` - YOUR product numbers
-- Line 27: `'9995'` - YOUR plant code
+- Line 17: `'10001', '10002'` - YOUR product numbers
+- Line 27: `'1001'` - YOUR plant code
 - Line 165: `field_templates` - YOUR SAP fields
 - Line 268: `followup_templates` - YOUR bug scenarios
 - Line 319: `repeat_phrases` - YOUR action repeat patterns
 
 ### Modelfile
-- Line 85: "What's the stock of product 46888?" - YOUR example
+- Line 85: "What's the stock of product 10001?" - YOUR example
 - Line 219: `'upc': ('EAN11', 'UPC/EAN')` - YOUR SAP mapping
-- Line 287: "Switch to plant 9995" - YOUR plant
+- Line 287: "Switch to plant 1001" - YOUR plant
 - Line 331: "do the same", "also check" - YOUR patterns
 
 ### atp_training_dataset.json (618 examples)

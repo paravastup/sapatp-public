@@ -54,7 +54,7 @@
 
 ```bash
 # 1. Navigate to project directory
-cd /mnt/d/productavailability
+cd /mnt/d/demoproject
 
 # 2. Create .env from example (if not exists)
 cp .env.example .env
@@ -80,8 +80,8 @@ chmod 600 .env
 # 1. Connect to MySQL
 docker-compose exec db mysql -u root -p
 
-# 2. Change djangoadmin password
-ALTER USER 'djangoadmin'@'%' IDENTIFIED BY 'YOUR_NEW_PASSWORD';
+# 2. Change dbuser password
+ALTER USER 'dbuser'@'%' IDENTIFIED BY 'YOUR_NEW_PASSWORD';
 FLUSH PRIVILEGES;
 
 # 3. Update .env with new password
@@ -100,7 +100,7 @@ FLUSH PRIVILEGES;
 docker-compose down
 
 # 2. Backup current data
-docker-compose exec db mysqldump -u djangoadmin -p atp > backup_$(date +%Y%m%d).sql
+docker-compose exec db mysqldump -u dbuser -p atp > backup_$(date +%Y%m%d).sql
 
 # 3. Use secure Docker configuration
 cp docker-compose-secure.yml docker-compose.yml

@@ -15,7 +15,7 @@ Reply with intent name only."""
     prompt = f'Query: "{query}"\nIntent:'
 
     cmd = [
-        '/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe',
+        '/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe',
         'run',
         'gemma3:4b',
         f"{system_prompt}\n\n{prompt}"
@@ -33,7 +33,7 @@ def main():
 
     test_queries = [
         # Clear stock queries
-        ("What's the stock for product 46888?", "stock_query"),
+        ("What's the stock for product 10001?", "stock_query"),
         ("How many pieces in stock?", "stock_query"),
         ("Stock levels?", "stock_query"),
         ("What's the availability?", "stock_query"),
@@ -46,7 +46,7 @@ def main():
         ("How many?", "stock_query"),
 
         # UPC queries
-        ("What's the UPC for 46888?", "product_info"),
+        ("What's the UPC for 10001?", "product_info"),
         ("Give me the UPC", "product_info"),
         ("UPC?", "product_info"),
 

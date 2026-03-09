@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_jwt',
     'chatbot',  # AI-powered conversational search
-    'products',  # Plytix product master data
+    'products',  # DataFeed product master data
 ]
 
 MIDDLEWARE = [
@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'atp.wsgi.application'
 db_config = {
     'ENGINE': os.environ.get('DATABASE_ENGINE', config.get('database', 'ENGINE', fallback='django.db.backends.mysql')),
     'NAME': os.environ.get('DATABASE_NAME', config.get('database', 'NAME', fallback='atp')),
-    'USER': os.environ.get('DATABASE_USER', config.get('database', 'USER', fallback='djangoadmin')),
+    'USER': os.environ.get('DATABASE_USER', config.get('database', 'USER', fallback='dbuser')),
     'PASSWORD': os.environ.get('DATABASE_PASSWORD', config.get('database', 'PASSWORD', fallback='')),
     'HOST': os.environ.get('DATABASE_HOST', config.get('database', 'HOST', fallback='db')),
     'PORT': os.environ.get('DATABASE_PORT', config.get('database', 'PORT', fallback='3306')),

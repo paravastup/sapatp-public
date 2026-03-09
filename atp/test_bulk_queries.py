@@ -29,16 +29,16 @@ def test_entity_extraction():
     extractor = EntityExtractor()
 
     test_queries = [
-        "Show me all Chef & Sommelier products",
-        "List all products from Chef & Sommelier",
-        "What's the stock of all Chef & Sommelier items?",
-        "Get every Chef & Sommelier product"
+        "Show me all Brand Zeta products",
+        "List all products from Brand Zeta",
+        "What's the stock of all Brand Zeta items?",
+        "Get every Brand Zeta product"
     ]
 
     for query in test_queries:
         entities = extractor._regex_extraction(query)
         print(f"\nQuery: '{query}'")
-        print(f"  Brand detected: {entities.get('plytix_brand')}")
+        print(f"  Brand detected: {entities.get('datafeed_brand')}")
         print(f"  Is bulk query: {entities.get('is_bulk_query')}")
         print(f"  Product numbers: {entities.get('product_numbers')}")
 
@@ -49,13 +49,13 @@ def test_product_service():
     print("TEST 2: ProductService SKU Fetching")
     print("=" * 60)
 
-    # Test fetching SKUs for Chef & Sommelier
+    # Test fetching SKUs for Brand Zeta
     skus = ProductService.get_skus_for_bulk_query(
-        brand='Chef & Sommelier',
+        brand='Brand Zeta',
         limit=10
     )
 
-    print(f"\nFound {len(skus)} SKUs for 'Chef & Sommelier':")
+    print(f"\nFound {len(skus)} SKUs for 'Brand Zeta':")
     for i, sku in enumerate(skus, 1):
         print(f"  {i}. {sku}")
 
@@ -71,13 +71,13 @@ def test_response_generation():
     # Simulate multiple product results
     mock_results = [
         {
-            'MATNR': '46888',
+            'MATNR': '10001',
             'MAKTX': 'Cabernet Wine Glass 11.25 OZ',
             'STOCK': 1234.0,
             'EAN11': '123456789'
         },
         {
-            'MATNR': '46961',
+            'MATNR': '10002',
             'MAKTX': 'Pinot Wine Glass 12.5 OZ',
             'STOCK': 567.0,
             'EAN11': '987654321'
@@ -94,7 +94,7 @@ def test_response_generation():
     response = generator._generate_fallback_response(
         intent='stock_query',
         results=mock_results,
-        context={'selected_plant': '9995'},
+        context={'selected_plant': '1001'},
         field_requested=None
     )
 
@@ -115,7 +115,7 @@ def test_full_flow():
     classifier = IntentClassifier()
 
     # Test query
-    query = "Show me all Chef & Sommelier products"
+    query = "Show me all Brand Zeta products"
     print(f"\nProcessing query: '{query}'")
 
     # 1. Classify intent
@@ -125,14 +125,14 @@ def test_full_flow():
     # 2. Extract entities
     entities = extractor.extract(query, intent)
     print(f"Entities extracted:")
-    print(f"  - Brand: {entities.get('plytix_brand')}")
+    print(f"  - Brand: {entities.get('datafeed_brand')}")
     print(f"  - Is bulk: {entities.get('is_bulk_query')}")
     print(f"  - Product count: {len(entities.get('product_numbers', []))}")
 
     # 3. Get SKUs from ProductService
-    if entities.get('is_bulk_query') and entities.get('plytix_brand'):
+    if entities.get('is_bulk_query') and entities.get('datafeed_brand'):
         skus = ProductService.get_skus_for_bulk_query(
-            brand=entities['plytix_brand'],
+            brand=entities['datafeed_brand'],
             limit=5  # Limit for test
         )
         print(f"\nFetched {len(skus)} SKUs from database: {skus}")

@@ -28,14 +28,14 @@ class TerminologyTrainingGenerator:
 
         # Sample products with UPCs
         self.sample_products = [
-            {"number": "46961", "upc": "10026102469610", "brand": "LUMINARC"},
-            {"number": "46888", "upc": "3429270008762", "brand": "PYREX"},
-            {"number": "00213", "upc": "9533658678271", "brand": "LIBBEY"},
-            {"number": "G3960", "upc": "8985801984483", "brand": "DUROBOR"},
-            {"number": "A1040", "upc": "5772251489388", "brand": "CARDINAL"},
+            {"number": "10002", "upc": "00000000010002", "brand": "BRAND_ALPHA"},
+            {"number": "10001", "upc": "3429270008762", "brand": "BRAND_BETA"},
+            {"number": "00213", "upc": "9533658678271", "brand": "BRAND_EPSILON"},
+            {"number": "G3960", "upc": "8985801984483", "brand": "BRAND_GAMMA"},
+            {"number": "A1040", "upc": "5772251489388", "brand": "BRAND_DELTA"},
             {"number": "40068", "upc": "7885064749434", "brand": "ANCHOR"},
-            {"number": "A1019", "upc": "3685270303056", "brand": "DUROBOR"},
-            {"number": "40093", "upc": "5342466376353", "brand": "LUMINARC"}
+            {"number": "A1019", "upc": "3685270303056", "brand": "BRAND_GAMMA"},
+            {"number": "40093", "upc": "5342466376353", "brand": "BRAND_ALPHA"}
         ]
 
     def generate_synonym_examples(self, num_examples: int = 2000) -> List[Dict]:
@@ -85,7 +85,7 @@ class TerminologyTrainingGenerator:
                 context_templates = [
                     f"Product {product['number']}, brand: {product['brand']}, stock: {random.randint(100, 9999)}",
                     f"Product {product['number']}, weight: {random.uniform(1, 25):.2f}, brand: {product['brand']}",
-                    f"Product {product['number']}, description: PRODUCT ITEM, plant: 9994"
+                    f"Product {product['number']}, description: PRODUCT ITEM, plant: 1002"
                 ]
 
                 context = random.choice(context_templates)
@@ -224,7 +224,7 @@ class TerminologyTrainingGenerator:
 
     def save_training_data(self, examples: List[Dict], filename: str):
         """Save training examples to JSONL file"""
-        output_path = Path(f'/mnt/d/productavailability/training_data/{filename}')
+        output_path = Path(f'/mnt/d/demoproject/training_data/{filename}')
         output_path.parent.mkdir(exist_ok=True)
 
         with open(output_path, 'w') as f:

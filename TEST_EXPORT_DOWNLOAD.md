@@ -19,7 +19,7 @@
 - ✅ Bell icon (🔔) visible between "AI Search" and folder icon
 - ✅ Folder icon visible before "Help"
 - ✅ No badge visible initially (no unread notifications)
-- ✅ Icons styled with ARC Cardinal colors
+- ✅ Icons styled with ARC Brand_Delta colors
 
 ### How to Verify:
 - Check browser console: Should see `[Notifications] Initializing...`
@@ -31,7 +31,7 @@
 ## Test 2: Create an Export (Small Query)
 
 ### Steps:
-1. In chat, type: **"List all products in plant 9993"**
+1. In chat, type: **"List all products in plant 1001"**
 2. Wait for results (should be < 200 products)
 3. Click **"Email Results"** button
 4. Confirm email modal opens
@@ -126,7 +126,7 @@
 
 ### Steps:
 1. Create 3 exports quickly:
-   - "Show stock for product 46888"
+   - "Show stock for product 10001"
    - "Show stock for product 12345"
    - "Show stock for product 99999"
 2. Email each result

@@ -31,7 +31,7 @@ Your application is now ready to run with comprehensive security patches that **
 
 ### Option 1: Automated Deployment (Recommended)
 ```bash
-cd /mnt/d/productavailability
+cd /mnt/d/demoproject
 ./deploy_secure.sh
 ```
 

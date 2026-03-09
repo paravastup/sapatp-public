@@ -71,7 +71,7 @@ Try these to verify the fix:
 3. Check console - No more CSP violation errors
 
 ## To Re-enable CSP Later
-If you want to re-enable CSP with CDN support, edit `/mnt/d/productavailability/atp/stockcheck/middleware.py` and use the permissive CSP from Option 1 above.
+If you want to re-enable CSP with CDN support, edit `/mnt/d/demoproject/atp/stockcheck/middleware.py` and use the permissive CSP from Option 1 above.
 
 ---
 **Fix Applied:** October 31, 2025

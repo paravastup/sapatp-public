@@ -79,7 +79,7 @@ User.objects.create_superuser('newadmin', 'email@example.com', 'password')
 - **Total Users:** 7 (including admin)
 - **Database:** MySQL 5.7
 - **Database Name:** atp
-- **Database User:** djangoadmin
+- **Database User:** dbuser
 
 ### Troubleshooting
 

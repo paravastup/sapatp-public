@@ -12,7 +12,7 @@ def test_validation_v3(model_name: str = "atp-extraction-v3", num_tests: int = 1
     print(f"Testing {model_name} with validation set")
     print("=" * 60)
 
-    validation_file = Path('/mnt/d/productavailability/training_data/extraction_validation_1k.jsonl')
+    validation_file = Path('/mnt/d/demoproject/training_data/extraction_validation_1k.jsonl')
 
     if not validation_file.exists():
         print(f"Error: Validation file not found: {validation_file}")
@@ -54,7 +54,7 @@ Response:"""
 
                 try:
                     # Test with Ollama
-                    ollama_path = "/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe"
+                    ollama_path = "/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe"
                     cmd = [ollama_path, 'run', model_name, prompt]
 
                     result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)

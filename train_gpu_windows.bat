@@ -6,7 +6,7 @@ echo ============================================
 echo GPU Training Setup for Windows
 echo ============================================
 
-cd /d D:\productavailability
+cd /d D:\demoproject
 
 REM Create virtual environment if it doesn't exist
 if not exist "venv_windows" (

@@ -40,7 +40,7 @@ Confirmed all required model tables now exist:
 
 ### 4. Added Test Data
 Created sample plants for testing:
-- Code: 9993 - Cardinal (existing)
+- Code: 1001 - Brand_Delta (existing)
 - Code: 1000 - Main Warehouse (added)
 - Code: 2000 - Distribution Center (added)
 
@@ -69,7 +69,7 @@ Admin user has been granted access to all plants.
 
 ### Check if all tables exist:
 ```bash
-docker exec atp_db mysql -u djangoadmin -p[REDACTED] atp -e "SHOW TABLES;"
+docker exec atp_db mysql -u dbuser -p[REDACTED] atp -e "SHOW TABLES;"
 ```
 
 ### Force recreate all tables:

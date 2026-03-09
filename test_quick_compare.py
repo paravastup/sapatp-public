@@ -12,7 +12,7 @@ def time_model(model_name, prompt):
     print(f"\n🔬 Testing {model_name}...")
 
     cmd = [
-        '/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe',
+        '/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe',
         'run',
         model_name,
         prompt
@@ -39,7 +39,7 @@ def main():
     print("⚡ Quick Speed Test: DeepSeek 1.5B vs 8B")
     print("="*60)
 
-    test_prompt = "Context: Product 46888. Question: What's the UPC?"
+    test_prompt = "Context: Product 10001. Question: What's the UPC?"
 
     print(f"\nTest query: {test_prompt}")
 
@@ -82,7 +82,7 @@ def main():
         speedup = slowest_time / fastest_time
         print(f"\n🚀 Speedup: {results[0][0]} is {speedup:.1f}x faster than {results[-1][0]}")
 
-    # Check accuracy (all should return null for product 46888)
+    # Check accuracy (all should return null for product 10001)
     print("\n🎯 Accuracy Check (should all return null):")
     for name, _, response in results:
         if 'null' in response.lower():

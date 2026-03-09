@@ -47,9 +47,9 @@ def train_gpt2():
 
     # Use correct path for Windows
     if platform.system() == 'Windows':
-        train_file = Path('D:/productavailability/training_data/extraction_training_15k.jsonl')
+        train_file = Path('D:/demoproject/training_data/extraction_training_15k.jsonl')
     else:
-        train_file = Path('/mnt/d/productavailability/training_data/extraction_training_15k.jsonl')
+        train_file = Path('/mnt/d/demoproject/training_data/extraction_training_15k.jsonl')
 
     texts = []
     with open(train_file, 'r', encoding='utf-8') as f:
@@ -169,8 +169,8 @@ def test_model(model, tokenizer):
     print("="*60)
 
     test_prompts = [
-        "User: Context: Product 46961 has UPC 10026102469610. Question: What's the UPC?\nAssistant:",
-        "User: Context: Product 46888, brand PYREX. Question: What's the UPC?\nAssistant:"
+        "User: Context: Product 10002 has UPC 00000000010002. Question: What's the UPC?\nAssistant:",
+        "User: Context: Product 10001, brand BRAND_BETA. Question: What's the UPC?\nAssistant:"
     ]
 
     model.eval()

@@ -96,7 +96,7 @@ class Command(BaseCommand):
         else:
             # Test multiple queries
             test_queries = [
-                ("What's the stock of product 46888?", "stock_query"),
+                ("What's the stock of product 10001?", "stock_query"),
                 ("When is the next delivery?", "delivery_query"),
                 ("Email me the results", "export_request"),
                 ("Hello", "greeting"),
@@ -132,7 +132,7 @@ class Command(BaseCommand):
             # Test multiple cases
             test_cases = [
                 ("Check stock for products 12345, 67890", ["12345", "67890"]),
-                ("Use plant 9995", "9995"),
+                ("Use plant 1001", "1001"),
                 ("Email me the results", "email"),
                 ("Check vendor SKU OLD-123", "OLD-123"),
             ]
@@ -160,7 +160,7 @@ class Command(BaseCommand):
         # Test stock response with data
         mock_data = [
             {
-                "MATNR": "46888",
+                "MATNR": "10001",
                 "STOCK": 150,
                 "DISMM": "Stock item",
                 "MAKTX": "Test Product"
@@ -197,7 +197,7 @@ class Command(BaseCommand):
         # Test conversation
         test_messages = [
             "Hello",
-            "What's the stock of product 46888?",
+            "What's the stock of product 10001?",
             "Email me the results"
         ]
 
@@ -249,7 +249,7 @@ class Command(BaseCommand):
             plant = plants.first()
 
             try:
-                results = executor.execute_search(plant.code, ['46888'], 'M')
+                results = executor.execute_search(plant.code, ['10001'], 'M')
                 if results:
                     self.stdout.write(self.style.SUCCESS(f'✅ SAP query returned {len(results)} result(s)'))
                     for result in results[:3]:

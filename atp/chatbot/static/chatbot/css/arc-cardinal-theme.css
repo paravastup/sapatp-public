@@ -1,6 +1,6 @@
 /*
- * ARC Cardinal Theme for ATP Chatbot
- * Extracted from https://arccardinal.com/
+ * ARC Brand_Delta Theme for ATP Chatbot
+ * Extracted from https://democorp.example.com/
  * Color Palette & Fonts
  */
 
@@ -10,7 +10,7 @@
 
 /* ========== COLOR VARIABLES ========== */
 :root {
-    /* Primary Colors from ARC Cardinal */
+    /* Primary Colors from ARC Brand_Delta */
     --arc-navy-dark: rgb(7, 16, 62);        /* Dark navy blue - primary brand color */
     --arc-navy-medium: rgb(7, 17, 61);      /* Medium navy */
     --arc-navy-purple: rgb(35, 31, 116);    /* Purple navy accent */
@@ -424,7 +424,7 @@ footer a:hover {
     color: var(--arc-yellow) !important;
 }
 
-/* Fix btn-outline-secondary to match ARC Cardinal */
+/* Fix btn-outline-secondary to match ARC Brand_Delta */
 .btn-outline-secondary {
     border-color: var(--arc-yellow) !important;
     color: var(--arc-navy-dark) !important;
@@ -641,15 +641,15 @@ main .btn-outline-info:hover,
     border-color: rgb(7, 16, 62) !important;
 }
 
-/* Fix masthead/nav links - match ARC Cardinal purple navy color */
+/* Fix masthead/nav links - match ARC Brand_Delta purple navy color */
 .masthead .nav-link,
 .nav-masthead .nav-link,
 .nav-link {
-    color: var(--arc-navy-purple) !important;  /* Purple navy like ARC Cardinal */
+    color: var(--arc-navy-purple) !important;  /* Purple navy like ARC Brand_Delta */
     border-bottom-color: transparent !important;
     font-family: var(--arc-font-primary) !important;
-    font-weight: 700 !important;  /* Match ARC Cardinal weight */
-    font-size: 14px !important;   /* Match ARC Cardinal size */
+    font-weight: 700 !important;  /* Match ARC Brand_Delta weight */
+    font-size: 14px !important;   /* Match ARC Brand_Delta size */
 }
 
 .masthead .nav-link:hover,
@@ -666,7 +666,7 @@ main .btn-outline-info:hover,
     border-bottom-color: var(--arc-yellow) !important;
 }
 
-/* Center the logo like ARC Cardinal */
+/* Center the logo like ARC Brand_Delta */
 .masthead-brand {
     text-align: center !important;
     margin: 0 auto !important;
@@ -678,7 +678,7 @@ main .btn-outline-info:hover,
     align-items: center !important;
 }
 
-/* Move nav links to the right like ARC Cardinal */
+/* Move nav links to the right like ARC Brand_Delta */
 .nav-masthead {
     justify-content: flex-end !important;
     width: 100% !important;
@@ -700,7 +700,7 @@ header .inner {
     border: none !important;
 }
 
-/* Homepage heading - Match ARC Cardinal "creator of experiences" style */
+/* Homepage heading - Match ARC Brand_Delta "creator of experiences" style */
 .cover h1,
 .cover-heading,
 main h1 {
@@ -750,7 +750,7 @@ a[href="#"]:not(.btn):hover {
 }
 
 /* ===================================
-   Footer - ARC Cardinal Style
+   Footer - ARC Brand_Delta Style
    =================================== */
 
 .site-footer {

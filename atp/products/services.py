@@ -88,7 +88,7 @@ class ProductService:
         Get all products for a specific brand
 
         Args:
-            brand: Brand name (e.g., 'Chef & Sommelier')
+            brand: Brand name (e.g., 'Brand Zeta')
             limit: Maximum number of products to return
 
         Returns:
@@ -274,7 +274,7 @@ class ProductService:
             'brand': product.catalog_brand,
             'category': product.catalog_category,
             'collection': product.catalog_collection,
-            'description': product.label,  # Use label (accurate description from Plytix XML)
+            'description': product.label,  # Use label (accurate description from DataFeed XML)
             'family': product.family,  # For URL building
             'catalog_category': product.catalog_category,  # For URL building
             'website_subcategories': product.website_subcategories,  # For URL building
@@ -354,7 +354,7 @@ class ProductService:
     def build_product_url(family: str = None, category: str = None,
                          subcategories: str = None, label: str = None) -> str:
         """
-        Build Arc Cardinal product URL from Plytix data fields
+        Build Demo Corp product URL from DataFeed data fields
 
         Args:
             family: Product family (e.g., 'Tableware')
@@ -363,9 +363,9 @@ class ProductService:
             label: Product label/name (e.g., 'Cabernet Tall Wine 16.0 Oz')
 
         Returns:
-            Product URL (e.g., 'https://www.arccardinal.com/our-products/tableware/glassware/wine/cabernet-tall-wine-16.0-oz/')
+            Product URL (e.g., 'https://www.democorp.example.com/our-products/tableware/glassware/wine/cabernet-tall-wine-16.0-oz/')
         """
-        base_url = "https://arccardinal.com/our-products"
+        base_url = "https://democorp.example.com/our-products"
 
         def url_encode(text: str) -> str:
             """Convert text to URL-safe format"""

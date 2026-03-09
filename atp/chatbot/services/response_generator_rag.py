@@ -46,12 +46,12 @@ class RAGResponseGenerator(ResponseGenerator):
 
         # Extract filters from entities
         filters = {}
-        if entities.get('plytix_brand'):
-            filters['brand'] = entities['plytix_brand']
-        if entities.get('plytix_category'):
-            filters['category'] = entities['plytix_category']
-        if entities.get('plytix_material'):
-            filters['material'] = entities['plytix_material']
+        if entities.get('datafeed_brand'):
+            filters['brand'] = entities['datafeed_brand']
+        if entities.get('datafeed_category'):
+            filters['category'] = entities['datafeed_category']
+        if entities.get('datafeed_material'):
+            filters['material'] = entities['datafeed_material']
 
         # Retrieve relevant products using RAG
         logger.info(f"RAG search: query='{user_query}', filters={filters}")
@@ -68,7 +68,7 @@ class RAGResponseGenerator(ResponseGenerator):
         product_context = self.retriever.get_product_context(products, max_products=5)
 
         # Generate response with RAG context
-        system_prompt = """You are a helpful product assistant for ARC Cardinal.
+        system_prompt = """You are a helpful product assistant for ARC Brand_Delta.
 
 IMPORTANT RULES:
 - Use ONLY the product information provided below

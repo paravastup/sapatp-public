@@ -77,35 +77,35 @@ Generated **618 examples** across all categories:
 
 **Stock Query:**
 ```
-User: What's the stock of product 46888?
+User: What's the stock of product 10001?
 Intent: stock_query
-Entities: {"product_numbers": ["46888"]}
+Entities: {"product_numbers": ["10001"]}
 Confidence: 0.92
 ```
 
 **Field-Specific Request:**
 ```
-User: What's the UPC of product 46888?
+User: What's the UPC of product 10001?
 Intent: product_info
-Entities: {"product_numbers": ["46888"], "field_requested": "upc"}
+Entities: {"product_numbers": ["10001"], "field_requested": "upc"}
 Confidence: 0.93
 ```
 
 **Follow-up Question:**
 ```
-Context: User previously asked about 46888
+Context: User previously asked about 10001
 User: What's the UPC?
 Intent: product_info
-Entities: {"product_numbers": ["46888"], "field_requested": "upc", "from_context": true}
+Entities: {"product_numbers": ["10001"], "field_requested": "upc", "from_context": true}
 Confidence: 0.88
 ```
 
 **Action Repeat:**
 ```
-Context: User asked "What's the UPC of 46961?"
-User: Do the same with 46888
+Context: User asked "What's the UPC of 10002?"
+User: Do the same with 10001
 Intent: product_info
-Entities: {"product_numbers": ["46888"], "field_requested": "upc", "action_repeat": true}
+Entities: {"product_numbers": ["10001"], "field_requested": "upc", "action_repeat": true}
 Confidence: 0.95
 ```
 
@@ -116,7 +116,7 @@ Confidence: 0.95
 ### Prerequisites:
 1. Ollama installed and running on Windows laptop
 2. gemma3:12b model available
-3. Files in `/mnt/d/productavailability/atp/`:
+3. Files in `/mnt/d/demoproject/atp/`:
    - `Modelfile` (custom model definition)
    - `build_custom_model.bat` (Windows builder)
    - `build_custom_model.sh` (Linux/Mac builder)
@@ -126,7 +126,7 @@ Confidence: 0.95
 #### Option 1: Windows (Easy)
 ```batch
 # Navigate to project folder
-cd D:\productavailability\atp
+cd D:\demoproject\atp
 
 # Run the builder
 build_custom_model.bat
@@ -135,7 +135,7 @@ build_custom_model.bat
 #### Option 2: Linux/Mac/WSL
 ```bash
 # Navigate to project folder
-cd /mnt/d/productavailability/atp
+cd /mnt/d/demoproject/atp
 
 # Make script executable
 chmod +x build_custom_model.sh
@@ -153,13 +153,13 @@ ollama serve
 ollama pull gemma3:12b
 
 # 3. Navigate to directory with Modelfile
-cd /mnt/d/productavailability/atp
+cd /mnt/d/demoproject/atp
 
 # 4. Build custom model
 ollama create atp-chatbot -f Modelfile
 
 # 5. Test it
-ollama run atp-chatbot "What's the stock of 46888?"
+ollama run atp-chatbot "What's the stock of 10001?"
 ```
 
 ### Expected Output:
@@ -167,12 +167,12 @@ ollama run atp-chatbot "What's the stock of 46888?"
 ✅ Custom model 'atp-chatbot' created successfully!
 
 Test 1: Stock Query
-Query: "What's the stock of product 46888?"
-Response: {"intent": "stock_query", "product_numbers": ["46888"], "confidence": 0.92}
+Query: "What's the stock of product 10001?"
+Response: {"intent": "stock_query", "product_numbers": ["10001"], "confidence": 0.92}
 
 Test 2: Follow-up Question
-Query: "What's the UPC?" (after asking about 46888)
-Response: {"intent": "product_info", "product_numbers": ["46888"],
+Query: "What's the UPC?" (after asking about 10001)
+Response: {"intent": "product_info", "product_numbers": ["10001"],
           "field_requested": "upc", "from_context": true, "confidence": 0.88}
 
 Test 3: Action Repeat
@@ -190,7 +190,7 @@ After building the custom model, update your Django application to use it:
 ### Method 1: Update .env file (Recommended)
 ```bash
 # Edit the .env file
-cd /mnt/d/productavailability/atp
+cd /mnt/d/demoproject/atp
 nano .env  # or use your preferred editor
 
 # Change this line:
@@ -206,7 +206,7 @@ OLLAMA_MODEL=atp-chatbot
 # Line ~220
 
 OLLAMA_CONFIG = {
-    'base_url': os.getenv('OLLAMA_BASE_URL', 'http://172.22.80.1:11434'),
+    'base_url': os.getenv('OLLAMA_BASE_URL', 'http://192.168.1.100:11434'),
     'model': os.getenv('OLLAMA_MODEL', 'atp-chatbot'),  # Changed from gemma3:12b
     'timeout': int(os.getenv('OLLAMA_TIMEOUT', '30'))
 }
@@ -220,7 +220,7 @@ docker-compose -f docker-compose-port5000-secure.yml restart web
 docker-compose -f docker-compose-port5000-secure.yml logs web | grep "Ollama configured"
 
 # Expected output:
-# Ollama configured: http://172.22.80.1:11434 using model atp-chatbot
+# Ollama configured: http://192.168.1.100:11434 using model atp-chatbot
 ```
 
 ---
@@ -234,27 +234,27 @@ docker-compose -f docker-compose-port5000-secure.yml logs web | grep "Ollama con
 
 #### Test Scenario 1: Basic Stock Query
 ```
-👤 "What's the stock of product 46888?"
-🤖 [Should correctly identify as stock_query with product 46888]
+👤 "What's the stock of product 10001?"
+🤖 [Should correctly identify as stock_query with product 10001]
 ```
 
 #### Test Scenario 2: Follow-up Question
 ```
-👤 "What's the stock of product 46888?"
+👤 "What's the stock of product 10001?"
 🤖 [Shows stock]
 
 👤 "What's the UPC?"
-🤖 [Should show UPC for 46888 without asking for product number]
+🤖 [Should show UPC for 10001 without asking for product number]
 ✅ No "I need product number(s)" error!
 ```
 
 #### Test Scenario 3: Action Repeat
 ```
-👤 "What's the UPC of product 46961?"
-🤖 [Shows UPC for 46961]
+👤 "What's the UPC of product 10002?"
+🤖 [Shows UPC for 10002]
 
-👤 "Do the same with 46888"
-🤖 [Should show UPC for 46888 - same field, different product]
+👤 "Do the same with 10001"
+🤖 [Should show UPC for 10001 - same field, different product]
 ✅ Correctly inherits intent and field!
 ```
 
@@ -317,7 +317,7 @@ def generate_stock_examples(self, count: int):
 
 ### 3. Regenerate Dataset
 ```bash
-cd /mnt/d/productavailability/atp
+cd /mnt/d/demoproject/atp
 python3 generate_training_data.py
 ```
 
@@ -415,7 +415,7 @@ If you want true fine-tuning (not necessary but possible):
 ollama list
 
 # Rebuild if missing
-cd /mnt/d/productavailability/atp
+cd /mnt/d/demoproject/atp
 ollama create atp-chatbot -f Modelfile
 ```
 
@@ -431,7 +431,7 @@ docker-compose -f docker-compose-port5000-secure.yml logs web | grep "Ollama con
 ### Issue: "Ollama connection failed"
 ```bash
 # Verify Ollama is accessible from Docker
-docker exec -it atp_web curl http://172.22.80.1:11434/api/tags
+docker exec -it atp_web curl http://192.168.1.100:11434/api/tags
 
 # Should show list of models including atp-chatbot
 ```
@@ -473,7 +473,7 @@ Before deploying to production:
 ### How to Use It:
 ```bash
 # 1. Build model (2 minutes)
-cd D:\productavailability\atp
+cd D:\demoproject\atp
 build_custom_model.bat
 
 # 2. Update settings
