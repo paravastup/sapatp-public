@@ -1,0 +1,59 @@
+{% extends 'docs/base.html' %}
+
+{% block content %}
+<div class="container d-flex w-100 h-50 p-3 mx-auto flex-column">
+   <header class="masthead mb-auto">
+     <div class="inner">
+       <h3 class="masthead-brand"><img src="/static/css/index.png" alt="" class="img-rounded center-block" style="height:80px; width:auto;"></h3>
+       <nav class="nav nav-masthead justify-content-center">
+          {% if user.is_authenticated %}
+            <a href="#" class="nav-link">{{user.username}} </a>
+            <a href="#" class="nav-link"></a>
+            <a class="nav-link" href="{% url 'logout'%}">Log out</a>
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+            <a class="nav-link" href="{% url 'docs:help' %}">Help</a>
+	    <a class="nav-link" href="{% url 'password_change' %}">Change password</a>
+            {% if user.is_superuser %}
+              <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+            {% endif %}
+          {% else %}
+            <a class="nav-link" href="{% url 'login'%}">Log in</a>
+            <a class="nav-link" href="{% url 'docs:help' %}">Help</a>
+            <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+          {% endif %}
+       </nav>
+     </div>
+ </header>
+<main role="main" class="inner cover">
+
+
+<hr>
+
+   <h3>New/Edit post</h3>
+
+    <form method="POST" class="doc-form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+</main>
+</div>
+{% endblock %}
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.runtime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sortable/0.9.13/jquery-sortable-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.ui.widget@1.10.3/jquery.ui.widget.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.iframe-transport/1.0.1/jquery.iframe-transport.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.28.0/js/jquery.fileupload.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/medium-editor-insert-plugin/2.5.0/js/medium-editor-insert-plugin.min.js"></script>
+<script>var editor = new MediumEditor('.editable');
+$(function () {
+    $('.editable').mediumInsert({
+        editor: editor
+    });
+})
+</script>
+{% endblock %}
+

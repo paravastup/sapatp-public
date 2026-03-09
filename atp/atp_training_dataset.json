@@ -1,0 +1,6172 @@
+[
+  {
+    "query": "Hey",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi! Quick question",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey chatbot",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "What's up",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Good morning",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey there",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi there",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey chatbot",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Good morning! I need to check something",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Good morning! I need to check something",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Good morning! I need to check something",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey chatbot",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey chatbot",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Greetings",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Good morning",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey, can you help me?",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi there",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey chatbot",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi! Quick question",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey chatbot",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Good morning",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi there",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi, how are you?",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Good evening",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi! Quick question",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey chatbot",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "What's up",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hello bot",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hello",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hello there",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Howdy",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi! Quick question",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey, can you help me?",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Good morning",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey there",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey, can you help me?",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hello bot",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi, how are you?",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "What's up",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hello there",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Howdy",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey there",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hey chatbot",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "Hi, how are you?",
+    "intent": "greeting",
+    "confidence": 0.95,
+    "entities": {}
+  },
+  {
+    "query": "What can you do?",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "Help",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "I need help",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "How do I use this?",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "What features do you have?",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "Can you help me?",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "Show me what you can do",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "What are your capabilities?",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "How does this work?",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "I don't understand",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "What commands do you support?",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "How do I check stock?",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "How do I search for products?",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "What can I ask you?",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "Guide me",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "Instructions please",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "Help me get started",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "I'm lost",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "What should I do?",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "Explain how this works",
+    "intent": "help",
+    "confidence": 0.9,
+    "entities": {}
+  },
+  {
+    "query": "Check stock for products 70007, 60006",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "70007",
+        "60006"
+      ]
+    }
+  },
+  {
+    "query": "Product 20002 stock",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ]
+    }
+  },
+  {
+    "query": "How many units of 22222?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ]
+    }
+  },
+  {
+    "query": "Availability of 20002",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ]
+    }
+  },
+  {
+    "query": "How many 22222 and 67890 do we have?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "22222",
+        "67890"
+      ]
+    }
+  },
+  {
+    "query": "How many 22222 do we have?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ]
+    }
+  },
+  {
+    "query": "Stock status of 40004",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ]
+    }
+  },
+  {
+    "query": "Show stock for 46888",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "46888"
+      ]
+    }
+  },
+  {
+    "query": "Check inventory 90009 at plant 4000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Availability of 11111 at plant 4000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "How much 50005 is available?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ]
+    }
+  },
+  {
+    "query": "What's the stock for 20002 and 88888?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "20002",
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "Show me inventory for 55555",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ]
+    }
+  },
+  {
+    "query": "Do we have 20002 in stock? at plant 2000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ],
+      "plant_code": "2000"
+    }
+  },
+  {
+    "query": "Check availability of 99999",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "99999"
+      ]
+    }
+  },
+  {
+    "query": "How many units of 30003?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ]
+    }
+  },
+  {
+    "query": "Check stock: 12345, 60006",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "12345",
+        "60006"
+      ]
+    }
+  },
+  {
+    "query": "Quantity for 10001",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ]
+    }
+  },
+  {
+    "query": "Check stock: 46888, 30003",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "46888",
+        "30003"
+      ]
+    }
+  },
+  {
+    "query": "Quantity for 30003",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ]
+    }
+  },
+  {
+    "query": "How much 44444 is available?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "Check stock: 12345, 90009",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "12345",
+        "90009"
+      ]
+    }
+  },
+  {
+    "query": "Do we have any 30003?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ]
+    }
+  },
+  {
+    "query": "Stock level for 67890 at plant 1000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ],
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "What's the stock for 44444 and 99999?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "44444",
+        "99999"
+      ]
+    }
+  },
+  {
+    "query": "How many 99999 do we have?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "99999"
+      ]
+    }
+  },
+  {
+    "query": "How many 20002 do we have?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ]
+    }
+  },
+  {
+    "query": "Check availability of 44444 at plant 3000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Is 50005 available?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ]
+    }
+  },
+  {
+    "query": "Is 40004 available?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ]
+    }
+  },
+  {
+    "query": "Stock check 55555 at plant 1000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "How many units of 44444? at plant 3000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "How many 80008 and 60006 do we have?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "80008",
+        "60006"
+      ]
+    }
+  },
+  {
+    "query": "Quantity for 99999",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "99999"
+      ]
+    }
+  },
+  {
+    "query": "Is 70007 available? at plant 4000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Show stock for 12345",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 77777",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ]
+    }
+  },
+  {
+    "query": "How much 80008 is available?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for products 33333, 90009",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "33333",
+        "90009"
+      ]
+    }
+  },
+  {
+    "query": "What's the stock of product 70007? at plant 2000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ],
+      "plant_code": "2000"
+    }
+  },
+  {
+    "query": "Show me inventory for 90009, 80008, 46961",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "90009",
+        "80008",
+        "46961"
+      ]
+    }
+  },
+  {
+    "query": "Product 12345 stock at plant 4000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Check stock for products 50005, 20002",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "50005",
+        "20002"
+      ]
+    }
+  },
+  {
+    "query": "How many 80008 do we have? at plant 3000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Product 60006 stock",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "60006"
+      ]
+    }
+  },
+  {
+    "query": "Do we have any 50005?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 46888 at plant 9995",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "46888"
+      ],
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "How many units of 20002?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ]
+    }
+  },
+  {
+    "query": "Product 44444 stock at plant 9995",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "Do we have 88888 in stock?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "Stock level for 46961",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ]
+    }
+  },
+  {
+    "query": "Is there stock for 46961?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ]
+    }
+  },
+  {
+    "query": "Quantity for 44444",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "Check if we have 12345",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ]
+    }
+  },
+  {
+    "query": "How many 20002 and 10001 do we have? at plant 4000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "20002",
+        "10001"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Show stock for 33333",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "33333"
+      ]
+    }
+  },
+  {
+    "query": "Quantity for 30003",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ]
+    }
+  },
+  {
+    "query": "Do we have any 10001?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 44444",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "Quantity for 44444",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "How many 67890 and 44444 do we have?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "67890",
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 30003",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ]
+    }
+  },
+  {
+    "query": "Is 80008 available? at plant 3000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "How much 12345 is available? at plant 3000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Stock status of 46961",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ]
+    }
+  },
+  {
+    "query": "Show stock for 44444",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "How many 30003 do we have? at plant 4000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "How many units of 20002? at plant 4000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Availability of 80008",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ]
+    }
+  },
+  {
+    "query": "What's the stock of product 40004? at plant 4000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Stock check 12345",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ]
+    }
+  },
+  {
+    "query": "How much 40004 is available? at plant 2000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ],
+      "plant_code": "2000"
+    }
+  },
+  {
+    "query": "Stock check 40004 at plant 3000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "How many 70007 and 22222 do we have? at plant 4000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "70007",
+        "22222"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Check stock: 77777, 10001 at plant 9995",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "77777",
+        "10001"
+      ],
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "Availability of 11111 at plant 9995",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ],
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "Check stock: 50005, 22222 at plant 3000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "50005",
+        "22222"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "What's the stock for 12345 and 22222?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "12345",
+        "22222"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 77777",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for products 33333, 99999",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "33333",
+        "99999"
+      ]
+    }
+  },
+  {
+    "query": "What's the stock of product 11111?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ]
+    }
+  },
+  {
+    "query": "What's the stock of product 99999? at plant 4000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "99999"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "How many units of 77777? at plant 4000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Do we have any 60006?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "60006"
+      ]
+    }
+  },
+  {
+    "query": "What's the stock of product 77777? at plant 1000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "Check availability of 55555",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 90009",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ]
+    }
+  },
+  {
+    "query": "Do we have any 10001? at plant 4000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Do we have 46961 in stock?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ]
+    }
+  },
+  {
+    "query": "How much 50005 is available?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 22222",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ]
+    }
+  },
+  {
+    "query": "How much 44444 is available?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "Stock level for 46961",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ]
+    }
+  },
+  {
+    "query": "Is there stock for 11111? at plant 1000",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ],
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "Check availability of 67890",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ]
+    }
+  },
+  {
+    "query": "Product 46888 stock",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "46888"
+      ]
+    }
+  },
+  {
+    "query": "Show me inventory for 40004, 30003, 46961",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "40004",
+        "30003",
+        "46961"
+      ]
+    }
+  },
+  {
+    "query": "Do we have 55555 in stock?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ]
+    }
+  },
+  {
+    "query": "Do we have any 67890?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ]
+    }
+  },
+  {
+    "query": "How many 33333 and 22222 do we have?",
+    "intent": "stock_query",
+    "confidence": 0.92,
+    "entities": {
+      "product_numbers": [
+        "33333",
+        "22222"
+      ]
+    }
+  },
+  {
+    "query": "When will 67890 be in stock?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ]
+    }
+  },
+  {
+    "query": "Arrival date for 33333",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "33333"
+      ]
+    }
+  },
+  {
+    "query": "When will 44444 be in stock?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "When will 77777 be delivered?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ]
+    }
+  },
+  {
+    "query": "When is 46961 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ]
+    }
+  },
+  {
+    "query": "Next arrival of 67890",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ]
+    }
+  },
+  {
+    "query": "When does 90009 come in? for plant 9995",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ],
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "Shipment ETA for 90009",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ]
+    }
+  },
+  {
+    "query": "When can I expect 10001? for plant 3000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "When is 80008 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ]
+    }
+  },
+  {
+    "query": "Delivery date for 70007 for plant 3000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Delivery date for 90009",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ]
+    }
+  },
+  {
+    "query": "When will 46961 be delivered? for plant 2000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ],
+      "plant_code": "2000"
+    }
+  },
+  {
+    "query": "Arrival date for 50005",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ]
+    }
+  },
+  {
+    "query": "When is the next delivery of 55555? for plant 9995",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "Delivery status of 67890",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ]
+    }
+  },
+  {
+    "query": "Show me delivery for 10001",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ]
+    }
+  },
+  {
+    "query": "Next arrival of 88888",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "Show me delivery for 20002 for plant 9995",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ],
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "When is 22222 and 44444 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "22222",
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "When will 55555 be in stock?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ]
+    }
+  },
+  {
+    "query": "Delivery date for 12345",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ]
+    }
+  },
+  {
+    "query": "Next arrival of 90009",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ]
+    }
+  },
+  {
+    "query": "Delivery status of 90009",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ]
+    }
+  },
+  {
+    "query": "Show me delivery for 99999",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "99999"
+      ]
+    }
+  },
+  {
+    "query": "Shipment ETA for 77777",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ]
+    }
+  },
+  {
+    "query": "When is 60006 and 88888 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "60006",
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "Arrival date for 88888",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "Next arrival of 50005",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ]
+    }
+  },
+  {
+    "query": "When can I expect 30003?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ]
+    }
+  },
+  {
+    "query": "ETA for 67890",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ]
+    }
+  },
+  {
+    "query": "Delivery date for 22222 for plant 3000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "When is 22222 coming? for plant 3000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "When is 11111 and 55555 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "11111",
+        "55555"
+      ]
+    }
+  },
+  {
+    "query": "Show me delivery for 60006",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "60006"
+      ]
+    }
+  },
+  {
+    "query": "Show me delivery for 22222 for plant 3000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Next arrival of 46888 for plant 4000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "46888"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "When is 10001 and 11111 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "10001",
+        "11111"
+      ]
+    }
+  },
+  {
+    "query": "When will we get 20002?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ]
+    }
+  },
+  {
+    "query": "Delivery date for 77777",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ]
+    }
+  },
+  {
+    "query": "When is 11111 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ]
+    }
+  },
+  {
+    "query": "ETA for 22222 for plant 1000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "When is the next delivery of 55555?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ]
+    }
+  },
+  {
+    "query": "Delivery schedule for 40004, 11111 for plant 3000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "40004",
+        "11111"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Delivery date for 22222",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ]
+    }
+  },
+  {
+    "query": "Arrival date for 70007",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ]
+    }
+  },
+  {
+    "query": "When is 10001 arriving? for plant 1000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ],
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "Delivery timeline for 88888",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "When is the next delivery of 22222?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ]
+    }
+  },
+  {
+    "query": "Show delivery dates for 22222 for plant 1000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "Delivery date for 70007",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ]
+    }
+  },
+  {
+    "query": "When is 67890 coming?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ]
+    }
+  },
+  {
+    "query": "Show delivery schedule for 30003",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ]
+    }
+  },
+  {
+    "query": "Shipment ETA for 12345 for plant 2000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "plant_code": "2000"
+    }
+  },
+  {
+    "query": "When will 50005 be delivered?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ]
+    }
+  },
+  {
+    "query": "ETA for 11111",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ]
+    }
+  },
+  {
+    "query": "When will we get 11111? for plant 4000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ],
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "When will we get 88888?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "When is 99999 and 50005 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "99999",
+        "50005"
+      ]
+    }
+  },
+  {
+    "query": "Next arrival of 10001",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ]
+    }
+  },
+  {
+    "query": "Delivery timeline for 50005",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ]
+    }
+  },
+  {
+    "query": "Show delivery dates for 30003",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ]
+    }
+  },
+  {
+    "query": "When will 90009 be delivered?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ]
+    }
+  },
+  {
+    "query": "Show delivery schedule for 44444",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "Show delivery schedule for 12345",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ]
+    }
+  },
+  {
+    "query": "Delivery timeline for 12345 for plant 1000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "Next shipment of 22222 for plant 2000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "plant_code": "2000"
+    }
+  },
+  {
+    "query": "Delivery timeline for 67890 for plant 1000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ],
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "Next arrival of 77777 for plant 3000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "When will we get 40004?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ]
+    }
+  },
+  {
+    "query": "When is the next delivery of 12345?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ]
+    }
+  },
+  {
+    "query": "Delivery date for 20002",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ]
+    }
+  },
+  {
+    "query": "When will 33333 be in stock?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "33333"
+      ]
+    }
+  },
+  {
+    "query": "When is 33333 and 55555 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "33333",
+        "55555"
+      ]
+    }
+  },
+  {
+    "query": "Show me delivery for 20002",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ]
+    }
+  },
+  {
+    "query": "When will we get 80008?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ]
+    }
+  },
+  {
+    "query": "Delivery schedule for 67890, 40004",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "67890",
+        "40004"
+      ]
+    }
+  },
+  {
+    "query": "When is the next delivery of 88888?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "Delivery date for 30003",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ]
+    }
+  },
+  {
+    "query": "When is 50005 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ]
+    }
+  },
+  {
+    "query": "Arrival date for 11111",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ]
+    }
+  },
+  {
+    "query": "Show delivery schedule for 46961",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ]
+    }
+  },
+  {
+    "query": "When is 70007 coming?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ]
+    }
+  },
+  {
+    "query": "Show delivery dates for 10001",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ]
+    }
+  },
+  {
+    "query": "When is the next delivery of 10001?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ]
+    }
+  },
+  {
+    "query": "Next arrival of 30003 for plant 3000",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Delivery timeline for 70007",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ]
+    }
+  },
+  {
+    "query": "Delivery date for 30003",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ]
+    }
+  },
+  {
+    "query": "When will 70007 be in stock?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ]
+    }
+  },
+  {
+    "query": "ETA for 70007",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ]
+    }
+  },
+  {
+    "query": "When will we get 12345?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ]
+    }
+  },
+  {
+    "query": "Arrival date for 10001",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ]
+    }
+  },
+  {
+    "query": "When does 70007 come in?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ]
+    }
+  },
+  {
+    "query": "When will we get 88888?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "Delivery date for 90009",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ]
+    }
+  },
+  {
+    "query": "When is 77777 and 70007 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "77777",
+        "70007"
+      ]
+    }
+  },
+  {
+    "query": "When will 77777 be delivered?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ]
+    }
+  },
+  {
+    "query": "When will 30003 be delivered?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ]
+    }
+  },
+  {
+    "query": "Next shipment of 88888",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "When is the next delivery of 80008?",
+    "intent": "delivery_query",
+    "confidence": 0.9,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ]
+    }
+  },
+  {
+    "query": "Show UPC for 77777",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "EAN for 50005",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "EAN for 12345",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "What's the UPC of 30003?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "UPC code for 80008",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "What's the UPC of 30003?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "EAN for 67890",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "Product code for 11111",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "What's the barcode of 12345?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "What's the barcode of 99999?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "99999"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "Product code for 80008",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "Show UPC for 10001",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "UPC code for 44444",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "What's the barcode of 60006?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "60006"
+      ],
+      "field_requested": "upc"
+    }
+  },
+  {
+    "query": "What brand is 80008?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "Manufacturer of 67890",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "Show brand for 12345",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "Who manufactures 30003?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "Brand name for 11111",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "What brand is 33333?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "33333"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "What's the brand of 46961?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "What's the brand of 77777?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "What's the brand of 67890?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "Show brand for 77777",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "Show brand for 77777",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "Manufacturer of 20002",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "Brand name for 44444",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "Who manufactures 60006?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "60006"
+      ],
+      "field_requested": "brand"
+    }
+  },
+  {
+    "query": "Origin of 77777",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "What country is 77777 from?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "Where is 11111 from?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "Country of origin for 46961",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "Country of origin for 44444",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "What country is 88888 from?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "Where is 12345 from?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "What country is 20002 from?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "Where is 22222 from?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "Where is 80008 made?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "Country of origin for 33333",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "33333"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "Where is 20002 from?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "Where is 46961 made?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "What country is 11111 from?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ],
+      "field_requested": "origin"
+    }
+  },
+  {
+    "query": "What's the weight of 88888?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "What's the weight of 55555?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "How much does 44444 weigh?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "How heavy is 88888?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "Show weight for 80008",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "What's the weight of 12345?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "Show weight for 30003",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "Weight of 80008",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "Show weight for 88888",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "What's the weight of 55555?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "What's the weight of 99999?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "99999"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "How much does 46888 weigh?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "46888"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "How much does 40004 weigh?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "How much does 70007 weigh?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ],
+      "field_requested": "weight"
+    }
+  },
+  {
+    "query": "Case pack of 44444",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "Units per case for 50005",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "How many units in a case of 44444?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "Case pack of 46961",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "Units per case for 46961",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "Units per case for 90009",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "How many units in a case of 30003?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "What's the case pack for 80008?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "Case pack of 67890",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "What's the case pack for 77777?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "Units per case for 67890",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "Units per case for 30003",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "What's the case pack for 70007?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "Case pack of 77777",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "field_requested": "case_pack"
+    }
+  },
+  {
+    "query": "Show vendor SKU 99999",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "99999"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "Show vendor SKU 88888",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "Vendor code for 88888",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "Supplier SKU for 30003",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "Show vendor SKU 10001",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "Supplier SKU for 67890",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "Vendor code for 50005",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "Supplier SKU for 11111",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "Supplier SKU for 30003",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "What's the vendor SKU for 60006?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "60006"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "What's the vendor SKU for 46961?",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "Vendor code for 20002",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "Vendor code for 60006",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "60006"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "Supplier SKU for 55555",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "field_requested": "vendor_sku"
+    }
+  },
+  {
+    "query": "Product 12345 details",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Full information on 10001",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Product details for 55555",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Tell me about 22222",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Full information on 88888",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Tell me about 10001",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Product details for 80008",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Show me 55555",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Show me 67890",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Full information on 46961",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Full information on 60006",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "60006"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Product details for 30003",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Show me 40004",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Show me 46888",
+    "intent": "product_info",
+    "confidence": 0.93,
+    "entities": {
+      "product_numbers": [
+        "46888"
+      ],
+      "field_requested": "all_info"
+    }
+  },
+  {
+    "query": "Select plant 9995",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "Change my plant to 4000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Set plant to 1000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "Select plant 3000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Use plant 9995",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "Switch to plant 3000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Switch plant to 4000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Show me plant 3000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Use plant 3000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Change my plant to 4000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Switch to plant 3000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Use plant 9995",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "Use plant 4000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "I want to check plant 3000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Switch plant to 9995",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "Change my plant to 3000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "3000"
+    }
+  },
+  {
+    "query": "Change my plant to 4000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "I want to check plant 1000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "I want to check plant 9995",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "Set plant to 4000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Set plant to 1000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "Change to plant 2000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "2000"
+    }
+  },
+  {
+    "query": "Switch to plant 1000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "Change my plant to 4000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "4000"
+    }
+  },
+  {
+    "query": "Change my plant to 9995",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "Change my plant to 2000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "2000"
+    }
+  },
+  {
+    "query": "Show me plant 1000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "Plant 1000 please",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "1000"
+    }
+  },
+  {
+    "query": "Change my plant to 2000",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "2000"
+    }
+  },
+  {
+    "query": "Plant 9995 please",
+    "intent": "plant_selection",
+    "confidence": 0.88,
+    "entities": {
+      "plant_code": "9995"
+    }
+  },
+  {
+    "query": "Export results to csv",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Export this to excel",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "excel"
+    }
+  },
+  {
+    "query": "Give me csv export",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Download in csv format",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Download as excel",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "excel"
+    }
+  },
+  {
+    "query": "Export to pdf",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "pdf"
+    }
+  },
+  {
+    "query": "Export this to csv",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Save as csv",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Download results as pdf",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "pdf"
+    }
+  },
+  {
+    "query": "Give me pdf export",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "pdf"
+    }
+  },
+  {
+    "query": "Export this to csv",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Export results to csv",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Export results to excel",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "excel"
+    }
+  },
+  {
+    "query": "Export data to pdf",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "pdf"
+    }
+  },
+  {
+    "query": "Download as excel",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "excel"
+    }
+  },
+  {
+    "query": "Download as csv",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Export results to pdf",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "pdf"
+    }
+  },
+  {
+    "query": "Can I get this as csv?",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Export results to csv",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Can I get this as csv?",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Download as csv",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Export data to pdf",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "pdf"
+    }
+  },
+  {
+    "query": "Export results to excel",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "excel"
+    }
+  },
+  {
+    "query": "Give me csv export",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Download results as pdf",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "pdf"
+    }
+  },
+  {
+    "query": "Export this to pdf",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "pdf"
+    }
+  },
+  {
+    "query": "Give me csv export",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Give me excel export",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "excel"
+    }
+  },
+  {
+    "query": "Export to excel",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "excel"
+    }
+  },
+  {
+    "query": "Can I get this as csv?",
+    "intent": "export",
+    "confidence": 0.85,
+    "entities": {
+      "export_format": "csv"
+    }
+  },
+  {
+    "query": "Goodbye",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "Bye",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "See you",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "Thanks, bye",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "Thank you, goodbye",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "That's all, thanks",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "I'm done",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "Exit",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "Quit",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "See you later",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "Talk to you later",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "Thanks for your help",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "Bye bye",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "Farewell",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "Later",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "Catch you later",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "I'm good, thanks",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "That's all I needed",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "Nothing else, thanks",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "All set, bye",
+    "intent": "farewell",
+    "confidence": 0.92,
+    "entities": {}
+  },
+  {
+    "query": "What's its UPC?",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "46888"
+      ],
+      "field_requested": "upc",
+      "from_context": true
+    },
+    "requires_context": true,
+    "previous_query": "What's the stock of 46888?"
+  },
+  {
+    "query": "What's the delivery date?",
+    "intent": "delivery_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "from_context": true
+    },
+    "requires_context": true,
+    "previous_query": "Check stock for 12345"
+  },
+  {
+    "query": "What's the brand?",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ],
+      "field_requested": "brand",
+      "from_context": true
+    },
+    "requires_context": true,
+    "previous_query": "Show me product 67890"
+  },
+  {
+    "query": "What about the origin?",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true,
+    "previous_query": "Check 11111"
+  },
+  {
+    "query": "How heavy is it?",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "field_requested": "weight",
+      "from_context": true
+    },
+    "requires_context": true,
+    "previous_query": "Product 22222"
+  },
+  {
+    "query": "What's the UPC code?",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "33333"
+      ],
+      "field_requested": "upc",
+      "from_context": true
+    },
+    "requires_context": true,
+    "previous_query": "Stock for 33333"
+  },
+  {
+    "query": "When's the delivery?",
+    "intent": "delivery_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "from_context": true
+    },
+    "requires_context": true,
+    "previous_query": "Check 44444"
+  },
+  {
+    "query": "What brand?",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "field_requested": "brand",
+      "from_context": true
+    },
+    "requires_context": true,
+    "previous_query": "Show 55555"
+  },
+  {
+    "query": "What's the product's UPC?",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "field_requested": "upc",
+      "from_context": true
+    },
+    "requires_context": true,
+    "previous_query": "Stock of 77777"
+  },
+  {
+    "query": "Show me the product details",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "from_context": true
+    },
+    "requires_context": true,
+    "previous_query": "Check 88888"
+  },
+  {
+    "query": "What about brand?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "33333"
+      ],
+      "field_requested": "brand",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "And the delivery?",
+    "intent": "delivery_query",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "46888"
+      ],
+      "field_requested": null,
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What's the delivery?",
+    "intent": "delivery_query",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "field_requested": null,
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "Show me the origin",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "And the delivery?",
+    "intent": "delivery_query",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ],
+      "field_requested": null,
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What about delivery?",
+    "intent": "delivery_query",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ],
+      "field_requested": null,
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "And the origin?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "Show me the brand",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "field_requested": "brand",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What's the brand?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "60006"
+      ],
+      "field_requested": "brand",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What's the brand?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "67890"
+      ],
+      "field_requested": "brand",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What about brand?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ],
+      "field_requested": "brand",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "Show me the brand",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ],
+      "field_requested": "brand",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "And the delivery?",
+    "intent": "delivery_query",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "field_requested": null,
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What's the origin?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "Show me the origin",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "And the brand?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "field_requested": "brand",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What's the brand?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "33333"
+      ],
+      "field_requested": "brand",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "And the origin?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "99999"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "And the upc?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "46888"
+      ],
+      "field_requested": "upc",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What's the delivery?",
+    "intent": "delivery_query",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "field_requested": null,
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "And the origin?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "Show me the delivery",
+    "intent": "delivery_query",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ],
+      "field_requested": null,
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What about brand?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "46888"
+      ],
+      "field_requested": "brand",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "Show me the origin",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "99999"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "Show me the delivery",
+    "intent": "delivery_query",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "99999"
+      ],
+      "field_requested": null,
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "Show me the origin",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "Show me the upc",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "field_requested": "upc",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What's the origin?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "And the upc?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "80008"
+      ],
+      "field_requested": "upc",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What's the delivery?",
+    "intent": "delivery_query",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "11111"
+      ],
+      "field_requested": null,
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "Show me the delivery",
+    "intent": "delivery_query",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "field_requested": null,
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What's the upc?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ],
+      "field_requested": "upc",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What's the origin?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What about upc?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "46888"
+      ],
+      "field_requested": "upc",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What about brand?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ],
+      "field_requested": "brand",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What's the delivery?",
+    "intent": "delivery_query",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "field_requested": null,
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "Show me the upc",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "33333"
+      ],
+      "field_requested": "upc",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "And the origin?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "What's the upc?",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ],
+      "field_requested": "upc",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "Show me the origin",
+    "intent": "product_info",
+    "confidence": 0.85,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "field_requested": "origin",
+      "from_context": true
+    },
+    "requires_context": true
+  },
+  {
+    "query": "again for 33333",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "33333"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "also show 10001",
+    "intent": "stock_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "What's the stock of 67890?"
+  },
+  {
+    "query": "same for 77777",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "check that for 50005",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "also check 20002",
+    "intent": "delivery_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "When is 11111 arriving?"
+  },
+  {
+    "query": "show that for 50005",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "what about 70007",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ],
+      "action_repeat": true,
+      "field_requested": "brand"
+    },
+    "previous_action": "Show me the brand for 12345"
+  },
+  {
+    "query": "also get 70007",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "show that for 88888",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "action_repeat": true,
+      "field_requested": "origin"
+    },
+    "previous_action": "Origin of 22222"
+  },
+  {
+    "query": "again for 55555",
+    "intent": "stock_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "What's the stock of 67890?"
+  },
+  {
+    "query": "same for 50005",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ],
+      "action_repeat": true,
+      "field_requested": "brand"
+    },
+    "previous_action": "Show me the brand for 12345"
+  },
+  {
+    "query": "show that for 50005",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "how about 55555",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "action_repeat": true,
+      "field_requested": "origin"
+    },
+    "previous_action": "Origin of 22222"
+  },
+  {
+    "query": "also check 10001",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "check that for 60006",
+    "intent": "delivery_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "60006"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "When is 11111 arriving?"
+  },
+  {
+    "query": "again for 46961",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "46961"
+      ],
+      "action_repeat": true,
+      "field_requested": "brand"
+    },
+    "previous_action": "Show me the brand for 12345"
+  },
+  {
+    "query": "same for 88888",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "again for 70007",
+    "intent": "stock_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "What's the stock of 67890?"
+  },
+  {
+    "query": "same for 90009",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ],
+      "action_repeat": true,
+      "field_requested": "origin"
+    },
+    "previous_action": "Origin of 22222"
+  },
+  {
+    "query": "check that for 22222",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "action_repeat": true,
+      "field_requested": "brand"
+    },
+    "previous_action": "Show me the brand for 12345"
+  },
+  {
+    "query": "what about 20002",
+    "intent": "delivery_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "20002"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "When is 11111 arriving?"
+  },
+  {
+    "query": "how about 90009",
+    "intent": "delivery_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "When is 11111 arriving?"
+  },
+  {
+    "query": "same thing 12345",
+    "intent": "stock_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "12345"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "What's the stock of 67890?"
+  },
+  {
+    "query": "how about 90009",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ],
+      "action_repeat": true,
+      "field_requested": "origin"
+    },
+    "previous_action": "Origin of 22222"
+  },
+  {
+    "query": "repeat for 10001",
+    "intent": "delivery_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "10001"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "When is 11111 arriving?"
+  },
+  {
+    "query": "also show 60006",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "60006"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "how about 30003",
+    "intent": "stock_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "What's the stock of 67890?"
+  },
+  {
+    "query": "same with 60006",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "60006"
+      ],
+      "action_repeat": true,
+      "field_requested": "brand"
+    },
+    "previous_action": "Show me the brand for 12345"
+  },
+  {
+    "query": "repeat for 55555",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "action_repeat": true,
+      "field_requested": "origin"
+    },
+    "previous_action": "Origin of 22222"
+  },
+  {
+    "query": "show that for 44444",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "action_repeat": true,
+      "field_requested": "origin"
+    },
+    "previous_action": "Origin of 22222"
+  },
+  {
+    "query": "also get 46888",
+    "intent": "delivery_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "46888"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "When is 11111 arriving?"
+  },
+  {
+    "query": "same for 70007",
+    "intent": "delivery_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "When is 11111 arriving?"
+  },
+  {
+    "query": "how about 77777",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "show that for 88888",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "what about 22222",
+    "intent": "stock_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "What's the stock of 67890?"
+  },
+  {
+    "query": "also check 40004",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ],
+      "action_repeat": true,
+      "field_requested": "origin"
+    },
+    "previous_action": "Origin of 22222"
+  },
+  {
+    "query": "repeat for 90009",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "90009"
+      ],
+      "action_repeat": true,
+      "field_requested": "brand"
+    },
+    "previous_action": "Show me the brand for 12345"
+  },
+  {
+    "query": "also get 22222",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "action_repeat": true,
+      "field_requested": "brand"
+    },
+    "previous_action": "Show me the brand for 12345"
+  },
+  {
+    "query": "same thing 22222",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "22222"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "also check 55555",
+    "intent": "delivery_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "55555"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "When is 11111 arriving?"
+  },
+  {
+    "query": "show that for 50005",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "50005"
+      ],
+      "action_repeat": true,
+      "field_requested": "upc"
+    },
+    "previous_action": "What's the UPC of 46888?"
+  },
+  {
+    "query": "also get 88888",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "action_repeat": true,
+      "field_requested": "origin"
+    },
+    "previous_action": "Origin of 22222"
+  },
+  {
+    "query": "also check 30003",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "30003"
+      ],
+      "action_repeat": true,
+      "field_requested": "origin"
+    },
+    "previous_action": "Origin of 22222"
+  },
+  {
+    "query": "same for 44444",
+    "intent": "delivery_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "44444"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "When is 11111 arriving?"
+  },
+  {
+    "query": "same thing 88888",
+    "intent": "stock_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "What's the stock of 67890?"
+  },
+  {
+    "query": "what about 77777",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "77777"
+      ],
+      "action_repeat": true,
+      "field_requested": "origin"
+    },
+    "previous_action": "Origin of 22222"
+  },
+  {
+    "query": "how about 88888",
+    "intent": "stock_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "88888"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "What's the stock of 67890?"
+  },
+  {
+    "query": "what about 70007",
+    "intent": "stock_query",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "70007"
+      ],
+      "action_repeat": true
+    },
+    "previous_action": "What's the stock of 67890?"
+  },
+  {
+    "query": "repeat for 33333",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "33333"
+      ],
+      "action_repeat": true,
+      "field_requested": "brand"
+    },
+    "previous_action": "Show me the brand for 12345"
+  },
+  {
+    "query": "repeat for 40004",
+    "intent": "product_info",
+    "confidence": 0.95,
+    "entities": {
+      "product_numbers": [
+        "40004"
+      ],
+      "action_repeat": true,
+      "field_requested": "origin"
+    },
+    "previous_action": "Origin of 22222"
+  },
+  {
+    "query": "Show me 46961, 60006, and 11111",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "46961",
+        "60006"
+      ]
+    }
+  },
+  {
+    "query": "Products 55555, 40004",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "55555",
+        "40004",
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "What's the stock of 20002 and 33333?",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "20002",
+        "33333"
+      ]
+    }
+  },
+  {
+    "query": "Show me 88888, 12345, and 70007",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "88888",
+        "12345"
+      ]
+    }
+  },
+  {
+    "query": "What's the stock of 70007 and 10001?",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "70007",
+        "10001"
+      ]
+    }
+  },
+  {
+    "query": "Show me 46961, 70007, and 55555",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "46961",
+        "70007"
+      ]
+    }
+  },
+  {
+    "query": "Show delivery for 80008 and 70007",
+    "intent": "delivery_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "80008",
+        "70007"
+      ]
+    }
+  },
+  {
+    "query": "Check 60006 90009 67890",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "60006",
+        "90009",
+        "67890"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 77777, 99999, 22222",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "77777",
+        "99999",
+        "22222"
+      ]
+    }
+  },
+  {
+    "query": "Check 33333 46888 40004",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "33333",
+        "46888",
+        "40004"
+      ]
+    }
+  },
+  {
+    "query": "Show me 67890, 22222, and 90009",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "67890",
+        "22222"
+      ]
+    }
+  },
+  {
+    "query": "Show me 50005, 77777, and 40004",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "50005",
+        "77777"
+      ]
+    }
+  },
+  {
+    "query": "Products 70007, 30003",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "70007",
+        "30003",
+        "99999"
+      ]
+    }
+  },
+  {
+    "query": "Check 99999 88888 10001",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "99999",
+        "88888",
+        "10001"
+      ]
+    }
+  },
+  {
+    "query": "Products 46961, 50005",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "46961",
+        "50005",
+        "11111"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 55555, 67890, 90009",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "55555",
+        "67890",
+        "90009"
+      ]
+    }
+  },
+  {
+    "query": "Products 46888, 55555",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "46888",
+        "55555",
+        "50005"
+      ]
+    }
+  },
+  {
+    "query": "Stock for 50005,22222,99999",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "50005",
+        "22222",
+        "99999"
+      ]
+    }
+  },
+  {
+    "query": "Check 33333 55555 11111",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "33333",
+        "55555",
+        "11111"
+      ]
+    }
+  },
+  {
+    "query": "Stock for 46888,90009,70007",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "46888",
+        "90009",
+        "70007"
+      ]
+    }
+  },
+  {
+    "query": "Products 30003, 60006",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "30003",
+        "60006",
+        "55555"
+      ]
+    }
+  },
+  {
+    "query": "Products 22222, 80008",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "22222",
+        "80008",
+        "60006"
+      ]
+    }
+  },
+  {
+    "query": "Products 12345, 60006",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "12345",
+        "60006",
+        "77777"
+      ]
+    }
+  },
+  {
+    "query": "Stock for 22222,67890,60006",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "22222",
+        "67890",
+        "60006"
+      ]
+    }
+  },
+  {
+    "query": "When are 60006 and 77777 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "60006",
+        "77777"
+      ]
+    }
+  },
+  {
+    "query": "Show delivery for 67890 and 99999",
+    "intent": "delivery_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "67890",
+        "99999"
+      ]
+    }
+  },
+  {
+    "query": "Check 90009 77777 22222",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "90009",
+        "77777",
+        "22222"
+      ]
+    }
+  },
+  {
+    "query": "When are 55555 and 60006 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "55555",
+        "60006"
+      ]
+    }
+  },
+  {
+    "query": "Check 99999 46961 44444",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "99999",
+        "46961",
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "Check 20002 67890 46961",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "20002",
+        "67890",
+        "46961"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 46888, 40004, 22222",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "46888",
+        "40004",
+        "22222"
+      ]
+    }
+  },
+  {
+    "query": "Check 11111 40004 46888",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "11111",
+        "40004",
+        "46888"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 70007, 60006, 88888",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "70007",
+        "60006",
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "Show delivery for 12345 and 50005",
+    "intent": "delivery_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "12345",
+        "50005"
+      ]
+    }
+  },
+  {
+    "query": "What's the stock of 50005 and 55555?",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "50005",
+        "55555"
+      ]
+    }
+  },
+  {
+    "query": "Products 11111, 46961",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "11111",
+        "46961",
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "What's the stock of 46961 and 20002?",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "46961",
+        "20002"
+      ]
+    }
+  },
+  {
+    "query": "Stock for 88888,60006,44444",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "88888",
+        "60006",
+        "44444"
+      ]
+    }
+  },
+  {
+    "query": "Products 50005, 60006",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "50005",
+        "60006",
+        "55555"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 33333, 44444, 88888",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "33333",
+        "44444",
+        "88888"
+      ]
+    }
+  },
+  {
+    "query": "What's the stock of 46888 and 90009?",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "46888",
+        "90009"
+      ]
+    }
+  },
+  {
+    "query": "Products 12345, 60006",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "12345",
+        "60006",
+        "99999"
+      ]
+    }
+  },
+  {
+    "query": "Show me 12345, 46961, and 55555",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "12345",
+        "46961"
+      ]
+    }
+  },
+  {
+    "query": "When are 44444 and 33333 arriving?",
+    "intent": "delivery_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "44444",
+        "33333"
+      ]
+    }
+  },
+  {
+    "query": "Show me 55555, 60006, and 90009",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "55555",
+        "60006"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 40004, 88888, 11111",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "40004",
+        "88888",
+        "11111"
+      ]
+    }
+  },
+  {
+    "query": "Show delivery for 80008 and 10001",
+    "intent": "delivery_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "80008",
+        "10001"
+      ]
+    }
+  },
+  {
+    "query": "Check stock for 44444, 11111, 60006",
+    "intent": "stock_query",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "44444",
+        "11111",
+        "60006"
+      ]
+    }
+  },
+  {
+    "query": "Check 30003 67890 22222",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "30003",
+        "67890",
+        "22222"
+      ]
+    }
+  },
+  {
+    "query": "Check 70007 90009 11111",
+    "intent": "product_info",
+    "confidence": 0.88,
+    "entities": {
+      "product_numbers": [
+        "70007",
+        "90009",
+        "11111"
+      ]
+    }
+  },
+  {
+    "query": "asdfgh",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "Random gibberish",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "12345",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "???",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "What's the weather?",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "Tell me a joke",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "How are you?",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "I like pizza",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "The quick brown fox",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "42",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "What time is it?",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "Where am I?",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "Who are you?",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "blah blah blah",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "test test",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "Lorem ipsum",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "undefined",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "null",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "error",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  },
+  {
+    "query": "crash the system",
+    "intent": "unknown",
+    "confidence": 0.6,
+    "entities": {}
+  }
+]

@@ -1,0 +1,31 @@
+Here are examples of correct extraction:
+
+Example 1:
+Context: UPC: 2699688678591 for product A1000, description: GLASS TUMBLER 12OZ CLEAR, case pack size: 36, uni...
+Question: I need the upc
+Response: {"upc": "2699688678591"}
+
+Example 2:
+Context: Product 46961, delivery quantity: 2739, vendor SKU: V-33627, plant: 9993, country of origin: CHINA...
+Question: Get who supplies info
+Response: {"vendor": null}
+
+Example 3:
+Context: Product 46888 has purchase order PO-2025-405, UPC: 3429270008762, delivery quantity: 2366, case pack...
+Question: Tell me the purchase order
+Response: {"purchase_order": "PO-2025-405"}
+
+Example 4:
+Context: Product G3960, description: SERVING PLATTER OVAL, delivery quantity: 3102...
+Question: Show me description, on order
+Response: {"description": "SERVING PLATTER OVAL", "delivery_quantity": "3102"}
+
+Example 5:
+Context: Previous query was about plant for product 00213. delivery date: 2025-11-07 for product 00213, weigh...
+Question: Also need delivery date
+Response: {"delivery_date": "2025-11-07"}
+
+Now extract from this:
+Context: Product 46961 has UPC 10026102469610, brand LUMINARC
+Question: What's the UPC?
+Response:

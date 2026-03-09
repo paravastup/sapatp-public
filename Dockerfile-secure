@@ -1,0 +1,79 @@
+FROM ubuntu:18.04
+
+# Avoid prompts from apt
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install Python 3.6 and other dependencies
+RUN apt-get update && apt-get install -y \
+    python3.6 \
+    python3.6-dev \
+    python3-pip \
+    python3-setuptools \
+    python3-wheel \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    default-libmysqlclient-dev \
+    libpq-dev \
+    netcat \
+    curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create symbolic links for python and pip
+RUN ln -sf /usr/bin/python3.6 /usr/bin/python \
+    && ln -sf /usr/bin/pip3 /usr/bin/pip
+
+# Create non-root user for security
+RUN useradd -m -s /bin/bash appuser
+
+# Set up working directory
+WORKDIR /app
+
+# Copy the nwrfcsdk library
+COPY nwrfcsdk /usr/nwrfcsdk
+
+# Set environment variables for nwrfcsdk
+ENV LD_LIBRARY_PATH=/usr/nwrfcsdk/lib:$LD_LIBRARY_PATH
+ENV SAPNWRFC_HOME=/usr/nwrfcsdk
+
+# Copy requirements first for better caching
+COPY requirements-secure.txt /app/requirements.txt
+COPY pyrfc-1.9.93-cp36-cp36m-linux_x86_64.whl /app/
+
+# Install Python dependencies
+RUN pip install --upgrade pip \
+    && pip install /app/pyrfc-1.9.93-cp36-cp36m-linux_x86_64.whl \
+    && pip install -r requirements.txt \
+    && pip install mysqlclient gunicorn
+
+# Copy the application code
+COPY atp /app
+
+# Create necessary directories with proper permissions
+RUN mkdir -p /app/sock /var/log/gunicorn /app/static /app/media \
+    && chown -R appuser:appuser /app /var/log/gunicorn
+
+# Security: Don't run as root
+USER appuser
+
+# Expose port for the application
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD python -c "import requests; requests.get('http://localhost:8000/')" || exit 1
+
+# Start the application with security settings
+CMD bash -c "echo 'Waiting for MySQL...' && \
+    while ! nc -z ${DATABASE_HOST:-db} ${DATABASE_PORT:-3306}; do sleep 1; done && \
+    echo 'MySQL started' && \
+    python manage.py migrate --noinput && \
+    python manage.py collectstatic --noinput && \
+    gunicorn --bind 0.0.0.0:8000 \
+        --workers 3 \
+        --timeout 60 \
+        --access-logfile /var/log/gunicorn/access.log \
+        --error-logfile /var/log/gunicorn/error.log \
+        --log-level info \
+        atp.wsgi:application"

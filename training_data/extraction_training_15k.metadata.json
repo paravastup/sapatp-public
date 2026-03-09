@@ -1,0 +1,30 @@
+{
+  "total_examples": 15995,
+  "categories": {
+    "single_field": 4995,
+    "negative": 2500,
+    "multi_field": 3000,
+    "followup": 1000,
+    "context_variation": 1500,
+    "distractor": 2000,
+    "edge_case": 1000
+  },
+  "fields": {
+    "upc": 498,
+    "vendor": 511,
+    "purchase_order": 510,
+    "product_number": 503,
+    "case_pack": 497,
+    "brand": 503,
+    "stock": 498,
+    "plant": 503,
+    "delivery_date": 492,
+    "origin": 501,
+    "vendor_sku": 504,
+    "unit": 488,
+    "description": 503,
+    "weight": 487,
+    "delivery_quantity": 497
+  },
+  "generation_date": "2025-11-03T14:50:14.484677"
+}

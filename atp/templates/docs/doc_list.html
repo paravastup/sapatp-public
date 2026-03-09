@@ -1,0 +1,55 @@
+{% extends 'docs/base.html' %}
+
+{% block content %}
+<div class="container d-flex w-100 h-50 p-3 mx-auto flex-column">
+   <header class="masthead mb-auto">
+     <div class="inner">
+       <h3 class="masthead-brand"><img src="/static/css/index.png" alt="" class="img-rounded center-block" style="height:80px; width:auto;"></h3>
+       <nav class="nav nav-masthead justify-content-center">
+          {% if user.is_authenticated %}
+            <a href="#" class="nav-link">{{user.username}} </a>
+            <a href="#" class="nav-link"></a>
+            <a class="nav-link" href="{% url 'logout'%}">Log out</a>
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+            <a class="nav-link" href="{% url 'docs:help' %}">Help</a>
+	    <a class="nav-link" href="{% url 'password_change' %}">Change password</a>
+            {% if user.is_superuser %}
+              <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+            {% endif %}
+          {% else %}
+            <a class="nav-link" href="{% url 'login'%}">Log in</a>
+            <a class="nav-link" href="{% url 'docs:help' %}">Help</a>
+            <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+          {% endif %}
+       </nav>
+     </div>
+ </header>
+<main role="main" class="inner cover">
+<p class="blog-post-title"> Help Section </p>
+
+<hr>
+
+{% for doc in doc_list %}
+  <div class="blog-post">
+        <h5 class=""><a class="blog-post-meta" href="{% url 'docs:doc_detail' pk=doc.pk%}">{{doc.title}}</a></h5>
+  </div><!-- /.blog-post -->     
+    {% endfor %}
+
+{% if is_paginated %}
+<div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a class="blog-post-meta" href="/atp/help?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a class="blog-post-meta" href="/atp/help?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+</main>
+</div>
+{% endif %}
+{% endblock %}

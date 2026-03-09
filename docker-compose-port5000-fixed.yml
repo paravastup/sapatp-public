@@ -1,0 +1,73 @@
+services:
+  web:
+    build: .
+    container_name: atp_web
+    expose:
+      - "8000"
+    volumes:
+      - ./atp:/app
+      - ./nwrfcsdk:/usr/nwrfcsdk
+      - log_data:/var/log/gunicorn
+      - static_volume:/app/static
+    environment:
+      - DJANGO_SETTINGS_MODULE=atp.settings
+      - PYTHONUNBUFFERED=1
+      - DATABASE_HOST=db
+      - DATABASE_NAME=atp
+      - DATABASE_USER=djangoadmin
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - SAP_HOST=${SAP_HOST}
+      - SAP_SYSNR=${SAP_SYSNR:-00}
+      - SAP_CLIENT=${SAP_CLIENT:-100}
+      - SAP_USER=${SAP_USER}
+      - SAP_PASSWORD=${SAP_PASSWORD}
+      - SAP_LANG=EN
+    depends_on:
+      - db
+    restart: unless-stopped
+    networks:
+      - atp_network
+
+  db:
+    image: mysql:5.7
+    container_name: atp_db
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=atp
+      - MYSQL_USER=djangoadmin
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    networks:
+      - atp_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  nginx:
+    image: nginx:1.19
+    container_name: atp_nginx
+    volumes:
+      - ./nginx-fixed.conf:/etc/nginx/conf.d/default.conf:ro
+      - static_volume:/static:ro
+    ports:
+      - "5000:80"  # Changed to port 5000
+    depends_on:
+      - web
+    restart: unless-stopped
+    networks:
+      - atp_network
+
+networks:
+  atp_network:
+    driver: bridge
+
+volumes:
+  db_data:
+  log_data:
+  static_volume:

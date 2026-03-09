@@ -1,0 +1,29 @@
+{
+  "total_examples": 1000,
+  "categories": {
+    "single_field": 330,
+    "multi_field": 200,
+    "negative": 170,
+    "distractor": 130,
+    "context_variation": 100,
+    "followup": 70
+  },
+  "fields": {
+    "upc": 342,
+    "plant": 11,
+    "vendor_sku": 14,
+    "brand": 19,
+    "origin": 14,
+    "product_number": 11,
+    "delivery_date": 11,
+    "purchase_order": 12,
+    "weight": 8,
+    "case_pack": 9,
+    "stock": 15,
+    "delivery_quantity": 9,
+    "unit": 9,
+    "description": 6,
+    "vendor": 10
+  },
+  "generation_date": "2025-11-03T14:50:14.638136"
+}

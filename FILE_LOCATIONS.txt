@@ -1,0 +1,297 @@
+ATP APPLICATION - FILE LOCATIONS REFERENCE
+============================================
+
+## Documentation Generated
+=====================================
+CODEBASE_OVERVIEW.md ..................... Comprehensive technical documentation (20 sections)
+QUICK_START_GUIDE.md ..................... Quick reference guide for developers/admins
+FILE_LOCATIONS.txt ....................... This file
+
+## Project Root (/mnt/d/productavailability/)
+=====================================
+README.md ............................... Original project README
+DEPLOY.md ............................... Deployment guide (11+ sections)
+Dockerfile .............................. Container definition (Python 3.6, SAP RFC SDK)
+docker-compose.yml ...................... Multi-container orchestration
+nginx.conf .............................. Nginx reverse proxy config
+requirements.txt ........................ Python dependencies
+test_sap_connection.py .................. SAP RFC connection test script
+add_plants.py ........................... Utility to load plant data
+pyrfc.whl ............................... SAP RFC Python wheel (1.9.93)
+anthropic (file) ........................ API key placeholder
+check_app.bat ........................... Windows health check script
+check_app.sh ............................ Linux health check script
+
+## Django Project (atp/)
+=====================================
+
+### Core Configuration
+atp/atp/settings.py ..................... Main Django configuration
+atp/atp/urls.py ......................... Main URL routing
+atp/atp/wsgi.py ......................... WSGI application entry point
+atp/atp/__init__.py ..................... Package init
+atp/atp/settings.ini .................... SAP connection config (SENSITIVE)
+
+### Django Management
+atp/manage.py ........................... Django management script
+
+## Stockcheck App (atp/stockcheck/)
+=====================================
+
+### Core Files
+atp/stockcheck/models.py ................ Database models (SearchHistory, Plant, Profile, etc.)
+atp/stockcheck/views.py ................. Business logic - MAIN FILE (450 lines)
+atp/stockcheck/forms.py ................. Form definitions (ProductForm, SignUpForm, ProfileForm)
+atp/stockcheck/admin.py ................. Django admin customization
+atp/stockcheck/apps.py .................. App configuration
+atp/stockcheck/tests.py ................. Unit tests (minimal)
+atp/stockcheck/__init__.py .............. Package init
+atp/stockcheck/find_duplicate_emails.py . Email deduplication utility
+
+### Migrations
+atp/stockcheck/migrations/0001_initial.py ..................... Initial models creation
+atp/stockcheck/migrations/0002_profile_business.py ........... Add business field
+atp/stockcheck/migrations/0003_auto_20190306_0915.py ........ Auto migration
+atp/stockcheck/migrations/0004_user.py ........................ User model changes
+atp/stockcheck/migrations/0005_auto_20230711_2155.py ........ Latest auto migration
+atp/stockcheck/migrations/__init__.py ......................... Package init
+
+### Management Commands
+atp/stockcheck/management/commands/find_duplicate_emails.py ...... Find duplicates
+atp/stockcheck/management/commands/resolve_duplicate_emails.py ... Resolve duplicates
+atp/stockcheck/management/commands/__init__.py .............. Package init
+atp/stockcheck/management/__init__.py ........................ Package init
+
+### Templates
+atp/stockcheck/templates/stockcheck/base.html .............. Base template with navbar
+atp/stockcheck/templates/stockcheck/index.html ............. Landing page (with typed.js)
+atp/stockcheck/templates/stockcheck/search.html ............ Product search form
+atp/stockcheck/templates/stockcheck/details.html ........... Results table (responsive)
+atp/stockcheck/templates/stockcheck/about.html ............. About page
+atp/stockcheck/templates/stockcheck/help.html .............. Help page
+atp/stockcheck/templates/stockcheck/home.html .............. Dashboard
+atp/stockcheck/templates/stockcheck/account_activation_email.html
+
+### Static Assets
+atp/stockcheck/static/css/ ...................... CSS styling
+atp/stockcheck/static/js/ ....................... JavaScript files
+atp/stockcheck/static/docs/css/ ................. Documentation CSS
+atp/stockcheck/static/docs/js/ .................. Documentation JS
+
+## Docs App (atp/docs/)
+=====================================
+
+### Core Files
+atp/docs/models.py ........................ Doc model (articles, publish workflow)
+atp/docs/views.py ......................... CRUD views for documentation
+atp/docs/forms.py ......................... Doc form
+atp/docs/admin.py ......................... Admin registration
+atp/docs/apps.py .......................... App configuration
+atp/docs/tests.py ......................... Unit tests (minimal)
+atp/docs/__init__.py ....................... Package init
+atp/docs/urls.py .......................... Documentation URLs
+
+### Migrations
+atp/docs/migrations/0001_initial.py ....... Initial Doc model
+atp/docs/migrations/__init__.py ........... Package init
+
+### Templates
+atp/docs/templates/docs/doc_list.html ............................. Published docs list
+atp/docs/templates/docs/doc_detail.html ........................... Single doc view
+atp/docs/templates/docs/doc_form.html ............................ Create/edit form
+atp/docs/templates/docs/doc_confirm_delete.html .................. Delete confirmation
+atp/docs/templates/docs/base.html ............................... Docs base template
+
+### Static Assets
+atp/docs/static/css/ ....................... Docs specific CSS
+atp/docs/static/js/ ....................... Docs specific JS
+
+## Global Templates (atp/templates/)
+=====================================
+
+### Registration/Auth
+atp/templates/registration/base.html ..................... Auth base template
+atp/templates/registration/login.html ................... Login form
+atp/templates/registration/signup.html .................. Registration (2-form layout)
+atp/templates/registration/password_reset_form.html .... Password reset form
+atp/templates/registration/password_reset_done.html .... Reset sent confirmation
+atp/templates/registration/password_reset_confirm.html . Reset confirmation form
+atp/templates/registration/password_reset_complete.html  Reset complete page
+atp/templates/registration/password_change.html ........ Change password form
+atp/templates/registration/feedback.html ............... Feedback form
+atp/templates/registration/thanks.html ................ Signup thanks page
+atp/templates/registration/backup_passwordreset.html .. Backup password reset
+
+### Main Templates
+atp/templates/stockcheck/base.html ....................... Main base template
+atp/templates/stockcheck/index.html ....................... Landing page
+atp/templates/stockcheck/search.html ....................... Search interface
+atp/templates/stockcheck/details.html ...................... Results display
+
+## Middleware (atp/middleware/)
+=====================================
+atp/middleware/audit_middleware.py ........ Login/logout audit tracking
+atp/middleware/__init__.py ............... Package init
+
+## Static Files (atp/static/)
+=====================================
+atp/static/admin/ .............................. Django admin assets
+  - css/ ...................................... Admin stylesheets
+  - js/ ....................................... Admin JavaScript
+  - fonts/ .................................... Admin fonts
+  - img/ ...................................... Admin images
+
+atp/static/css/ ............................... Application CSS
+  - cover.css ................................. Custom Arc styling
+  - Other Bootstrap/framework CSS
+
+atp/static/js/ ............................... Application JavaScript
+  - blog.js ................................... Custom JS
+  - jQuery, Bootstrap, DataTables JS
+
+atp/static/rest_framework/ .................. Django REST Framework assets
+  - css/ ...................................... DRF styling
+  - js/ ....................................... DRF JavaScript
+  - docs/ .................................... DRF documentation
+  - fonts/ .................................... DRF fonts
+  - img/ ...................................... DRF images
+
+## Utility Scripts (atp/)
+=====================================
+atp/find_duplicate_emails.py .............. Email deduplication utility
+atp/Dockerfile (nested) .................. App-specific Dockerfile
+atp/dev_rfc.trc .......................... RFC debug trace file
+atp/Users.csv ........................... Exported user data
+
+## Database Files (atp/)
+=====================================
+atp/db.sqlite3 ........................... SQLite database (dev only)
+
+## Python Virtual Environment (atpvenv/)
+=====================================
+atpvenv/ ................................. Python 3.6 virtual environment
+  - lib/python3.6/site-packages/ ........ Installed packages
+  - bin/ ................................... Python executables
+  
+## SAP RFC SDK (nwrfcsdk/)
+=====================================
+nwrfcsdk/ ................................ SAP NetWeaver RFC SDK
+  - lib/ ................................... RFC connection libraries
+  - include/ ............................... Header files
+  - demo/ ................................... Demo files and configs
+
+## Key Configuration Files Summary
+=====================================
+
+SECURITY/CREDENTIALS:
+- atp/atp/settings.py ..................... Secret key, email password, DB password (EXPOSED)
+- atp/atp/settings.ini .................... SAP credentials (EXPOSED)
+- docker-compose.yml ...................... Database and SAP env vars
+
+APPLICATION:
+- atp/atp/urls.py ......................... All URL routes
+- atp/atp/settings.py ..................... All Django settings
+- atp/stockcheck/views.py ................. All business logic (450 lines)
+- atp/stockcheck/models.py ................ All database models
+- atp/stockcheck/forms.py ................. All forms
+
+DEPLOYMENT:
+- Dockerfile .............................. Container image definition
+- docker-compose.yml ...................... Services and configuration
+- nginx.conf .............................. Reverse proxy setup
+- requirements.txt ........................ Python dependencies
+
+TESTING:
+- test_sap_connection.py .................. SAP connection test
+- atp/stockcheck/tests.py ................. Unit tests (minimal)
+
+## Search Tips for Navigating Code
+=====================================
+
+MAIN BUSINESS LOGIC:
+- /mnt/d/productavailability/atp/stockcheck/views.py (450 lines)
+
+DATABASE MODELS:
+- /mnt/d/productavailability/atp/stockcheck/models.py
+
+SAP INTEGRATION:
+- Lines 70-123 in views.py (stock_info, product_details, product_info functions)
+- /mnt/d/productavailability/atp/atp/settings.ini (config)
+- /mnt/d/productavailability/test_sap_connection.py (testing)
+
+FORMS & INPUT:
+- /mnt/d/productavailability/atp/stockcheck/forms.py
+
+URL ROUTING:
+- /mnt/d/productavailability/atp/atp/urls.py
+
+TEMPLATES:
+- Search: /mnt/d/productavailability/atp/templates/stockcheck/search.html
+- Results: /mnt/d/productavailability/atp/templates/stockcheck/details.html
+- Login: /mnt/d/productavailability/atp/templates/registration/login.html
+
+CONFIGURATION:
+- Django: /mnt/d/productavailability/atp/atp/settings.py
+- SAP: /mnt/d/productavailability/atp/atp/settings.ini
+- Email: settings.py (EMAIL_* variables)
+- Logging: settings.py (LOGGING configuration)
+
+DEPLOYMENT:
+- Docker: /mnt/d/productavailability/Dockerfile
+- Services: /mnt/d/productavailability/docker-compose.yml
+- Web Server: /mnt/d/productavailability/nginx.conf
+
+ADMIN CUSTOMIZATION:
+- /mnt/d/productavailability/atp/stockcheck/admin.py
+
+MIDDLEWARE:
+- /mnt/d/productavailability/atp/middleware/audit_middleware.py
+
+## File Statistics
+=====================================
+Python Files: ~40 modules
+HTML Templates: ~25 files
+CSS/JS Libraries: ~15+ files
+Database Migrations: 5 migration files
+Configuration Files: 3 main configs (settings.py, settings.ini, docker-compose.yml)
+Total Lines of Code (excluding deps): ~5,000
+
+## Access Points by Role
+=====================================
+
+DEVELOPER:
+- Start: README.md, CODEBASE_OVERVIEW.md
+- Main code: atp/stockcheck/views.py
+- Forms: atp/stockcheck/forms.py
+- Models: atp/stockcheck/models.py
+- Templates: atp/templates/
+
+SYSTEM ADMIN:
+- Start: QUICK_START_GUIDE.md, DEPLOY.md
+- Configuration: atp/atp/settings.py, docker-compose.yml
+- Deployment: Dockerfile, docker-compose.yml
+- Testing: test_sap_connection.py
+- Logging: Check /var/log/gunicorn/sap_interactions.log
+
+DBA:
+- Models: atp/stockcheck/models.py
+- Migrations: atp/stockcheck/migrations/
+- Settings: atp/atp/settings.py (DATABASE section)
+
+SAP ADMIN:
+- Configuration: atp/atp/settings.ini
+- Testing: test_sap_connection.py
+- Logging: /var/log/gunicorn/sap_interactions.log
+
+APPLICATION ADMIN:
+- Users: Django admin (/atp/admin/)
+- Audit: AuditEntry model in admin
+- Search History: SearchHistory model in admin
+- Plants: Plant model in admin
+
+END USER:
+- Landing page: http://localhost/
+- Search: /atp/search/
+- Results download: /atp/data_download/
+- Help: /atp/help/
+
