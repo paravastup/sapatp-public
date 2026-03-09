@@ -392,7 +392,7 @@ class ExtractionTrainingGenerator:
                     "Where is it?"
                 ],
                 'sample_values': [
-                    '1000', '9994', '9993', '9943', 'DURAND', 'MILLVILLE',
+                    '1000', '1002', '1001', '1003', 'DURAND', 'MILLVILLE',
                     'BRAND_D', 'ARC CANADA', 'PLANT-A', 'WAREHOUSE-1'
                 ]
             }
@@ -428,7 +428,7 @@ class ExtractionTrainingGenerator:
                 'MNG01': str(random.randint(100, 5000)),
                 'LIFNR': f"VENDOR{random.randint(1, 50):03d}",
                 'EBELN': f"PO-2025-{random.randint(1, 999):03d}",
-                'WERKS': random.choice(['1000', '9994', '9993', '9943'])
+                'WERKS': random.choice(['1000', '1002', '1001', '1003'])
             }
             products.append(product)
 

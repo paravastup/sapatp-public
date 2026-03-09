@@ -31,7 +31,7 @@
 ## Test 2: Create an Export (Small Query)
 
 ### Steps:
-1. In chat, type: **"List all products in plant 9993"**
+1. In chat, type: **"List all products in plant 1001"**
 2. Wait for results (should be < 200 products)
 3. Click **"Email Results"** button
 4. Confirm email modal opens

@@ -26,7 +26,7 @@ class PatternCache:
     # Regex patterns for normalization
     PRODUCT_PATTERN = r'\b[A-Z]?\d{4,8}\b'  # Product numbers (10002, G3960)
     VENDOR_SKU_PATTERN = r'\b[A-Z]{2,4}-\d{3,6}\b'  # Vendor SKUs (OLD-123)
-    PLANT_CODE_PATTERN = r'\b(9993|9994|1000|9943)\b'  # Plant codes
+    PLANT_CODE_PATTERN = r'\b(1001|1002|1000|1003)\b'  # Plant codes
     DATE_PATTERN = r'\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b'  # Dates
     EMAIL_PATTERN = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'  # Emails
 

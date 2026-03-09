@@ -1031,9 +1031,9 @@ docker network disconnect atp_network my_container
 docker network inspect atp_network
 
 # Output shows:
-# - atp_web (172.22.0.3)
-# - atp_db (172.22.0.2)
-# - atp_nginx (172.22.0.4)
+# - atp_web (10.0.0.3)
+# - atp_db (10.0.0.2)
+# - atp_nginx (10.0.0.4)
 
 # Test connectivity between containers
 docker exec atp_web ping atp_db
@@ -1243,7 +1243,7 @@ DJANGO_SECRET_KEY=your-secret-key-here
 DJANGO_DEBUG=False
 
 # SAP
-SAP_HOST=sap.company.com
+SAP_HOST=sap-demo.example.com
 SAP_USER=sapuser
 SAP_PASSWORD=sappass
 

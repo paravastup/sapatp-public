@@ -64,7 +64,7 @@ def test_terminology_fixes(model_name: str = "atp-extraction-v3"):
         },
         {
             'name': 'Test 87: ean → UPC',
-            'context': 'Product G3960 has UPC 9957356082028, plant: 9943',
+            'context': 'Product G3960 has UPC 9957356082028, plant: 1003',
             'query': "Please provide the ean",
             'expected': {"upc": "9957356082028"},
             'v2_wrong': {"ean": None}

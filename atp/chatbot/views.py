@@ -1199,7 +1199,7 @@ def export_email(request):
         user_agent = request.META.get('HTTP_USER_AGENT', '')
 
         # Detect if sending to personal email (non-company domain)
-        company_domains = ['arccardinal.com', 'arc-intl.com']  # Configure as needed
+        company_domains = ['acmecorp.example.com', 'acme-intl.example.com']  # Configure as needed
         is_personal_email = not any(email_address.lower().endswith('@' + domain) for domain in company_domains)
 
         # Check if admin override (sending to different email)
@@ -1555,7 +1555,7 @@ ATP System'''
         user_agent = request.META.get('HTTP_USER_AGENT', '')
 
         # Detect personal email
-        company_domains = ['arccardinal.com', 'arc-intl.com']
+        company_domains = ['acmecorp.example.com', 'acme-intl.example.com']
         is_personal_email = not any(email_address.lower().endswith('@' + domain) for domain in company_domains)
         is_admin_override = (request.user.is_staff or request.user.is_superuser) and (email_address != request.user.email)
 

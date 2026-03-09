@@ -592,7 +592,7 @@ Update SAP credentials in settings:
 ```python
 # atp/atp/settings_secure.py
 SAP_CONFIG = {
-    'ashost': os.getenv('SAP_HOST', 'sap.company.com'),
+    'ashost': os.getenv('SAP_HOST', 'sap-demo.example.com'),
     'sysnr': os.getenv('SAP_SYSTEM_NUMBER', '00'),
     'client': os.getenv('SAP_CLIENT', '100'),
     'user': os.getenv('SAP_USER', 'your-user'),

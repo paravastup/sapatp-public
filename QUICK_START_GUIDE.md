@@ -129,7 +129,7 @@ User (Django built-in)
 
 Plant
   ├── code (e.g., "1000")
-  ├── description (e.g., "Durand Glass")
+  ├── description (e.g., "ACME Glass Plant")
   └── users (M:M)
 
 SearchHistory
@@ -149,7 +149,7 @@ Profile
   ├── company
   ├── role
   ├── website
-  └── business (AINA or Brand_D)
+  └── business (ACNA or BRAND_D)
 ```
 
 ---

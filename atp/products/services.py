@@ -363,9 +363,9 @@ class ProductService:
             label: Product label/name (e.g., 'Cabernet Tall Wine 16.0 Oz')
 
         Returns:
-            Product URL (e.g., 'https://www.arccardinal.com/our-products/tableware/glassware/wine/cabernet-tall-wine-16.0-oz/')
+            Product URL (e.g., 'https://www.acmecorp.example.com/our-products/tableware/glassware/wine/cabernet-tall-wine-16.0-oz/')
         """
-        base_url = "https://arccardinal.com/our-products"
+        base_url = "https://acmecorp.example.com/our-products"
 
         def url_encode(text: str) -> str:
             """Convert text to URL-safe format"""

@@ -51,13 +51,13 @@ echo [4/5] Testing custom model...
 echo.
 
 echo Test 1: Stock Query
-echo Query: What's the stock of product 46888?
-ollama run atp-chatbot "Classify: What's the stock of product 46888? Return JSON with intent and entities."
+echo Query: What's the stock of product 10001?
+ollama run atp-chatbot "Classify: What's the stock of product 10001? Return JSON with intent and entities."
 echo.
 
 echo Test 2: Action Repeat
 echo Query: Do the same with 12345
-ollama run atp-chatbot "User asked for UPC of 46888. Now: 'Do the same with 12345'. Return JSON."
+ollama run atp-chatbot "User asked for UPC of 10001. Now: 'Do the same with 12345'. Return JSON."
 echo.
 
 REM Show model info

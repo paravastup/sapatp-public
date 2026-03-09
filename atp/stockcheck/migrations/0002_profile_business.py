@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='profile',
             name='business',
-            field=models.CharField(blank=True, choices=[('AINA', 'ACME International Millville'), ('Brand_D', 'Brand_D International Pinebrook')], max_length=10, null=True),
+            field=models.CharField(blank=True, choices=[('ACNA', 'ACME Corp North America'), ('Brand_D', 'Brand_D International Metro City')], max_length=10, null=True),
         ),
     ]

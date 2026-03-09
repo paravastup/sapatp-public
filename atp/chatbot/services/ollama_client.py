@@ -244,16 +244,16 @@ JSON only: {{"product_numbers": ["123"], "plant_code": "1000", "export_format": 
             entities['search_type'] = 'vendor_sku'
 
         # Extract plant codes
-        plant_codes = re.findall(r'\b(9993|9994|1000|9943)\b', message)
+        plant_codes = re.findall(r'\b(1001|1002|1000|1003)\b', message)
         if plant_codes:
             entities['plant_code'] = plant_codes[0]
 
         # Extract plant names
         plant_names = {
             'durand': '1000',
-            'millville': '9994',
-            'cardinal': '9993',
-            'arc canada': '9943'
+            'millville': '1002',
+            'cardinal': '1001',
+            'arc canada': '1003'
         }
         message_lower = message.lower()
         for name, code in plant_names.items():

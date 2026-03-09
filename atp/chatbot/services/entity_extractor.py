@@ -27,10 +27,10 @@ class EntityExtractor:
     PATTERNS = {
         'product_numbers': r'\b[A-Z]?\d{4,8}\b',  # 4-8 digit numbers, optionally prefixed with a letter (G3960, 10002)
         'vendor_skus': r'\b[A-Z]{2,4}-\d{3,6}\b',  # Format like "OLD-123"
-        'plant_codes': r'\b(9993|9994|1000|9943)\b',  # Known plant codes
+        'plant_codes': r'\b(1001|1002|1000|1003)\b',  # Known plant codes
         'dates': r'\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b',  # Date formats
         'email': r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b',
-        'brand_names': r'\b(?:libbey|arc|cardinal|durand|bormioli|pasabahce|crisa|chef\s*&\s*sommelier|chef\s+and\s+sommelier)\b'  # Common glass brands (legacy + Chef & Sommelier)
+        'brand_names': r'\b(?:libbey|arc|cardinal|durand|bormioli|pasabahce|crisa|chef\s*&\s*sommelier|chef\s+and\s+sommelier)\b'  # Common glass brands (legacy + Chef & Co)
     }
 
     # Cache for DataFeed catalog entities - refreshed on init
@@ -42,10 +42,10 @@ class EntityExtractor:
     PLANT_MAPPINGS = {
         'durand': '1000',
         'durand glass': '1000',
-        'millville': '9994',
-        'cardinal': '9993',
-        'arc canada': '9943',
-        'canada': '9943'
+        'millville': '1002',
+        'cardinal': '1001',
+        'arc canada': '1003',
+        'canada': '1003'
     }
 
     # Export format keywords
@@ -76,7 +76,7 @@ class EntityExtractor:
         Strips punctuation (®, &, etc.) and collapses whitespace.
 
         Examples:
-            "Chef & Sommelier" -> "chef sommelier"
+            "Chef & Co" -> "chef sommelier"
             "Chef and Sommelier" -> "chef and sommelier"
             "Brand_G Rocco®" -> "bormioli rocco"
         """
@@ -211,7 +211,7 @@ class EntityExtractor:
         # Filter out plant codes from product numbers
         entities['product_numbers'] = [
             num.upper() for num in product_numbers
-            if num not in ['9993', '9994', '1000', '9943']
+            if num not in ['1001', '1002', '1000', '1003']
         ]
 
         # Extract vendor SKUs
@@ -290,15 +290,15 @@ class EntityExtractor:
                         break
 
             # Fallback: Use legacy brand_names if DataFeed brand not found
-            # This handles "Chef and Sommelier" when cache has "Chef & Sommelier"
+            # This handles "Chef and Sommelier" when cache has "Chef & Co"
             if not entities['datafeed_brand'] and entities.get('brand_names'):
                 # Map known fallback brands to DataFeed brands
                 fallback_brand = entities['brand_names'][0].lower()
                 if 'chef' in fallback_brand and 'sommelier' in fallback_brand:
-                    entities['datafeed_brand'] = 'Chef & Sommelier'
-                    logger.info(f"[DATAFEED] Using fallback brand mapping: {entities['brand_names'][0]} -> Chef & Sommelier")
+                    entities['datafeed_brand'] = 'Chef & Co'
+                    logger.info(f"[DATAFEED] Using fallback brand mapping: {entities['brand_names'][0]} -> Chef & Co")
 
-            # Detect bulk query patterns (e.g., "Show me Arcoroc wine glasses", "all Chef & Sommelier products")
+            # Detect bulk query patterns (e.g., "Show me ACME Brand wine glasses", "all Chef & Co products")
             bulk_keywords = [
                 'all', 'every', 'entire', 'whole', 'complete',
                 'show me all', 'list all', 'get all', 'find all',
@@ -348,7 +348,7 @@ class EntityExtractor:
         # Validate plant code
         if 'plant_code' in entities:
             plant_code = entities.get('plant_code')
-            if plant_code not in ['9993', '9994', '1000', '9943']:
+            if plant_code not in ['1001', '1002', '1000', '1003']:
                 entities['plant_code'] = None
 
         # Validate export format

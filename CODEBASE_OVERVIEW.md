@@ -369,7 +369,7 @@ Tests SAP connectivity by:
 ```python
 class Plant(models.Model):
     code = CharField(max_length=15)              # e.g., "1000"
-    description = CharField(max_length=30)      # e.g., "Durand Glass"
+    description = CharField(max_length=30)      # e.g., "ACME Glass Plant"
     users = ManyToManyField(User)                # Plant-to-User relationship
 
 class Pattern(models.Model):
@@ -385,7 +385,7 @@ class Profile(models.Model):  # Extended User profile
     company = CharField(max_length=30, blank=True)
     role = CharField(max_length=30, blank=True)
     website = URLField(max_length=50, blank=True)
-    business = CharField(max_length=10, blank=True)  # AINA or Brand_D
+    business = CharField(max_length=10, blank=True)  # ACNA or BRAND_D
 
 class SearchHistory(models.Model):
     username = ForeignKey(User)
@@ -509,7 +509,7 @@ class SignUpForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     BUSINESS_CHOICES = (
         (' ', 'Select the business entity...'),
-        ('AINA', 'ACME International North America'),
+        ('ACNA', 'ACME Corp North America'),
         ('Brand_D', 'Brand_D International')
     )
     

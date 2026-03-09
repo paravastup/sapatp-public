@@ -432,7 +432,7 @@ JSON only."""
         entities['vendor_skus'] = list(set(vendor_skus))
 
         # Extract plant codes
-        plant_codes = re.findall(r'\b(9993|9994|1000|9943)\b', message)
+        plant_codes = re.findall(r'\b(1001|1002|1000|1003)\b', message)
         if plant_codes:
             entities['plant_code'] = plant_codes[0]
 

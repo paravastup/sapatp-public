@@ -46,4 +46,4 @@ Training data: 15,000+ examples of extraction tasks
 """
 
 # Training adapter will be loaded if available
-ADAPTER /mnt/d/productavailability/models/extraction-adapter.gguf
+ADAPTER /opt/app/models/extraction-adapter.gguf

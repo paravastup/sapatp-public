@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="{% static 'css/cover.css' %}">
 
-  <!-- ARC Brand_D Theme - MUST LOAD LAST to override all other styles -->
+  <!-- ACME Corp Theme - MUST LOAD LAST to override all other styles -->
   <link rel="stylesheet" href="{% static 'chatbot/css/acme-corp-theme.css' %}?v=3.0">
 
 <!-- Material Design Bootstrap -->
@@ -27,7 +27,7 @@
   {% block content %}
   {% endblock %}
 
-  <!-- Footer - ARC Brand_D Style -->
+  <!-- Footer - ACME Corp Style -->
   <footer class="site-footer">
     <div class="footer-content">
       <nav class="footer-navigation" aria-label="Footer Legal Navigation">
@@ -37,8 +37,8 @@
           {% if user.is_superuser %}
           <li><a href="{% url 'admin:index' %}" class="footer-link">Admin Portal</a></li>
           {% endif %}
-          <li><a href="https://arccardinal.com" target="_blank" class="footer-link">ACME Corp</a></li>
-          <li><a href="https://www.arc-intl.com/en/" target="_blank" class="footer-link">ACME International</a></li>
+          <li><a href="https://acmecorp.example.com" target="_blank" class="footer-link">ACME Corp</a></li>
+          <li><a href="https://www.acme-intl.example.com/en/" target="_blank" class="footer-link">ACME International</a></li>
         </ul>
       </nav>
       <p class="footer-copyright">© 2025 Arc Group International. All rights reserved.</p>

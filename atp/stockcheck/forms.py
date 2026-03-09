@@ -19,9 +19,9 @@ class ProductForm(forms.Form):
     )
     #plant_choices = (
     #('Plant', 'Choose a plant..'),
-    #('9993', 'ACME Corp'),
-    #('9994', 'Arc Millville'),
-    #('9943', 'Arc Canada'),
+    #('1001', 'ACME Corp'),
+    #('1002', 'ACME Plant 2'),
+    #('1003', 'ACME Canada'),
     #)
     attr_type = forms.ChoiceField(choices= attr_choices, required=True, widget=forms.Select(attrs={'class': 'form-control mx-sm-3','id': 'attr_type', 'aria-describedby': 'attrHelpBlock'}), label="")
     plant_option = forms.ModelChoiceField(queryset=None,empty_label='Select a plant',required=True,widget=forms.Select(attrs={'class': 'form-control mx-sm-3', 'id': 'plant_option','aria-describedby': 'plantHelpBlock'}), label="" )
@@ -55,8 +55,8 @@ class SignUpForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     BUSINESS_CHOICES = (
     (' ','Select the business entity that you work with'),
-    ('AINA', 'ACME International North America'),
-    ('Brand_D', 'Brand_D International')
+    ('ACNA', 'ACME Corp North America'),
+    ('BRAND_D', 'Brand_D International')
     )
     company = forms.CharField(max_length=30, required=True, help_text='Required',widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Company name'}))
     role = forms.CharField(max_length=75, required=True, help_text='Required',widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Role / Title'}))

@@ -1,6 +1,6 @@
 /*
- * ARC Brand_D Theme for ATP Chatbot
- * Extracted from https://arccardinal.com/
+ * ACME Corp Theme for ATP Chatbot
+ * Extracted from https://acmecorp.example.com/
  * Color Palette & Fonts
  */
 
@@ -10,67 +10,67 @@
 
 /* ========== COLOR VARIABLES ========== */
 :root {
-    /* Primary Colors from ARC Brand_D */
-    --arc-navy-dark: rgb(7, 16, 62);        /* Dark navy blue - primary brand color */
-    --arc-navy-medium: rgb(7, 17, 61);      /* Medium navy */
-    --arc-navy-purple: rgb(35, 31, 116);    /* Purple navy accent */
-    --arc-yellow: rgb(255, 224, 25);        /* Bright yellow - CTA buttons */
-    --arc-yellow-dark: rgb(230, 200, 0);    /* Darker yellow for hover */
+    /* Primary Colors from ACME Corp */
+    --acme-navy-dark: rgb(7, 16, 62);        /* Dark navy blue - primary brand color */
+    --acme-navy-medium: rgb(7, 17, 61);      /* Medium navy */
+    --acme-navy-blue: rgb(35, 31, 116);    /* Purple navy accent */
+    --acme-yellow: rgb(255, 224, 25);        /* Bright yellow - CTA buttons */
+    --acme-yellow-dark: rgb(230, 200, 0);    /* Darker yellow for hover */
 
     /* Text Colors */
-    --arc-text-primary: rgb(85, 91, 92);    /* Body text gray */
-    --arc-text-dark: rgb(4, 4, 39);         /* Dark text for buttons */
-    --arc-text-white: rgb(255, 255, 255);   /* White text */
+    --acme-text-primary: rgb(85, 91, 92);    /* Body text gray */
+    --acme-text-dark: rgb(4, 4, 39);         /* Dark text for buttons */
+    --acme-text-white: rgb(255, 255, 255);   /* White text */
 
     /* Background Colors */
-    --arc-bg-white: rgb(254, 255, 255);     /* Main background */
-    --arc-bg-light: rgb(245, 244, 255);     /* Light purple tint */
-    --arc-bg-gray-light: rgb(244, 244, 244);/* Light gray */
-    --arc-bg-gray: rgb(237, 237, 237);      /* Medium gray */
+    --acme-bg-white: rgb(254, 255, 255);     /* Main background */
+    --acme-bg-light: rgb(245, 244, 255);     /* Light purple tint */
+    --acme-bg-gray-light: rgb(244, 244, 244);/* Light gray */
+    --acme-bg-gray: rgb(237, 237, 237);      /* Medium gray */
 
     /* Fonts */
-    --arc-font-primary: 'Montserrat', sans-serif;
-    --arc-font-heading: 'Montserrat', sans-serif;
+    --acme-font-primary: 'Montserrat', sans-serif;
+    --acme-font-heading: 'Montserrat', sans-serif;
 
     /* Spacing & Borders */
-    --arc-border-radius: 4px;
-    --arc-shadow: 0 2px 8px rgba(7, 16, 62, 0.1);
-    --arc-shadow-hover: 0 4px 12px rgba(7, 16, 62, 0.15);
+    --acme-border-radius: 4px;
+    --acme-shadow: 0 2px 8px rgba(7, 16, 62, 0.1);
+    --acme-shadow-hover: 0 4px 12px rgba(7, 16, 62, 0.15);
 }
 
 /* ========== GLOBAL STYLES ========== */
 body {
-    font-family: var(--arc-font-primary) !important;
-    color: var(--arc-text-primary) !important;
-    background-color: var(--arc-bg-white) !important;
+    font-family: var(--acme-font-primary) !important;
+    color: var(--acme-text-primary) !important;
+    background-color: var(--acme-bg-white) !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--arc-font-heading) !important;
+    font-family: var(--acme-font-heading) !important;
     font-weight: 600 !important;
-    color: var(--arc-navy-dark) !important;
+    color: var(--acme-navy-dark) !important;
 }
 
 /* ========== HEADER / NAVIGATION ========== */
 header, .navbar {
-    background-color: var(--arc-bg-white) !important;
-    border-bottom: 1px solid var(--arc-bg-gray) !important;
-    font-family: var(--arc-font-primary) !important;
+    background-color: var(--acme-bg-white) !important;
+    border-bottom: 1px solid var(--acme-bg-gray) !important;
+    font-family: var(--acme-font-primary) !important;
 }
 
 .navbar-brand {
-    color: var(--arc-navy-dark) !important;
+    color: var(--acme-navy-dark) !important;
     font-weight: 700 !important;
 }
 
 .nav-link {
-    color: var(--arc-text-primary) !important;
+    color: var(--acme-text-primary) !important;
     font-weight: 500 !important;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: var(--arc-navy-dark) !important;
+    color: var(--acme-navy-dark) !important;
 }
 
 /* ========== PRIMARY BUTTONS (Yellow CTA) ========== */
@@ -79,12 +79,12 @@ header, .navbar {
 button[type="submit"],
 .search-button,
 #send-btn {
-    background-color: var(--arc-yellow) !important;
-    color: var(--arc-text-dark) !important;
-    border: 2px solid var(--arc-navy-dark) !important;
-    border-radius: var(--arc-border-radius) !important;
+    background-color: var(--acme-yellow) !important;
+    color: var(--acme-text-dark) !important;
+    border: 2px solid var(--acme-navy-dark) !important;
+    border-radius: var(--acme-border-radius) !important;
     font-weight: 600 !important;
-    font-family: var(--arc-font-primary) !important;
+    font-family: var(--acme-font-primary) !important;
     padding: 10px 24px !important;
     transition: all 0.3s ease !important;
     text-transform: uppercase;
@@ -96,18 +96,18 @@ button[type="submit"],
 button[type="submit"]:hover,
 .search-button:hover,
 #send-btn:hover {
-    background-color: var(--arc-yellow-dark) !important;
+    background-color: var(--acme-yellow-dark) !important;
     transform: translateY(-2px);
-    box-shadow: var(--arc-shadow-hover) !important;
+    box-shadow: var(--acme-shadow-hover) !important;
 }
 
 /* ========== SECONDARY BUTTONS ========== */
 .btn-secondary,
 .btn-outline-primary {
     background-color: transparent !important;
-    color: var(--arc-navy-dark) !important;
-    border: 2px solid var(--arc-navy-dark) !important;
-    border-radius: var(--arc-border-radius) !important;
+    color: var(--acme-navy-dark) !important;
+    border: 2px solid var(--acme-navy-dark) !important;
+    border-radius: var(--acme-border-radius) !important;
     font-weight: 600 !important;
     padding: 10px 24px !important;
     transition: all 0.3s ease !important;
@@ -115,34 +115,34 @@ button[type="submit"]:hover,
 
 .btn-secondary:hover,
 .btn-outline-primary:hover {
-    background-color: var(--arc-navy-dark) !important;
-    color: var(--arc-text-white) !important;
+    background-color: var(--acme-navy-dark) !important;
+    color: var(--acme-text-white) !important;
 }
 
 /* ========== CHAT INTERFACE ========== */
 .chat-container {
-    background-color: var(--arc-bg-white) !important;
-    border-radius: var(--arc-border-radius) !important;
+    background-color: var(--acme-bg-white) !important;
+    border-radius: var(--acme-border-radius) !important;
 }
 
 .message-container {
     padding: 16px;
-    border-radius: var(--arc-border-radius);
+    border-radius: var(--acme-border-radius);
     margin-bottom: 12px;
 }
 
 .user-message {
-    background-color: var(--arc-navy-dark) !important;
-    color: var(--arc-text-white) !important;
+    background-color: var(--acme-navy-dark) !important;
+    color: var(--acme-text-white) !important;
     border-radius: 18px 18px 4px 18px !important;
     margin-left: auto;
     max-width: 70%;
 }
 
 .assistant-message {
-    background-color: var(--arc-bg-light) !important;
-    color: var(--arc-text-primary) !important;
-    border: 1px solid var(--arc-bg-gray) !important;
+    background-color: var(--acme-bg-light) !important;
+    color: var(--acme-text-primary) !important;
+    border: 1px solid var(--acme-bg-gray) !important;
     border-radius: 18px 18px 18px 4px !important;
     max-width: 70%;
 }
@@ -153,11 +153,11 @@ input[type="email"],
 input[type="search"],
 textarea,
 .form-control {
-    border: 2px solid var(--arc-bg-gray) !important;
-    border-radius: var(--arc-border-radius) !important;
+    border: 2px solid var(--acme-bg-gray) !important;
+    border-radius: var(--acme-border-radius) !important;
     padding: 12px !important;
-    font-family: var(--arc-font-primary) !important;
-    color: var(--arc-text-primary) !important;
+    font-family: var(--acme-font-primary) !important;
+    color: var(--acme-text-primary) !important;
     transition: border-color 0.3s ease !important;
 }
 
@@ -166,7 +166,7 @@ input[type="email"]:focus,
 input[type="search"]:focus,
 textarea:focus,
 .form-control:focus {
-    border-color: var(--arc-navy-dark) !important;
+    border-color: var(--acme-navy-dark) !important;
     outline: none !important;
     box-shadow: 0 0 0 3px rgba(7, 16, 62, 0.1) !important;
 }
@@ -174,54 +174,54 @@ textarea:focus,
 /* ========== SIDEBAR / HISTORY ========== */
 .sidebar,
 .history-sidebar {
-    background-color: var(--arc-bg-light) !important;
-    border-right: 1px solid var(--arc-bg-gray) !important;
+    background-color: var(--acme-bg-light) !important;
+    border-right: 1px solid var(--acme-bg-gray) !important;
 }
 
 .history-item {
     padding: 12px;
-    border-radius: var(--arc-border-radius);
+    border-radius: var(--acme-border-radius);
     cursor: pointer;
     transition: all 0.3s ease;
     border-left: 3px solid transparent;
 }
 
 .history-item:hover {
-    background-color: var(--arc-bg-gray-light) !important;
-    border-left-color: var(--arc-yellow) !important;
-    color: var(--arc-text-primary) !important;  /* Ensure text is dark gray on light background */
+    background-color: var(--acme-bg-gray-light) !important;
+    border-left-color: var(--acme-yellow) !important;
+    color: var(--acme-text-primary) !important;  /* Ensure text is dark gray on light background */
 }
 
 .history-item.active {
-    background-color: var(--arc-navy-dark) !important;
-    color: var(--arc-text-white) !important;
-    border-left-color: var(--arc-yellow) !important;
+    background-color: var(--acme-navy-dark) !important;
+    color: var(--acme-text-white) !important;
+    border-left-color: var(--acme-yellow) !important;
 }
 
 /* Active item hover should keep white text on navy background */
 .history-item.active:hover {
-    background-color: var(--arc-navy-medium) !important;
-    color: var(--arc-text-white) !important;
-    border-left-color: var(--arc-yellow) !important;
+    background-color: var(--acme-navy-medium) !important;
+    color: var(--acme-text-white) !important;
+    border-left-color: var(--acme-yellow) !important;
 }
 
 /* ========== TABLES ========== */
 table {
     border-collapse: collapse;
     width: 100%;
-    font-family: var(--arc-font-primary) !important;
+    font-family: var(--acme-font-primary) !important;
 }
 
 thead {
-    background-color: var(--arc-navy-dark) !important;
-    color: var(--arc-text-white) !important;
+    background-color: var(--acme-navy-dark) !important;
+    color: var(--acme-text-white) !important;
 }
 
 thead th {
     padding: 12px;
     font-weight: 600;
     text-align: left;
-    border-bottom: 2px solid var(--arc-yellow) !important;
+    border-bottom: 2px solid var(--acme-yellow) !important;
 }
 
 tbody tr {
@@ -229,110 +229,110 @@ tbody tr {
 }
 
 tbody tr:nth-child(even) {
-    background-color: var(--arc-bg-gray-light) !important;
+    background-color: var(--acme-bg-gray-light) !important;
 }
 
 tbody tr:hover {
-    background-color: var(--arc-bg-light) !important;
+    background-color: var(--acme-bg-light) !important;
 }
 
 tbody td {
     padding: 12px;
-    border-bottom: 1px solid var(--arc-bg-gray) !important;
+    border-bottom: 1px solid var(--acme-bg-gray) !important;
 }
 
 /* ========== CARDS ========== */
 .card {
-    background-color: var(--arc-bg-white) !important;
-    border: 1px solid var(--arc-bg-gray) !important;
-    border-radius: var(--arc-border-radius) !important;
-    box-shadow: var(--arc-shadow) !important;
+    background-color: var(--acme-bg-white) !important;
+    border: 1px solid var(--acme-bg-gray) !important;
+    border-radius: var(--acme-border-radius) !important;
+    box-shadow: var(--acme-shadow) !important;
     transition: all 0.3s ease;
 }
 
 .card:hover {
-    box-shadow: var(--arc-shadow-hover) !important;
+    box-shadow: var(--acme-shadow-hover) !important;
     transform: translateY(-2px);
 }
 
 .card-header {
-    background-color: var(--arc-navy-dark) !important;
-    color: var(--arc-text-white) !important;
-    border-bottom: 2px solid var(--arc-yellow) !important;
+    background-color: var(--acme-navy-dark) !important;
+    color: var(--acme-text-white) !important;
+    border-bottom: 2px solid var(--acme-yellow) !important;
     font-weight: 600;
 }
 
 /* ========== BADGES / LABELS ========== */
 .badge {
-    border-radius: var(--arc-border-radius);
+    border-radius: var(--acme-border-radius);
     padding: 4px 12px;
     font-weight: 600;
-    font-family: var(--arc-font-primary) !important;
+    font-family: var(--acme-font-primary) !important;
 }
 
 .badge-primary {
-    background-color: var(--arc-yellow) !important;
-    color: var(--arc-text-dark) !important;
+    background-color: var(--acme-yellow) !important;
+    color: var(--acme-text-dark) !important;
 }
 
 .badge-secondary {
-    background-color: var(--arc-navy-dark) !important;
-    color: var(--arc-text-white) !important;
+    background-color: var(--acme-navy-dark) !important;
+    color: var(--acme-text-white) !important;
 }
 
 /* ========== ALERTS / NOTIFICATIONS ========== */
 .alert {
-    border-radius: var(--arc-border-radius);
+    border-radius: var(--acme-border-radius);
     border-left: 4px solid;
     padding: 16px;
-    font-family: var(--arc-font-primary) !important;
+    font-family: var(--acme-font-primary) !important;
 }
 
 .alert-success {
-    background-color: var(--arc-bg-light) !important;
-    border-left-color: var(--arc-yellow) !important;
-    color: var(--arc-text-primary) !important;
+    background-color: var(--acme-bg-light) !important;
+    border-left-color: var(--acme-yellow) !important;
+    color: var(--acme-text-primary) !important;
 }
 
 .alert-info {
-    background-color: var(--arc-bg-light) !important;
-    border-left-color: var(--arc-navy-dark) !important;
-    color: var(--arc-text-primary) !important;
+    background-color: var(--acme-bg-light) !important;
+    border-left-color: var(--acme-navy-dark) !important;
+    color: var(--acme-text-primary) !important;
 }
 
 .alert-warning {
     background-color: #fff4e5 !important;
-    border-left-color: var(--arc-yellow) !important;
-    color: var(--arc-text-primary) !important;
+    border-left-color: var(--acme-yellow) !important;
+    color: var(--acme-text-primary) !important;
 }
 
 .alert-danger {
     background-color: #fee !important;
     border-left-color: #c00 !important;
-    color: var(--arc-text-primary) !important;
+    color: var(--acme-text-primary) !important;
 }
 
 /* ========== FOOTER ========== */
 footer {
-    background-color: var(--arc-navy-dark) !important;
-    color: var(--arc-text-white) !important;
+    background-color: var(--acme-navy-dark) !important;
+    color: var(--acme-text-white) !important;
     padding: 24px;
-    font-family: var(--arc-font-primary) !important;
+    font-family: var(--acme-font-primary) !important;
 }
 
 footer a {
-    color: var(--arc-text-white) !important;
+    color: var(--acme-text-white) !important;
     transition: color 0.3s ease;
 }
 
 footer a:hover {
-    color: var(--arc-yellow) !important;
+    color: var(--acme-yellow) !important;
     text-decoration: none;
 }
 
 /* ========== LOADING SPINNER ========== */
 .spinner-border {
-    border-color: var(--arc-yellow) !important;
+    border-color: var(--acme-yellow) !important;
     border-right-color: transparent !important;
 }
 
@@ -342,36 +342,36 @@ footer a:hover {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--arc-bg-gray-light);
+    background: var(--acme-bg-gray-light);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--arc-navy-dark);
+    background: var(--acme-navy-dark);
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--arc-navy-purple);
+    background: var(--acme-navy-blue);
 }
 
 /* ========== CUSTOM PLANT SELECTION ========== */
 .plant-card {
-    border: 2px solid var(--arc-bg-gray);
-    border-radius: var(--arc-border-radius);
+    border: 2px solid var(--acme-bg-gray);
+    border-radius: var(--acme-border-radius);
     padding: 16px;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .plant-card:hover {
-    border-color: var(--arc-yellow) !important;
-    box-shadow: var(--arc-shadow-hover);
+    border-color: var(--acme-yellow) !important;
+    box-shadow: var(--acme-shadow-hover);
     transform: translateY(-2px);
 }
 
 .plant-card.selected {
-    border-color: var(--arc-navy-dark) !important;
-    background-color: var(--arc-bg-light) !important;
+    border-color: var(--acme-navy-dark) !important;
+    background-color: var(--acme-bg-light) !important;
 }
 
 /* ========== RESPONSIVE ========== */
@@ -399,7 +399,7 @@ footer a:hover {
 
 /* Fix card-header with bg-white class - force navy background */
 .card-header.bg-white {
-    background-color: var(--arc-navy-dark) !important;
+    background-color: var(--acme-navy-dark) !important;
 }
 
 /* Fix all headings in card-header to be white */
@@ -409,156 +409,156 @@ footer a:hover {
 .card-header h4,
 .card-header h5,
 .card-header h6 {
-    color: var(--arc-text-white) !important;
+    color: var(--acme-text-white) !important;
 }
 
 /* Fix icons in card-header */
 .card-header i,
 .card-header .fas,
 .card-header .fa {
-    color: var(--arc-yellow) !important;
+    color: var(--acme-yellow) !important;
 }
 
 /* Fix text-primary class to use yellow instead of blue */
 .text-primary {
-    color: var(--arc-yellow) !important;
+    color: var(--acme-yellow) !important;
 }
 
-/* Fix btn-outline-secondary to match ARC Brand_D */
+/* Fix btn-outline-secondary to match ACME Corp */
 .btn-outline-secondary {
-    border-color: var(--arc-yellow) !important;
-    color: var(--arc-navy-dark) !important;
+    border-color: var(--acme-yellow) !important;
+    color: var(--acme-navy-dark) !important;
 }
 
 .btn-outline-secondary:hover {
-    background-color: var(--arc-yellow) !important;
-    color: var(--arc-text-dark) !important;
-    border-color: var(--arc-navy-dark) !important;
+    background-color: var(--acme-yellow) !important;
+    color: var(--acme-text-dark) !important;
+    border-color: var(--acme-navy-dark) !important;
 }
 
 /* Fix active nav link */
 .nav-link.active {
-    color: var(--arc-navy-dark) !important;
-    border-bottom: 2px solid var(--arc-yellow) !important;
+    color: var(--acme-navy-dark) !important;
+    border-bottom: 2px solid var(--acme-yellow) !important;
     font-weight: 600 !important;
 }
 
 /* Override Bootstrap's text-dark */
 .text-dark {
-    color: var(--arc-navy-dark) !important;
+    color: var(--acme-navy-dark) !important;
 }
 
 /* Fix header card */
 .header-card {
-    border-bottom: 2px solid var(--arc-yellow) !important;
+    border-bottom: 2px solid var(--acme-yellow) !important;
 }
 
 /* History sidebar specific fixes */
 .history-card {
-    background-color: var(--arc-bg-white) !important;
-    border: 1px solid var(--arc-bg-gray) !important;
+    background-color: var(--acme-bg-white) !important;
+    border: 1px solid var(--acme-bg-gray) !important;
 }
 
 /* History items - additional styling */
 .history-item {
-    color: var(--arc-text-primary) !important;
+    color: var(--acme-text-primary) !important;
 }
 
 /* Ensure child elements also get proper contrast */
 .history-item:hover .history-text,
 .history-item:hover .history-time {
-    color: var(--arc-text-primary) !important;
+    color: var(--acme-text-primary) !important;
 }
 
 .history-item.active:hover .history-text,
 .history-item.active:hover .history-time {
-    color: var(--arc-text-white) !important;
+    color: var(--acme-text-white) !important;
 }
 
 /* Message badges */
 .message-count-badge {
-    background-color: var(--arc-yellow) !important;
-    color: var(--arc-text-dark) !important;
+    background-color: var(--acme-yellow) !important;
+    color: var(--acme-text-dark) !important;
     font-weight: 600 !important;
 }
 
 /* Override any blue colors from Bootstrap */
 .btn-info,
 .bg-info {
-    background-color: var(--arc-yellow) !important;
-    color: var(--arc-text-dark) !important;
-    border-color: var(--arc-navy-dark) !important;
+    background-color: var(--acme-yellow) !important;
+    color: var(--acme-text-dark) !important;
+    border-color: var(--acme-navy-dark) !important;
 }
 
 /* Fix border-bottom to not conflict */
 .border-bottom {
-    border-bottom-color: var(--arc-yellow) !important;
+    border-bottom-color: var(--acme-yellow) !important;
 }
 
 /* Ensure white text on navy backgrounds */
 .bg-primary,
 .bg-dark,
 .bg-navy {
-    background-color: var(--arc-navy-dark) !important;
-    color: var(--arc-text-white) !important;
+    background-color: var(--acme-navy-dark) !important;
+    color: var(--acme-text-white) !important;
 }
 
 .bg-primary *,
 .bg-dark *,
 .bg-navy * {
-    color: var(--arc-text-white) !important;
+    color: var(--acme-text-white) !important;
 }
 
 /* Exception for badges in navy backgrounds */
 .bg-primary .badge,
 .bg-dark .badge,
 .bg-navy .badge {
-    background-color: var(--arc-yellow) !important;
-    color: var(--arc-text-dark) !important;
+    background-color: var(--acme-yellow) !important;
+    color: var(--acme-text-dark) !important;
 }
 
 /* Fix search input placeholder */
 ::placeholder {
-    color: var(--arc-text-primary) !important;
+    color: var(--acme-text-primary) !important;
     opacity: 0.6 !important;
 }
 
 /* Masthead/Header navigation */
 .masthead {
-    background-color: var(--arc-bg-white) !important;
-    border-bottom: 2px solid var(--arc-bg-gray) !important;
+    background-color: var(--acme-bg-white) !important;
+    border-bottom: 2px solid var(--acme-bg-gray) !important;
 }
 
 .masthead-brand {
-    color: var(--arc-navy-dark) !important;
+    color: var(--acme-navy-dark) !important;
 }
 
 /* Footer specific */
 .contentinfo,
 footer {
-    background-color: var(--arc-navy-dark) !important;
-    color: var(--arc-text-white) !important;
+    background-color: var(--acme-navy-dark) !important;
+    color: var(--acme-text-white) !important;
 }
 
 /* Empty state styling */
 .empty-state h5,
 .empty-state p {
-    color: var(--arc-text-primary) !important;
+    color: var(--acme-text-primary) !important;
 }
 
 /* Sample query suggestions */
 .sample-query {
-    background-color: var(--arc-bg-light) !important;
-    border: 1px solid var(--arc-yellow) !important;
-    color: var(--arc-navy-dark) !important;
+    background-color: var(--acme-bg-light) !important;
+    border: 1px solid var(--acme-yellow) !important;
+    color: var(--acme-navy-dark) !important;
     transition: all 0.3s ease !important;
 }
 
 .sample-query:hover {
-    background-color: var(--arc-yellow) !important;
-    color: var(--arc-text-dark) !important;
+    background-color: var(--acme-yellow) !important;
+    color: var(--acme-text-dark) !important;
     transform: translateY(-2px);
-    box-shadow: var(--arc-shadow-hover) !important;
+    box-shadow: var(--acme-shadow-hover) !important;
 }
 
 /* ========== HOMEPAGE SPECIFIC OVERRIDES ========== */
@@ -566,16 +566,16 @@ footer {
 /* Override cover.css font with Montserrat */
 html,
 html body {
-    font-family: var(--arc-font-primary) !important;
+    font-family: var(--acme-font-primary) !important;
 }
 
 /* Homepage links should be cyan when not buttons */
 main a:not(.btn) {
-    color: var(--arc-yellow) !important;
+    color: var(--acme-yellow) !important;
 }
 
 main a:not(.btn):hover {
-    color: var(--arc-yellow-dark) !important;
+    color: var(--acme-yellow-dark) !important;
     text-decoration: underline;
 }
 
@@ -596,10 +596,10 @@ main a.btn,
 .btn-lg,
 .btn-outline-info,
 .btn-md {
-    background-color: var(--arc-yellow) !important;
-    color: var(--arc-navy-dark) !important;
-    border: 2px solid var(--arc-navy-dark) !important;
-    font-family: var(--arc-font-primary) !important;
+    background-color: var(--acme-yellow) !important;
+    color: var(--acme-navy-dark) !important;
+    border: 2px solid var(--acme-navy-dark) !important;
+    font-family: var(--acme-font-primary) !important;
     font-weight: 700 !important;
     text-decoration: none !important;
     font-size: 1rem !important;
@@ -611,9 +611,9 @@ main a.btn:hover,
 .btn-lg:hover,
 .btn-outline-info:hover,
 .btn-md:hover {
-    background-color: var(--arc-navy-dark) !important;
-    color: var(--arc-yellow) !important;
-    border-color: var(--arc-navy-dark) !important;
+    background-color: var(--acme-navy-dark) !important;
+    color: var(--acme-yellow) !important;
+    border-color: var(--acme-navy-dark) !important;
     transform: translateY(-2px);
 }
 
@@ -641,32 +641,32 @@ main .btn-outline-info:hover,
     border-color: rgb(7, 16, 62) !important;
 }
 
-/* Fix masthead/nav links - match ARC Brand_D purple navy color */
+/* Fix masthead/nav links - match ACME Corp purple navy color */
 .masthead .nav-link,
 .nav-masthead .nav-link,
 .nav-link {
-    color: var(--arc-navy-purple) !important;  /* Purple navy like ARC Brand_D */
+    color: var(--acme-navy-blue) !important;  /* Purple navy like ACME Corp */
     border-bottom-color: transparent !important;
-    font-family: var(--arc-font-primary) !important;
-    font-weight: 700 !important;  /* Match ARC Brand_D weight */
-    font-size: 14px !important;   /* Match ARC Brand_D size */
+    font-family: var(--acme-font-primary) !important;
+    font-weight: 700 !important;  /* Match ACME Corp weight */
+    font-size: 14px !important;   /* Match ACME Corp size */
 }
 
 .masthead .nav-link:hover,
 .nav-masthead .nav-link:hover,
 .masthead .nav-link:focus,
 .nav-masthead .nav-link:focus {
-    border-bottom-color: var(--arc-yellow) !important;
-    color: var(--arc-navy-dark) !important;
+    border-bottom-color: var(--acme-yellow) !important;
+    color: var(--acme-navy-dark) !important;
 }
 
 .masthead .nav-link.active,
 .nav-masthead .active {
-    color: var(--arc-navy-dark) !important;
-    border-bottom-color: var(--arc-yellow) !important;
+    color: var(--acme-navy-dark) !important;
+    border-bottom-color: var(--acme-yellow) !important;
 }
 
-/* Center the logo like ARC Brand_D */
+/* Center the logo like ACME Corp */
 .masthead-brand {
     text-align: center !important;
     margin: 0 auto !important;
@@ -678,7 +678,7 @@ main .btn-outline-info:hover,
     align-items: center !important;
 }
 
-/* Move nav links to the right like ARC Brand_D */
+/* Move nav links to the right like ACME Corp */
 .nav-masthead {
     justify-content: flex-end !important;
     width: 100% !important;
@@ -700,7 +700,7 @@ header .inner {
     border: none !important;
 }
 
-/* Homepage heading - Match ARC Brand_D "creator of experiences" style */
+/* Homepage heading - Match ACME Corp "creator of experiences" style */
 .cover h1,
 .cover-heading,
 main h1 {
@@ -710,7 +710,7 @@ main h1 {
     font-family: 'Playfair Display', serif !important;
     font-style: italic !important;  /* Italic style */
     line-height: 1.1em !important;
-    color: var(--arc-navy-dark) !important;
+    color: var(--acme-navy-dark) !important;
     margin-bottom: 1rem !important;
 }
 
@@ -721,7 +721,7 @@ main h1 span,
 main h1 .typed,
 .cover h1 #typedID,
 main h1 #typedID {
-    color: var(--arc-navy-dark) !important;
+    color: var(--acme-navy-dark) !important;
     font-family: 'Playfair Display', serif !important;
     font-weight: 700 !important;  /* Bold like "experiences" */
     font-style: italic !important;  /* Italic */
@@ -730,31 +730,31 @@ main h1 #typedID {
 
 /* Cover container */
 .cover-container {
-    font-family: var(--arc-font-primary) !important;
+    font-family: var(--acme-font-primary) !important;
 }
 
 /* Ensure paragraphs use correct font */
 p {
-    font-family: var(--arc-font-primary) !important;
-    color: var(--arc-text-primary) !important;
+    font-family: var(--acme-font-primary) !important;
+    color: var(--acme-text-primary) !important;
 }
 
 /* Fix any cyan/blue links that shouldn't be buttons */
 a[href="#"]:not(.btn),
 a[href="#"]:not(.nav-link) {
-    color: var(--arc-yellow) !important;
+    color: var(--acme-yellow) !important;
 }
 
 a[href="#"]:not(.btn):hover {
-    color: var(--arc-yellow-dark) !important;
+    color: var(--acme-yellow-dark) !important;
 }
 
 /* ===================================
-   Footer - ARC Brand_D Style
+   Footer - ACME Corp Style
    =================================== */
 
 .site-footer {
-    background-color: var(--arc-bg-white) !important;
+    background-color: var(--acme-bg-white) !important;
     padding: 30px 20px 20px !important;
     margin-top: 60px !important;
     border-top: 1px solid rgba(35, 31, 116, 0.1) !important;
@@ -787,8 +787,8 @@ a[href="#"]:not(.btn):hover {
 }
 
 .footer-link {
-    color: var(--arc-navy-purple) !important;
-    font-family: var(--arc-font-primary) !important;
+    color: var(--acme-navy-blue) !important;
+    font-family: var(--acme-font-primary) !important;
     font-size: 14px !important;
     font-weight: 400 !important;
     text-decoration: none !important;
@@ -796,13 +796,13 @@ a[href="#"]:not(.btn):hover {
 }
 
 .footer-link:hover {
-    color: var(--arc-yellow) !important;
+    color: var(--acme-yellow) !important;
     text-decoration: none !important;
 }
 
 .footer-copyright {
-    color: var(--arc-text-primary) !important;
-    font-family: var(--arc-font-primary) !important;
+    color: var(--acme-text-primary) !important;
+    font-family: var(--acme-font-primary) !important;
     font-size: 13px !important;
     font-weight: 300 !important;
     margin: 15px 0 0 0 !important;
@@ -823,22 +823,22 @@ a[href="#"]:not(.btn):hover {
     box-shadow: 0 10px 40px rgba(35, 31, 116, 0.2);
     z-index: 1000;
     overflow: hidden;
-    border: 1px solid var(--arc-border-color);
+    border: 1px solid var(--acme-border-color);
 }
 
 .notification-header {
-    background: linear-gradient(135deg, var(--arc-navy-purple) 0%, #1a1759 100%);
+    background: linear-gradient(135deg, var(--acme-navy-blue) 0%, #1a1759 100%);
     color: white;
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid var(--arc-yellow);
+    border-bottom: 2px solid var(--acme-yellow);
 }
 
 .notification-header h6 {
     color: white;
-    font-family: var(--arc-font-primary);
+    font-family: var(--acme-font-primary);
     font-weight: 600;
     margin: 0;
 }
@@ -851,7 +851,7 @@ a[href="#"]:not(.btn):hover {
 
 .notification-item {
     padding: 15px 20px;
-    border-bottom: 1px solid var(--arc-border-color);
+    border-bottom: 1px solid var(--acme-border-color);
     background: white;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -868,7 +868,7 @@ a[href="#"]:not(.btn):hover {
 
 .notification-item.unread {
     background: linear-gradient(to right, #fff8e6 0%, white 100%);
-    border-left: 3px solid var(--arc-yellow);
+    border-left: 3px solid var(--acme-yellow);
 }
 
 .notification-time {
@@ -878,13 +878,13 @@ a[href="#"]:not(.btn):hover {
 }
 
 .notification-message {
-    color: var(--arc-text-primary);
+    color: var(--acme-text-primary);
     font-size: 14px;
     margin: 5px 0;
 }
 
 .notification-download-btn {
-    background: linear-gradient(135deg, var(--arc-navy-purple) 0%, #1a1759 100%);
+    background: linear-gradient(135deg, var(--acme-navy-blue) 0%, #1a1759 100%);
     color: white;
     border: none;
     padding: 6px 12px;
@@ -892,12 +892,12 @@ a[href="#"]:not(.btn):hover {
     font-size: 13px;
     margin-top: 8px;
     transition: all 0.3s ease;
-    font-family: var(--arc-font-primary);
+    font-family: var(--acme-font-primary);
 }
 
 .notification-download-btn:hover {
-    background: var(--arc-yellow);
-    color: var(--arc-navy-purple);
+    background: var(--acme-yellow);
+    color: var(--acme-navy-blue);
     transform: scale(1.05);
 }
 
@@ -918,7 +918,7 @@ a[href="#"]:not(.btn):hover {
 
 /* Bell icon hover effect */
 #notificationBell:hover {
-    color: var(--arc-yellow) !important;
+    color: var(--acme-yellow) !important;
 }
 
 /* ===================================

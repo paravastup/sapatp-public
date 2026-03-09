@@ -40,7 +40,7 @@ Confirmed all required model tables now exist:
 
 ### 4. Added Test Data
 Created sample plants for testing:
-- Code: 9993 - Brand_D (existing)
+- Code: 1001 - Brand_D (existing)
 - Code: 1000 - Main Warehouse (added)
 - Code: 2000 - Distribution Center (added)
 

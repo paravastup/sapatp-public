@@ -6,7 +6,7 @@ Question: I need the upc
 Response: {"upc": "2699688678591"}
 
 Example 2:
-Context: Product 10002, delivery quantity: 2739, vendor SKU: V-33627, plant: 9993, country of origin: CHINA...
+Context: Product 10002, delivery quantity: 2739, vendor SKU: V-33627, plant: 1001, country of origin: CHINA...
 Question: Get who supplies info
 Response: {"vendor": null}
 

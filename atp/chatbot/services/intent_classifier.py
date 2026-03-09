@@ -57,9 +57,9 @@ class IntentClassifier:
         'plant_selection': [
             "Use Durand plant",
             "Switch to plant 1000",
-            "Check Millville location",
+            "Check Plant City location",
             "Change to Brand_D site",
-            "Select plant 9994"
+            "Select plant 1002"
         ],
         'export_request': [
             "Send me the results by email",
@@ -189,7 +189,7 @@ class IntentClassifier:
             intent_scores['export_request'] = export_score / len(export_keywords)
 
         # Plant selection patterns
-        plant_keywords = ['plant', 'location', 'site', 'warehouse', 'durand', 'millville', 'cardinal', '1000', '9994', '9993']
+        plant_keywords = ['plant', 'location', 'site', 'warehouse', 'durand', 'millville', 'cardinal', '1000', '1002', '1001']
         plant_score = sum(1 for kw in plant_keywords if kw in message_lower)
         if plant_score > 0:
             intent_scores['plant_selection'] = plant_score / len(plant_keywords)

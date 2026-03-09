@@ -17,8 +17,8 @@ if retriever.is_ready():
     
     # Test search
     query = "wine glasses"
-    products = retriever.search(query, k=5, filters={'brand': 'Arcoroc'})
-    print(f"\nSearch results for '{query}' (brand=Arcoroc): {len(products)} products")
+    products = retriever.search(query, k=5, filters={'brand': 'ACME Brand'})
+    print(f"\nSearch results for '{query}' (brand=ACME Brand): {len(products)} products")
     
     if products:
         for i, p in enumerate(products[:3], 1):
@@ -30,9 +30,9 @@ if retriever.is_ready():
         rag_gen = RAGResponseGenerator(ollama)
         
         response = rag_gen.generate_with_rag(
-            user_query="Show me Arcoroc wine glasses",
+            user_query="Show me ACME Brand wine glasses",
             intent='product_info',
-            entities={'datafeed_brand': 'Arcoroc'},
+            entities={'datafeed_brand': 'ACME Brand'},
             context={}
         )
         print(f"\nRAG Response:\n{response}")

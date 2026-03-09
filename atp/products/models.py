@@ -53,7 +53,7 @@ class Product(models.Model):
     catalog_brand = models.CharField(
         max_length=100,
         db_index=True,
-        help_text="Brand name (e.g., Arcoroc, Dudson, Chef & Sommelier)"
+        help_text="Brand name (e.g., ACME Brand, Brand_K, Chef & Co)"
     )
 
     catalog_collection = models.CharField(

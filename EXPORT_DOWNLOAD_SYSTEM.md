@@ -471,7 +471,7 @@ Change in `views.py:1551`:
 ### Company Domains
 Change in `views.py:1115` and `views.py:1461`:
 ```python
-company_domains = ['arccardinal.com', 'arc-intl.com', 'yourcompany.com']
+company_domains = ['acmecorp.example.com', 'acme-intl.example.com', 'yourcompany.com']
 ```
 
 ---

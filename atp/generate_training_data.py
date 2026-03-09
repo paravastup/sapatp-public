@@ -31,7 +31,7 @@ class TrainingDataGenerator:
         ]
 
         # Plant codes
-        self.plants = ['1000', '1000', '2000', '3000', '4000']
+        self.plants = ['1000', '1001', '2000', '3000', '4000']
 
         # Field types for product_info intent
         self.fields = [

@@ -49,7 +49,7 @@ class Plant(models.Model):
         )
     description = models.CharField(
         max_length = 30,
-        help_text="Plant Code description, for example: Durand Glass"
+        help_text="Plant Code description, for example: ACME Glass Plant"
         )
 
     def __str__(self):

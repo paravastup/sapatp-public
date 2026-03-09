@@ -85,7 +85,7 @@ class TerminologyTrainingGenerator:
                 context_templates = [
                     f"Product {product['number']}, brand: {product['brand']}, stock: {random.randint(100, 9999)}",
                     f"Product {product['number']}, weight: {random.uniform(1, 25):.2f}, brand: {product['brand']}",
-                    f"Product {product['number']}, description: PRODUCT ITEM, plant: 9994"
+                    f"Product {product['number']}, description: PRODUCT ITEM, plant: 1002"
                 ]
 
                 context = random.choice(context_templates)

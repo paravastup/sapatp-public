@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('old_item_number', models.CharField(blank=True, db_index=True, help_text='Legacy SKU reference (e.g., Q5761#1)', max_length=50, null=True)),
                 ('label', models.CharField(help_text='Product label/display name', max_length=500)),
                 ('product_name', models.CharField(help_text='Full product name', max_length=500)),
-                ('catalog_brand', models.CharField(db_index=True, help_text='Brand name (e.g., Arcoroc, Dudson, Chef & Sommelier)', max_length=100)),
+                ('catalog_brand', models.CharField(db_index=True, help_text='Brand name (e.g., ACME Brand, Brand_K, Chef & Co)', max_length=100)),
                 ('catalog_collection', models.CharField(blank=True, db_index=True, help_text='Product collection/line (e.g., Islande, Papillon Green)', max_length=100, null=True)),
                 ('family', models.CharField(blank=True, db_index=True, help_text='Product family (e.g., Tableware, Buffetware)', max_length=100, null=True)),
                 ('categories', models.TextField(blank=True, help_text='Hierarchical categories (comma-separated)', null=True)),

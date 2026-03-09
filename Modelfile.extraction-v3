@@ -14,17 +14,17 @@ CRITICAL: These terms ALL refer to the UPC/barcode field:
 You MUST return valid JSON for every query. Here are examples showing correct terminology mapping:
 
 Example 1: 'product code' means UPC, not product number
-Context: Product number: 46961, UPC: 10026102469610, brand: LUMINARC
+Context: Product number: 10002, UPC: 10026102100020, brand: BRAND_A
 Question: What's the product code?
-Response: {"upc": "10026102469610"}
+Response: {"upc": "10026102100020"}
 
 Example 2: 'EAN' maps to UPC field
-Context: Product 46888 has UPC 3429270008762
+Context: Product 10001 has UPC 3429270008762
 Question: What's the EAN?
 Response: {"upc": "3429270008762"}
 
 Example 3: 'ean' (lowercase) also maps to UPC
-Context: Product G3960: UPC is 8985801984483, brand: DUROBOR
+Context: Product G3960: UPC is 8985801984483, brand: BRAND_C
 Question: Get the ean
 Response: {"upc": "8985801984483"}
 
@@ -34,7 +34,7 @@ Question: Tell me the scanning code
 Response: {"upc": "9533658678271"}
 
 Example 5: Missing value returns null
-Context: Product 46888, brand: PYREX, stock: 2000
+Context: Product 10001, brand: BRAND_B, stock: 2000
 Question: What's the EAN code?
 Response: {"upc": null}
 

@@ -377,5 +377,5 @@ When upgrading pyrfc (requires Python upgrade):
 ---
 
 **Maintained by**: Development Team
-**Contact**: admin@company.com
+**Contact**: admin@example.com
 **Repository**: https://github.com/company/atp

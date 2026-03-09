@@ -119,12 +119,12 @@ skus:bulk:{filters}
 - Detect brand names in user queries (14 brands)
 - Detect category names (5 categories: Dinnerware, Glassware, etc.)
 - Detect material names (20+ materials: Vitrified Ceramic, Soda Lime Glass, etc.)
-- Identify bulk query patterns ("all Chef & Sommelier products")
+- Identify bulk query patterns ("all Chef & Co products")
 
 **New Entity Fields**:
 ```python
 {
-    'datafeed_brand': 'Chef & Sommelier',      # Matched brand
+    'datafeed_brand': 'Chef & Co',      # Matched brand
     'datafeed_category': 'Glassware',          # Matched category
     'datafeed_material': 'Soda Lime Glass',    # Matched material
     'datafeed_collection': 'Papillon Green',   # Matched collection
@@ -134,10 +134,10 @@ skus:bulk:{filters}
 
 **Example Queries Now Supported**:
 ```
-"Show me all Chef & Sommelier products"
+"Show me all Chef & Co products"
 "Get stock for all Glassware items"
 "List all Vitrified Ceramic products"
-"What Dudson products do we have?"
+"What Brand_K products do we have?"
 ```
 
 ### Phase 6: Chatbot Response Enrichment ✅
@@ -156,7 +156,7 @@ skus:bulk:{filters}
 {
     'sku': 'FP906',
     'name': 'Papillon Green Rectangle Tray',
-    'brand': 'Dudson',
+    'brand': 'Brand_K',
     'category': 'Dinnerware',
     'description': '...',
     'price': {'list': 90.00, 'web': 54.00, 'currency': 'USD'},
@@ -204,16 +204,16 @@ User: "What's the stock of FP906?"
 Chatbot:
 - Shows SAP stock level
 - Displays product image from DataFeed
-- Shows brand (Dudson), collection (Papillon Green)
+- Shows brand (Brand_K), collection (Papillon Green)
 - Displays pricing: $90.00 list, $54.00 web
 - Shows case pack: 6 units
 ```
 
 ### 2. Bulk Brand Queries
 ```
-User: "Show me stock for all Chef & Sommelier products"
+User: "Show me stock for all Chef & Co products"
 Chatbot:
-1. Entity extractor detects brand: "Chef & Sommelier"
+1. Entity extractor detects brand: "Chef & Co"
 2. ProductService fetches all SKUs for that brand (e.g., 150 products)
 3. Queries SAP for all 150 products in parallel
 4. Returns enriched results with images and details
@@ -355,9 +355,9 @@ docker exec atp_web python manage.py import_datafeed_feed \
 ## 🎨 Chatbot Brands Available
 
 From DataFeed catalog (14 brands):
-1. **Chef & Sommelier** - Fine glassware
-2. **Dudson** - Premium ceramics
-3. **Arcoroc** - Glassware solutions
+1. **Chef & Co** - Fine glassware
+2. **Brand_K** - Premium ceramics
+3. **ACME Brand** - Glassware solutions
 4. **Brand_A** - Consumer glassware
 5. **Brand_D** - Foodservice glassware
 6. **Brand_E** - Classic glassware
