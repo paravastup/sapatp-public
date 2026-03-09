@@ -54,8 +54,8 @@ class ExtractionTrainingGenerator:
                     "Tell me the {field}"
                 ],
                 'sample_values': [
-                    '10026102469610', '10026102468880', '10883314193807',
-                    '10026102002138', '98765432109876', '12345678901234',
+                    '00000000010002', '00000000010001', '00000000093807',
+                    '00000000002138', '00000000009876', '00000000001234',
                     '11111111111111', '99999999999999', '10101010101010'
                 ]
             },
@@ -82,9 +82,9 @@ class ExtractionTrainingGenerator:
                     "Please provide the {field}"
                 ],
                 'sample_values': [
-                    'LUMINARC', 'PYREX', 'ACME CORP', 'DUROBOR',
-                    'CARDINAL', 'ARC INTERNATIONAL', 'CORNING',
-                    'LIBBEY', 'ANCHOR HOCKING', 'BORMIOLI'
+                    'BRAND_ALPHA', 'BRAND_BETA', 'ACME CORP', 'BRAND_GAMMA',
+                    'BRAND_DELTA', 'DEMO INTERNATIONAL', 'BRAND_THETA',
+                    'BRAND_EPSILON', 'BRAND_ZETA', 'BRAND_ETA'
                 ]
             },
             'stock': {
@@ -273,7 +273,7 @@ class ExtractionTrainingGenerator:
                 'variations': [
                     'product number', 'product', 'SKU', 'item number',
                     'product code', 'item', 'article number', 'material number',
-                    'product ID', 'item code', 'ARC SKU'
+                    'product ID', 'item code', 'Demo SKU'
                 ],
                 'question_patterns': [
                     "What's the {field}?",
@@ -286,7 +286,7 @@ class ExtractionTrainingGenerator:
                     "Find the {field}"
                 ],
                 'sample_values': [
-                    '46961', '46888', 'G3960', '00213', '12345',
+                    '10002', '10001', 'G3960', '00213', '12345',
                     '99999', 'A1234', 'B5678', 'C9012', 'TEST1'
                 ]
             },
@@ -392,8 +392,8 @@ class ExtractionTrainingGenerator:
                     "Where is it?"
                 ],
                 'sample_values': [
-                    '9995', '9994', '9993', '9943', 'DURAND', 'MILLVILLE',
-                    'CARDINAL', 'ARC CANADA', 'PLANT-A', 'WAREHOUSE-1'
+                    '1001', '1002', '1001', '1003', 'DURAND', 'MILLVILLE',
+                    'BRAND_DELTA', 'ARC CANADA', 'PLANT-A', 'WAREHOUSE-1'
                 ]
             }
         }
@@ -408,7 +408,7 @@ class ExtractionTrainingGenerator:
         # Create 100 sample products with realistic data
         for i in range(100):
             product = {
-                'MATNR': random.choice(['46961', '46888', 'G3960', '00213', f'{40000 + i}', f'A{1000 + i}']),
+                'MATNR': random.choice(['10002', '10001', 'G3960', '00213', f'{40000 + i}', f'A{1000 + i}']),
                 'EAN11': f"{random.randint(1000000000000, 9999999999999)}",
                 'MAKTX': random.choice([
                     'GLASS TUMBLER 12OZ CLEAR', 'COFFEE MUG SET 4PC',
@@ -417,7 +417,7 @@ class ExtractionTrainingGenerator:
                     'BAKING DISH 2QT GLASS', 'STORAGE CONTAINER 1L',
                     f'PRODUCT ITEM {i}'
                 ]),
-                'ZBRDES': random.choice(['LUMINARC', 'PYREX', 'DUROBOR', 'CARDINAL', 'LIBBEY', 'ANCHOR']),
+                'ZBRDES': random.choice(['BRAND_ALPHA', 'BRAND_BETA', 'BRAND_GAMMA', 'BRAND_DELTA', 'BRAND_EPSILON', 'ANCHOR']),
                 'HERKL': random.choice(['USA', 'CHINA', 'FRANCE', 'GERMANY', 'MEXICO', 'ITALY']),
                 'BRGEW': f"{random.uniform(0.1, 25.0):.2f}",
                 'MEINS': random.choice(['EA', 'PC', 'CS', 'DZ']),
@@ -428,7 +428,7 @@ class ExtractionTrainingGenerator:
                 'MNG01': str(random.randint(100, 5000)),
                 'LIFNR': f"VENDOR{random.randint(1, 50):03d}",
                 'EBELN': f"PO-2025-{random.randint(1, 999):03d}",
-                'WERKS': random.choice(['9995', '9994', '9993', '9943'])
+                'WERKS': random.choice(['1001', '1002', '1001', '1003'])
             }
             products.append(product)
 
@@ -986,7 +986,7 @@ class ExtractionTrainingGenerator:
         # Malformed UPC values
         malformed_values = [
             '12345',  # Too short
-            '123456789012345678',  # Too long
+            '000000000012345678',  # Too long
             '12345-67890-12',  # With dashes
             'ABC123456789',  # With letters
             '1234 5678 9012'  # With spaces
@@ -1083,7 +1083,7 @@ class ExtractionTrainingGenerator:
         query = "What's the UPC?"
 
         # Context with multiple UPC values
-        context = f"Product {product['MATNR']} has primary UPC: {product['EAN11']} and alternate UPC: 98765432109876"
+        context = f"Product {product['MATNR']} has primary UPC: {product['EAN11']} and alternate UPC: 00000000009876"
 
         # Should return the primary/first value
         expected = {field_key: product['EAN11']}
@@ -1326,12 +1326,12 @@ def main():
     training_examples = generator.generate_all_examples()
 
     # Save training set
-    training_file = '/mnt/d/productavailability/training_data/extraction_training_15k.jsonl'
+    training_file = '/mnt/d/demoproject/training_data/extraction_training_15k.jsonl'
     generator.save_to_file(training_examples, training_file)
 
     # Generate validation set
     validation_examples = generator.generate_validation_set(1000)
-    validation_file = '/mnt/d/productavailability/training_data/extraction_validation_1k.jsonl'
+    validation_file = '/mnt/d/demoproject/training_data/extraction_validation_1k.jsonl'
     generator.save_to_file(validation_examples, validation_file)
 
     print("\n" + "=" * 80)

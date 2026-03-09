@@ -303,7 +303,7 @@ Deleted:
 **Add to crontab:**
 ```bash
 # Run daily at 2 AM
-0 2 * * * cd /mnt/d/productavailability && docker exec atp_web python manage.py cleanup_exports >> /var/log/cleanup_exports.log 2>&1
+0 2 * * * cd /mnt/d/demoproject && docker exec atp_web python manage.py cleanup_exports >> /var/log/cleanup_exports.log 2>&1
 ```
 
 **Or use Docker exec:**
@@ -313,7 +313,7 @@ docker exec atp_web python manage.py cleanup_exports
 
 ---
 
-## CSS Styling (ARC Cardinal Theme)
+## CSS Styling (ARC Brand_Delta Theme)
 
 ### Colors Used
 - **Navy Purple:** `#231F74` (primary brand color)
@@ -471,7 +471,7 @@ Change in `views.py:1551`:
 ### Company Domains
 Change in `views.py:1115` and `views.py:1461`:
 ```python
-company_domains = ['arccardinal.com', 'arc-intl.com', 'yourcompany.com']
+company_domains = ['democorp.example.com', 'democorp-intl.example.com', 'yourcompany.com']
 ```
 
 ---
@@ -544,7 +544,7 @@ docker exec atp_web python manage.py cleanup_exports --dry-run
 ✅ **Secure download infrastructure** with permission checks
 ✅ **Full audit trail** for compliance
 ✅ **Automatic cleanup** to manage disk space
-✅ **Beautiful UI** matching ARC Cardinal brand
+✅ **Beautiful UI** matching ARC Brand_Delta brand
 ✅ **Production-ready** and deployed
 
 **Status:** Ready for user testing! 🚀

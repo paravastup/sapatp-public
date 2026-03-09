@@ -7,7 +7,7 @@ django.setup()
 from products.services import ProductService
 
 # Get product enrichment
-product = ProductService.get_product_enrichment('46961')
+product = ProductService.get_product_enrichment('10002')
 
 print("Product structure:")
 for key, value in product.items():
@@ -16,4 +16,4 @@ for key, value in product.items():
 # Check if it has the expected keys
 print(f"\nHas 'MATNR': {'MATNR' in product}")
 print(f"Has 'sku': {'sku' in product}")
-print(f"Has 'plytix': {'plytix' in product}")
+print(f"Has 'datafeed': {'datafeed' in product}")

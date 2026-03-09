@@ -1,7 +1,7 @@
 """
-Django management command to import products from Plytix XML feed
-Usage: python manage.py import_plytix_feed <xml_file_path>
-       python manage.py import_plytix_feed --url https://pim.plytix.com/channels/.../feed
+Django management command to import products from DataFeed XML feed
+Usage: python manage.py import_datafeed_feed <xml_file_path>
+       python manage.py import_datafeed_feed --url https://pim.datafeed.com/channels/.../feed
 """
 import xml.etree.ElementTree as ET
 import time
@@ -14,7 +14,7 @@ from products.models import Product, ProductBrand, ProductCategory, ProductImpor
 
 
 class Command(BaseCommand):
-    help = 'Import products from Plytix XML feed'
+    help = 'Import products from DataFeed XML feed'
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -26,7 +26,7 @@ class Command(BaseCommand):
         parser.add_argument(
             '--url',
             type=str,
-            help='URL to fetch XML feed from Plytix'
+            help='URL to fetch XML feed from DataFeed'
         )
         parser.add_argument(
             '--dry-run',

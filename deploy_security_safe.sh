@@ -11,7 +11,7 @@ echo "=========================================="
 
 # Check if we're in the right directory
 if [ ! -f "atp/atp/settings.py" ]; then
-    echo "Error: Run this script from /mnt/d/productavailability/"
+    echo "Error: Run this script from /mnt/d/demoproject/"
     exit 1
 fi
 

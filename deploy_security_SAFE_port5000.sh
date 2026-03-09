@@ -31,7 +31,7 @@ cp -r atp/stockcheck/*.py "$BACKUP_DIR/" 2>/dev/null || true
 
 # Backup database
 echo "Backing up database..."
-docker exec atp_db mysqldump -u djangoadmin -p$DATABASE_PASSWORD atp > "$BACKUP_DIR/database_backup.sql" 2>/dev/null
+docker exec atp_db mysqldump -u dbuser -p$DATABASE_PASSWORD atp > "$BACKUP_DIR/database_backup.sql" 2>/dev/null
 
 echo -e "${GREEN}✓ Backup created in $BACKUP_DIR${NC}"
 echo ""
@@ -75,7 +75,7 @@ DJANGO_SETTINGS_MODULE=atp.settings_secure
 # Database (using current passwords for compatibility)
 DATABASE_HOST=db
 DATABASE_NAME=atp
-DATABASE_USER=djangoadmin
+DATABASE_USER=dbuser
 DATABASE_PASSWORD=CHANGE_THIS_DATABASE_PASSWORD
 MYSQL_ROOT_PASSWORD=CHANGE_THIS_ROOT_PASSWORD
 
@@ -135,7 +135,7 @@ services:
       - .env
     environment:
       - MYSQL_DATABASE=${DATABASE_NAME:-atp}
-      - MYSQL_USER=${DATABASE_USER:-djangoadmin}
+      - MYSQL_USER=${DATABASE_USER:-dbuser}
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     ports:

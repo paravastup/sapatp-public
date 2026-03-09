@@ -58,7 +58,7 @@ docker-compose -f docker-compose-port5000-secure.yml exec web python manage.py t
 docker-compose -f docker-compose-port5000-secure.yml exec web python manage.py test_chatbot --test sap
 
 # Test a specific query
-docker-compose -f docker-compose-port5000-secure.yml exec web python manage.py test_chatbot --query "What's the stock of product 46888?"
+docker-compose -f docker-compose-port5000-secure.yml exec web python manage.py test_chatbot --query "What's the stock of product 10001?"
 ```
 
 ### Step 4: Run Full Backend Test Suite
@@ -83,7 +83,7 @@ TEST 1: OLLAMA CONNECTION
 
 TEST 2: INTENT CLASSIFICATION
 ----------------------------------------
-✅ Query: 'What's the stock of product 46888?...'
+✅ Query: 'What's the stock of product 10001?...'
    Expected: stock_query, Got: stock_query (confidence: 0.90)
 ✅ Query: 'When is the next delivery?...'
    Expected: delivery_query, Got: delivery_query (confidence: 0.85)
@@ -99,7 +99,7 @@ TEST 4: RESPONSE GENERATION
 ----------------------------------------
 ✅ greeting: Hello there!...
 ✅ help: I can help you with...
-✅ stock_query: Product **46888** has **150** pieces in stock...
+✅ stock_query: Product **10001** has **150** pieces in stock...
 
 TEST 5: CONVERSATION FLOW
 ----------------------------------------
@@ -169,10 +169,10 @@ pip install django==2.1.5 requests
 
 # Set environment variables
 export DJANGO_SETTINGS_MODULE=atp.settings_secure
-export PYTHONPATH=/mnt/d/productavailability/atp:$PYTHONPATH
+export PYTHONPATH=/mnt/d/demoproject/atp:$PYTHONPATH
 
 # Run tests
-cd /mnt/d/productavailability/atp
+cd /mnt/d/demoproject/atp
 python manage.py test_chatbot
 ```
 
@@ -198,7 +198,7 @@ curl http://localhost:11434/api/tags
 
 # 2. Test intent classification
 curl -X POST http://localhost:11434/api/generate \
-  -d '{"model":"gemma3:4b","prompt":"Classify intent: What is the stock of 46888?","stream":false}'
+  -d '{"model":"gemma3:4b","prompt":"Classify intent: What is the stock of 10001?","stream":false}'
 
 # 3. Quick Django test (if Docker is running)
 docker-compose -f docker-compose-port5000-secure.yml exec web python -c "from chatbot.services.ollama_client import OllamaClient; print(OllamaClient().test_connection())"

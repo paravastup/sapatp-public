@@ -7,7 +7,7 @@ import requests
 import json
 import time
 
-OLLAMA_BASE_URL = "http://172.22.80.1:11434"
+OLLAMA_BASE_URL = "http://192.168.1.100:11434"
 
 def read_modelfile():
     """Read the Modelfile content"""
@@ -76,7 +76,7 @@ def test_model(model_name):
 
     test_query = """Classify this user query and extract entities. Return JSON only.
 
-User query: What's the stock of product 46888?
+User query: What's the stock of product 10001?
 
 Return format: {"intent": "<intent>", "product_numbers": ["<numbers>"], "confidence": <0.0-1.0>}"""
 
@@ -88,7 +88,7 @@ Return format: {"intent": "<intent>", "product_numbers": ["<numbers>"], "confide
     }
 
     try:
-        print("Test Query: 'What's the stock of product 46888?'")
+        print("Test Query: 'What's the stock of product 10001?'")
         response = requests.post(url, json=payload, timeout=30)
 
         if response.status_code == 200:
@@ -109,7 +109,7 @@ Return format: {"intent": "<intent>", "product_numbers": ["<numbers>"], "confide
                 print(f"✅ Products: {products}")
                 print(f"✅ Confidence: {confidence}")
 
-                if intent == 'stock_query' and '46888' in products:
+                if intent == 'stock_query' and '10001' in products:
                     print()
                     print("🎉 Model is working correctly!")
                     return True
@@ -172,7 +172,7 @@ if __name__ == '__main__':
         print("❌ Model creation failed!")
         print()
         print("Alternative: Run this on Windows where Ollama is installed:")
-        print(f"   cd D:\\productavailability\\atp")
+        print(f"   cd D:\\demoproject\\atp")
         print(f"   ollama create {model_name} -f Modelfile")
         exit(1)
 

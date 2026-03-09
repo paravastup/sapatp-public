@@ -93,7 +93,7 @@ def test_model_inference(base_url):
 - export_request: Requesting data export
 - help: Asking for help
 
-User query: "What's the stock of product 46888?"
+User query: "What's the stock of product 10001?"
 
 Respond with ONLY the intent name."""
         },

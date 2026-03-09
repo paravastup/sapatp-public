@@ -10,7 +10,7 @@ import time
 import django
 
 # Setup Django
-sys.path.insert(0, '/mnt/d/productavailability/atp')
+sys.path.insert(0, '/mnt/d/demoproject/atp')
 sys.path.insert(0, '/app')  # For Docker
 os.environ['DJANGO_SETTINGS_MODULE'] = 'atp.settings_secure'
 django.setup()
@@ -31,7 +31,7 @@ def test_intent_classification():
     # Test 1: Stock query (should use fast-path - regex)
     print("\n1. Testing stock query (should use FAST PATH)...")
     start = time.time()
-    intent, confidence = classifier.classify("What's the stock of 46961?")
+    intent, confidence = classifier.classify("What's the stock of 10002?")
     elapsed = time.time() - start
     print(f"   Result: intent='{intent}', confidence={confidence:.2f}, time={elapsed:.3f}s")
     assert intent == 'stock_query', f"Expected 'stock_query', got '{intent}'"
@@ -70,11 +70,11 @@ def test_entity_extraction():
     # Test 1: Simple product number extraction (should use fast-path - regex)
     print("\n1. Testing product number extraction (should use FAST PATH)...")
     start = time.time()
-    entities = extractor.extract("Check stock for 46961", intent="stock_query")
+    entities = extractor.extract("Check stock for 10002", intent="stock_query")
     elapsed = time.time() - start
     print(f"   Result: {entities}")
     print(f"   Time: {elapsed:.3f}s")
-    assert '46961' in entities.get('product_numbers', []), "Product number not extracted"
+    assert '10002' in entities.get('product_numbers', []), "Product number not extracted"
     print("   [OK] Regex extraction works!")
 
     # Test 2: Different product (pattern caching disabled for entities - specific values matter)
@@ -89,7 +89,7 @@ def test_entity_extraction():
 
     # Test 3: Multiple products
     print("\n3. Testing multiple product extraction...")
-    entities3 = extractor.extract("Compare 46961 and G3960", intent="comparison")
+    entities3 = extractor.extract("Compare 10002 and G3960", intent="comparison")
     print(f"   Result: {entities3}")
     product_nums = entities3.get('product_numbers', [])
     assert len(product_nums) == 2, f"Expected 2 products, got {len(product_nums)}"
@@ -107,10 +107,10 @@ def test_pattern_normalization():
     cache = PatternCache()
 
     test_cases = [
-        ("What's the stock of 46961?", "what's the stock of <PRODUCT>?"),
+        ("What's the stock of 10002?", "what's the stock of <PRODUCT>?"),
         ("Stock for 12345", "stock for <PRODUCT>"),
         ("Delivery for G3960 and 88888", "delivery for <PRODUCT> and <PRODUCT>"),
-        ("Check plant 9995", "check plant <PLANT>"),
+        ("Check plant 1001", "check plant <PLANT>"),
         ("Send to test@example.com", "send to <EMAIL>"),
     ]
 

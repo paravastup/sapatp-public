@@ -6,7 +6,7 @@
 ATP (Available to Promise) is a Django-based web middleware application that integrates with SAP systems to provide real-time product availability checking across multiple manufacturing plants.
 
 ### Current Status
-- **Location**: `/mnt/d/productavailability/`
+- **Location**: `/mnt/d/demoproject/`
 - **Port**: 5000 (changed from 80)
 - **Stack**: Python 3.6, Django 2.1.5, MySQL 5.7, Docker
 - **Critical Dependency**: pyrfc-1.9.93-cp36-cp36m-linux_x86_64.whl (Python 3.6 specific)

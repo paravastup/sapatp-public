@@ -53,4 +53,4 @@ Training data:
 """
 
 # Training adapter will be loaded after fine-tuning
-# ADAPTER /mnt/d/productavailability/models/extraction-adapter.gguf
+# ADAPTER /mnt/d/demoproject/models/extraction-adapter.gguf

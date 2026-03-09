@@ -1,6 +1,6 @@
 """
 Entity extraction service for the chatbot
-Enhanced with Plytix product catalog integration
+Enhanced with DataFeed product catalog integration
 """
 
 import re
@@ -17,35 +17,35 @@ try:
     PRODUCTS_AVAILABLE = True
 except ImportError:
     PRODUCTS_AVAILABLE = False
-    logger.warning("ProductService not available - Plytix integration disabled")
+    logger.warning("ProductService not available - DataFeed integration disabled")
 
 
 class EntityExtractor:
-    """Service for extracting entities from user messages with Plytix catalog support"""
+    """Service for extracting entities from user messages with DataFeed catalog support"""
 
     # Regular expression patterns
     PATTERNS = {
-        'product_numbers': r'\b[A-Z]?\d{4,8}\b',  # 4-8 digit numbers, optionally prefixed with a letter (G3960, 46961)
+        'product_numbers': r'\b[A-Z]?\d{4,8}\b',  # 4-8 digit numbers, optionally prefixed with a letter (G3960, 10002)
         'vendor_skus': r'\b[A-Z]{2,4}-\d{3,6}\b',  # Format like "OLD-123"
-        'plant_codes': r'\b(9993|9994|9995|9943)\b',  # Known plant codes
+        'plant_codes': r'\b(1001|1002|1003)\b',  # Known plant codes
         'dates': r'\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b',  # Date formats
         'email': r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b',
-        'brand_names': r'\b(?:libbey|arc|cardinal|durand|bormioli|pasabahce|crisa|chef\s*&\s*sommelier|chef\s+and\s+sommelier)\b'  # Common glass brands (legacy + Chef & Sommelier)
+        'brand_names': r'\b(?:brand_alpha|brand_beta|brand_gamma|brand_delta|brand_epsilon|brand_zeta|brand_eta|brand_iota|brand_kappa)\b'  # Known brand names
     }
 
-    # Cache for Plytix catalog entities - refreshed on init
-    _plytix_brands = None
-    _plytix_categories = None
-    _plytix_materials = None
+    # Cache for DataFeed catalog entities - refreshed on init
+    _datafeed_brands = None
+    _datafeed_categories = None
+    _datafeed_materials = None
 
     # Plant name mappings
     PLANT_MAPPINGS = {
-        'durand': '9995',
-        'durand glass': '9995',
-        'millville': '9994',
-        'cardinal': '9993',
-        'arc canada': '9943',
-        'canada': '9943'
+        'demo_corp': '1001',
+        'demo_corp glass': '1001',
+        'millville': '1002',
+        'cardinal': '1001',
+        'arc canada': '1003',
+        'canada': '1003'
     }
 
     # Export format keywords
@@ -57,7 +57,7 @@ class EntityExtractor:
 
     def __init__(self, ollama_client: Optional[OllamaClient] = None):
         """
-        Initialize entity extractor with Plytix catalog support
+        Initialize entity extractor with DataFeed catalog support
 
         Args:
             ollama_client: Optional OllamaClient instance
@@ -65,9 +65,9 @@ class EntityExtractor:
         self.ollama = ollama_client or OllamaClient()
         self.pattern_cache = PatternCache(cache_name='entity_cache')
 
-        # Load Plytix catalog entities if available
-        if PRODUCTS_AVAILABLE and EntityExtractor._plytix_brands is None:
-            self._load_plytix_entities()
+        # Load DataFeed catalog entities if available
+        if PRODUCTS_AVAILABLE and EntityExtractor._datafeed_brands is None:
+            self._load_datafeed_entities()
 
     @staticmethod
     def _normalize_name(name: str) -> str:
@@ -76,9 +76,9 @@ class EntityExtractor:
         Strips punctuation (®, &, etc.) and collapses whitespace.
 
         Examples:
-            "Chef & Sommelier" -> "chef sommelier"
-            "Chef and Sommelier" -> "chef and sommelier"
-            "Bormioli Rocco®" -> "bormioli rocco"
+            "Brand Zeta" -> "brand zeta"
+            "Brand Zeta" -> "brand zeta"
+            "Brand_Eta Demo®" -> "brand eta demo"
         """
         # Remove special characters but keep alphanumeric and spaces
         normalized = re.sub(r'[^a-z0-9\s]+', ' ', name.lower())
@@ -86,54 +86,54 @@ class EntityExtractor:
         normalized = re.sub(r'\s+', ' ', normalized).strip()
         return normalized
 
-    def _load_plytix_entities(self):
-        """Load brands, categories, and materials from Plytix catalog"""
+    def _load_datafeed_entities(self):
+        """Load brands, categories, and materials from DataFeed catalog"""
         try:
             # Load brands with normalized keys for fuzzy matching
             brands = ProductService.get_all_brands()
-            EntityExtractor._plytix_brands = {}
+            EntityExtractor._datafeed_brands = {}
             for b in brands:
                 normalized_key = self._normalize_name(b['name'])
-                EntityExtractor._plytix_brands[normalized_key] = b['name']
+                EntityExtractor._datafeed_brands[normalized_key] = b['name']
                 # Also store original case-insensitive version for exact matches
-                EntityExtractor._plytix_brands[b['name'].lower()] = b['name']
+                EntityExtractor._datafeed_brands[b['name'].lower()] = b['name']
 
             # Load categories with normalized keys
             categories = ProductService.get_all_categories()
-            EntityExtractor._plytix_categories = {}
+            EntityExtractor._datafeed_categories = {}
             for c in categories:
                 normalized_key = self._normalize_name(c['name'])
-                EntityExtractor._plytix_categories[normalized_key] = c['name']
-                EntityExtractor._plytix_categories[c['name'].lower()] = c['name']
+                EntityExtractor._datafeed_categories[normalized_key] = c['name']
+                EntityExtractor._datafeed_categories[c['name'].lower()] = c['name']
 
             # Load materials from database (top 20 most common)
             from products.models import Product
             materials = Product.objects.exclude(material__isnull=True)\
                 .values_list('material', flat=True)\
                 .distinct()[:20]
-            EntityExtractor._plytix_materials = {}
+            EntityExtractor._datafeed_materials = {}
             for m in materials:
                 if m:
                     normalized_key = self._normalize_name(m)
-                    EntityExtractor._plytix_materials[normalized_key] = m
-                    EntityExtractor._plytix_materials[m.lower()] = m
+                    EntityExtractor._datafeed_materials[normalized_key] = m
+                    EntityExtractor._datafeed_materials[m.lower()] = m
 
             logger.info(
-                f"[PLYTIX] Loaded {len(set(EntityExtractor._plytix_brands.values()))} brands, "
-                f"{len(set(EntityExtractor._plytix_categories.values()))} categories, "
-                f"{len(set(EntityExtractor._plytix_materials.values()))} materials"
+                f"[DATAFEED] Loaded {len(set(EntityExtractor._datafeed_brands.values()))} brands, "
+                f"{len(set(EntityExtractor._datafeed_categories.values()))} categories, "
+                f"{len(set(EntityExtractor._datafeed_materials.values()))} materials"
             )
 
             # Guard: Warn if brand cache is empty
-            if not EntityExtractor._plytix_brands:
-                logger.warning("[PLYTIX] Brand cache is EMPTY - brand matching will fall back to hardcoded regex!")
+            if not EntityExtractor._datafeed_brands:
+                logger.warning("[DATAFEED] Brand cache is EMPTY - brand matching will fall back to hardcoded regex!")
 
         except Exception as e:
-            logger.error(f"[PLYTIX] Failed to load catalog entities: {e}")
+            logger.error(f"[DATAFEED] Failed to load catalog entities: {e}")
             # Guard: Set empty dicts so we don't crash later
-            EntityExtractor._plytix_brands = {}
-            EntityExtractor._plytix_categories = {}
-            EntityExtractor._plytix_materials = {}
+            EntityExtractor._datafeed_brands = {}
+            EntityExtractor._datafeed_categories = {}
+            EntityExtractor._datafeed_materials = {}
 
     def extract(self, user_message: str, intent: str, context: Dict = None,
                 conversation_history: List[Dict] = None) -> Dict:
@@ -157,7 +157,7 @@ class EntityExtractor:
 
         # NOTE: Entity pattern caching disabled - specific values (product numbers) matter
         # Pattern caching works for intent (same pattern = same intent), but not for entities
-        # where "stock of 46961" and "stock of 12345" have the same pattern but different entities
+        # where "stock of 10002" and "stock of 12345" have the same pattern but different entities
 
         # FAST PATH: Try regex extraction (0.01s)
         # This skips expensive LLM call for 90% of queries with clear product numbers
@@ -182,7 +182,7 @@ class EntityExtractor:
 
     def _regex_extraction(self, message: str) -> Dict:
         """
-        Extract entities using regex patterns and Plytix catalog matching
+        Extract entities using regex patterns and DataFeed catalog matching
 
         Args:
             message: User message
@@ -199,10 +199,10 @@ class EntityExtractor:
             'search_type': 'arc_sku',  # Default search type
             'date_references': [],
             'brand_names': [],
-            'plytix_brand': None,      # Matched Plytix brand
-            'plytix_category': None,   # Matched Plytix category
-            'plytix_material': None,   # Matched Plytix material
-            'plytix_collection': None, # Matched Plytix collection
+            'datafeed_brand': None,      # Matched DataFeed brand
+            'datafeed_category': None,   # Matched DataFeed category
+            'datafeed_material': None,   # Matched DataFeed material
+            'datafeed_collection': None, # Matched DataFeed collection
             'is_bulk_query': False     # Whether this is a brand/category bulk query
         }
 
@@ -211,7 +211,7 @@ class EntityExtractor:
         # Filter out plant codes from product numbers
         entities['product_numbers'] = [
             num.upper() for num in product_numbers
-            if num not in ['9993', '9994', '9995', '9943']
+            if num not in ['1001', '1002', '1003']
         ]
 
         # Extract vendor SKUs
@@ -255,50 +255,50 @@ class EntityExtractor:
             if rel_date in message_lower:
                 entities['date_references'].append(rel_date)
 
-        # ===== PLYTIX CATALOG MATCHING =====
-        # Detect brands, categories, materials from Plytix catalog
+        # ===== DATAFEED CATALOG MATCHING =====
+        # Detect brands, categories, materials from DataFeed catalog
         if PRODUCTS_AVAILABLE:
             # Normalize the message for fuzzy matching
             normalized_message = self._normalize_name(message)
 
             # Match brand names (with fuzzy matching via normalization)
-            if self._plytix_brands:
-                for brand_key, brand_name in self._plytix_brands.items():
+            if self._datafeed_brands:
+                for brand_key, brand_name in self._datafeed_brands.items():
                     # Use word boundaries to avoid partial matches
                     pattern = r'\b' + re.escape(brand_key) + r'\b'
                     if re.search(pattern, normalized_message):
-                        entities['plytix_brand'] = brand_name
-                        logger.info(f"[PLYTIX] Matched brand: {brand_name} (key: {brand_key})")
+                        entities['datafeed_brand'] = brand_name
+                        logger.info(f"[DATAFEED] Matched brand: {brand_name} (key: {brand_key})")
                         break
 
             # Match category names
-            if self._plytix_categories:
-                for cat_key, cat_name in self._plytix_categories.items():
+            if self._datafeed_categories:
+                for cat_key, cat_name in self._datafeed_categories.items():
                     pattern = r'\b' + re.escape(cat_key) + r'\b'
                     if re.search(pattern, normalized_message):
-                        entities['plytix_category'] = cat_name
-                        logger.info(f"[PLYTIX] Matched category: {cat_name} (key: {cat_key})")
+                        entities['datafeed_category'] = cat_name
+                        logger.info(f"[DATAFEED] Matched category: {cat_name} (key: {cat_key})")
                         break
 
             # Match material names
-            if self._plytix_materials:
-                for mat_key, mat_name in self._plytix_materials.items():
+            if self._datafeed_materials:
+                for mat_key, mat_name in self._datafeed_materials.items():
                     # Materials can be multi-word, so check if phrase exists
                     if mat_key in normalized_message:
-                        entities['plytix_material'] = mat_name
-                        logger.info(f"[PLYTIX] Matched material: {mat_name}")
+                        entities['datafeed_material'] = mat_name
+                        logger.info(f"[DATAFEED] Matched material: {mat_name}")
                         break
 
-            # Fallback: Use legacy brand_names if Plytix brand not found
-            # This handles "Chef and Sommelier" when cache has "Chef & Sommelier"
-            if not entities['plytix_brand'] and entities.get('brand_names'):
-                # Map known fallback brands to Plytix brands
+            # Fallback: Use legacy brand_names if DataFeed brand not found
+            # This handles "Brand Zeta" when cache has "Brand Zeta"
+            if not entities['datafeed_brand'] and entities.get('brand_names'):
+                # Map known fallback brands to DataFeed brands
                 fallback_brand = entities['brand_names'][0].lower()
-                if 'chef' in fallback_brand and 'sommelier' in fallback_brand:
-                    entities['plytix_brand'] = 'Chef & Sommelier'
-                    logger.info(f"[PLYTIX] Using fallback brand mapping: {entities['brand_names'][0]} -> Chef & Sommelier")
+                if 'brand' in fallback_brand and 'zeta' in fallback_brand:
+                    entities['datafeed_brand'] = 'Brand Zeta'
+                    logger.info(f"[DATAFEED] Using fallback brand mapping: {entities['brand_names'][0]} -> Brand Zeta")
 
-            # Detect bulk query patterns (e.g., "Show me Arcoroc wine glasses", "all Chef & Sommelier products")
+            # Detect bulk query patterns (e.g., "Show me Brand_Kappa wine glasses", "all Brand Zeta products")
             bulk_keywords = [
                 'all', 'every', 'entire', 'whole', 'complete',
                 'show me all', 'list all', 'get all', 'find all',
@@ -307,12 +307,12 @@ class EntityExtractor:
             has_bulk_keyword = any(kw in message_lower for kw in bulk_keywords)
 
             # Also consider it bulk if brand/category mentioned WITHOUT specific product numbers
-            has_plytix_filter = (entities['plytix_brand'] or entities['plytix_category'] or entities['plytix_material'])
+            has_datafeed_filter = (entities['datafeed_brand'] or entities['datafeed_category'] or entities['datafeed_material'])
             no_specific_products = len(entities['product_numbers']) == 0
 
-            if has_plytix_filter and (has_bulk_keyword or no_specific_products):
+            if has_datafeed_filter and (has_bulk_keyword or no_specific_products):
                 entities['is_bulk_query'] = True
-                logger.info("[PLYTIX] Bulk query detected")
+                logger.info("[DATAFEED] Bulk query detected")
 
         return entities
 
@@ -348,7 +348,7 @@ class EntityExtractor:
         # Validate plant code
         if 'plant_code' in entities:
             plant_code = entities.get('plant_code')
-            if plant_code not in ['9993', '9994', '9995', '9943']:
+            if plant_code not in ['1001', '1002', '1003']:
                 entities['plant_code'] = None
 
         # Validate export format

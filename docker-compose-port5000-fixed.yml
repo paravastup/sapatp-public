@@ -14,7 +14,7 @@ services:
       - PYTHONUNBUFFERED=1
       - DATABASE_HOST=db
       - DATABASE_NAME=atp
-      - DATABASE_USER=djangoadmin
+      - DATABASE_USER=dbuser
       - DATABASE_PASSWORD=${DATABASE_PASSWORD}
       - SAP_HOST=${SAP_HOST}
       - SAP_SYSNR=${SAP_SYSNR:-00}
@@ -35,7 +35,7 @@ services:
       - db_data:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=atp
-      - MYSQL_USER=djangoadmin
+      - MYSQL_USER=dbuser
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     ports:

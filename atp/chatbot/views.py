@@ -48,17 +48,17 @@ def _detect_field_request(user_message: str, intent: str) -> str:
         'list_price': ['list price', 'msrp', 'retail price', 'original price'],  # Specific list price
         'web_price': ['web price', 'online price', 'discounted price', 'sale price'],  # Specific web price
         'price': ['price', 'cost', 'how much', 'pricing', 'priced at', 'costs'],  # General price (shows both)
-        'description': ['description', 'details', 'what is', 'describe', 'tell me about'],  # Plytix data (removed 'about' - too greedy)
-        'category': ['category', 'type', 'classification', 'group'],  # Plytix data
-        'material': ['material', 'made of', 'material type'],  # Plytix data
-        'dimensions': ['dimensions', 'size', 'measurements', 'length', 'width', 'height'],  # Plytix data
-        'collection': ['collection', 'line', 'series'],  # Plytix data
-        'image': ['image', 'picture', 'photo', 'show me'],  # Plytix data
+        'description': ['description', 'details', 'what is', 'describe', 'tell me about'],  # DataFeed data (removed 'about' - too greedy)
+        'category': ['category', 'type', 'classification', 'group'],  # DataFeed data
+        'material': ['material', 'made of', 'material type'],  # DataFeed data
+        'dimensions': ['dimensions', 'size', 'measurements', 'length', 'width', 'height'],  # DataFeed data
+        'collection': ['collection', 'line', 'series'],  # DataFeed data
+        'image': ['image', 'picture', 'photo', 'show me'],  # DataFeed data
         'sample': ['sample', 'sampling', 'try', 'request sample', 'get sample', 'order sample'],  # Product URL
         'all_info': ['everything', 'all info', 'all details', 'information', 'tell me about']
     }
 
-    # Check if this is a simple follow-up (e.g., "how about 46888?", "what about X?")
+    # Check if this is a simple follow-up (e.g., "how about 10001?", "what about X?")
     # These should inherit field from context, not detect new fields
     simple_followup_patterns = ['how about', 'what about', 'and for']
     is_simple_followup = any(pattern in message_lower for pattern in simple_followup_patterns)
@@ -282,7 +282,7 @@ def process_message(request):
             user_msg_lower = user_message.lower().strip()
 
             # IMPORTANT: Don't override if user is asking about specific products
-            # e.g., "show me the image of 46961" should NOT trigger large_query_show_partial
+            # e.g., "show me the image of 10002" should NOT trigger large_query_show_partial
             has_specific_product = bool(entities.get('product_numbers'))
 
             # User wants to see first 200 (only if NOT asking about specific products)
@@ -307,7 +307,7 @@ def process_message(request):
                 logger.info("[LARGE QUERY] User selected: Download + Email")
 
         # SMART ACTION REPEAT DETECTION
-        # Check if user wants to repeat last action (e.g., "do the same with 46888")
+        # Check if user wants to repeat last action (e.g., "do the same with 10001")
         is_action_repeat = conversation_manager.detect_action_repeat(user_message)
         if is_action_repeat:
             last_action = conversation_manager.get_last_action()
@@ -394,16 +394,16 @@ def process_message(request):
             if not products:
                 products = entities.get('vendor_skus', [])
 
-            # Check for bulk query (e.g., "Show me all Chef & Sommelier products")
+            # Check for bulk query (e.g., "Show me all Brand Zeta products")
             if not products and entities.get('is_bulk_query'):
                 # Import ProductService if available
                 try:
                     from products.services import ProductService
 
                     # Get SKUs based on brand, category, or material
-                    brand = entities.get('plytix_brand')
-                    category = entities.get('plytix_category')
-                    material = entities.get('plytix_material')
+                    brand = entities.get('datafeed_brand')
+                    category = entities.get('datafeed_category')
+                    material = entities.get('datafeed_material')
 
                     logger.info(f"[BULK QUERY] Detected! brand={brand}, category={category}, material={material}")
 
@@ -433,17 +433,17 @@ def process_message(request):
                                 'mode': 'M',  # Default to material number mode
                                 'intent': intent,
                                 'search_type': entities.get('search_type', 'arc_sku'),
-                                'brand': entities.get('plytix_brand'),
-                                'category': entities.get('plytix_category'),
-                                'material': entities.get('plytix_material')
+                                'brand': entities.get('datafeed_brand'),
+                                'category': entities.get('datafeed_category'),
+                                'material': entities.get('datafeed_material')
                             })
 
                             # Generate choice response (function exists at line 115)
                             response_text = _generate_large_query_choice_response(
                                 total_products=len(products),
-                                brand=entities.get('plytix_brand'),
-                                category=entities.get('plytix_category'),
-                                material=entities.get('plytix_material')
+                                brand=entities.get('datafeed_brand'),
+                                category=entities.get('datafeed_category'),
+                                material=entities.get('datafeed_material')
                             )
 
                             # Save assistant message
@@ -489,17 +489,17 @@ def process_message(request):
                         'mode': 'O' if entities.get('search_type') == 'vendor_sku' else 'M',
                         'intent': intent,
                         'search_type': entities.get('search_type', 'arc_sku'),
-                        'brand': entities.get('plytix_brand'),
-                        'category': entities.get('plytix_category'),
-                        'material': entities.get('plytix_material')
+                        'brand': entities.get('datafeed_brand'),
+                        'category': entities.get('datafeed_category'),
+                        'material': entities.get('datafeed_material')
                     })
 
                     # Generate choice response
                     response_text = _generate_large_query_choice_response(
                         total_products=len(products),
-                        brand=entities.get('plytix_brand'),
-                        category=entities.get('plytix_category'),
-                        material=entities.get('plytix_material')
+                        brand=entities.get('datafeed_brand'),
+                        category=entities.get('datafeed_category'),
+                        material=entities.get('datafeed_material')
                     )
 
                     # Save assistant message
@@ -603,9 +603,9 @@ def process_message(request):
                         logger.error(f"[RAG ERROR] {e}, falling back to standard list")
                         # Fallback: We have products from bulk query but no plant - show product list
                         logger.info("[BULK RESPONSE] Generating formatted product list")
-                        brand = entities.get('plytix_brand')
-                        category = entities.get('plytix_category')
-                        material = entities.get('plytix_material')
+                        brand = entities.get('datafeed_brand')
+                        category = entities.get('datafeed_category')
+                        material = entities.get('datafeed_material')
 
                         filter_type = brand or category or material
                         response_text = f"I found **{len(products)}** products"
@@ -615,7 +615,7 @@ def process_message(request):
 
                         # List all products (no limit)
                         for i, sku in enumerate(products, 1):
-                            # Try to get product name from Plytix
+                            # Try to get product name from DataFeed
                             try:
                                 from products.services import ProductService
                                 product_data = ProductService.get_product_enrichment(sku)
@@ -641,7 +641,7 @@ def process_message(request):
                                        'case_pack', 'vendor_sku', 'sample']
 
                     if field_requested in non_stock_fields and products:
-                        # User wants product info that doesn't require stock check - fetch from Plytix
+                        # User wants product info that doesn't require stock check - fetch from DataFeed
                         logger.info(f"[PRODUCT INFO] Field '{field_requested}' requested for {len(products)} products (no plant needed)")
                         try:
                             from products.services import ProductService
@@ -1199,7 +1199,7 @@ def export_email(request):
         user_agent = request.META.get('HTTP_USER_AGENT', '')
 
         # Detect if sending to personal email (non-company domain)
-        company_domains = ['arccardinal.com', 'arc-intl.com']  # Configure as needed
+        company_domains = ['democorp.example.com', 'democorp-intl.example.com']  # Configure as needed
         is_personal_email = not any(email_address.lower().endswith('@' + domain) for domain in company_domains)
 
         # Check if admin override (sending to different email)
@@ -1555,7 +1555,7 @@ ATP System'''
         user_agent = request.META.get('HTTP_USER_AGENT', '')
 
         # Detect personal email
-        company_domains = ['arccardinal.com', 'arc-intl.com']
+        company_domains = ['democorp.example.com', 'democorp-intl.example.com']
         is_personal_email = not any(email_address.lower().endswith('@' + domain) for domain in company_domains)
         is_admin_override = (request.user.is_staff or request.user.is_superuser) and (email_address != request.user.email)
 

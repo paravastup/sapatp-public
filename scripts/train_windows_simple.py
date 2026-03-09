@@ -43,7 +43,7 @@ def train_simple():
 
         # Convert JSONL to text
         examples = []
-        jsonl_path = Path('D:/productavailability/training_data/extraction_training_15k.jsonl')
+        jsonl_path = Path('D:/demoproject/training_data/extraction_training_15k.jsonl')
         if jsonl_path.exists():
             with open(jsonl_path, 'r') as f:
                 for i, line in enumerate(f):
@@ -110,7 +110,7 @@ def train_simple():
 
         # Quick test
         print("\n🧪 Testing model...")
-        test_input = "Context: Product 46961 has UPC 10026102469610. Question: What's the UPC?"
+        test_input = "Context: Product 10002 has UPC 00000000010002. Question: What's the UPC?"
         inputs = tokenizer(test_input, return_tensors="pt").to("cuda")
 
         with torch.no_grad():

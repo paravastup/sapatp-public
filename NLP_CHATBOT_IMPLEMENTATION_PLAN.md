@@ -99,7 +99,7 @@ ollama run gemma3:2b "Hello, test response"
 
 #### 1.2 Django App Creation
 ```bash
-cd /mnt/d/productavailability/atp
+cd /mnt/d/demoproject/atp
 python manage.py startapp chatbot
 ```
 
@@ -313,7 +313,7 @@ Classify the user query into ONE of these intents:
 - clarification_needed: Unclear
 
 Examples:
-"What's the stock of 46888?" → stock_query
+"What's the stock of 10001?" → stock_query
 "When is next delivery?" → delivery_query
 "Send me Excel file" → export_request
 
@@ -358,19 +358,19 @@ Generate response:
 ### 5.1 Supported Query Types
 
 #### Stock Queries
-- "What's the stock of product 46888?"
+- "What's the stock of product 10001?"
 - "Check availability for SKU 123456"
 - "How much inventory for 111, 222, 333?"
 - "Show stock for vendor SKU OLD-123"
 
 #### Delivery Queries
-- "When is the next delivery for 46888?"
+- "When is the next delivery for 10001?"
 - "What's coming in next week?"
 - "Check in-transit quantity for 123"
 - "Delivery schedule for product 456"
 
 #### Product Information
-- "What's the brand of 46888?"
+- "What's the brand of 10001?"
 - "Where is product 123 manufactured?"
 - "Case pack for SKU 789?"
 - "Get UPC code for 456"

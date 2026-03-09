@@ -14,7 +14,7 @@ print("Python 3.6 & pyrfc Compatibility Check")
 print("=" * 60)
 
 # Add project to path
-sys.path.insert(0, '/mnt/d/productavailability/atp')
+sys.path.insert(0, '/mnt/d/demoproject/atp')
 
 # Test 1: Check Python version
 print("\n1. Python Version Check...")

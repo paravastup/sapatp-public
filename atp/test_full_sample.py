@@ -10,8 +10,8 @@ from chatbot.services.ollama_client import OllamaClient
 
 print("=== Full Sample Request Test ===\n")
 
-# Get product enrichment for product 46961
-product = ProductService.get_product_enrichment('46961')
+# Get product enrichment for product 10002
+product = ProductService.get_product_enrichment('10002')
 
 if product:
     print(f"Product: {product.get('name')}")
@@ -38,7 +38,7 @@ if product:
     results = [product]  # Simulate query results
     
     response = generator.generate(
-        user_query="Can I sample product 46961?",
+        user_query="Can I sample product 10002?",
         intent='product_info',
         results=results,
         context={},
@@ -47,4 +47,4 @@ if product:
     
     print(f"\nGenerated Response:\n{response}")
 else:
-    print("Product 46961 not found!")
+    print("Product 10002 not found!")

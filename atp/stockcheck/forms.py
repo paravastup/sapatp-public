@@ -12,16 +12,16 @@ class ProductForm(forms.Form):
 
     attr_choices = (
     ('attr', 'Choose a search option..'),
-    ('Arc', 'Arc SKU'),
+    ('Arc', 'Demo SKU'),
     ('Old', 'Vendor SKU'),
     #('Ptn', 'Pattern'),
     #('Unv', 'Universe'),
     )
     #plant_choices = (
     #('Plant', 'Choose a plant..'),
-    #('9993', 'Arc Cardinal'),
-    #('9994', 'Arc Millville'),
-    #('9943', 'Arc Canada'),
+    #('1001', 'Demo Corp'),
+    #('1002', 'Plant B'),
+    #('1003', 'Plant C'),
     #)
     attr_type = forms.ChoiceField(choices= attr_choices, required=True, widget=forms.Select(attrs={'class': 'form-control mx-sm-3','id': 'attr_type', 'aria-describedby': 'attrHelpBlock'}), label="")
     plant_option = forms.ModelChoiceField(queryset=None,empty_label='Select a plant',required=True,widget=forms.Select(attrs={'class': 'form-control mx-sm-3', 'id': 'plant_option','aria-describedby': 'plantHelpBlock'}), label="" )
@@ -55,8 +55,8 @@ class SignUpForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     BUSINESS_CHOICES = (
     (' ','Select the business entity that you work with'),
-    ('AINA', 'Arc International North America'),
-    ('Cardinal', 'Cardinal International')
+    ('AINA', 'Demo International North America'),
+    ('Brand_Delta', 'Brand_Delta International')
     )
     company = forms.CharField(max_length=30, required=True, help_text='Required',widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Company name'}))
     role = forms.CharField(max_length=75, required=True, help_text='Required',widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Role / Title'}))

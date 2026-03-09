@@ -12,9 +12,9 @@
 
 | Component | Location | Access From |
 |-----------|----------|-------------|
-| Ollama Models (v2, v3, v4) | Windows (`C:\Users\paravastup\.ollama\models`) | Both Windows & WSL2 |
-| Training Data | D:\productavailability\training_data | Both Windows & WSL2 |
-| Scripts | D:\productavailability\scripts | Both Windows & WSL2 |
+| Ollama Models (v2, v3, v4) | Windows (`C:\Users\demouser\.ollama\models`) | Both Windows & WSL2 |
+| Training Data | D:\demoproject\training_data | Both Windows & WSL2 |
+| Scripts | D:\demoproject\scripts | Both Windows & WSL2 |
 
 ## Option 1: Train in WSL2 (Recommended) ✅
 
@@ -27,12 +27,12 @@
 **How to train in WSL2:**
 ```bash
 # You're already here! Just run:
-cd /mnt/d/productavailability
+cd /mnt/d/demoproject
 ./setup_gpu_training.sh
 python3 scripts/gpu_finetune_extraction.py
 
 # After training, import to Windows Ollama:
-/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe create atp-gpu -f Modelfile.gpu-trained
+/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe create atp-gpu -f Modelfile.gpu-trained
 ```
 
 ## Option 2: Train in Windows
@@ -45,7 +45,7 @@ python3 scripts/gpu_finetune_extraction.py
 **How to train in Windows:**
 ```batch
 # Open Windows Command Prompt or PowerShell
-cd D:\productavailability
+cd D:\demoproject
 setup_gpu_training_windows.bat
 python scripts\gpu_finetune_extraction.py
 
@@ -105,10 +105,10 @@ python3 scripts/gpu_finetune_extraction.py
 
 # The model will be saved as extraction_model.gguf
 # Import to Windows Ollama for use everywhere
-/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe create atp-extraction-gpu -f Modelfile.gpu-trained
+/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe create atp-extraction-gpu -f Modelfile.gpu-trained
 
 # Test it
-/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe run atp-extraction-gpu "Test query"
+/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe run atp-extraction-gpu "Test query"
 ```
 
 ## Performance Comparison

@@ -20,18 +20,18 @@ Look for the **"vEthernet (WSL)"** adapter - this is the IP that WSL2 uses to ta
 It will look something like:
 ```
 Ethernet adapter vEthernet (WSL):
-   IPv4 Address. . . . . . . . . . . : 172.20.176.1
+   IPv4 Address. . . . . . . . . . . : 192.168.1.100
 ```
 
-**That IP (e.g., 172.20.176.1) is what you need!**
+**That IP (e.g., 192.168.1.100) is what you need!**
 
 ### Step 2: Verify Ollama is Accessible from WSL2
 
 From WSL2 terminal, test with that IP:
 
 ```bash
-# Replace 172.20.176.1 with YOUR vEthernet (WSL) IP
-curl http://172.20.176.1:11434/api/tags
+# Replace 192.168.1.100 with YOUR vEthernet (WSL) IP
+curl http://192.168.1.100:11434/api/tags
 ```
 
 If this works, you'll see your Ollama models listed!

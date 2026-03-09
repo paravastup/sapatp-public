@@ -91,7 +91,7 @@ except Exception as e:
 print("\n[TEST 4] Intent Classification")
 print("-" * 70)
 test_messages = [
-    ("What's the stock of product 46888?", "stock_query"),
+    ("What's the stock of product 10001?", "stock_query"),
     ("When is the next delivery?", "delivery_query"),
     ("Hello", "greeting"),
     ("Help me", "help"),
@@ -135,7 +135,7 @@ try:
     test_cases = [
         ("Check stock for product 12345", "stock_query", "product_numbers"),
         ("What about products 11111, 22222, 33333?", "stock_query", "product_numbers"),
-        ("Use plant 9995", "plant_selection", "plant_code"),
+        ("Use plant 1001", "plant_selection", "plant_code"),
     ]
 
     for msg, intent, expected_entity in test_cases:

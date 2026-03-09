@@ -49,10 +49,10 @@ echo ""
 
 # Test 1: Stock query
 echo "Test 1: Stock Query"
-echo "Query: 'What's the stock of product 46888?'"
+echo "Query: 'What's the stock of product 10001?'"
 RESPONSE=$(ollama run atp-chatbot "Classify this user query and extract entities. Return JSON only.
 
-User query: What's the stock of product 46888?
+User query: What's the stock of product 10001?
 
 Return format: {\"intent\": \"<intent>\", \"product_numbers\": [\"<numbers>\"], \"confidence\": <0.0-1.0>}" --format json 2>/dev/null | tail -n 1)
 echo "Response: $RESPONSE"
@@ -60,8 +60,8 @@ echo ""
 
 # Test 2: Follow-up question
 echo "Test 2: Follow-up Question (Context-dependent)"
-echo "Query: 'What's the UPC?' (after asking about 46888)"
-RESPONSE=$(ollama run atp-chatbot "User previously asked about product 46888. Now they ask: 'What's the UPC?'
+echo "Query: 'What's the UPC?' (after asking about 10001)"
+RESPONSE=$(ollama run atp-chatbot "User previously asked about product 10001. Now they ask: 'What's the UPC?'
 
 Extract entities with context. Return JSON only.
 
@@ -71,8 +71,8 @@ echo ""
 
 # Test 3: Action repeat
 echo "Test 3: Action Repeat Pattern"
-echo "Query: 'Do the same with 12345' (after asking UPC of 46888)"
-RESPONSE=$(ollama run atp-chatbot "User previously asked: 'What's the UPC of 46888?'
+echo "Query: 'Do the same with 12345' (after asking UPC of 10001)"
+RESPONSE=$(ollama run atp-chatbot "User previously asked: 'What's the UPC of 10001?'
 Now they say: 'Do the same with 12345'
 
 Extract entities. Return JSON only.

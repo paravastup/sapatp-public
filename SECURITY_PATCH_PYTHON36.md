@@ -6,7 +6,7 @@
 
 #### 1.1 Create `.env` file in project root
 ```bash
-# /mnt/d/productavailability/.env
+# /mnt/d/demoproject/.env
 # DO NOT commit this to git!
 
 # Django Settings
@@ -17,7 +17,7 @@ DJANGO_ALLOWED_HOSTS=[REDACTED],[REDACTED]
 # Database Configuration
 DATABASE_ENGINE=django.db.backends.mysql
 DATABASE_NAME=atp
-DATABASE_USER=djangoadmin
+DATABASE_USER=dbuser
 DATABASE_PASSWORD=CHANGE_THIS_PASSWORD_NOW
 DATABASE_HOST=localhost
 DATABASE_PORT=3306
@@ -393,7 +393,7 @@ import os
 import sys
 
 # Add the project to path
-sys.path.insert(0, '/mnt/d/productavailability/atp')
+sys.path.insert(0, '/mnt/d/demoproject/atp')
 
 # Test loading secure settings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'atp.settings_secure')

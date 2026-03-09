@@ -1,5 +1,5 @@
 """
-Product models for Plytix feed integration
+Product models for DataFeed feed integration
 Master product data source for enriching SAP availability queries
 """
 from django.db import models
@@ -8,7 +8,7 @@ from django.utils import timezone
 
 class Product(models.Model):
     """
-    Complete product information from Plytix PIM system
+    Complete product information from DataFeed PIM system
     Serves as master data source for product details, pricing, images, and specifications
     """
 
@@ -53,7 +53,7 @@ class Product(models.Model):
     catalog_brand = models.CharField(
         max_length=100,
         db_index=True,
-        help_text="Brand name (e.g., Arcoroc, Dudson, Chef & Sommelier)"
+        help_text="Brand name (e.g., Brand_Kappa, Dudson, Brand Zeta)"
     )
 
     catalog_collection = models.CharField(
@@ -242,7 +242,7 @@ class Product(models.Model):
     # ======================
     status = models.CharField(
         max_length=20,
-        help_text="Plytix status (Draft/Active)"
+        help_text="DataFeed status (Draft/Active)"
     )
 
     catalog_status = models.CharField(
@@ -300,11 +300,11 @@ class Product(models.Model):
     # METADATA
     # ======================
     created = models.DateField(
-        help_text="Created date in Plytix"
+        help_text="Created date in DataFeed"
     )
 
     last_modified = models.DateField(
-        help_text="Last modified date in Plytix"
+        help_text="Last modified date in DataFeed"
     )
 
     imported_at = models.DateTimeField(

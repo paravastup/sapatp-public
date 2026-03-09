@@ -11,7 +11,7 @@
 ## Key Application Features
 
 ### 1. Product Availability Search
-- Search by Arc SKU or Vendor SKU
+- Search by Demo SKU or Vendor SKU
 - Support for multiple products (up to 100 per search)
 - Multi-plant selection
 - Real-time data from SAP
@@ -59,7 +59,7 @@
 ## Project Structure at a Glance
 
 ```
-/mnt/d/productavailability/
+/mnt/d/demoproject/
 ├── atp/                          # Django project
 │   ├── stockcheck/               # Product search app (MAIN)
 │   │   ├── models.py            # Database models
@@ -128,8 +128,8 @@ User (Django built-in)
   └── AuditEntry (1:M) - tracks login/logout
 
 Plant
-  ├── code (e.g., "9995")
-  ├── description (e.g., "Durand Glass")
+  ├── code (e.g., "1001")
+  ├── description (e.g., "Demo Corp")
   └── users (M:M)
 
 SearchHistory
@@ -149,7 +149,7 @@ Profile
   ├── company
   ├── role
   ├── website
-  └── business (AINA or Cardinal)
+  └── business (AINA or Brand_Delta)
 ```
 
 ---
@@ -185,9 +185,9 @@ All SAP interactions logged to `/var/log/gunicorn/sap_interactions.log`
 
 Example log entries:
 ```
-SAP Call - Z_GET_MATERIAL_DETAILS - Input: plant=9995, product=123456, mode=M
+SAP Call - Z_GET_MATERIAL_DETAILS - Input: plant=1001, product=123456, mode=M
 SAP Response - Z_GET_MATERIAL_DETAILS - Success - Product: 123456
-Search initiated - User: john.doe, Plant: 9995, Type: Arc
+Search initiated - User: demo.user, Plant: 1001, Type: Arc
 ```
 
 ---
@@ -235,7 +235,7 @@ GET  /atp/help/docs/<id>/ → View doc
 
 **Start Application:**
 ```bash
-cd /mnt/d/productavailability
+cd /mnt/d/demoproject
 docker-compose up -d
 ```
 
@@ -260,7 +260,7 @@ docker-compose logs -f nginx    # Nginx logs
 
 ```
 Database: atp
-User: djangoadmin
+User: dbuser
 Password: [REDACTED]
 Host: db (Docker) or localhost (direct)
 Port: 3306
@@ -371,7 +371,7 @@ docker-compose logs -f web
 
 ### Access Database
 ```bash
-docker-compose exec db mysql -u djangoadmin -p[REDACTED] atp
+docker-compose exec db mysql -u dbuser -p[REDACTED] atp
 ```
 
 ---
@@ -454,8 +454,8 @@ docker-compose exec db mysql -u djangoadmin -p[REDACTED] atp
 ## Typical Use Case Scenario
 
 1. **Sales Manager** logs in to ATP application
-2. **Selects Plant**: "Arc Cardinal (9995)"
-3. **Selects Search Type**: "Arc SKU"
+2. **Selects Plant**: "Demo Corp (1001)"
+3. **Selects Search Type**: "Demo SKU"
 4. **Enters Products**: "001234, 001235, 001236"
 5. **Clicks Search**
    - System fetches data from SAP
@@ -535,14 +535,14 @@ docker-compose exec db mysql -u djangoadmin -p[REDACTED] atp
 
 **Application Admin:** [REDACTED] (configured email)
 **SAP Connection:** Check settings.ini for SAP system details
-**Database:** MySQL 5.7, user: djangoadmin
+**Database:** MySQL 5.7, user: dbuser
 
 ---
 
 ## Document Information
 
 **Created:** 2025-10-31
-**Application Location:** /mnt/d/productavailability/
+**Application Location:** /mnt/d/demoproject/
 **Project Type:** Django Web Application
 **Deployment:** Docker + Docker Compose
 **Production Ready:** Yes (with security hardening needed)

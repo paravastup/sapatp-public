@@ -1,5 +1,5 @@
 """
-Admin interface for Plytix product management
+Admin interface for DataFeed product management
 """
 from django.contrib import admin
 from django.utils.html import format_html

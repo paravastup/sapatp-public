@@ -45,11 +45,11 @@ class Plant(models.Model):
     users = models.ManyToManyField(User,related_name='plant')
     code = models.CharField(
         max_length=15,
-        help_text="Plant Code, for example: 9995"
+        help_text="Plant Code, for example: 1001"
         )
     description = models.CharField(
         max_length = 30,
-        help_text="Plant Code description, for example: Durand Glass"
+        help_text="Plant Code description, for example: Demo Corp"
         )
 
     def __str__(self):

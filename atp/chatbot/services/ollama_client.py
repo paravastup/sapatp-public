@@ -184,7 +184,7 @@ Reply with intent name only."""
         # Context handling moved to entity_extractor.py, no need to duplicate here
         system_prompt = f"""Extract entities from query (intent: {intent}).
 Find: product_numbers, vendor_skus, plant_codes, export_format.
-JSON only: {{"product_numbers": ["123"], "plant_code": "9995", "export_format": null}}"""
+JSON only: {{"product_numbers": ["123"], "plant_code": "1001", "export_format": null}}"""
 
         prompt = f'"{user_message}"'
 
@@ -244,16 +244,16 @@ JSON only: {{"product_numbers": ["123"], "plant_code": "9995", "export_format": 
             entities['search_type'] = 'vendor_sku'
 
         # Extract plant codes
-        plant_codes = re.findall(r'\b(9993|9994|9995|9943)\b', message)
+        plant_codes = re.findall(r'\b(1001|1002|1003)\b', message)
         if plant_codes:
             entities['plant_code'] = plant_codes[0]
 
         # Extract plant names
         plant_names = {
-            'durand': '9995',
-            'millville': '9994',
-            'cardinal': '9993',
-            'arc canada': '9943'
+            'demo_corp': '1001',
+            'millville': '1002',
+            'cardinal': '1001',
+            'arc canada': '1003'
         }
         message_lower = message.lower()
         for name, code in plant_names.items():
@@ -342,7 +342,7 @@ JSON only: {{"product_numbers": ["123"], "plant_code": "9995", "export_format": 
 
         elif intent == 'help':
             return """I can help you with:
-• Check stock: "What's the stock of 46888?"
+• Check stock: "What's the stock of 10001?"
 • Delivery info: "When is the next delivery?"
 • Export data: "Send me the results by email"
 • Product details: "What's the brand of product 123?"

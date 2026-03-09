@@ -1,5 +1,5 @@
 """
-Celery tasks for Plytix product feed automation
+Celery tasks for DataFeed product feed automation
 Handles scheduled imports and cache invalidation
 """
 import logging
@@ -22,40 +22,40 @@ except ImportError:
         return func
 
 
-PLYTIX_FEED_URL = 'https://pim.plytix.com/channels/6638c4dd23dda406832ca8e9/feed'
+DATAFEED_FEED_URL = 'https://pim.datafeed.com/channels/6638c4dd23dda406832ca8e9/feed'
 
 
-@shared_task(name='products.import_plytix_feed', bind=True)
-def import_plytix_feed_task(self, source_url=None):
+@shared_task(name='products.import_datafeed_feed', bind=True)
+def import_datafeed_feed_task(self, source_url=None):
     """
-    Scheduled task to import Plytix product feed
+    Scheduled task to import DataFeed product feed
     Runs daily to keep product data in sync
 
     Args:
-        source_url: Optional custom feed URL (defaults to configured Plytix feed)
+        source_url: Optional custom feed URL (defaults to configured DataFeed feed)
 
     Returns:
         dict: Import statistics
     """
-    url = source_url or PLYTIX_FEED_URL
+    url = source_url or DATAFEED_FEED_URL
 
-    logger.info(f'[PLYTIX IMPORT] Starting scheduled import from {url}')
+    logger.info(f'[DATAFEED IMPORT] Starting scheduled import from {url}')
 
     try:
         # Download XML feed
-        logger.info('[PLYTIX IMPORT] Fetching XML feed...')
+        logger.info('[DATAFEED IMPORT] Fetching XML feed...')
         response = requests.get(url, timeout=120)
         response.raise_for_status()
 
         # Save to temporary file
-        temp_file = f'/tmp/plytix_feed_{datetime.now().strftime("%Y%m%d_%H%M%S")}.xml'
+        temp_file = f'/tmp/datafeed_feed_{datetime.now().strftime("%Y%m%d_%H%M%S")}.xml'
         with open(temp_file, 'wb') as f:
             f.write(response.content)
 
-        logger.info(f'[PLYTIX IMPORT] Feed downloaded ({len(response.content)} bytes)')
+        logger.info(f'[DATAFEED IMPORT] Feed downloaded ({len(response.content)} bytes)')
 
         # Run import command
-        call_command('import_plytix_feed', temp_file)
+        call_command('import_datafeed_feed', temp_file)
 
         # Get latest import stats
         latest_log = ProductImportLog.objects.order_by('-imported_at').first()
@@ -70,7 +70,7 @@ def import_plytix_feed_task(self, source_url=None):
             }
 
             logger.info(
-                f'[PLYTIX IMPORT] Success! Added: {stats["products_added"]}, '
+                f'[DATAFEED IMPORT] Success! Added: {stats["products_added"]}, '
                 f'Updated: {stats["products_updated"]}, '
                 f'Total: {stats["products_total"]}, '
                 f'Duration: {stats["duration_seconds"]:.1f}s'
@@ -81,12 +81,12 @@ def import_plytix_feed_task(self, source_url=None):
 
             return stats
         else:
-            logger.error('[PLYTIX IMPORT] Import failed - check ProductImportLog')
+            logger.error('[DATAFEED IMPORT] Import failed - check ProductImportLog')
             return {'success': False, 'error': 'Import command failed'}
 
     except requests.RequestException as e:
         error_msg = f'Failed to fetch feed from {url}: {e}'
-        logger.error(f'[PLYTIX IMPORT] {error_msg}')
+        logger.error(f'[DATAFEED IMPORT] {error_msg}')
 
         # Log failure
         ProductImportLog.objects.create(
@@ -101,7 +101,7 @@ def import_plytix_feed_task(self, source_url=None):
 
     except Exception as e:
         error_msg = f'Unexpected error during import: {e}'
-        logger.error(f'[PLYTIX IMPORT] {error_msg}')
+        logger.error(f'[DATAFEED IMPORT] {error_msg}')
 
         # Log failure
         ProductImportLog.objects.create(

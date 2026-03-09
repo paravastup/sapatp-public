@@ -12,7 +12,7 @@ def create_enhanced_modelfile():
     """Create an enhanced Modelfile with few-shot examples embedded"""
 
     # Load some training examples
-    training_file = Path('/mnt/d/productavailability/training_data/extraction_training_15k.jsonl')
+    training_file = Path('/mnt/d/demoproject/training_data/extraction_training_15k.jsonl')
     examples = []
 
     with open(training_file, 'r') as f:
@@ -67,7 +67,7 @@ PARAMETER num_predict 100
 PARAMETER seed 42'''
 
     # Save the enhanced Modelfile
-    modelfile_path = Path('/mnt/d/productavailability/Modelfile.extraction-enhanced')
+    modelfile_path = Path('/mnt/d/demoproject/Modelfile.extraction-enhanced')
     modelfile_path.write_text(modelfile_content)
     print(f"Created enhanced Modelfile: {modelfile_path}")
     return modelfile_path
@@ -79,7 +79,7 @@ def test_with_few_shot():
     print("=" * 60)
 
     # Load training examples for few-shot
-    training_file = Path('/mnt/d/productavailability/training_data/extraction_training_15k.jsonl')
+    training_file = Path('/mnt/d/demoproject/training_data/extraction_training_15k.jsonl')
     few_shot_examples = []
 
     with open(training_file, 'r') as f:
@@ -107,7 +107,7 @@ def test_with_few_shot():
             few_shot_prompt += f"Response: {assistant_msg}\n\n"
 
     # Now test with a real query
-    test_context = "Product 46961 has UPC 10026102469610, brand LUMINARC"
+    test_context = "Product 10002 has UPC 00000000010002, brand BRAND_ALPHA"
     test_query = "What's the UPC?"
 
     full_prompt = f"""{few_shot_prompt}Now extract from this:
@@ -120,7 +120,7 @@ Response:"""
     print(f"Context: {test_context}")
 
     # Save test prompt for manual testing
-    test_prompt_path = Path('/mnt/d/productavailability/test_prompt.txt')
+    test_prompt_path = Path('/mnt/d/demoproject/test_prompt.txt')
     test_prompt_path.write_text(full_prompt)
     print(f"\nSaved test prompt to: {test_prompt_path}")
     print("You can test this manually with: ollama run atp-extraction < test_prompt.txt")
@@ -138,11 +138,11 @@ def main():
     print("\nCreating enhanced extraction model...")
 
     # Copy to Windows temp
-    temp_modelfile = Path('/mnt/c/Users/paravastup/AppData/Local/Temp/Modelfile-enhanced')
+    temp_modelfile = Path('/mnt/c/Users/demouser/AppData/Local/Temp/Modelfile-enhanced')
     temp_modelfile.write_text(modelfile_path.read_text())
 
     try:
-        ollama_path = "/mnt/c/Users/paravastup/AppData/Local/Programs/Ollama/ollama.exe"
+        ollama_path = "/mnt/c/Users/demouser/AppData/Local/Programs/Ollama/ollama.exe"
         cmd = [ollama_path, 'create', 'atp-extraction-v2', '-f', str(temp_modelfile)]
 
         result = subprocess.run(cmd, capture_output=True, text=True)

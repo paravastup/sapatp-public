@@ -36,7 +36,7 @@ def create_base_model():
     print("\nCreating base extraction model...")
 
     # Choose which Modelfile to use
-    if Path('/mnt/d/productavailability/Modelfile.extraction-from-atp').exists():
+    if Path('/mnt/d/demoproject/Modelfile.extraction-from-atp').exists():
         modelfile = 'Modelfile.extraction-from-atp'
         model_name = 'atp-extraction-v2'
     else:
@@ -65,8 +65,8 @@ def convert_training_for_llama_cpp():
     """Convert training data for llama.cpp fine-tuning"""
     print("\nConverting training data for llama.cpp format...")
 
-    input_file = Path('/mnt/d/productavailability/training_data/extraction_training_15k.jsonl')
-    output_file = Path('/mnt/d/productavailability/training_data/extraction_training_llama.jsonl')
+    input_file = Path('/mnt/d/demoproject/training_data/extraction_training_15k.jsonl')
+    output_file = Path('/mnt/d/demoproject/training_data/extraction_training_llama.jsonl')
 
     with open(input_file, 'r') as f_in, open(output_file, 'w') as f_out:
         for line in f_in:
@@ -94,19 +94,19 @@ def test_extraction_model(model_name: str):
 
     test_cases = [
         {
-            'context': 'Product 46961 has UPC 10026102469610, brand LUMINARC, stock 1500 pieces',
+            'context': 'Product 10002 has UPC 00000000010002, brand BRAND_ALPHA, stock 1500 pieces',
             'query': "What's the UPC?",
-            'expected': '10026102469610'
+            'expected': '00000000010002'
         },
         {
-            'context': 'Product 46888 has brand PYREX, stock 2000 pieces',
+            'context': 'Product 10001 has brand BRAND_BETA, stock 2000 pieces',
             'query': "What's the UPC?",
             'expected': None  # Should return null
         },
         {
-            'context': 'Product 46961 UPC: 10026102469610. Product 46888 UPC: 10026102468880',
-            'query': "What's the UPC for 46888?",
-            'expected': '10026102468880'
+            'context': 'Product 10002 UPC: 00000000010002. Product 10001 UPC: 00000000010001',
+            'query': "What's the UPC for 10001?",
+            'expected': '00000000010001'
         }
     ]
 
@@ -274,7 +274,7 @@ from datasets import Dataset
 # Load training data
 def load_training_data():
     data = []
-    with open('/mnt/d/productavailability/training_data/extraction_training_15k.jsonl', 'r') as f:
+    with open('/mnt/d/demoproject/training_data/extraction_training_15k.jsonl', 'r') as f:
         for line in f:
             item = json.loads(line)
             # Format for Unsloth
@@ -345,7 +345,7 @@ print("Fine-tuning complete! Now convert to GGUF for Ollama:")
 print("python llama.cpp/convert.py extraction-finetuned-gemma --outtype q4_K_M")
 '''
 
-    script_path = Path('/mnt/d/productavailability/scripts/unsloth_fine_tune.py')
+    script_path = Path('/mnt/d/demoproject/scripts/unsloth_fine_tune.py')
     script_path.write_text(script_content)
     print(f"Created Unsloth fine-tuning script: {script_path}")
 

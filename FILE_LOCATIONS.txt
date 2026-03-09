@@ -7,7 +7,7 @@ CODEBASE_OVERVIEW.md ..................... Comprehensive technical documentation
 QUICK_START_GUIDE.md ..................... Quick reference guide for developers/admins
 FILE_LOCATIONS.txt ....................... This file
 
-## Project Root (/mnt/d/productavailability/)
+## Project Root (/mnt/d/demoproject/)
 =====================================
 README.md ............................... Original project README
 DEPLOY.md ............................... Deployment guide (11+ sections)
@@ -142,7 +142,7 @@ atp/static/admin/ .............................. Django admin assets
   - img/ ...................................... Admin images
 
 atp/static/css/ ............................... Application CSS
-  - cover.css ................................. Custom Arc styling
+  - cover.css ................................. Custom Demo styling
   - Other Bootstrap/framework CSS
 
 atp/static/js/ ............................... Application JavaScript
@@ -209,43 +209,43 @@ TESTING:
 =====================================
 
 MAIN BUSINESS LOGIC:
-- /mnt/d/productavailability/atp/stockcheck/views.py (450 lines)
+- /mnt/d/demoproject/atp/stockcheck/views.py (450 lines)
 
 DATABASE MODELS:
-- /mnt/d/productavailability/atp/stockcheck/models.py
+- /mnt/d/demoproject/atp/stockcheck/models.py
 
 SAP INTEGRATION:
 - Lines 70-123 in views.py (stock_info, product_details, product_info functions)
-- /mnt/d/productavailability/atp/atp/settings.ini (config)
-- /mnt/d/productavailability/test_sap_connection.py (testing)
+- /mnt/d/demoproject/atp/atp/settings.ini (config)
+- /mnt/d/demoproject/test_sap_connection.py (testing)
 
 FORMS & INPUT:
-- /mnt/d/productavailability/atp/stockcheck/forms.py
+- /mnt/d/demoproject/atp/stockcheck/forms.py
 
 URL ROUTING:
-- /mnt/d/productavailability/atp/atp/urls.py
+- /mnt/d/demoproject/atp/atp/urls.py
 
 TEMPLATES:
-- Search: /mnt/d/productavailability/atp/templates/stockcheck/search.html
-- Results: /mnt/d/productavailability/atp/templates/stockcheck/details.html
-- Login: /mnt/d/productavailability/atp/templates/registration/login.html
+- Search: /mnt/d/demoproject/atp/templates/stockcheck/search.html
+- Results: /mnt/d/demoproject/atp/templates/stockcheck/details.html
+- Login: /mnt/d/demoproject/atp/templates/registration/login.html
 
 CONFIGURATION:
-- Django: /mnt/d/productavailability/atp/atp/settings.py
-- SAP: /mnt/d/productavailability/atp/atp/settings.ini
+- Django: /mnt/d/demoproject/atp/atp/settings.py
+- SAP: /mnt/d/demoproject/atp/atp/settings.ini
 - Email: settings.py (EMAIL_* variables)
 - Logging: settings.py (LOGGING configuration)
 
 DEPLOYMENT:
-- Docker: /mnt/d/productavailability/Dockerfile
-- Services: /mnt/d/productavailability/docker-compose.yml
-- Web Server: /mnt/d/productavailability/nginx.conf
+- Docker: /mnt/d/demoproject/Dockerfile
+- Services: /mnt/d/demoproject/docker-compose.yml
+- Web Server: /mnt/d/demoproject/nginx.conf
 
 ADMIN CUSTOMIZATION:
-- /mnt/d/productavailability/atp/stockcheck/admin.py
+- /mnt/d/demoproject/atp/stockcheck/admin.py
 
 MIDDLEWARE:
-- /mnt/d/productavailability/atp/middleware/audit_middleware.py
+- /mnt/d/demoproject/atp/middleware/audit_middleware.py
 
 ## File Statistics
 =====================================

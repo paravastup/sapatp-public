@@ -16,17 +16,17 @@ class PatternCache:
     Pattern-based caching for intent classification and entity extraction
 
     Normalizes queries by replacing specific values with placeholders:
-    - "stock of 46961" → "stock of <PRODUCT>"
+    - "stock of 10002" → "stock of <PRODUCT>"
     - "delivery for G3960" → "delivery for <PRODUCT>"
-    - "check plant 9995" → "check plant <PLANT>"
+    - "check plant 1001" → "check plant <PLANT>"
 
     This allows cache hits for similar queries with different product numbers.
     """
 
     # Regex patterns for normalization
-    PRODUCT_PATTERN = r'\b[A-Z]?\d{4,8}\b'  # Product numbers (46961, G3960)
+    PRODUCT_PATTERN = r'\b[A-Z]?\d{4,8}\b'  # Product numbers (10002, G3960)
     VENDOR_SKU_PATTERN = r'\b[A-Z]{2,4}-\d{3,6}\b'  # Vendor SKUs (OLD-123)
-    PLANT_CODE_PATTERN = r'\b(9993|9994|9995|9943)\b'  # Plant codes
+    PLANT_CODE_PATTERN = r'\b(1001|1002|1003)\b'  # Plant codes
     DATE_PATTERN = r'\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b'  # Dates
     EMAIL_PATTERN = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'  # Emails
 
@@ -51,7 +51,7 @@ class PatternCache:
             Normalized pattern string
 
         Example:
-            "What's the stock of 46961?" → "what's the stock of <product>?"
+            "What's the stock of 10002?" → "what's the stock of <product>?"
             "Delivery for G3960 and 12345" → "delivery for <product> and <product>"
         """
         normalized = query.lower().strip()

@@ -9,7 +9,7 @@ import sys
 import django
 
 # Add the Django project to the path
-sys.path.insert(0, '/mnt/d/productavailability/atp')
+sys.path.insert(0, '/mnt/d/demoproject/atp')
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'atp.settings_secure')
 
 # Initialize Django
@@ -36,7 +36,7 @@ from chatbot.models import ChatSession, ChatMessage
 # Test data
 TEST_QUERIES = [
     {
-        "message": "What's the stock of product 46888?",
+        "message": "What's the stock of product 10001?",
         "expected_intent": "stock_query",
         "expected_entities": ["product_numbers"]
     },
@@ -56,7 +56,7 @@ TEST_QUERIES = [
         "expected_entities": ["export_format"]
     },
     {
-        "message": "Use Durand plant",
+        "message": "Use Demo Corp plant",
         "expected_intent": "plant_selection",
         "expected_entities": ["plant_code", "plant_name"]
     },
@@ -140,9 +140,9 @@ def test_entity_extraction(ollama_client):
             "expected": {"product_numbers": ["12345", "67890"]}
         },
         {
-            "message": "Use plant 9995",
+            "message": "Use plant 1001",
             "intent": "plant_selection",
-            "expected": {"plant_code": "9995"}
+            "expected": {"plant_code": "1001"}
         },
         {
             "message": "Email me the results",
@@ -196,10 +196,10 @@ def test_response_generation(ollama_client):
         },
         {
             "intent": "stock_query",
-            "query": "What's the stock of 46888?",
+            "query": "What's the stock of 10001?",
             "data": [
                 {
-                    "MATNR": "46888",
+                    "MATNR": "10001",
                     "STOCK": 150,
                     "DISMM": "Stock item",
                     "MAKTX": "Test Product"
@@ -257,7 +257,7 @@ def test_conversation_flow():
     # Simulate conversation
     test_messages = [
         "Hello",
-        "What's the stock of product 46888?",
+        "What's the stock of product 10001?",
         "When is the next delivery?",
         "Email me these results"
     ]
@@ -274,7 +274,7 @@ def test_conversation_flow():
 
         # Generate response (mock data for testing)
         if intent == "stock_query":
-            mock_data = [{"MATNR": "46888", "STOCK": 100, "DISMM": "Stock item"}]
+            mock_data = [{"MATNR": "10001", "STOCK": 100, "DISMM": "Stock item"}]
         else:
             mock_data = None
 
@@ -323,7 +323,7 @@ def test_sap_integration():
 
         # Try to query a product (this will fail if SAP is not available)
         try:
-            results = executor.execute_search(plant.code, ['46888'], 'M')
+            results = executor.execute_search(plant.code, ['10001'], 'M')
             if results:
                 print(f"✅ SAP query returned {len(results)} result(s)")
                 for result in results:

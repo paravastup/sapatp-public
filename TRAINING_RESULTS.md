@@ -5,7 +5,7 @@ Successfully trained a Gemma 3 4B model to extract product data from natural lan
 
 ## Problem Statement
 The original Gemma 3 4B model was hallucinating when asked to extract specific product values:
-- Query: "What's the UPC for 46961?"
+- Query: "What's the UPC for 10002?"
 - Incorrect responses: `10026`, `79461`, `8894` (different each time)
 - Root cause: Model was generating values instead of extracting them
 
@@ -43,7 +43,7 @@ Validation Set: 1,000 examples
 ### Failure Analysis
 | Pattern | Count | Description | Example |
 |---------|-------|-------------|---------|
-| Terminology Confusion | 3 | "product code" → returns product number instead of UPC | Asked: "product code", Got: `{"product_code": "46961"}`, Expected: `{"upc": "..."}`|
+| Terminology Confusion | 3 | "product code" → returns product number instead of UPC | Asked: "product code", Got: `{"product_code": "10002"}`, Expected: `{"upc": "..."}`|
 | Field Name Mismatch | 9 | "EAN" → returns `{"ean": null}` when UPC exists | Asked: "EAN", Got: `{"ean": null}`, Expected: `{"upc": "..."}`|
 
 ## Technical Implementation

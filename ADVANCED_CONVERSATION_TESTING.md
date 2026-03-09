@@ -17,7 +17,7 @@ This guide validates the production-ready conversational intelligence features i
 ### 1. Access Chat Interface
 - **URL**: http://localhost:5000/atp/chat/
 - **Login**: admin / [REDACTED]
-- **Verify Ollama**: Check logs show "Ollama configured: http://172.22.80.1:11434"
+- **Verify Ollama**: Check logs show "Ollama configured: http://192.168.1.100:11434"
 
 ### 2. Monitor Backend Logs (Optional)
 ```bash
@@ -38,16 +38,16 @@ docker-compose -f docker-compose-port5000-secure.yml logs web | grep -i "action\
 
 #### Scenario 1.1: Basic Follow-up
 ```plaintext
-👤 "What's the stock of product 46888?"
-🤖 [Shows stock for 46888]
+👤 "What's the stock of product 10001?"
+🤖 [Shows stock for 10001]
 
 👤 "What's the UPC code?"
-🤖 [Shows UPC for 46888 - SHOULD NOT ASK FOR PRODUCT NUMBER]
+🤖 [Shows UPC for 10001 - SHOULD NOT ASK FOR PRODUCT NUMBER]
 ```
 
 **✅ PASS Criteria**:
 - No "I need product number(s)" error
-- UPC shown for product 46888
+- UPC shown for product 10001
 - Response focused on UPC field only
 
 **❌ FAIL Indicators**:
@@ -89,17 +89,17 @@ docker-compose -f docker-compose-port5000-secure.yml logs web | grep "Follow-up 
 
 #### Scenario 2.1: Classic "Do the same"
 ```plaintext
-👤 "What's the UPC of product 46961?"
+👤 "What's the UPC of product 10002?"
 🤖 [UPC/EAN: 0123456789012]
 
-👤 "Do the same with 46888"
-🤖 [UPC/EAN for 46888 - SAME ACTION, DIFFERENT PRODUCT]
+👤 "Do the same with 10001"
+🤖 [UPC/EAN for 10001 - SAME ACTION, DIFFERENT PRODUCT]
 ```
 
 **✅ PASS Criteria**:
 - Intent inherited: product_info
 - Field inherited: upc
-- Product changed to 46888
+- Product changed to 10001
 - Response format matches first query
 
 **❌ FAIL Indicators**:
@@ -140,7 +140,7 @@ docker-compose -f docker-compose-port5000-secure.yml logs web | grep "Action rep
 
 #### Scenario 3.1: Each Field Type
 ```plaintext
-👤 "What's the UPC for 46888?"
+👤 "What's the UPC for 10001?"
 🤖 [ONLY UPC/EAN shown, NOT full product info] ✅
 
 👤 "Show brand for 12345"
@@ -280,12 +280,12 @@ print(json.dumps(session.get_context(), indent=2))
 **Expected Context Structure**:
 ```json
 {
-  "selected_plant": "9995",
-  "current_product": "46888",
-  "last_product_numbers": ["46888"],
+  "selected_plant": "1001",
+  "current_product": "10001",
+  "last_product_numbers": ["10001"],
   "last_intent": "product_info",
   "last_field_requested": "upc",
-  "last_action_description": "Queried product_info for products ['46888']",
+  "last_action_description": "Queried product_info for products ['10001']",
   "last_action_time": "2025-10-31T...",
   "last_results": [...],
   "last_query_time": "2025-10-31T...",
@@ -304,8 +304,8 @@ docker-compose -f docker-compose-port5000-secure.yml logs web | grep -E "Tracked
 Tracked action: product_info, field: upc
 Action repeat detected! Using last intent: product_info
 Applying last field request: upc
-Follow-up detected: Using current product 46888
-Set current products: ['46888']
+Follow-up detected: Using current product 10001
+Set current products: ['10001']
 ```
 
 ---

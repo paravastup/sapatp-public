@@ -17,7 +17,7 @@ The ATP (Available-to-Promise) application is a Django-based web application tha
 ## 1. PROJECT STRUCTURE & FILE ORGANIZATION
 
 ```
-/mnt/d/productavailability/
+/mnt/d/demoproject/
 ├── README.md                          # Project documentation
 ├── DEPLOY.md                          # Deployment guide
 ├── Dockerfile                         # Container image definition
@@ -125,7 +125,7 @@ AuditEntry           # User login/logout audit trail
 ```
 
 **Key Features:**
-- Product search by Arc SKU or Vendor SKU
+- Product search by Demo SKU or Vendor SKU
 - Multi-plant selection
 - Supports up to 100 products per search (chunked processing)
 - Real-time SAP data fetching
@@ -148,12 +148,12 @@ Doc                  # Documentation articles (title, text, author, dates)
 
 ### 2.2 Settings Configuration
 
-**File:** `/mnt/d/productavailability/atp/atp/settings.py`
+**File:** `/mnt/d/demoproject/atp/atp/settings.py`
 
 **Key Settings:**
 ```python
-BASE_DIR = /mnt/d/productavailability/atp
-TEMPLATE_DIR = /mnt/d/productavailability/atp/templates
+BASE_DIR = /mnt/d/demoproject/atp
+TEMPLATE_DIR = /mnt/d/demoproject/atp/templates
 SECRET_KEY = '[REDACTED]'
 DEBUG = True
 ALLOWED_HOSTS = ['[REDACTED]', '[REDACTED]', '[REDACTED]',
@@ -177,7 +177,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'atp',
-        'USER': 'djangoadmin',
+        'USER': 'dbuser',
         'PASSWORD': '[REDACTED]',
         'HOST': 'db',
         'PORT': '3306'
@@ -199,7 +199,7 @@ LOG_DIR = '/var/log/gunicorn'
 # Logs to sap_interactions.log
 ```
 
-**SAP Connection Config File:** `/mnt/d/productavailability/atp/atp/settings.ini`
+**SAP Connection Config File:** `/mnt/d/demoproject/atp/atp/settings.ini`
 ```ini
 [connection]
 ashost=[REDACTED]
@@ -212,7 +212,7 @@ lang=EN
 
 ### 2.3 URL Routing
 
-**Main URL Config:** `/mnt/d/productavailability/atp/atp/urls.py`
+**Main URL Config:** `/mnt/d/demoproject/atp/atp/urls.py`
 
 ```python
 # Authentication paths
@@ -261,9 +261,9 @@ The application uses **pyrfc** library (version 1.9.93) to communicate with SAP 
 
 2. **Z_GET_MATERIAL_DETAILS** - Get detailed product information
    - Inputs:
-     - IV_WERKS: Plant code (e.g., "9995")
+     - IV_WERKS: Plant code (e.g., "1001")
      - IV_MATNR: Material/Product number
-     - IV_MODE: Mode ("M" for Arc SKU, "O" for Vendor SKU)
+     - IV_MODE: Mode ("M" for Demo SKU, "O" for Vendor SKU)
    - Output: ES_OUTPUT (product details object)
    - Returns: Stock levels, vendor SKU, description, origin, etc.
 
@@ -283,7 +283,7 @@ The application uses **pyrfc** library (version 1.9.93) to communicate with SAP 
 
 ### 3.2 Key SAP Functions in Code
 
-**File:** `/mnt/d/productavailability/atp/stockcheck/views.py`
+**File:** `/mnt/d/demoproject/atp/stockcheck/views.py`
 
 ```python
 # Function: product_details(reftype, value)
@@ -315,7 +315,7 @@ Configuration read from:
 
 ### 3.4 SAP Test Script
 
-**File:** `/mnt/d/productavailability/test_sap_connection.py`
+**File:** `/mnt/d/demoproject/test_sap_connection.py`
 
 Tests SAP connectivity by:
 1. Reading connection parameters from settings.ini or env vars
@@ -368,8 +368,8 @@ Tests SAP connectivity by:
 
 ```python
 class Plant(models.Model):
-    code = CharField(max_length=15)              # e.g., "9995"
-    description = CharField(max_length=30)      # e.g., "Durand Glass"
+    code = CharField(max_length=15)              # e.g., "1001"
+    description = CharField(max_length=30)      # e.g., "Demo Corp"
     users = ManyToManyField(User)                # Plant-to-User relationship
 
 class Pattern(models.Model):
@@ -385,7 +385,7 @@ class Profile(models.Model):  # Extended User profile
     company = CharField(max_length=30, blank=True)
     role = CharField(max_length=30, blank=True)
     website = URLField(max_length=50, blank=True)
-    business = CharField(max_length=10, blank=True)  # AINA or Cardinal
+    business = CharField(max_length=10, blank=True)  # AINA or Brand_Delta
 
 class SearchHistory(models.Model):
     username = ForeignKey(User)
@@ -465,7 +465,7 @@ def log_user_logged_out(sender, user, request, **kwargs):
 class ProductForm(forms.Form):
     attr_type = ChoiceField(
         choices=[
-            ('Arc', 'Arc SKU'),
+            ('Arc', 'Demo SKU'),
             ('Old', 'Vendor SKU')
         ],
         widget=Select(attrs={'class': 'form-control'})
@@ -489,7 +489,7 @@ class ProductForm(forms.Form):
 **Processing:**
 - Accepts comma or space-separated product numbers
 - Chunks into batches of 100 for processing
-- Supports two search modes: Arc SKU (mode='M') or Vendor SKU (mode='O')
+- Supports two search modes: Demo SKU (mode='M') or Vendor SKU (mode='O')
 
 ### 6.2 SignUpForm
 
@@ -509,8 +509,8 @@ class SignUpForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     BUSINESS_CHOICES = (
         (' ', 'Select the business entity...'),
-        ('AINA', 'Arc International North America'),
-        ('Cardinal', 'Cardinal International')
+        ('AINA', 'Demo International North America'),
+        ('Brand_Delta', 'Brand_Delta International')
     )
     
     company = CharField(max_length=30, required=True)
@@ -614,7 +614,7 @@ class ProfileForm(forms.ModelForm):
 
 **Key Parameters:**
 ```python
-BASE_DIR = /mnt/d/productavailability/atp
+BASE_DIR = /mnt/d/demoproject/atp
 TEMPLATE_DIR = BASE_DIR/templates
 STATIC_URL = /static/
 STATIC_ROOT = BASE_DIR/static
@@ -670,10 +670,10 @@ SAP Call - Z_PATTERN_PRODUCTS - Input: reftype=P, value=pattern001
 SAP Response - Z_PATTERN_PRODUCTS - Success - Products count: 42
 SAP Response Details: {...}
 SAP Call Failed - Z_GET_MATERIAL_DETAILS - Error: Connection timeout
-Search initiated - User: john.doe, Plant: 9995, Type: Arc
+Search initiated - User: demo.user, Plant: 1001, Type: Arc
 Processing 5 chunks of reference numbers
 Successfully retrieved data for 15 products
-Search history saved for user: john.doe
+Search history saved for user: demo.user
 ```
 
 ### 8.3 Email Configuration
@@ -701,7 +701,7 @@ SERVER_EMAIL = '[REDACTED]'
 
 ### 9.1 Dockerfile
 
-**Location:** `/mnt/d/productavailability/Dockerfile`
+**Location:** `/mnt/d/demoproject/Dockerfile`
 
 **Base Image:** ubuntu:18.04
 
@@ -743,7 +743,7 @@ CMD bash -c "
 
 ### 9.2 Docker Compose Configuration
 
-**Location:** `/mnt/d/productavailability/docker-compose.yml`
+**Location:** `/mnt/d/demoproject/docker-compose.yml`
 
 **Services:**
 
@@ -763,7 +763,7 @@ web:
     - PYTHONUNBUFFERED=1
     - DATABASE_HOST=db
     - DATABASE_NAME=atp
-    - DATABASE_USER=djangoadmin
+    - DATABASE_USER=dbuser
     - DATABASE_PASSWORD=[REDACTED]
     - SAP_HOST=your-sap-host
     - SAP_SYSNR=00
@@ -783,7 +783,7 @@ db:
     - db_data:/var/lib/mysql
   environment:
     - MYSQL_DATABASE=atp
-    - MYSQL_USER=djangoadmin
+    - MYSQL_USER=dbuser
     - MYSQL_PASSWORD=[REDACTED]
     - MYSQL_ROOT_PASSWORD=[REDACTED]
   ports:
@@ -812,7 +812,7 @@ nginx:
 
 ### 9.3 Nginx Configuration
 
-**Location:** `/mnt/d/productavailability/nginx.conf`
+**Location:** `/mnt/d/demoproject/nginx.conf`
 
 ```nginx
 server {
@@ -842,7 +842,7 @@ server {
 
 ### 10.1 Test SAP Connection Script
 
-**File:** `/mnt/d/productavailability/test_sap_connection.py`
+**File:** `/mnt/d/demoproject/test_sap_connection.py`
 
 **Functions:**
 - `get_connection_params()`: Read from settings.ini or env vars
@@ -875,7 +875,7 @@ server {
 
 ### 11.1 Audit Middleware
 
-**File:** `/mnt/d/productavailability/atp/middleware/audit_middleware.py`
+**File:** `/mnt/d/demoproject/atp/middleware/audit_middleware.py`
 
 ```python
 class AuditMiddleware:
@@ -962,7 +962,7 @@ base.html (minimal structure, block content)
 - Bootstrap 4.1.3
 - Font Awesome 5.15.4
 - DataTables 1.10.19 (Bootstrap 4 theme)
-- Custom cover.css (Arc branding)
+- Custom cover.css (Demo branding)
 
 **JavaScript:**
 - jQuery 3.3.1
@@ -1093,7 +1093,7 @@ MIDDLEWARE includes CsrfViewMiddleware
 
 ## 15. DEPENDENCIES & REQUIREMENTS
 
-**File:** `/mnt/d/productavailability/requirements.txt`
+**File:** `/mnt/d/demoproject/requirements.txt`
 
 ```
 certifi==2018.11.29
@@ -1146,7 +1146,7 @@ xlwt==1.3.0              # Legacy XLS generation
 
 - **Type:** MySQL 5.7
 - **Name:** atp
-- **User:** djangoadmin
+- **User:** dbuser
 - **Password:** [REDACTED]
 - **Persistence:** Docker volume db_data
 
@@ -1314,18 +1314,18 @@ User can login
 
 | File | Purpose |
 |------|---------|
-| `/mnt/d/productavailability/atp/atp/settings.py` | Main Django settings |
-| `/mnt/d/productavailability/atp/atp/urls.py` | Main URL routing |
-| `/mnt/d/productavailability/atp/atp/settings.ini` | SAP connection config |
-| `/mnt/d/productavailability/atp/stockcheck/models.py` | Database models |
-| `/mnt/d/productavailability/atp/stockcheck/views.py` | Business logic (450 lines) |
-| `/mnt/d/productavailability/atp/stockcheck/forms.py` | Form definitions |
-| `/mnt/d/productavailability/atp/stockcheck/admin.py` | Admin customization |
-| `/mnt/d/productavailability/atp/templates/stockcheck/` | HTML templates |
-| `/mnt/d/productavailability/Dockerfile` | Container definition |
-| `/mnt/d/productavailability/docker-compose.yml` | Service orchestration |
-| `/mnt/d/productavailability/nginx.conf` | Reverse proxy config |
-| `/mnt/d/productavailability/test_sap_connection.py` | SAP test script |
+| `/mnt/d/demoproject/atp/atp/settings.py` | Main Django settings |
+| `/mnt/d/demoproject/atp/atp/urls.py` | Main URL routing |
+| `/mnt/d/demoproject/atp/atp/settings.ini` | SAP connection config |
+| `/mnt/d/demoproject/atp/stockcheck/models.py` | Database models |
+| `/mnt/d/demoproject/atp/stockcheck/views.py` | Business logic (450 lines) |
+| `/mnt/d/demoproject/atp/stockcheck/forms.py` | Form definitions |
+| `/mnt/d/demoproject/atp/stockcheck/admin.py` | Admin customization |
+| `/mnt/d/demoproject/atp/templates/stockcheck/` | HTML templates |
+| `/mnt/d/demoproject/Dockerfile` | Container definition |
+| `/mnt/d/demoproject/docker-compose.yml` | Service orchestration |
+| `/mnt/d/demoproject/nginx.conf` | Reverse proxy config |
+| `/mnt/d/demoproject/test_sap_connection.py` | SAP test script |
 
 ### Key Commands
 
@@ -1362,7 +1362,7 @@ docker-compose exec web python manage.py <command>
 
 | Service | Username | Password | Note |
 |---------|----------|----------|------|
-| MySQL | djangoadmin | [REDACTED] | Container env var |
+| MySQL | dbuser | [REDACTED] | Container env var |
 | MySQL Root | root | [REDACTED] | Container env var |
 | Email | [REDACTED] | [REDACTED] | Gmail app password |
 | SAP | [REDACTED] | [REDACTED] | From settings.ini |

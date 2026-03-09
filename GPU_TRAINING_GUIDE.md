@@ -33,7 +33,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 
 ### Step 2: Run GPU Fine-Tuning
 ```bash
-cd /mnt/d/productavailability
+cd /mnt/d/demoproject
 python3 scripts/gpu_finetune_extraction.py
 ```
 
@@ -49,7 +49,7 @@ This will:
 ollama create atp-extraction-gpu -f Modelfile.gpu-trained
 
 # Test it
-ollama run atp-extraction-gpu "Context: Product 46961 has UPC 10026102469610. Question: What's the EAN?"
+ollama run atp-extraction-gpu "Context: Product 10002 has UPC 00000000010002. Question: What's the EAN?"
 ```
 
 ## Expected Results

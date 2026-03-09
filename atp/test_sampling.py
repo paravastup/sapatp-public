@@ -22,9 +22,9 @@ print("\n=== Test 2: Intent Classification ===")
 classifier = IntentClassifier()
 
 test_queries = [
-    "Can I sample product 46961?",
+    "Can I sample product 10002?",
     "I want to request a sample",
-    "How do I get a sample of 46888?",
+    "How do I get a sample of 10001?",
     "Sample this product please"
 ]
 

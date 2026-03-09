@@ -17,7 +17,7 @@ def prepare_training_data():
     all_examples = []
 
     # Load main training data
-    main_training = Path('/mnt/d/productavailability/training_data/extraction_training_15k.jsonl')
+    main_training = Path('/mnt/d/demoproject/training_data/extraction_training_15k.jsonl')
     if main_training.exists():
         with open(main_training, 'r') as f:
             for line in f:
@@ -25,7 +25,7 @@ def prepare_training_data():
         print(f"   Loaded {len(all_examples)} main examples")
 
     # Add terminology training
-    term_training = Path('/mnt/d/productavailability/training_data/terminology_training_4k.jsonl')
+    term_training = Path('/mnt/d/demoproject/training_data/terminology_training_4k.jsonl')
     if term_training.exists():
         with open(term_training, 'r') as f:
             for line in f:
@@ -212,11 +212,11 @@ def test_model(model, tokenizer):
 
     test_cases = [
         {
-            "context": "Product 46961 has UPC 10026102469610",
+            "context": "Product 10002 has UPC 00000000010002",
             "question": "What's the product code?"
         },
         {
-            "context": "Product 46888, brand PYREX",
+            "context": "Product 10001, brand BRAND_BETA",
             "question": "What's the UPC?"
         }
     ]

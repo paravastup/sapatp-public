@@ -7,7 +7,7 @@ django.setup()
 # Test field detection
 from chatbot.views import _detect_field_request
 
-message = "show me the product image of 46961?"
+message = "show me the product image of 10002?"
 intent = "product_info"
 
 field = _detect_field_request(message, intent)
