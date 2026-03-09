@@ -83,7 +83,7 @@ class ExtractionTrainingGenerator:
                 ],
                 'sample_values': [
                     'BRAND_ALPHA', 'BRAND_BETA', 'ACME CORP', 'BRAND_GAMMA',
-                    'BRAND_DELTA', 'ARC INTERNATIONAL', 'BRAND_THETA',
+                    'BRAND_DELTA', 'DEMO INTERNATIONAL', 'BRAND_THETA',
                     'BRAND_EPSILON', 'BRAND_ZETA', 'BRAND_ETA'
                 ]
             },
@@ -273,7 +273,7 @@ class ExtractionTrainingGenerator:
                 'variations': [
                     'product number', 'product', 'SKU', 'item number',
                     'product code', 'item', 'article number', 'material number',
-                    'product ID', 'item code', 'ARC SKU'
+                    'product ID', 'item code', 'Demo SKU'
                 ],
                 'question_patterns': [
                     "What's the {field}?",
