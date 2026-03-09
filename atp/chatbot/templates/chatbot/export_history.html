@@ -1,0 +1,273 @@
+{% extends "stockcheck/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+<!-- App Theme -->
+<link rel="stylesheet" href="{% static 'chatbot/css/app-theme.css' %}?v=2.7">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+.export-history-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.export-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(35, 31, 116, 0.1);
+    border-left: 4px solid var(--arc-navy-purple);
+    transition: all 0.3s ease;
+}
+
+.export-card:hover {
+    box-shadow: 0 6px 25px rgba(35, 31, 116, 0.15);
+    transform: translateY(-2px);
+}
+
+.export-card.failed {
+    border-left-color: #dc3545;
+}
+
+.export-card.blocked {
+    border-left-color: #ffc107;
+}
+
+.export-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.export-title {
+    color: var(--arc-navy-purple);
+    font-family: var(--arc-font-primary);
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0;
+}
+
+.export-status {
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.export-status.success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+}
+
+.export-status.failed {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+}
+
+.export-status.blocked {
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+    color: #333;
+}
+
+.export-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.export-detail-item {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 14px;
+}
+
+.export-detail-item i {
+    color: var(--arc-yellow);
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.export-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.download-btn {
+    background: linear-gradient(135deg, var(--arc-navy-purple) 0%, #1a1759 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: var(--arc-font-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.download-btn:hover {
+    background: var(--arc-yellow);
+    color: var(--arc-navy-purple);
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-title {
+    color: var(--arc-navy-purple);
+    font-family: var(--arc-font-primary);
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.page-subtitle {
+    color: #666;
+    font-size: 16px;
+}
+
+.no-exports {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(35, 31, 116, 0.1);
+}
+
+.no-exports i {
+    font-size: 80px;
+    color: var(--arc-border-color);
+    margin-bottom: 20px;
+}
+
+.no-exports h3 {
+    color: var(--arc-navy-purple);
+    font-family: var(--arc-font-primary);
+    margin-bottom: 10px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--arc-navy-purple);
+    text-decoration: none;
+    margin-bottom: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--arc-yellow);
+    text-decoration: none;
+}
+</style>
+
+<div class="export-history-container">
+    <a href="{% url 'chatbot:chat' %}" class="back-link">
+        <i class="bi bi-arrow-left"></i> Back to AI Search
+    </a>
+
+    <div class="page-header">
+        <h1 class="page-title">My Export History</h1>
+        <p class="page-subtitle">View and download your past exports</p>
+    </div>
+
+    {% if error %}
+    <div class="alert alert-danger">
+        <i class="bi bi-exclamation-triangle"></i> {{ error }}
+    </div>
+    {% endif %}
+
+    {% if exports %}
+        {% for export in exports %}
+        <div class="export-card {% if export.status == 'failed' %}failed{% elif export.status == 'blocked' %}blocked{% endif %}">
+            <div class="export-header">
+                <h3 class="export-title">
+                    <i class="bi bi-file-earmark-spreadsheet"></i>
+                    {{ export.csv_filename|default:"Export Report" }}
+                </h3>
+                <span class="export-status {{ export.status }}">
+                    {% if export.status == 'success' %}
+                        <i class="bi bi-check-circle"></i> Success
+                    {% elif export.status == 'failed' %}
+                        <i class="bi bi-x-circle"></i> Failed
+                    {% elif export.status == 'blocked' %}
+                        <i class="bi bi-shield-exclamation"></i> Blocked
+                    {% endif %}
+                </span>
+            </div>
+
+            <div class="export-details">
+                <div class="export-detail-item">
+                    <i class="bi bi-box"></i>
+                    <strong>{{ export.product_count }}</strong>&nbsp;products
+                </div>
+                <div class="export-detail-item">
+                    <i class="bi bi-envelope"></i>
+                    {{ export.recipient_email }}
+                </div>
+                <div class="export-detail-item">
+                    <i class="bi bi-calendar"></i>
+                    {{ export.sent_at|naturaltime }}
+                </div>
+                <div class="export-detail-item">
+                    <i class="bi bi-person"></i>
+                    {{ export.user.username }}
+                </div>
+            </div>
+
+            {% if export.status == 'success' and export.csv_file %}
+            <div class="export-actions">
+                <a href="{% url 'chatbot:download_export' export.id %}" class="download-btn" target="_blank">
+                    <i class="bi bi-download"></i> Download CSV
+                </a>
+            </div>
+            {% elif export.status == 'failed' %}
+            <div class="alert alert-danger mt-3 mb-0">
+                <strong>Error:</strong> {{ export.error_message }}
+            </div>
+            {% elif export.status == 'blocked' %}
+            <div class="alert alert-warning mt-3 mb-0">
+                <strong>Blocked:</strong> {{ export.error_message }}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        {% if user.is_staff or user.is_superuser %}
+        <div class="alert alert-info mt-4">
+            <i class="bi bi-info-circle"></i>
+            <strong>Admin View:</strong> You're seeing all exports. Regular users only see their own exports.
+        </div>
+        {% endif %}
+
+    {% else %}
+        <div class="no-exports">
+            <i class="bi bi-inbox"></i>
+            <h3>No Exports Yet</h3>
+            <p>You haven't exported any reports yet. Try searching for products in the AI Search and export results to see them here.</p>
+            <a href="{% url 'chatbot:chat' %}" class="download-btn mt-3">
+                <i class="bi bi-search"></i> Start Searching
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

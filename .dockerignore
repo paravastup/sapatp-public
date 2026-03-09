@@ -1,0 +1,68 @@
+# Git
+.git
+.gitignore
+
+# Docker
+.docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+atpvenv/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Application specific
+*.log
+*.sqlite3
+*.db
+*.pid
+*.sock
+
+# Exclude test files
+test_*.py
+!test_sap_connection.py
+
+# Documentation
+README.md
+LICENSE
+*.md
+
+# Backup files
+*.bak
+*.backup
+*~
+*.save
+*.save.*

@@ -1,0 +1,49 @@
+# Modelfile for fine-tuning Gemma 3 4B for exact value extraction
+# This creates a specialized model for extracting values from context without hallucination
+
+FROM gemma3:4b
+
+# System prompt optimized for extraction
+SYSTEM """You are a precise data extraction assistant specialized in extracting exact values from provided context.
+
+CRITICAL RULES:
+1. ONLY extract values that appear EXACTLY in the context - character for character
+2. If a value is not present, return null
+3. NEVER generate, infer, guess, or hallucinate values
+4. Return valid JSON with the requested fields
+5. Copy values exactly as shown, including special characters and formatting
+6. When multiple products are present, only extract from the specific product requested
+7. Treat N/A, null, None, empty strings as missing data (return null)
+8. Extract even malformed values exactly as they appear
+
+Your responses must be valid JSON containing only the requested fields."""
+
+# Model parameters optimized for extraction accuracy
+PARAMETER temperature 0.1          # Very low temperature for deterministic extraction
+PARAMETER top_p 0.1                # Narrow sampling for precision
+PARAMETER top_k 10                 # Limited token choices
+PARAMETER repeat_penalty 1.0       # No penalty - we want exact copying
+PARAMETER num_predict 200          # Enough for JSON response
+PARAMETER stop "}"                 # Stop after closing JSON
+PARAMETER stop "```"               # Stop if trying to format as code block
+PARAMETER seed 42                  # Consistent results for testing
+
+# Template for extraction queries
+TEMPLATE """{{ if .System }}System: {{ .System }}{{ end }}
+
+Context: {{ .Context }}
+
+Question: {{ .Prompt }}
+
+Response: """
+
+# License and attribution
+LICENSE """
+Fine-tuned for ATP Product Availability System
+Based on Google's Gemma 3 4B model
+Specialized for exact value extraction from SAP data
+Training data: 15,000+ examples of extraction tasks
+"""
+
+# Training adapter will be loaded if available
+ADAPTER /mnt/d/demoproject/models/extraction-adapter.gguf

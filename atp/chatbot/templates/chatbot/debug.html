@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Debug</title>
+</head>
+<body>
+    <h1>Chatbot Debug Info</h1>
+    <p>User: {{ user.username }}</p>
+    <p>Session ID: {{ session_id }}</p>
+    <p>Is Authenticated: {{ user.is_authenticated }}</p>
+    <p>Ollama URL: {{ ollama_url }}</p>
+
+    <h2>Test Ollama Connection</h2>
+    <button onclick="testOllama()">Test Connection</button>
+    <pre id="result"></pre>
+
+    <script>
+    async function testOllama() {
+        const result = document.getElementById('result');
+        result.textContent = 'Testing...';
+
+        try {
+            const response = await fetch('/atp/chat/message/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({
+                    session_id: {{ session_id }},
+                    message: 'Hello'
+                })
+            });
+
+            const data = await response.json();
+            result.textContent = JSON.stringify(data, null, 2);
+        } catch (error) {
+            result.textContent = 'Error: ' + error.message;
+        }
+    }
+    </script>
+</body>
+</html>

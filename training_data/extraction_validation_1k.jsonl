@@ -1,0 +1,20 @@
+{"prompt": "Validate: is SKU 10001 available at plant 1001?", "completion": "{\"sku\": \"10001\", \"plant\": \"1001\", \"available\": true, \"qty\": 100}"}
+{"prompt": "Validate: is SKU 90002 available at plant 1001?", "completion": "{\"sku\": \"90002\", \"plant\": \"1001\", \"available\": false, \"qty\": 0}"}
+{"prompt": "Validate extraction: BRAND_ALPHA SKU 10001", "completion": "{\"brand\": \"BRAND_ALPHA\", \"sku\": \"10001\", \"valid\": true}"}
+{"prompt": "Validate extraction: BRAND_BETA SKU 10002", "completion": "{\"brand\": \"BRAND_BETA\", \"sku\": \"10002\", \"valid\": true}"}
+{"prompt": "Confirm UPC 00000000010001 maps to SKU 10001", "completion": "{\"upc\": \"00000000010001\", \"sku\": \"10001\", \"match\": true}"}
+{"prompt": "Confirm UPC 00000000090002 maps to SKU 90002", "completion": "{\"upc\": \"00000000090002\", \"sku\": \"90002\", \"match\": true}"}
+{"prompt": "Verify stock: SKU 10001 has 100 units", "completion": "{\"sku\": \"10001\", \"expected_qty\": 100, \"verified\": true}"}
+{"prompt": "Verify stock: SKU 90001 has 200 units", "completion": "{\"sku\": \"90001\", \"expected_qty\": 200, \"verified\": true}"}
+{"prompt": "Validate plant assignment for SKU 10001", "completion": "SKU 10001 is correctly assigned to plant 1001 (Plant A)."}
+{"prompt": "Validate plant assignment for SKU 10003", "completion": "SKU 10003 is correctly assigned to plant 1002 (Plant B)."}
+{"prompt": "Test query: availability of BRAND_ALPHA products", "completion": "BRAND_ALPHA products are available. SKU 10001 has 100 units at plant 1001."}
+{"prompt": "Test query: availability of BRAND_EPSILON products", "completion": "BRAND_EPSILON products: SKU 90002 is out of stock at plant 1001."}
+{"prompt": "Cross-validate: SKU 10002 brand and UPC", "completion": "{\"sku\": \"10002\", \"brand\": \"BRAND_BETA\", \"upc\": \"00000000010002\", \"consistent\": true}"}
+{"prompt": "Cross-validate: SKU 90001 brand and UPC", "completion": "{\"sku\": \"90001\", \"brand\": \"BRAND_DELTA\", \"upc\": \"00000000090001\", \"consistent\": true}"}
+{"prompt": "Validate bulk response for SKUs 10001,10002", "completion": "[{\"sku\": \"10001\", \"qty\": 100, \"valid\": true}, {\"sku\": \"10002\", \"qty\": 50, \"valid\": true}]"}
+{"prompt": "Test: category extraction from description 'BRAND_ALPHA Glass Set'", "completion": "{\"brand\": \"BRAND_ALPHA\", \"category\": \"Glassware\", \"extracted\": true}"}
+{"prompt": "Test: category extraction from description 'BRAND_GAMMA Dinner Plate'", "completion": "{\"brand\": \"BRAND_GAMMA\", \"category\": \"Dinnerware\", \"extracted\": true}"}
+{"prompt": "Validation: weight extraction for SKU 10001", "completion": "{\"sku\": \"10001\", \"weight\": 1.5, \"unit\": \"KG\", \"extracted\": true}"}
+{"prompt": "Validation: weight extraction for SKU 90002", "completion": "{\"sku\": \"90002\", \"weight\": 1.1, \"unit\": \"KG\", \"extracted\": true}"}
+{"prompt": "Final validation: all plants have correct assignments", "completion": "Plant 1001 (Plant A): SKUs 10001, 10002, 90002. Plant 1002 (Plant B): SKUs 10003, 90001. All assignments valid."}

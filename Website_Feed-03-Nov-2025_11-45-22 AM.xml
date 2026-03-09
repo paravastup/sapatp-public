@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+  <product>
+    <sku>10001</sku>
+    <upc>00000000010001</upc>
+    <brand>BRAND_ALPHA</brand>
+    <description>Plant A Glass Set 6-piece</description>
+    <plant>1001</plant>
+    <plant_name>Plant A</plant_name>
+    <stock>100</stock>
+    <availability>In Stock</availability>
+    <category>Glassware</category>
+    <weight>1.5</weight>
+    <weight_unit>KG</weight_unit>
+  </product>
+  <product>
+    <sku>10002</sku>
+    <upc>00000000010002</upc>
+    <brand>BRAND_BETA</brand>
+    <description>Plant A Cookware Set 3-piece</description>
+    <plant>1001</plant>
+    <plant_name>Plant A</plant_name>
+    <stock>50</stock>
+    <availability>In Stock</availability>
+    <category>Cookware</category>
+    <weight>2.0</weight>
+    <weight_unit>KG</weight_unit>
+  </product>
+  <product>
+    <sku>10003</sku>
+    <upc>00000000010003</upc>
+    <brand>BRAND_GAMMA</brand>
+    <description>Plant A Dinner Plate Set 4-piece</description>
+    <plant>1002</plant>
+    <plant_name>Plant B</plant_name>
+    <stock>75</stock>
+    <availability>In Stock</availability>
+    <category>Dinnerware</category>
+    <weight>1.2</weight>
+    <weight_unit>KG</weight_unit>
+  </product>
+  <product>
+    <sku>90001</sku>
+    <upc>00000000090001</upc>
+    <brand>BRAND_DELTA</brand>
+    <description>Plant A Mug Set 2-piece</description>
+    <plant>1002</plant>
+    <plant_name>Plant B</plant_name>
+    <stock>200</stock>
+    <availability>In Stock</availability>
+    <category>Mugs</category>
+    <weight>0.8</weight>
+    <weight_unit>KG</weight_unit>
+  </product>
+  <product>
+    <sku>90002</sku>
+    <upc>00000000090002</upc>
+    <brand>BRAND_EPSILON</brand>
+    <description>Plant A Bowl Set 4-piece</description>
+    <plant>1001</plant>
+    <plant_name>Plant A</plant_name>
+    <stock>0</stock>
+    <availability>Out of Stock</availability>
+    <category>Bowls</category>
+    <weight>1.1</weight>
+    <weight_unit>KG</weight_unit>
+  </product>
+</products>

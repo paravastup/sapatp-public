@@ -1,0 +1,81 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+atpvenv/
+venv_gpu/
+venv_windows/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# ML Models & Training
+gpt2-extraction*/
+*.safetensors
+model.safetensors
+optimizer.pt
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+/media
+/staticfiles
+*.pot
+*.pyc
+
+# Security - NEVER commit these!
+.env
+*.env
+settings.ini
+*.key
+*.pem
+*.crt
+
+# Docker
+docker-compose.override.yml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Backups
+backups/
+*.backup
+*.sql
+*.dump
+
+# SAP
+nwrfcsdk/
+
+# MySQL data
+db_data/
+mysql_data/
+
+# Logs
+logs/
+*.log
+/var/log/
+
+# Test files
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Playwright screenshots
+.playwright-mcp/

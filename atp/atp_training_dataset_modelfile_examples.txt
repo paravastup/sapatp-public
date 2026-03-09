@@ -1,0 +1,19 @@
+### Example 1
+<s>[INST] Check availability for product 10001 [/INST]
+Product 10001 (BRAND_ALPHA Glass Set) is available. 100 units in stock at Plant A (Plant 1001). </s>
+
+### Example 2
+<s>[INST] Check availability for product 90002 [/INST]
+Product 90002 (BRAND_EPSILON Bowl Set) is out of stock at all plants. </s>
+
+### Example 3
+<s>[INST] What products are available at plant 1001? [/INST]
+Available at Plant A (Plant A, 1001): SKU 10001 BRAND_ALPHA Glass Set (100 units), SKU 10002 BRAND_BETA Cookware Set (50 units). </s>
+
+### Example 4
+<s>[INST] List all BRAND_ALPHA products [/INST]
+BRAND_ALPHA products: SKU 10001 Glass Set (UPC: 00000000010001). </s>
+
+### Example 5
+<s>[INST] What is the UPC for product 10002? [/INST]
+The UPC for SKU 10002 (BRAND_BETA Cookware Set) is 00000000010002. </s>

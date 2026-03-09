@@ -1,0 +1,67 @@
+{% extends "stockcheck/base.html"%}
+{% block content%}
+<div class="container d-flex w-100 h-50 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">Product Availability</h3>
+      <nav class="nav nav-masthead justify-content-center">
+         {% if user.is_authenticated %}
+           <a href="#" class="nav-link">{{user.username}} </a>
+           <a class="nav-link" href="{% url 'index' %}">Home</a>
+           <a class="nav-link" href="{% url 'chatbot:chat' %}">AI Search</a>
+           <a class="nav-link" href="{% url 'docs:help' %}">Help</a>
+	   <a class="nav-link" href="{% url 'password_change' %}">Change password</a>
+           <a class="nav-link" href="{% url 'feedback'%}"> Feedback </a>
+           <a class="nav-link" href="{% url 'logout'%}">Log out</a>
+           {% if user.is_superuser %}
+             <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+           {% endif %}
+         {% else %}
+           <a class="nav-link" href="{% url 'login'%}">Log in</a>
+           <a class="nav-link" href="{% url 'docs:help' %}">Help</a>
+           <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+         {% endif %}
+      </nav>
+    </div>
+  </header>
+<main role="main" class="inner cover">
+       <h1 class="cover-heading">Product <span class="typed" id="typedID" style="color:green;"></span></h1>
+       <p class="lead">Use this application to check your product(s) availability in real-time.</p>
+       <p class="lead">
+         <a href="#" class="btn btn-md btn-outline-info">Learn more</a>
+         {% if user.is_authenticated %}
+          <a href="{% url 'product_details' %}" class="btn btn-md btn-success">Search Now!</a>
+          <a href="{% url 'chatbot:chat' %}" class="btn btn-md btn-primary">AI Search</a>
+          {% endif %}
+       </p>
+       <p class="lead">
+
+       </p>
+</main>
+ </div>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+<script>
+//var typed = new Typed('.typed', {
+//  strings: ["availability", "availability"],
+//  loop:true,
+//  typeSpeed: 1,
+//  backSpeed: 100,
+//  backDelay: 500,
+// startDelay: 1000,
+// cursorChar: '_',
+//});
+var typed = new Typed('#typedID', {
+  strings: ["availability", "stock status", "inventory check"],  // More varied text
+  loop: true,
+  typeSpeed: 70,        // Slower typing speed
+  backSpeed: 40,        // Slightly faster deletion
+  backDelay: 1000,      // Pause before deleting
+  startDelay: 1000,     // Initial delay
+  cursorChar: '_',
+  //fadeOut: true,
+  //fadeOutDelay: 500,
+  smartBackspace: true  // Optimize backspacing
+});
+</script>
+{% endblock %}

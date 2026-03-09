@@ -1,0 +1,123 @@
+{% extends "stockcheck/base.html"%}
+{% block content%}
+<div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">Product Availability</h3>
+      <nav class="nav nav-masthead justify-content-center">
+         {% if user.is_authenticated %}
+           <a href="#" class="nav-link">{{user.username}} </a>
+           <a href="#" class="nav-link"></a>
+           <a class="nav-link" href="{% url 'logout'%}?next=/">Log out</a>
+           <a class="nav-link" href="{% url 'index' %}">Home</a>
+           <a class="nav-link" href="{% url 'docs:help' %}">Help</a>
+           {% if user.is_superuser %}
+             <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+           {% endif %}
+         {% else %}
+           <a class="nav-link" href="{% url 'login'%}">Log in</a>
+           <a class="nav-link" href="{% url 'docs:help' %}">Help</a>
+           <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+         {% endif %}
+      </nav>
+    </div>
+</header>
+<main role="main" class="inner cover">
+  <h2 class="jumbotron-heading" style="font-weight: 300;">Register today!</h2>
+  <hr>
+  <br>
+  <div class="container">
+    <form method="post" class="form-signin">
+      {% csrf_token %}
+      <div class="row">
+          <div class="col-md-6 mb-3">
+            {{user_form.first_name}}
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            {{user_form.last_name}}
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+              {{user_form.username}}
+              {{user_form.username.errors}}
+            </div>
+            <div class="col-md-6 mb-3">
+              {{user_form.email}}
+              {{user_form.email.errors}}
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6 mb-3">
+                {{user_form.password1}}
+                {{user_form.password1.errors}}
+              </div>
+              <div class="col-md-6 mb-3">
+                {{user_form.password2}}
+                {{user_form.password2.errors}}
+              </div>
+          </div>
+          <h3 class="jumbotron-heading" style="font-weight: 300;">Company information</h3>
+          <hr>
+          <br>
+          <div class="row">
+              <div class="col-md-6 mb-3">
+                {{profile_form.company}}
+                {{profile_form.company.errors}}
+              </div>
+              <div class="col-md-6 mb-3">
+                {{profile_form.role}}
+                {{profile_form.role.errors}}
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              {{profile_form.website}}
+              {{profile_form.website.errors}}
+            </div>
+            <div class="col-md-6 mb-3">
+              {{profile_form.business}}
+              {{profile_form.business.errors}}
+            </div>
+          </div>
+      <button type="submit" class="btn btn-sm btn-success">Sign up</button>
+    </form>
+  </div>
+</main>
+<footer class="mastfoot mt-auto">
+     <div class="inner">
+       <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+     </div>
+   </footer>
+ </div>
+{% endblock %}
+{% block js %}
+<script>
+   // Example starter JavaScript for disabling form submissions if there are invalid fields
+   (function() {
+     'use strict';
+
+     window.addEventListener('load', function() {
+       // Fetch all the forms we want to apply custom Bootstrap validation styles to
+       var forms = document.getElementsByClassName('needs-validation');
+
+       // Loop over them and prevent submission
+       var validation = Array.prototype.filter.call(forms, function(form) {
+         form.addEventListener('submit', function(event) {
+           if (form.checkValidity() === false) {
+             event.preventDefault();
+             event.stopPropagation();
+           }
+           form.classList.add('was-validated');
+         }, false);
+       });
+     }, false);
+   })();
+ </script>
+ {% endblock %}

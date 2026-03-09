@@ -1,0 +1,50 @@
+{"prompt": "Extract product information: 'BRAND_ALPHA Glass Set SKU 10001 UPC 00000000010001'", "completion": "{\"sku\": \"10001\", \"brand\": \"BRAND_ALPHA\", \"upc\": \"00000000010001\", \"description\": \"Glass Set\"}"}
+{"prompt": "Extract product information: 'BRAND_BETA Cookware Set SKU 10002 UPC 00000000010002'", "completion": "{\"sku\": \"10002\", \"brand\": \"BRAND_BETA\", \"upc\": \"00000000010002\", \"description\": \"Cookware Set\"}"}
+{"prompt": "Extract product information: 'BRAND_GAMMA Plate Set SKU 10003 UPC 00000000010003'", "completion": "{\"sku\": \"10003\", \"brand\": \"BRAND_GAMMA\", \"upc\": \"00000000010003\", \"description\": \"Plate Set\"}"}
+{"prompt": "Extract product information: 'BRAND_DELTA Mug Set SKU 90001 UPC 00000000090001'", "completion": "{\"sku\": \"90001\", \"brand\": \"BRAND_DELTA\", \"upc\": \"00000000090001\", \"description\": \"Mug Set\"}"}
+{"prompt": "Extract product information: 'BRAND_EPSILON Bowl Set SKU 90002 UPC 00000000090002'", "completion": "{\"sku\": \"90002\", \"brand\": \"BRAND_EPSILON\", \"upc\": \"00000000090002\", \"description\": \"Bowl Set\"}"}
+{"prompt": "What is the stock for SKU 10001?", "completion": "SKU 10001 (BRAND_ALPHA Glass Set) has 100 units in stock at Plant A (1001)."}
+{"prompt": "What is the stock for SKU 10002?", "completion": "SKU 10002 (BRAND_BETA Cookware Set) has 50 units in stock at Plant A (1001)."}
+{"prompt": "What is the stock for SKU 10003?", "completion": "SKU 10003 (BRAND_GAMMA Plate Set) has 75 units in stock at Plant B (1002)."}
+{"prompt": "What is the stock for SKU 90001?", "completion": "SKU 90001 (BRAND_DELTA Mug Set) has 200 units in stock at Plant B (1002)."}
+{"prompt": "What is the stock for SKU 90002?", "completion": "SKU 90002 (BRAND_EPSILON Bowl Set) is out of stock at Plant A (1001)."}
+{"prompt": "Check availability for product 10001", "completion": "Product 10001 is available. Stock: 100 units at Plant A (Plant 1001)."}
+{"prompt": "Check availability for product 10002", "completion": "Product 10002 is available. Stock: 50 units at Plant A (Plant 1001)."}
+{"prompt": "Check availability for product 10003", "completion": "Product 10003 is available. Stock: 75 units at Plant B (Plant 1002)."}
+{"prompt": "Check availability for product 90001", "completion": "Product 90001 is available. Stock: 200 units at Plant B (Plant 1002)."}
+{"prompt": "Check availability for product 90002", "completion": "Product 90002 is NOT available. Out of stock at all plants."}
+{"prompt": "List all BRAND_ALPHA products", "completion": "BRAND_ALPHA products: SKU 10001 Glass Set (UPC 00000000010001), available at Plant 1001."}
+{"prompt": "List all BRAND_BETA products", "completion": "BRAND_BETA products: SKU 10002 Cookware Set (UPC 00000000010002), available at Plant 1001."}
+{"prompt": "List all products at plant 1001", "completion": "Products at Plant A (1001): SKU 10001 BRAND_ALPHA Glass Set, SKU 10002 BRAND_BETA Cookware Set, SKU 90002 BRAND_EPSILON Bowl Set."}
+{"prompt": "List all products at plant 1002", "completion": "Products at Plant B (1002): SKU 10003 BRAND_GAMMA Plate Set, SKU 90001 BRAND_DELTA Mug Set."}
+{"prompt": "What brands are available?", "completion": "Available brands: BRAND_ALPHA, BRAND_BETA, BRAND_GAMMA, BRAND_DELTA, BRAND_EPSILON."}
+{"prompt": "Extract SKU from: 'Plant A product 10001 in stock'", "completion": "{\"sku\": \"10001\", \"status\": \"in_stock\"}"}
+{"prompt": "Extract SKU from: 'Plant A product 90002 out of stock'", "completion": "{\"sku\": \"90002\", \"status\": \"out_of_stock\"}"}
+{"prompt": "What is UPC for SKU 10001?", "completion": "The UPC for SKU 10001 is 00000000010001."}
+{"prompt": "What is UPC for SKU 10002?", "completion": "The UPC for SKU 10002 is 00000000010002."}
+{"prompt": "What is UPC for SKU 10003?", "completion": "The UPC for SKU 10003 is 00000000010003."}
+{"prompt": "Find product by UPC 00000000010001", "completion": "UPC 00000000010001 corresponds to SKU 10001 - BRAND_ALPHA Glass Set."}
+{"prompt": "Find product by UPC 00000000090001", "completion": "UPC 00000000090001 corresponds to SKU 90001 - BRAND_DELTA Mug Set."}
+{"prompt": "How many units of SKU 10001 are available?", "completion": "SKU 10001 has 100 units available at Plant A (Plant 1001)."}
+{"prompt": "Is product 90002 in stock?", "completion": "No, product 90002 (BRAND_EPSILON Bowl Set) is currently out of stock."}
+{"prompt": "Check stock levels for Plant A plant", "completion": "Plant A (Plant 1001) stock: SKU 10001 - 100 units, SKU 10002 - 50 units, SKU 90002 - 0 units."}
+{"prompt": "Extract brand from: 'BRAND_ALPHA glass products available'", "completion": "{\"brand\": \"BRAND_ALPHA\", \"category\": \"glass\", \"availability\": true}"}
+{"prompt": "Extract brand from: 'BRAND_BETA cookware low stock warning'", "completion": "{\"brand\": \"BRAND_BETA\", \"category\": \"cookware\", \"low_stock\": true}"}
+{"prompt": "What plant handles SKU 10001?", "completion": "SKU 10001 is handled by Plant A - Plant A (Plant Code 1001)."}
+{"prompt": "What plant handles SKU 10003?", "completion": "SKU 10003 is handled by Plant B (Plant Code 1002)."}
+{"prompt": "Get all out of stock items", "completion": "Out of stock items: SKU 90002 (BRAND_EPSILON Bowl Set) at Plant A (1001)."}
+{"prompt": "Get all in stock items", "completion": "In stock items: SKU 10001, 10002, 10003, 90001 across Plant A and Plant B locations."}
+{"prompt": "Extract product number from order: 'Order for item 10001 quantity 5'", "completion": "{\"sku\": \"10001\", \"quantity\": 5}"}
+{"prompt": "Extract product number from order: 'Order for item 90001 quantity 10'", "completion": "{\"sku\": \"90001\", \"quantity\": 10}"}
+{"prompt": "What is the weight of SKU 10001?", "completion": "SKU 10001 (BRAND_ALPHA Glass Set) weighs 1.5 KG."}
+{"prompt": "What category is SKU 10003?", "completion": "SKU 10003 (BRAND_GAMMA Plate Set) belongs to the Dinnerware category."}
+{"prompt": "Search for glassware products", "completion": "Glassware products: SKU 10001 BRAND_ALPHA Glass Set, available at Plant A (Plant 1001)."}
+{"prompt": "Search for cookware products", "completion": "Cookware products: SKU 10002 BRAND_BETA Cookware Set, available at Plant A (Plant 1001)."}
+{"prompt": "Extract availability status: 'SKU 10001 - 100 units available at plant 1001'", "completion": "{\"sku\": \"10001\", \"quantity\": 100, \"plant\": \"1001\", \"available\": true}"}
+{"prompt": "Extract availability status: 'SKU 90002 - 0 units at plant 1001'", "completion": "{\"sku\": \"90002\", \"quantity\": 0, \"plant\": \"1001\", \"available\": false}"}
+{"prompt": "Total stock across all plants for SKU 10001", "completion": "Total stock for SKU 10001: 100 units (Plant 1001: 100 units)."}
+{"prompt": "Compare stock between plants for SKU 10003", "completion": "SKU 10003 stock by plant: Plant B (1002): 75 units."}
+{"prompt": "What products have stock above 100?", "completion": "Products with stock > 100: SKU 90001 (BRAND_DELTA Mug Set) with 200 units."}
+{"prompt": "SAP availability check for material 10001 plant 1001", "completion": "{\"material\": \"10001\", \"plant\": \"1001\", \"available_qty\": 100, \"unit\": \"EA\"}"}
+{"prompt": "SAP availability check for material 90002 plant 1001", "completion": "{\"material\": \"90002\", \"plant\": \"1001\", \"available_qty\": 0, \"unit\": \"EA\"}"}
+{"prompt": "Bulk check: products 10001, 10002, 10003", "completion": "[{\"sku\": \"10001\", \"qty\": 100}, {\"sku\": \"10002\", \"qty\": 50}, {\"sku\": \"10003\", \"qty\": 75}]"}

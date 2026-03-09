@@ -1,0 +1,51 @@
+{% extends 'docs/base.html' %}
+
+{% block content %}
+<div class="container d-flex w-100 h-50 p-3 mx-auto flex-column">
+   <header class="masthead mb-auto">
+     <div class="inner">
+       <h3 class="masthead-brand">Product Availability</h3>
+       <nav class="nav nav-masthead justify-content-center">
+          {% if user.is_authenticated %}
+            <a href="#" class="nav-link">{{user.username}} </a>
+            <a href="#" class="nav-link"></a>
+            <a class="nav-link" href="{% url 'logout'%}">Log out</a>
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+            <a class="nav-link" href="{% url 'docs:help' %}">Help</a>
+	    <a class="nav-link" href="{% url 'password_change' %}">Change password</a>
+            {% if user.is_superuser %}
+              <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+            {% endif %}
+          {% else %}
+            <a class="nav-link" href="{% url 'login'%}">Log in</a>
+            <a class="nav-link" href="{% url 'docs:help' %}">Help</a>
+            <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+          {% endif %}
+       </nav>
+     </div>
+ </header>
+<main role="main" class="inner cover">
+<div class="blog-post">
+</div>
+      <h5 class='blog-post-title'>{{ doc.title }}</h5>
+
+        {% if doc.published_date %}
+<p class="blog-post-meta">Published on : {{doc.published_date|date:"D M Y"}}</p>
+        {% else %}
+            <a class="blog-post-meta btn-sm btn-default" href="{% url 'docs:doc_publish' pk=doc.pk %}">Publish</a>
+<i class="fas fa-pencil-alt"></i>
+        {% endif %}
+<hr>
+      <p>{{ doc.text|safe|linebreaksbr }}</p>
+
+
+      {% if user.is_superuser %}
+          <a class="btn-sm btn-primary" href="{% url 'docs:doc_edit' pk=doc.pk %}"><i class="fas fa-pencil-alt"></i></a>
+          <a class="btn-sm btn-primary" href="{% url 'docs:doc_remove' pk=doc.pk %}"><i class="fas fa-trash"></i></a>
+      {% endif %}
+
+</main>
+  <hr>
+
+{% endblock %}
+

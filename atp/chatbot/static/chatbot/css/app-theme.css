@@ -1,0 +1,941 @@
+/*
+ * App Theme for ATP Chatbot
+ * Color Palette & Fonts
+ */
+
+/* ========== GOOGLE FONTS IMPORT ========== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+/* ========== COLOR VARIABLES ========== */
+:root {
+    /* Primary Colors */
+    --app-navy-dark: rgb(7, 16, 62);        /* Dark navy blue - primary brand color */
+    --app-navy-medium: rgb(7, 17, 61);      /* Medium navy */
+    --app-navy-purple: rgb(35, 31, 116);    /* Purple navy accent */
+    --app-yellow: rgb(255, 224, 25);        /* Bright yellow - CTA buttons */
+    --app-yellow-dark: rgb(230, 200, 0);    /* Darker yellow for hover */
+
+    /* Text Colors */
+    --app-text-primary: rgb(85, 91, 92);    /* Body text gray */
+    --app-text-dark: rgb(4, 4, 39);         /* Dark text for buttons */
+    --app-text-white: rgb(255, 255, 255);   /* White text */
+
+    /* Background Colors */
+    --app-bg-white: rgb(254, 255, 255);     /* Main background */
+    --app-bg-light: rgb(245, 244, 255);     /* Light purple tint */
+    --app-bg-gray-light: rgb(244, 244, 244);/* Light gray */
+    --app-bg-gray: rgb(237, 237, 237);      /* Medium gray */
+
+    /* Fonts */
+    --app-font-primary: 'Montserrat', sans-serif;
+    --app-font-heading: 'Montserrat', sans-serif;
+
+    /* Spacing & Borders */
+    --app-border-radius: 4px;
+    --app-shadow: 0 2px 8px rgba(7, 16, 62, 0.1);
+    --app-shadow-hover: 0 4px 12px rgba(7, 16, 62, 0.15);
+}
+
+/* ========== GLOBAL STYLES ========== */
+body {
+    font-family: var(--app-font-primary) !important;
+    color: var(--app-text-primary) !important;
+    background-color: var(--app-bg-white) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--app-font-heading) !important;
+    font-weight: 600 !important;
+    color: var(--app-navy-dark) !important;
+}
+
+/* ========== HEADER / NAVIGATION ========== */
+header, .navbar {
+    background-color: var(--app-bg-white) !important;
+    border-bottom: 1px solid var(--app-bg-gray) !important;
+    font-family: var(--app-font-primary) !important;
+}
+
+.navbar-brand {
+    color: var(--app-navy-dark) !important;
+    font-weight: 700 !important;
+}
+
+.nav-link {
+    color: var(--app-text-primary) !important;
+    font-weight: 500 !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--app-navy-dark) !important;
+}
+
+/* ========== PRIMARY BUTTONS (Yellow CTA) ========== */
+.btn-primary,
+.btn-success,
+button[type="submit"],
+.search-button,
+#send-btn {
+    background-color: var(--app-yellow) !important;
+    color: var(--app-text-dark) !important;
+    border: 2px solid var(--app-navy-dark) !important;
+    border-radius: var(--app-border-radius) !important;
+    font-weight: 600 !important;
+    font-family: var(--app-font-primary) !important;
+    padding: 10px 24px !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary:hover,
+.btn-success:hover,
+button[type="submit"]:hover,
+.search-button:hover,
+#send-btn:hover {
+    background-color: var(--app-yellow-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--app-shadow-hover) !important;
+}
+
+/* ========== SECONDARY BUTTONS ========== */
+.btn-secondary,
+.btn-outline-primary {
+    background-color: transparent !important;
+    color: var(--app-navy-dark) !important;
+    border: 2px solid var(--app-navy-dark) !important;
+    border-radius: var(--app-border-radius) !important;
+    font-weight: 600 !important;
+    padding: 10px 24px !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-secondary:hover,
+.btn-outline-primary:hover {
+    background-color: var(--app-navy-dark) !important;
+    color: var(--app-text-white) !important;
+}
+
+/* ========== CHAT INTERFACE ========== */
+.chat-container {
+    background-color: var(--app-bg-white) !important;
+    border-radius: var(--app-border-radius) !important;
+}
+
+.message-container {
+    padding: 16px;
+    border-radius: var(--app-border-radius);
+    margin-bottom: 12px;
+}
+
+.user-message {
+    background-color: var(--app-navy-dark) !important;
+    color: var(--app-text-white) !important;
+    border-radius: 18px 18px 4px 18px !important;
+    margin-left: auto;
+    max-width: 70%;
+}
+
+.assistant-message {
+    background-color: var(--app-bg-light) !important;
+    color: var(--app-text-primary) !important;
+    border: 1px solid var(--app-bg-gray) !important;
+    border-radius: 18px 18px 18px 4px !important;
+    max-width: 70%;
+}
+
+/* ========== INPUT FIELDS ========== */
+input[type="text"],
+input[type="email"],
+input[type="search"],
+textarea,
+.form-control {
+    border: 2px solid var(--app-bg-gray) !important;
+    border-radius: var(--app-border-radius) !important;
+    padding: 12px !important;
+    font-family: var(--app-font-primary) !important;
+    color: var(--app-text-primary) !important;
+    transition: border-color 0.3s ease !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+.form-control:focus {
+    border-color: var(--app-navy-dark) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(7, 16, 62, 0.1) !important;
+}
+
+/* ========== SIDEBAR / HISTORY ========== */
+.sidebar,
+.history-sidebar {
+    background-color: var(--app-bg-light) !important;
+    border-right: 1px solid var(--app-bg-gray) !important;
+}
+
+.history-item {
+    padding: 12px;
+    border-radius: var(--app-border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.history-item:hover {
+    background-color: var(--app-bg-gray-light) !important;
+    border-left-color: var(--app-yellow) !important;
+    color: var(--app-text-primary) !important;  /* Ensure text is dark gray on light background */
+}
+
+.history-item.active {
+    background-color: var(--app-navy-dark) !important;
+    color: var(--app-text-white) !important;
+    border-left-color: var(--app-yellow) !important;
+}
+
+/* Active item hover should keep white text on navy background */
+.history-item.active:hover {
+    background-color: var(--app-navy-medium) !important;
+    color: var(--app-text-white) !important;
+    border-left-color: var(--app-yellow) !important;
+}
+
+/* ========== TABLES ========== */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: var(--app-font-primary) !important;
+}
+
+thead {
+    background-color: var(--app-navy-dark) !important;
+    color: var(--app-text-white) !important;
+}
+
+thead th {
+    padding: 12px;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 2px solid var(--app-yellow) !important;
+}
+
+tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--app-bg-gray-light) !important;
+}
+
+tbody tr:hover {
+    background-color: var(--app-bg-light) !important;
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid var(--app-bg-gray) !important;
+}
+
+/* ========== CARDS ========== */
+.card {
+    background-color: var(--app-bg-white) !important;
+    border: 1px solid var(--app-bg-gray) !important;
+    border-radius: var(--app-border-radius) !important;
+    box-shadow: var(--app-shadow) !important;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: var(--app-shadow-hover) !important;
+    transform: translateY(-2px);
+}
+
+.card-header {
+    background-color: var(--app-navy-dark) !important;
+    color: var(--app-text-white) !important;
+    border-bottom: 2px solid var(--app-yellow) !important;
+    font-weight: 600;
+}
+
+/* ========== BADGES / LABELS ========== */
+.badge {
+    border-radius: var(--app-border-radius);
+    padding: 4px 12px;
+    font-weight: 600;
+    font-family: var(--app-font-primary) !important;
+}
+
+.badge-primary {
+    background-color: var(--app-yellow) !important;
+    color: var(--app-text-dark) !important;
+}
+
+.badge-secondary {
+    background-color: var(--app-navy-dark) !important;
+    color: var(--app-text-white) !important;
+}
+
+/* ========== ALERTS / NOTIFICATIONS ========== */
+.alert {
+    border-radius: var(--app-border-radius);
+    border-left: 4px solid;
+    padding: 16px;
+    font-family: var(--app-font-primary) !important;
+}
+
+.alert-success {
+    background-color: var(--app-bg-light) !important;
+    border-left-color: var(--app-yellow) !important;
+    color: var(--app-text-primary) !important;
+}
+
+.alert-info {
+    background-color: var(--app-bg-light) !important;
+    border-left-color: var(--app-navy-dark) !important;
+    color: var(--app-text-primary) !important;
+}
+
+.alert-warning {
+    background-color: #fff4e5 !important;
+    border-left-color: var(--app-yellow) !important;
+    color: var(--app-text-primary) !important;
+}
+
+.alert-danger {
+    background-color: #fee !important;
+    border-left-color: #c00 !important;
+    color: var(--app-text-primary) !important;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background-color: var(--app-navy-dark) !important;
+    color: var(--app-text-white) !important;
+    padding: 24px;
+    font-family: var(--app-font-primary) !important;
+}
+
+footer a {
+    color: var(--app-text-white) !important;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--app-yellow) !important;
+    text-decoration: none;
+}
+
+/* ========== LOADING SPINNER ========== */
+.spinner-border {
+    border-color: var(--app-yellow) !important;
+    border-right-color: transparent !important;
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--app-bg-gray-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--app-navy-dark);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--app-navy-purple);
+}
+
+/* ========== CUSTOM PLANT SELECTION ========== */
+.plant-card {
+    border: 2px solid var(--app-bg-gray);
+    border-radius: var(--app-border-radius);
+    padding: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.plant-card:hover {
+    border-color: var(--app-yellow) !important;
+    box-shadow: var(--app-shadow-hover);
+    transform: translateY(-2px);
+}
+
+.plant-card.selected {
+    border-color: var(--app-navy-dark) !important;
+    background-color: var(--app-bg-light) !important;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .user-message,
+    .assistant-message {
+        max-width: 85%;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 8px 16px !important;
+        font-size: 14px !important;
+    }
+}
+
+/* ========== SMOOTH TRANSITIONS ========== */
+* {
+    transition-property: background-color, color, border-color, transform, box-shadow;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+/* ========== SPECIFIC OVERRIDES FOR EXISTING CLASSES ========== */
+
+/* Fix card-header with bg-white class - force navy background */
+.card-header.bg-white {
+    background-color: var(--app-navy-dark) !important;
+}
+
+/* Fix all headings in card-header to be white */
+.card-header h1,
+.card-header h2,
+.card-header h3,
+.card-header h4,
+.card-header h5,
+.card-header h6 {
+    color: var(--app-text-white) !important;
+}
+
+/* Fix icons in card-header */
+.card-header i,
+.card-header .fas,
+.card-header .fa {
+    color: var(--app-yellow) !important;
+}
+
+/* Fix text-primary class to use yellow instead of blue */
+.text-primary {
+    color: var(--app-yellow) !important;
+}
+
+/* Fix btn-outline-secondary to match App Theme */
+.btn-outline-secondary {
+    border-color: var(--app-yellow) !important;
+    color: var(--app-navy-dark) !important;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--app-yellow) !important;
+    color: var(--app-text-dark) !important;
+    border-color: var(--app-navy-dark) !important;
+}
+
+/* Fix active nav link */
+.nav-link.active {
+    color: var(--app-navy-dark) !important;
+    border-bottom: 2px solid var(--app-yellow) !important;
+    font-weight: 600 !important;
+}
+
+/* Override Bootstrap's text-dark */
+.text-dark {
+    color: var(--app-navy-dark) !important;
+}
+
+/* Fix header card */
+.header-card {
+    border-bottom: 2px solid var(--app-yellow) !important;
+}
+
+/* History sidebar specific fixes */
+.history-card {
+    background-color: var(--app-bg-white) !important;
+    border: 1px solid var(--app-bg-gray) !important;
+}
+
+/* History items - additional styling */
+.history-item {
+    color: var(--app-text-primary) !important;
+}
+
+/* Ensure child elements also get proper contrast */
+.history-item:hover .history-text,
+.history-item:hover .history-time {
+    color: var(--app-text-primary) !important;
+}
+
+.history-item.active:hover .history-text,
+.history-item.active:hover .history-time {
+    color: var(--app-text-white) !important;
+}
+
+/* Message badges */
+.message-count-badge {
+    background-color: var(--app-yellow) !important;
+    color: var(--app-text-dark) !important;
+    font-weight: 600 !important;
+}
+
+/* Override any blue colors from Bootstrap */
+.btn-info,
+.bg-info {
+    background-color: var(--app-yellow) !important;
+    color: var(--app-text-dark) !important;
+    border-color: var(--app-navy-dark) !important;
+}
+
+/* Fix border-bottom to not conflict */
+.border-bottom {
+    border-bottom-color: var(--app-yellow) !important;
+}
+
+/* Ensure white text on navy backgrounds */
+.bg-primary,
+.bg-dark,
+.bg-navy {
+    background-color: var(--app-navy-dark) !important;
+    color: var(--app-text-white) !important;
+}
+
+.bg-primary *,
+.bg-dark *,
+.bg-navy * {
+    color: var(--app-text-white) !important;
+}
+
+/* Exception for badges in navy backgrounds */
+.bg-primary .badge,
+.bg-dark .badge,
+.bg-navy .badge {
+    background-color: var(--app-yellow) !important;
+    color: var(--app-text-dark) !important;
+}
+
+/* Fix search input placeholder */
+::placeholder {
+    color: var(--app-text-primary) !important;
+    opacity: 0.6 !important;
+}
+
+/* Masthead/Header navigation */
+.masthead {
+    background-color: var(--app-bg-white) !important;
+    border-bottom: 2px solid var(--app-bg-gray) !important;
+}
+
+.masthead-brand {
+    color: var(--app-navy-dark) !important;
+}
+
+/* Footer specific */
+.contentinfo,
+footer {
+    background-color: var(--app-navy-dark) !important;
+    color: var(--app-text-white) !important;
+}
+
+/* Empty state styling */
+.empty-state h5,
+.empty-state p {
+    color: var(--app-text-primary) !important;
+}
+
+/* Sample query suggestions */
+.sample-query {
+    background-color: var(--app-bg-light) !important;
+    border: 1px solid var(--app-yellow) !important;
+    color: var(--app-navy-dark) !important;
+    transition: all 0.3s ease !important;
+}
+
+.sample-query:hover {
+    background-color: var(--app-yellow) !important;
+    color: var(--app-text-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--app-shadow-hover) !important;
+}
+
+/* ========== HOMEPAGE SPECIFIC OVERRIDES ========== */
+
+/* Override cover.css font with Montserrat */
+html,
+html body {
+    font-family: var(--app-font-primary) !important;
+}
+
+/* Homepage links should be cyan when not buttons */
+main a:not(.btn) {
+    color: var(--app-yellow) !important;
+}
+
+main a:not(.btn):hover {
+    color: var(--app-yellow-dark) !important;
+    text-decoration: underline;
+}
+
+/* OVERRIDE: Message content links should be dark blue (sample URLs) */
+main .message-content a {
+    color: #0056b3 !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+}
+
+main .message-content a:hover {
+    color: #003d82 !important;
+}
+
+/* But ensure button links use yellow background */
+main a.btn,
+.cover a.btn,
+.btn-lg,
+.btn-outline-info,
+.btn-md {
+    background-color: var(--app-yellow) !important;
+    color: var(--app-navy-dark) !important;
+    border: 2px solid var(--app-navy-dark) !important;
+    font-family: var(--app-font-primary) !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    font-size: 1rem !important;
+    padding: 0.5rem 1.5rem !important;
+}
+
+main a.btn:hover,
+.cover a.btn:hover,
+.btn-lg:hover,
+.btn-outline-info:hover,
+.btn-md:hover {
+    background-color: var(--app-navy-dark) !important;
+    color: var(--app-yellow) !important;
+    border-color: var(--app-navy-dark) !important;
+    transform: translateY(-2px);
+}
+
+/* CRITICAL: Override Bootstrap's btn-outline-info default cyan color */
+/* Must use rgb() values directly, not CSS variables, for some reason */
+a.btn-outline-info,
+.btn-outline-info,
+a.btn-outline-info:link,
+a.btn-outline-info:visited,
+main .btn-outline-info,
+.cover .btn-outline-info,
+.btn-outline-info:not(:disabled):not(.disabled) {
+    background-color: rgb(255, 224, 25) !important;
+    color: rgb(7, 16, 62) !important;
+    border: 2px solid rgb(7, 16, 62) !important;
+}
+
+a.btn-outline-info:hover,
+.btn-outline-info:hover,
+a.btn-outline-info:active,
+main .btn-outline-info:hover,
+.cover .btn-outline-info:hover {
+    background-color: rgb(7, 16, 62) !important;
+    color: rgb(255, 224, 25) !important;
+    border-color: rgb(7, 16, 62) !important;
+}
+
+/* Fix masthead/nav links - match App Theme purple navy color */
+.masthead .nav-link,
+.nav-masthead .nav-link,
+.nav-link {
+    color: var(--app-navy-purple) !important;  /* Purple navy like App Theme */
+    border-bottom-color: transparent !important;
+    font-family: var(--app-font-primary) !important;
+    font-weight: 700 !important;  /* Match App Theme weight */
+    font-size: 14px !important;   /* Match App Theme size */
+}
+
+.masthead .nav-link:hover,
+.nav-masthead .nav-link:hover,
+.masthead .nav-link:focus,
+.nav-masthead .nav-link:focus {
+    border-bottom-color: var(--app-yellow) !important;
+    color: var(--app-navy-dark) !important;
+}
+
+.masthead .nav-link.active,
+.nav-masthead .active {
+    color: var(--app-navy-dark) !important;
+    border-bottom-color: var(--app-yellow) !important;
+}
+
+/* Center the logo like App Theme */
+.masthead-brand {
+    text-align: center !important;
+    margin: 0 auto !important;
+}
+
+.masthead .inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+/* Move nav links to the right like App Theme */
+.nav-masthead {
+    justify-content: flex-end !important;
+    width: 100% !important;
+}
+
+/* Remove shadow/box around navbar area */
+.masthead,
+header,
+.masthead .inner,
+header .inner {
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+/* Remove any container borders/shadows */
+.container {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Homepage heading - Match App Theme "creator of experiences" style */
+.cover h1,
+.cover-heading,
+main h1 {
+    font-size: 72px !important;
+    font-size: 4rem !important;
+    font-weight: 300 !important;  /* Light weight for "Product" like "creator of" */
+    font-family: 'Playfair Display', serif !important;
+    font-style: italic !important;  /* Italic style */
+    line-height: 1.1em !important;
+    color: var(--app-navy-dark) !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Animated text - Bold and larger like "experiences." */
+.cover h1 span,
+main h1 span,
+.cover h1 .typed,
+main h1 .typed,
+.cover h1 #typedID,
+main h1 #typedID {
+    color: var(--app-navy-dark) !important;
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700 !important;  /* Bold like "experiences" */
+    font-style: italic !important;  /* Italic */
+    font-size: 1.1em !important;  /* Slightly larger than base */
+}
+
+/* Cover container */
+.cover-container {
+    font-family: var(--app-font-primary) !important;
+}
+
+/* Ensure paragraphs use correct font */
+p {
+    font-family: var(--app-font-primary) !important;
+    color: var(--app-text-primary) !important;
+}
+
+/* Fix any cyan/blue links that shouldn't be buttons */
+a[href="#"]:not(.btn),
+a[href="#"]:not(.nav-link) {
+    color: var(--app-yellow) !important;
+}
+
+a[href="#"]:not(.btn):hover {
+    color: var(--app-yellow-dark) !important;
+}
+
+/* ===================================
+   Footer - App Theme Style
+   =================================== */
+
+.site-footer {
+    background-color: var(--app-bg-white) !important;
+    padding: 30px 20px 20px !important;
+    margin-top: 60px !important;
+    border-top: 1px solid rgba(35, 31, 116, 0.1) !important;
+}
+
+.footer-content {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+.footer-navigation {
+    margin-bottom: 15px !important;
+}
+
+.footer-menu {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px 30px !important;
+}
+
+.footer-menu li {
+    display: inline !important;
+    margin: 0 !important;
+}
+
+.footer-link {
+    color: var(--app-navy-purple) !important;
+    font-family: var(--app-font-primary) !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.footer-link:hover {
+    color: var(--app-yellow) !important;
+    text-decoration: none !important;
+}
+
+.footer-copyright {
+    color: var(--app-text-primary) !important;
+    font-family: var(--app-font-primary) !important;
+    font-size: 13px !important;
+    font-weight: 300 !important;
+    margin: 15px 0 0 0 !important;
+}
+
+/* ========================================================================
+   NOTIFICATION PANEL STYLES
+   ======================================================================== */
+
+.notification-panel {
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    width: 400px;
+    max-height: 500px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(35, 31, 116, 0.2);
+    z-index: 1000;
+    overflow: hidden;
+    border: 1px solid var(--app-border-color);
+}
+
+.notification-header {
+    background: linear-gradient(135deg, var(--app-navy-purple) 0%, #1a1759 100%);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--app-yellow);
+}
+
+.notification-header h6 {
+    color: white;
+    font-family: var(--app-font-primary);
+    font-weight: 600;
+    margin: 0;
+}
+
+.notification-body {
+    max-height: 420px;
+    overflow-y: auto;
+    background: #fafafa;
+}
+
+.notification-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--app-border-color);
+    background: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.notification-item:hover {
+    background: #f8f9fa;
+    transform: translateX(-2px);
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item.unread {
+    background: linear-gradient(to right, #fff8e6 0%, white 100%);
+    border-left: 3px solid var(--app-yellow);
+}
+
+.notification-time {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.notification-message {
+    color: var(--app-text-primary);
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.notification-download-btn {
+    background: linear-gradient(135deg, var(--app-navy-purple) 0%, #1a1759 100%);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+    font-family: var(--app-font-primary);
+}
+
+.notification-download-btn:hover {
+    background: var(--app-yellow);
+    color: var(--app-navy-purple);
+    transform: scale(1.05);
+}
+
+.notification-badge {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+/* Bell icon hover effect */
+#notificationBell:hover {
+    color: var(--app-yellow) !important;
+}
+
+/* ===================================
+   Message Content Links - Sample URLs
+   =================================== */
+main .message-content a,
+main .message-content a:link,
+main .message-content a:visited,
+.message-content a,
+.message-content a:link,
+.message-content a:visited {
+    color: #0056b3 !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+}
+
+main .message-content a:hover,
+.message-content a:hover {
+    color: #003d82 !important;
+    text-decoration: underline !important;
+}

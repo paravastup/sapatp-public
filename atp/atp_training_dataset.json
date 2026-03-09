@@ -1,0 +1,82 @@
+[
+  {
+    "input": "Check availability for product 10001",
+    "output": "Product 10001 (BRAND_ALPHA Glass Set) is available. 100 units in stock at Plant A (Plant 1001)."
+  },
+  {
+    "input": "Check availability for product 10002",
+    "output": "Product 10002 (BRAND_BETA Cookware Set) is available. 50 units in stock at Plant A (Plant 1001)."
+  },
+  {
+    "input": "Check availability for product 10003",
+    "output": "Product 10003 (BRAND_GAMMA Plate Set) is available. 75 units in stock at Plant B (1002)."
+  },
+  {
+    "input": "Check availability for product 90001",
+    "output": "Product 90001 (BRAND_DELTA Mug Set) is available. 200 units in stock at Plant B (1002)."
+  },
+  {
+    "input": "Check availability for product 90002",
+    "output": "Product 90002 (BRAND_EPSILON Bowl Set) is out of stock."
+  },
+  {
+    "input": "What products are available at plant 1001?",
+    "output": "Available at Plant A (Plant A, 1001): SKU 10001 BRAND_ALPHA Glass Set (100 units), SKU 10002 BRAND_BETA Cookware Set (50 units)."
+  },
+  {
+    "input": "List all BRAND_ALPHA products",
+    "output": "BRAND_ALPHA products: SKU 10001 Glass Set."
+  },
+  {
+    "input": "What is the UPC for SKU 10001?",
+    "output": "The UPC for SKU 10001 is 00000000010001."
+  },
+  {
+    "input": "How do I check multiple products at once?",
+    "output": "You can check multiple products by entering a comma-separated list of SKUs, for example: 10001, 10002, 10003"
+  },
+  {
+    "input": "What plants are configured?",
+    "output": "Configured plants: Plant A - Plant A (1001), Plant B (1002)."
+  },
+  {
+    "input": "What does ATP mean?",
+    "output": "ATP stands for Available to Promise - it indicates what quantity of a product can be committed to customer orders."
+  },
+  {
+    "input": "How do I search by UPC?",
+    "output": "Enter the UPC code (e.g. 00000000010001) in the search field to find the corresponding product."
+  },
+  {
+    "input": "What SAP system does this connect to?",
+    "output": "This system connects to the SAP ERP backend via RFC connection to retrieve real-time availability data."
+  },
+  {
+    "input": "What brands does Plant A carry?",
+    "output": "Plant A carries multiple brands including BRAND_ALPHA, BRAND_BETA, BRAND_GAMMA, BRAND_DELTA, and BRAND_EPSILON."
+  },
+  {
+    "input": "Is product 10001 in stock?",
+    "output": "Yes, product 10001 (BRAND_ALPHA Glass Set) is in stock with 100 units available."
+  },
+  {
+    "input": "Show me all out of stock items",
+    "output": "Currently out of stock: SKU 90002 (BRAND_EPSILON Bowl Set)."
+  },
+  {
+    "input": "What is the stock level for product 90001?",
+    "output": "Product 90001 (BRAND_DELTA Mug Set) has 200 units in stock at Plant B (1002)."
+  },
+  {
+    "input": "Search for glass products",
+    "output": "Glass products found: SKU 10001 BRAND_ALPHA Glass Set (100 units at Plant 1001)."
+  },
+  {
+    "input": "Can I order 50 units of product 10002?",
+    "output": "Yes, product 10002 (BRAND_BETA Cookware Set) has 50 units available. Your order of 50 units can be fulfilled."
+  },
+  {
+    "input": "Can I order 100 units of product 90002?",
+    "output": "Sorry, product 90002 (BRAND_EPSILON Bowl Set) is currently out of stock. Unable to fulfill order of 100 units."
+  }
+]

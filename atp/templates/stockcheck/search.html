@@ -1,0 +1,106 @@
+{% extends "stockcheck/base.html"%}
+{% block content%}
+<div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+   <header class="masthead mb-auto">
+     <div class="inner">
+       <h3 class="masthead-brand">Product Availability</h3>
+       <nav class="nav nav-masthead justify-content-center">
+          {% if user.is_authenticated %}
+            <a href="#" class="nav-link">{{user.username}} </a>
+            <a href="#" class="nav-link"></a>
+            <a class="nav-link" href="{% url 'logout'%}">Log out</a>
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+            <a class="nav-link" href="{% url 'docs:help' %}">Help</a>
+	    <a class="nav-link" href="{% url 'password_change' %}">Change password</a>
+            <a class="nav-link" href="{% url 'feedback'%}"> Feedback </a>
+            {% if user.is_superuser %}
+              <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+            {% endif %}
+          {% else %}
+            <a class="nav-link" href="{% url 'login'%}">Log in</a>
+            <a class="nav-link" href="{% url 'docs:help' %}">Help</a>
+            <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+          {% endif %}
+       </nav>
+     </div>
+ </header>
+ <div class="container">
+   <main role="main" class="inner cover">
+     <form method="POST" id="prod_form" action="">
+       {% csrf_token %}
+       <div class="form-row">
+           <div class="form-group col-auto">
+                {{ form.attr_type }}
+                <small id="attrHelpBlock" class="text-muted">
+                  <!--Please select an option.-->
+                </small>
+           </div>
+           <div class="form-group col-auto">
+               {{ form.plant_option }}
+               <small id="plantHelpBlock" class="text-muted">
+                 <!--Please select a plant.-->
+               </small>
+          </div>
+       </div>
+       <!--<div class="form-row" id="patterndiv">
+         <div class="form-group col-auto">
+             {{ form.pattern_options }}
+             <small id="patternHelpBlock" class="text-muted">
+               Please select a valid pattern.
+             </small>
+        </div>
+       </div>
+       <div class="form-row" id="univdiv">
+         <div class="form-group col-auto">
+             {{ form.universe_options }}
+             <small id="UniverseHelpBlock" class="text-muted">
+               Please select a valid universe.
+             </small>
+        </div>
+       </div>-->
+       <br>
+       <br>
+       <div class="form-row" style="margin-left:10px;">
+         <div class="form-group">
+           {{ form.product_number }}
+           <small id="productHelpBlock" class="form-text text-muted">
+             Please enter product numbers separated by commas (",")
+           </small>
+         </div>
+       </div>
+       <div class="form-row" style="margin-left: 200px;">
+         <div class="form-group">
+           <button type="submit" class="search btn btn-outline-success">Search</button>
+         </div>
+       </div>
+     </form>
+   </main>
+ </div>
+<footer class="mastfoot mt-auto">
+   <div class="inner">
+     <p>&copy; Product Availability</p>
+   </div>
+</footer>
+</div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+  // jQuery is now loaded in the head, so it's available here
+  $(document).ready(function() {
+    $('#attr_type').on('change',function(){
+        if( $(this).val()==="Ptn"){
+          $("#patterndiv").show();
+          $("#univdiv").hide();
+        }
+        else if ($(this).val() === "Unv") {
+          $("#patterndiv").hide();
+          $("#univdiv").show();
+        }
+        else {
+          $("#patterndiv").hide();
+          $("#univdiv").hide();
+        }
+      }
+    );});
+</script>
+{% endblock %}

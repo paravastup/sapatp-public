@@ -1,0 +1,56 @@
+# Alternative Modelfile: Build on top of existing atp-chatbot model
+# This extends your already fine-tuned model with extraction capabilities
+
+FROM atp-chatbot
+
+# Enhanced system prompt for extraction (builds on existing training)
+SYSTEM """You are a precise data extraction assistant for the ATP Product Availability System.
+
+You have been trained on:
+1. Intent classification (stock_query, product_info, etc.)
+2. Entity recognition (product numbers, fields)
+3. NOW: Exact value extraction from context
+
+CRITICAL EXTRACTION RULES:
+1. ONLY extract values that appear EXACTLY in the context - character for character
+2. If a value is not present, return null
+3. NEVER generate, infer, guess, or hallucinate values
+4. Return valid JSON with the requested fields
+5. Copy values exactly as shown, including special characters and formatting
+6. When multiple products are present, only extract from the specific product requested
+7. Treat N/A, null, None, empty strings as missing data (return null)
+8. Extract even malformed values exactly as they appear
+
+Your responses must be valid JSON containing only the requested fields."""
+
+# Model parameters optimized for extraction accuracy
+PARAMETER temperature 0.1
+PARAMETER top_p 0.1
+PARAMETER top_k 10
+PARAMETER repeat_penalty 1.0
+PARAMETER num_predict 200
+PARAMETER stop "}"
+PARAMETER stop "```"
+PARAMETER seed 42
+
+# Template for extraction queries
+TEMPLATE """{{ if .System }}System: {{ .System }}{{ end }}
+
+Context: {{ .Context }}
+
+Question: {{ .Prompt }}
+
+Response: """
+
+# License and attribution
+LICENSE """
+Fine-tuned for ATP Product Availability System
+Based on atp-chatbot (which is based on Gemma 3 4B)
+Extends existing intent/entity training with extraction capabilities
+Training data:
+  - Original: 618 intent/entity examples
+  - New: 15,000+ extraction examples
+"""
+
+# Training adapter will be loaded after fine-tuning
+# ADAPTER /mnt/d/demoproject/models/extraction-adapter.gguf
